@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-title" content="truPen">
+    <meta name="trupen" content="truPen">
     <title>truPen | Login Form -&gt; HTML &amp; CSS</title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 
@@ -94,11 +94,7 @@ if($result->num_rows == 0)
                         </div>
                     </form>
                     <p>Forgot password? <a href="#">Click Here</a></p>
-                    <p>Don't have an account ?
-                        <form method="post" name = "signup" action="signup.php">
-                        <button type="submit" id="submit1">Sign Up</button>
-                        </form>
-                    </p>
+                    <p>Already have an Account <a href="signup.php">Sign IN</a></p>
                 </div>
             </div>
 

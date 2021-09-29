@@ -263,6 +263,26 @@ section {
     transition: 0.5s;
 }
 
+.form .inputBx .password-strength {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+ /*   background: url(view.svg) 0 0 no-repeat;
+    transition: 0.5s;*/
+}
+.form .inputBx .password-match {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+ /*   background: url(view.svg) 0 0 no-repeat;
+    transition: 0.5s;*/
+}
 .form .inputBx .view {
     background: url(no-view.svg) 0 0 no-repeat;
     transition: 0.5s;
