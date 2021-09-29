@@ -6,6 +6,7 @@ session_start();
     <title>
         User Login Page
     </title>
+    <link rel="stylesheet" href="globalstyles.css"> 
 </head>     
 <style> 
 .loader {
