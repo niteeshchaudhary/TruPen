@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost/GitHub/assperl/Login.php",
+            "url": "http://localhost/GitHub/assperl/index.php",
             "webRoot": "${workspaceFolder}"
         }
     ]
