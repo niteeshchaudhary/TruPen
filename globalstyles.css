@@ -293,6 +293,26 @@ section {
     transition: 0.5s;
 }
 
+.form .inputBx input[type=safe] {
+    user-select: none;
+    caret-color: transparent;
+    cursor: pointer;
+    background: #fff;
+    color: #111;
+    text-align: center;
+    max-width: 100px;
+    padding: 8px 4px;
+    box-shadow: none;
+    letter-spacing: 1px;
+    transition: 1.5s;
+}
+
+.form .inputBx input[type=safe]:hover {
+    background: linear-gradient(115deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.25));
+    color: #fff;
+    transition: 0.5s;
+}
+
 .form .inputBx input::placeholder {
     color: #fff;
 }
@@ -319,16 +339,32 @@ section {
     margin-top: 5px;
 }
 
-.form p a {
-    color: #fff;
+a {
+    text-decoration: none;
+    font: medium;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    letter-spacing: 2px;
+    font-weight: 600px;
+    text-align: center;
+    opacity: 100%;
 }
 
-.form p a:hover {
-    background-color: #000;
-    background-image: linear-gradient(to right, #434343 0%, black 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+a:link {
+    color: rgba(0, 0, 0, 0.505);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgba(0, 0, 0, 0.305);
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
 }
 
 .remember {

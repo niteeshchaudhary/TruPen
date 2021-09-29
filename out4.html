@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-title" content="truPen">
-    <title>truPen | Login Form -&gt; HTML &amp; CSS</title>
+    <meta name="apple-mobile-web-app-title" content="NOodle">
+
+    <title>NOODLe | Login Form -&gt; HTML &amp; CSS</title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 
     <script>
         window.console = window.console || function(t) {};
     </script>
+
 
 
     <script>
@@ -20,41 +23,7 @@
 
 
 </head>
-<?php
-$user = 'root';
-$pass = '';
-$con = new mysqli('localhost', $user, $pass);
-if($con->connect_error)
-{
-	die("Connection Error: " . $con->connect_error);
-}
-$sql = 'CREATE DATABASE IF NOT EXISTS users';
-if($con->query($sql) === False)
-{
-	die("Error: ". $con->error);
-}
-$con = new mysqli('localhost', $user, $pass, 'users');
-$sql = 'CREATE TABLE IF NOT EXISTS user
-		(No int NOT NULL AUTO_INCREMENT,
-		username varchar(120) NOT NULL UNIQUE,
-		 passcode varchar(120) NULL,
-		 PRIMARY KEY (No))';
-if ($con->query($sql) === FALSE)
-{
-	die("Error creating table: " . $con->error);
-}
-$sql = "SELECT * FROM user";
-$result = $con->query($sql) or die("Error: ". $con->error);
-if($result->num_rows == 0)
-{
-	$sql = "INSERT INTO user(username, passcode)
-			VALUES ('user', 'pass')";
-	$con->query($sql);
-	$sql = "INSERT INTO user(username, passcode)
-			VALUES ('eval', 'eva')";
-	$con->query($sql);
-}
-?>
+
 <body translate="no">
 
     <div class="background">
@@ -74,10 +43,11 @@ if($result->num_rows == 0)
 
             <div class="container">
                 <div class="form">
-                    <h2>LOGIN to truPen</h2>
+                    <br>
+                    <h2>LOGIN to NOODLE</h2>
                     <form method="POST" action="login.php">
                         <div class="inputBx">
-                            <input type="text" name="LoginID" id="LoginID" required="required">
+                            <input type="text" name="login" id="login" required="required">
                             <span>Login</span>
                             <img src="us.png" alt="user">
                         </div>
@@ -88,17 +58,13 @@ if($result->num_rows == 0)
                             <img src="ps.png" alt="key">
                         </div>
                         <label class="remember"><input type="checkbox">
-                        Remember</label>
+          Remember</label>
                         <div class="inputBx">
-                            <input type="submit" value="Log in">
+                            <input type="submit" value="Log in" disabled>
                         </div>
                     </form>
-                    <p>Forgot password? 
-                        <a href="#">Click Here</a>
-                    </p>
-                    <p>Don't have an account ? 
-                        <a href="signup.php">Sign up</a>
-                    </p>
+                    <p>Forgot password? <a href="#">Click Here</a></p>
+                    <p>Don't have an account <a href="#">Sign up</a></p>
                 </div>
             </div>
 
@@ -118,21 +84,6 @@ if($result->num_rows == 0)
             return false;
         }
         //# sourceURL=pen.js
-
-        // function to toggle button effect
-        function blink(c){
-        var s = document.getElementById(c);
-        s.classList.add("buttonOff");
-        s.addEventListener("mouseleave", ()=>{
-        s.classList.remove("buttonOn");
-        s.classList.add("buttonOff");
-        });
-        s.addEventListener("mouseover", ()=>{
-        s.classList.remove("buttonOff");
-        s.classList.add("buttonOn");
-        });
-        }
-
     </script>
 
 

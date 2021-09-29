@@ -3,7 +3,7 @@
     <title>
         User Login Page
     </title>
-    <link rel="stylesheet" href="globalstyles.css">  
+    <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 </head>     
 <style> 
 .loader {
@@ -26,8 +26,25 @@
     }
 }
 
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 </style> 
-<body class="bgstyle">
+<body translate="no" style="color:purple;font: weight 1000px;">
 
 <font style="font-size: xx-large"> <center>Welcome !</center>
 </font>
@@ -61,31 +78,39 @@ echo "<br><br><br>";
 <div style="margin-top: 20pt; font-size:x-large" align="center">
 
 <?php 
+$x=0;
 if($user_id && $password){
     $command = "INSERT INTO user(username,passcode) VALUES('$user_id','$password')";
     if ($mysql -> query($command)){
+        global $x;
+        $x=1;
+    }
+    else{
+        $error="Could not add new user to database";
+    }
+}
+else{
+    $error ="Null value detected for username or password";
+}
+
+mysqli_close($mysql);
+?>
+
+<?php
+if($x==1){
     echo '
     <audio id="sound" autoplay>
-    <source src="Login Sound Effect (No copyright sound effects) Sounds.mp3">
+    <source src="Sound FX\Login Sound Effect (No copyright sound effects) Sounds.mp3">
     </audio> 
-    You Have Successfully Signed Up '; 
-    }
-    else {
-        echo '
-    <audio id="sound" autoplay>
-    <source src="Error.mp3">
-    </audio> 
-    ERROR : Sign-Up failed.'. mysqli_error($mysql); 
-    }
+    You Have Successfully Signed-Up '; 
 }
 else{
     echo '
     <audio id="sound" autoplay>
-    <source src="Error.mp3">
+    <source src="Sound FX\Error.mp3">
     </audio> 
-    ERROR : Sign-Up failed.'; 
+    ERROR : Sign-Up failed :'.$error; 
 }
-mysqli_close($mysql);
 ?>
 
 <br>

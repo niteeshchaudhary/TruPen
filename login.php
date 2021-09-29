@@ -6,7 +6,7 @@ session_start();
     <title>
         User Login Page
     </title>
-    <link rel="stylesheet" href="globalstyles.css"> 
+    <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 </head>     
 <style> 
 .loader {
