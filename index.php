@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="apple-mobile-web-app-title" content="truPen">
+    <meta name="trupen" content="truPen">
     <title>truPen | Login Form -&gt; HTML &amp; CSS</title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 
