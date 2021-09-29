@@ -8,9 +8,6 @@
     <title>truPen | Login Form -&gt; HTML &amp; CSS</title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 
-    <style>
-
-    </style>
     <script>
         window.console = window.console || function(t) {};
     </script>
