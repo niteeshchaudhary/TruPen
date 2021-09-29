@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
@@ -21,7 +20,41 @@
 
 
 </head>
-
+<?php
+$user = 'root';
+$pass = '';
+$con = new mysqli('localhost', $user, $pass);
+if($con->connect_error)
+{
+	die("Connection Error: " . $con->connect_error);
+}
+$sql = 'CREATE DATABASE IF NOT EXISTS users';
+if($con->query($sql) === False)
+{
+	die("Error: ". $con->error);
+}
+$con = new mysqli('localhost', $user, $pass, 'users');
+$sql = 'CREATE TABLE IF NOT EXISTS user
+		(No int NOT NULL AUTO_INCREMENT,
+		username varchar(120) NOT NULL UNIQUE,
+		 passcode varchar(120) NULL,
+		 PRIMARY KEY (No))';
+if ($con->query($sql) === FALSE)
+{
+	die("Error creating table: " . $con->error);
+}
+$sql = "SELECT * FROM user";
+$result = $con->query($sql) or die("Error: ". $con->error);
+if($result->num_rows == 0)
+{
+	$sql = "INSERT INTO user(username, passcode)
+			VALUES ('user', 'pass')";
+	$con->query($sql);
+	$sql = "INSERT INTO user(username, passcode)
+			VALUES ('eval', 'eva')";
+	$con->query($sql);
+}
+?>
 <body translate="no">
 
     <div class="background">
