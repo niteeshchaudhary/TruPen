@@ -94,7 +94,7 @@ if($result->num_rows == 0)
                         </div>
                     </form>
                     <p>Forgot password? <a href="#">Click Here</a></p>
-                    <p>Already have an Account <a href="signup.php">Sign IN</a></p>
+                    <p>Already have an Account <a href="signup.php">Sign UP</a></p>
                 </div>
             </div>
 
