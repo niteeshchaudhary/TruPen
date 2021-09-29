@@ -76,7 +76,7 @@ svg {
           <img src="us.png" alt="user">
         </div>
         <div class="inputBx password">
-          <input type="password" name="password" id = "password" maxlength="14" required="required">
+          <input type="password" name="password" id = "password" maxlength="17" required="required">
           <span>Password</span>
           <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
           <p class="password-strength"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" text-rendering="optimizeSpeed" style="visibility: visible;">
@@ -93,7 +93,7 @@ svg {
           <img src="ps.png" alt="key">
         </div>
         <div class="inputBx password">
-          <input  type="password" name="cpassword" id="cpassword" maxlength="14" required="required">
+          <input  type="password" name="cpassword" id="cpassword" maxlength="17" required="required">
           <span>Confirm Password</span>
           <a href="#" class="password-control" onclick="return show_hide_cpassword(this);"></a>
           <p class="password-match"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" text-rendering="optimizeSpeed" style="visibility: visible;">
@@ -129,9 +129,10 @@ svg {
         const emoji = document.getElementById('emoji');
         const emojc = document.getElementById('emojc');
         input.oninput = function () {
+          const fac=3.51;
           var c=(document.forms["snup"]["password"].value).length;
-          if(c>8){c=8;}
-          emoji.innerHTML = emojies[Math.floor(c/2)];
+          if(Math.floor(c/fac>4)){c=fac*4;}
+          emoji.innerHTML = emojies[Math.floor(c/fac)];
         };
         inputc.oninput = function () {
           var p=document.forms["snup"]["password"].value;
@@ -143,8 +144,12 @@ svg {
         function validateForm(){
                   let x = document.forms["snup"]["password"].value;
                   let y = document.forms["snup"]["cpassword"].value;
-                  let z=document.forms["snup"]["ID"].value;
-                  if(x!=y){
+                  let z=document.forms["snup"]["LoginID"].value;
+                  if(x.length<8){
+                    alert("password minimum length should be 8");
+                    return false;
+                  }
+                  else if(x!=y){
                     alert("password din't match confirm password");
                     return false;
                   }
