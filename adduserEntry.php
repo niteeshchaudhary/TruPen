@@ -51,7 +51,7 @@ body {
 <br>
 
 <?php
-$mysql = new mysqli("localhost","root",NULL);
+$mysql = new mysqli("localhost","root",NULL, "trupendb");
 
 if ($mysql -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysql -> connect_error;
@@ -60,17 +60,6 @@ if ($mysql -> connect_errno) {
 
 $user_id= $_POST["LoginID"];
 $password = $_POST["password"];
-
-$database ="CREATE database users";
-$mysql->query($database);
-$mysql->query("USE users");
-
-$table="CREATE TABLE user(
-    username varchar(120) NULL, 
-    passcode varchar(50)  NULL )";
-
-$mysql->query($table);
-
 echo "<br><br><br>";
 ?>
 

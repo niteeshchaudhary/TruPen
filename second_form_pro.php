@@ -7,7 +7,7 @@ session_start();
 			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
 			if($imgExt!="jpg")
 			{
-				$filePath = 'default.jpg';
+				$filePath = 'Image_Components/default.jpg';
 				$destinationFilePath = 'profile_pic/'.$x.'.jpg';
 				copy($filePath, $destinationFilePath);
 			}
@@ -17,7 +17,7 @@ session_start();
 				$coverpic = $x.".".$imgExt;
 				move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
 			}
-		$con = new mysqli('localhost', 'root', NULL, 'users');
+		$con = new mysqli('localhost', 'root', NULL, 'trupendb');
 		$sql = "UPDATE user
 				SET firstname = '".$_POST["fname"]."', 
 				lastname= '".$_POST["lname"]."', 

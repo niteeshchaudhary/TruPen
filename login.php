@@ -60,8 +60,7 @@ $x = 0;
 $_SESSION['user_id'] = $_POST["LoginID"];
 $_SESSION['password'] = $_POST["password"];
 
-$mysql = new mysqli("localhost","root",NULL,"users");
-
+$mysql = new mysqli("localhost","root",NULL,"trupendb");
 if ($mysql -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysql -> connect_error;
   exit();

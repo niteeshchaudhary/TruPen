@@ -16,8 +16,6 @@
             window.parent.postMessage("resize", "*");
         }
     </script>
-
-
 </head>
 <?php
 $user = 'root';
@@ -27,12 +25,12 @@ if($con->connect_error)
 {
 	die("Connection Error: " . $con->connect_error);
 }
-$sql = 'CREATE DATABASE IF NOT EXISTS users';
+$sql = 'CREATE DATABASE IF NOT EXISTS trupendb';
 if($con->query($sql) === False)
 {
 	die("Error: ". $con->error);
 }
-$con = new mysqli('localhost', $user, $pass, 'users');
+$con = new mysqli('localhost', $user, $pass, 'trupendb');
 $sql = 'CREATE TABLE IF NOT EXISTS user
 		(No int NOT NULL AUTO_INCREMENT,
 		username varchar(120) NOT NULL UNIQUE,
