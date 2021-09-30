@@ -51,6 +51,7 @@ body {
 <br>
 
 <?php
+session_start();
 $mysql = new mysqli("localhost","root",NULL, "trupendb");
 
 if ($mysql -> connect_errno) {
@@ -87,6 +88,7 @@ mysqli_close($mysql);
 
 <?php
 if($x==1){
+	$_SESSION["user"] = $user_id;
     echo '
     <audio id="sound" autoplay>
     <source src="Sound FX\Login Sound Effect (No copyright sound effects) Sounds.mp3">
@@ -101,7 +103,6 @@ else{
     ERROR : Sign-Up failed :'.$error; 
 }
 ?>
-
 <br>
 </div>
 <br>
@@ -114,7 +115,7 @@ else{
 </div>    
 
 <?php
-header( "refresh:5 ; url = index.php" );
+header( "refresh:5 ; url = second_form_stu.php" );
 ?>
 
 <script>

@@ -3,7 +3,9 @@
 <head>
 </head>
 <body>
-<?php session_start(); ?>
+<?php 
+session_start();
+?>
 <form align = "center" action="second_form_pro.php" method="post" id="second" enctype="multipart/form-data">
 <input type="file" id="file" accept="image/*" name="image" onchange="return fileValidation()">
 <div width="5%" height="10%" id="imagePreview"></div>
@@ -44,7 +46,7 @@
             }
         }
     </script><br>
-<label for="id"><b>Username</b></label><br><input type="text" name = "id" value="<?php echo "user"; ?>" disabled/><br>
+<label for="id"><b>Username</b></label><br><input type="text" name = "id" value="<?php echo $_SESSION["user"]; ?>" disabled/><br>
 <label for="fname"><b>First Name*</b></label><br><input type="text" name = "fname" required/><br>
 <label for="lname"><b>Last Name*</b></label><br><input type="text" name = "lname" required/><br>
 <label for="email"><b>Email address*</b></label><br><input type="text" name = "email" required/><br>

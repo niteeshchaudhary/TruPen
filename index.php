@@ -41,6 +41,7 @@ $sql = 'CREATE TABLE IF NOT EXISTS user
 		 gender varchar(120) NULL,
 		 birthday varchar(120) NULL,
 		 bio varchar(800) NULL,
+		 img_dir varchar(120) NULL,
 		 PRIMARY KEY (No))';
 if ($con->query($sql) === FALSE)
 {
@@ -50,11 +51,11 @@ $sql = "SELECT * FROM user";
 $result = $con->query($sql) or die("Error: ". $con->error);
 if($result->num_rows == 0)
 {
-	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio)
-			VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person')";
+	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir)
+			VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person', 'profile_pic/user.jpg')";
 	$con->query($sql);
-	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio)
-			VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person')";
+	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir)
+			VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', 'profile_pic/eval.jpg')";
 	$con->query($sql);
 }
 ?>
