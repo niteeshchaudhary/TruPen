@@ -270,8 +270,6 @@ section {
     display: inline-block;
     width: 20px;
     height: 20px;
- /*   background: url(view.svg) 0 0 no-repeat;
-    transition: 0.5s;*/
 }
 .form .inputBx .password-match {
     position: absolute;
@@ -280,8 +278,14 @@ section {
     display: inline-block;
     width: 20px;
     height: 20px;
- /*   background: url(view.svg) 0 0 no-repeat;
-    transition: 0.5s;*/
+}
+.form .inputBx .user-avail {
+    position: absolute;
+    top: 5px;
+    right: 40px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
 }
 .form .inputBx .view {
     background: url(Image_Components/no-view.svg) 0 0 no-repeat;

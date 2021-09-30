@@ -32,17 +32,16 @@ if($con->query($sql) === False)
 }
 $con = new mysqli('localhost', $user, $pass, 'trupendb');
 $sql = 'CREATE TABLE IF NOT EXISTS user
-		(No int NOT NULL AUTO_INCREMENT,
-		username varchar(120) NOT NULL UNIQUE,
-		 passcode varchar(120) NULL,
-		 firstname varchar(120) NULL,
-		 lastname varchar(120) NULL,
-		 email varchar(120) NULL,
-		 gender varchar(120) NULL,
-		 birthday varchar(120) NULL,
-		 bio varchar(800) NULL,
-		 img_dir varchar(120) NULL,
-		 PRIMARY KEY (No))';
+		(username varchar(120) PRIMARY KEY,
+		 passcode varchar(120),
+		 firstname varchar(120),
+		 lastname varchar(120),
+		 email varchar(120) unique,
+		 gender varchar(120),
+		 birthday varchar(120),
+		 bio varchar(800),
+		 img_dir varchar(120)
+		)';
 if ($con->query($sql) === FALSE)
 {
 	die("Error creating table: " . $con->error);
@@ -83,13 +82,13 @@ if($result->num_rows == 0)
                         <div class="inputBx">
                             <input type="text" name="LoginID" id="LoginID" required="required">
                             <span>Login</span>
-                            <img src="Image_Components\us.png" alt="user">
+                            <img src="Image_Components/us.png" alt="user">
                         </div>
                         <div class="inputBx password">
                             <input id="password" type="password" name="password" required="required">
                             <span>Password</span>
                             <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
-                            <img src="Image_Components\ps.png" alt="key">
+                            <img src="Image_Components/ps.png" alt="key">
                         </div>
                         <label class="remember"><input type="checkbox">
                         Remember</label>
@@ -108,7 +107,7 @@ if($result->num_rows == 0)
 
         </div>
     </section>
-    <script  id="rendered-js" src="Design_Components\Button-Effect.js"></script>
+    <script  id="rendered-js" src="Design_Components/Button-Effect.js"></script>
 
 </body>
 

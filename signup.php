@@ -18,9 +18,9 @@ svg {
     visibility: hidden;
 }
 
-#emoji,#emojc {
+#emoji,#emojc,#avail {
     font-family: Arial, sans-serif;
-    font-size: 30px;
+    font-size: 35px;
     text-anchor: middle;
     font-weight: 100px;
     -webkit-user-select: none;
@@ -71,9 +71,20 @@ svg {
       <h2>Sign Up to truPen</h2>
       <form method="POST" name="signup" action="adduserEntry.php" onsubmit="return validateForm()">
         <div class="inputBx">
-          <input type="text" name="LoginID" id = "LoginID" required="required">
+          <input type="text" name="LoginID" id = "LoginID" onfocusout="checkdb()" required="required">
+          <p class="user-avail"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" text-rendering="optimizeSpeed" style="visibility: visible;">
+                    <g transform="matrix(1, 0, 0, 1, 32, 32)">
+                      <g filter="url(#goo)">
+                        <circle id="bgRing" fill="#51249b" stroke="#51249b" stroke-width="0" stroke-miterlimit="10" cx="0" cy="0" r="30"></circle>
+                        <line id="track" fill="none" stroke="#51249b" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" x1="50" y1="30"
+                          x2="387" y2="30"></line>
+                      </g>
+                      <circle id="emoji-circle" fill="#fff" stroke="none" stroke-width="0" stroke-miterlimit="10" cx="0" cy="0" r="25"></circle>
+                      <text id="avail" x="0" y="10">😑</text>
+                    </g>
+                  </svg></p>
           <span>User ID</span>
-          <img src="Image_Components\us.png" alt="user">
+          <img src="Image_Components/us.png" alt="user">
         </div>
         <div class="inputBx password">
           <input type="password" name="password" id = "password" maxlength="17" required="required">
@@ -90,7 +101,7 @@ svg {
                       <text id="emoji" x="0" y="10">😑</text>
                     </g>
                   </svg></p>
-          <img src="Image_Components\ps.png" alt="key">
+          <img src="Image_Components/ps.png" alt="key">
         </div>
         <div class="inputBx password">
           <input  type="password" name="cpassword" id="cpassword" maxlength="17" required="required">
@@ -107,7 +118,7 @@ svg {
                       <text id="emojc" x="0" y="10">😒</text>
                     </g>
                   </svg></p>
-          <img src="Image_Components\cps.png" alt="key">
+          <img src="Image_Components/cps.png" alt="key">
           <p id="error"></p>
         </div>
         <div class="inputBx">
@@ -120,15 +131,19 @@ svg {
     
   </div>
 </section>
-<script  id="rendered-js" src="Design_Components\Button-Effect.js"></script>
+<script type="text/javascript" src="Design_Components/jquery.min.js"></script>
+<script  id="rendered-js" src="Design_Components/Button-Effect.js"></script>
   <script>
         const emojies = ['😑', '😕', '😊', '😎', '💪'];
         const emojiec = ['😒','😌','😑','😕', '✔️'];
+        const emojiea = ['😑','✔️','❗'];
         const inputp = document.getElementById('password');
         const inputc = document.getElementById('cpassword');
         const emoji = document.getElementById('emoji');
         const emojc = document.getElementById('emojc');
         const error = document.getElementById('error');
+        let submit_chk=false;
+
         inputp.oninput = function () {
           const fac=3.51;
           var c=(document.forms["signup"]["password"].value).length;
@@ -142,10 +157,32 @@ svg {
           if(cp==""){s=0;}
           emojc.innerHTML = emojiec[Math.floor(4*s)];
         };
+        function checkdb(){
+          let username=document.forms["signup"]["LoginID"].value;
+          //let username  = $("#LoginID").val();
+           $.ajax({
+                   type:"POST",
+                   url: "checkuser.php",
+                   data:{ "username": username},
+                    success: function(msg){
+                        document.getElementById("avail").innerHTML = emojiea[msg];
+                        if(msg==2){
+                          document.getElementById("error").innerHTML="<font style='color:#FF2400;font-size:tiny;'>*Error : user name not available !</font>"
+                          submit_chk=true;
+                        }
+                        else{
+                          submit_chk=false;
+                        }
+                    }
+                 });
+        }
         function validateForm(){
                   let x = document.forms["signup"]["password"].value;
                   let y = document.forms["signup"]["cpassword"].value;
                   let z=document.forms["signup"]["LoginID"].value;
+                  if(submit_chk){
+                    return false;
+                  }
                   if(x.length<8){
                     error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : password minimum length should be 8 !</font>";
                     return false;
