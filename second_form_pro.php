@@ -7,7 +7,7 @@ session_start();
 			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
 			if($imgExt!="jpg")
 			{
-				$filePath = 'avatar.jpg';
+				$filePath = 'default.jpg';
 				$destinationFilePath = 'profile_pic/'.$x.'.jpg';
 				copy($filePath, $destinationFilePath);
 			}
