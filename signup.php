@@ -20,7 +20,7 @@ svg {
 
 #emoji,#emojc,#avail {
     font-family: Arial, sans-serif;
-    font-size: 36px;
+    font-size: 40px;
     text-anchor: middle;
     font-weight: 100px;
     -webkit-user-select: none;
@@ -79,7 +79,7 @@ svg {
                         <line id="track" fill="none" stroke="#51249b" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" x1="50" y1="30"
                           x2="387" y2="30"></line>
                       </g>
-                      <circle id="emoji-circle" fill="#fff" stroke="none" stroke-width="0" stroke-miterlimit="10" cx="0" cy="0" r="25"></circle>
+                      <circle id="emoji-circle" fill="#fff" stroke="none" stroke-width="0" stroke-miterlimit="10" cx="0" cy="-3" r="27"></circle>
                       <text id="avail" x="0" y="10">😑</text>
                     </g>
                   </svg></p>
@@ -97,7 +97,7 @@ svg {
                         <line id="track" fill="none" stroke="#51249b" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" x1="50" y1="30"
                           x2="387" y2="30"></line>
                       </g>
-                      <circle id="emoji-circle" fill="#fff" stroke="none" stroke-width="0" stroke-miterlimit="10" cx="0" cy="0" r="25"></circle>
+                      <circle id="emoji-circle" fill="#fff" stroke="none" stroke-width="0" stroke-miterlimit="10" cx="0" cy="-3" r="27"></circle>
                       <text id="emoji" x="0" y="10">😑</text>
                     </g>
                   </svg></p>
@@ -114,7 +114,7 @@ svg {
                         <line id="track" fill="none" stroke="#51249b" stroke-width="60" stroke-linecap="round" stroke-miterlimit="10" x1="50" y1="30"
                           x2="387" y2="30"></line>
                       </g>
-                      <circle id="emoji-circle" fill="#fff" stroke="none" stroke-width="0" stroke-miterlimit="10" cx="0" cy="0" r="25"></circle>
+                      <circle id="emoji-circle" fill="#fff" stroke="none" stroke-width="0" stroke-miterlimit="10" cx="0" cy="-3" r="27"></circle>
                       <text id="emojc" x="0" y="10">😒</text>
                     </g>
                   </svg></p>
