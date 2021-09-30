@@ -1,0 +1,593 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - Sign Up Form With Progressive Disclosure | Micro Interaction</title>
+  
+  
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/solid.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css'>
+  
+<style>
+*
+{
+    outline: none;
+}
+
+html, body
+{
+    height: 100%;
+    min-height: 100%;
+}
+
+body
+{
+    margin: 0;
+}
+
+input
+{
+    display: block;
+    width: 100%;
+    color: #424245;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+input:-ms-input-placeholder
+{ 
+	color: #9999a2;
+}
+
+input::-moz-placeholder
+{ 
+	color: #9999a2;
+	opacity: 1;
+}
+
+#password input::-moz-placeholder
+{
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+#password input:-ms-input-placeholder
+{
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+#password input::placeholder
+{
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+#password input
+{
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+#password input::-webkit-input-placeholder
+{ 
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+#password input:-ms-input-placeholder
+{ 
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+#password input::-moz-placeholder
+{ 
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+#password input:-moz-placeholder
+{ 
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+body, input
+{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#app-cover
+{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    max-width: 420px;
+    padding: 20px;
+    margin: -70px auto 0 auto;
+}
+
+#heading
+{
+    color: #5f5f64;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1;
+    margin: 0 0 20px 0;
+}
+
+#inp-box-cover
+{
+    position: relative;
+    width: 111px;
+    height: 6px;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1) all, 0s ease border;
+}
+
+#heading
+{
+    transition: 0.5s cubic-bezier(0.65, 0.05, 0.36, 1) all;
+}
+
+#app-cover.active #heading
+{
+    margin-top: -57px;
+    margin-bottom: 77px;
+}
+
+#app-cover.active #inp-box-cover
+{
+    width: 420px;
+    height: 57px;
+    margin-top: -57px;
+    border: 1px solid #5f5f64;
+    box-shadow: inset 0 2px 2px #fff;
+}
+
+#inp-padd
+{
+    padding: 15px 0 21px 15px;
+}
+
+.inp-box
+{
+    position: relative;
+    bottom: -36px;
+    padding-right: 87px;
+    opacity: 0;
+    transition: 0.6s ease-in-out all, 1.2s ease-out opacity;
+}
+
+.inp-box.active
+{
+    bottom: 0;
+    opacity: 1;
+}
+
+.inp-box#username.active
+{
+    bottom: 21px;
+}
+
+.inp-box#password.active
+{
+    bottom: 42px;
+}
+
+.inp-box.inactive
+{
+    bottom: 36px;
+    opacity: 0;
+}
+
+.inp-box#username.inactive
+{
+    bottom: 57px;
+}
+
+.inp-box#password.inactive
+{
+    bottom: 78px;
+}
+
+#prev-action-btn, #next-action-btn
+{
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    width: 28.5px;
+    height: 51px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#prev-action-btn
+{
+    right: 43.5px;
+}
+
+#next-action-btn i, #prev-action-btn i
+{
+    position: relative;
+    left: -5px;
+    display: block;
+    width: 21px;
+    color: #5f5f64;
+    font-size: 21px;
+    padding: 15px 0 15px 7.5px;
+    line-height: 1;
+    opacity: 0;
+    transition: 0.3s ease-in-out all;
+    cursor: pointer;
+}
+
+#prev-action-btn i
+{
+    left: 5px;
+    padding-left: 0;
+    padding-right: 7.5px;
+}
+
+#prev-action-btn.active i, #next-action-btn.active i
+{
+    left: 0;
+    opacity: 1;
+}
+
+#progress-bar-cover
+{
+    position: absolute;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    height: 6px;
+    width: 100%;
+    background-color: #e7e7e7;
+    transition:0.5s ease all;
+    z-index: 1;
+}
+
+#progress-bar-cover.hide-form
+{
+    top: 0;
+    height: 100%;
+}
+
+#progress
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    color: transparent;
+    width: 0%;
+    background-color: #5f5f64;
+    transition: 0.5s ease all;
+}
+
+#progress-bar-cover.hide-form #progress
+{
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 16px 0;
+}
+
+#progress i
+{
+    margin-left: 5px;
+}
+
+#working
+{
+    font-size: 16px;
+    line-height: 1;
+    padding: 3.5px;
+    transform: scale(1);
+    display: none;
+}
+
+#working.inactive
+{
+    transform: scale(0);
+    transition: 0.5s ease all;
+}
+
+#working i
+{
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    color: #9c9c9c;
+    font-size: 15px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+#acc-success
+{
+    position: absolute;
+    top: 57px;
+    right: 0;
+    left: 0;
+    padding: 16px 0;
+    opacity: 0;
+    transition: 0.5s ease all;
+}
+
+#acc-success.active
+{
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+}
+
+#init-login
+{
+    float: right;
+    font-size: 14px;
+    line-height: 1;
+    padding: 6px 10px 8px 10px;
+    margin: -1px 15px 0 0;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #7d7d7d;
+    box-shadow: 0 0 0 1px #4d4d4d;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div id="app-cover">
+  <h1 id="heading">Sign Up</h1>
+  <form method="post" action="" autocomplete="off">
+    <div id="inp-box-cover">
+      <div id="inp-padd">
+        <div class="inp-box" id="email">
+          <input type="email" class="inp" placeholder="Your email address" spellcheck="false" autocomplete="off">
+        </div>
+        <div class="inp-box" id="username">
+          <input type="text" class="inp" placeholder="Your username" spellcheck="false">
+        </div>
+        <div class="inp-box" id="password">
+          <input type="password" class="inp" placeholder="Password (More than 5 characters)">
+        </div>
+        <div id="prev-action-btn"><i class="fas fa-chevron-circle-left"></i></div>
+        <div id="next-action-btn"><i class="fas fa-chevron-circle-right"></i></div>
+      </div>
+      <div id="progress-bar-cover">
+        <div id="progress">
+          <div id="working">Working<i class="fas fa-sync-alt fa-spin"></i></div>
+          <div id="acc-success">Account Created<i class="fas fa-check"></i><span id="init-login">Login now</span></div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+      <script id="rendered-js" >
+$(function ()
+{
+  var app_cover = $('#app-cover'),inp = $('.inp'),prevAction = $('#prev-action-btn'),nextAction = $('#next-action-btn'),stepComplete = false,progress = $('#progress'),timeOut = null,stepsArr = ['email', 'username', 'password'],stepNumber = 1,lastCompletedStep = 0,totalSteps = stepsArr.length;
+
+  function checkApp()
+  {
+    if (stepNumber > 1)
+    return;
+
+    var active = false;
+    inp.each(function ()
+    {
+      if ($(this).val().trim().length > 0)
+      active = true;
+    });
+
+    if (active)
+    app_cover.addClass('active');else
+
+    {
+      app_cover.removeClass('active');
+      inp.parent('div').removeClass('active');
+    }
+  }
+
+  function _a()
+  {
+    nextAction.addClass('active');
+    stepComplete = true;
+    if (lastCompletedStep < stepNumber)
+    lastCompletedStep = stepNumber;
+  }
+
+  function _b()
+  {
+    nextAction.removeClass('active');
+    stepComplete = false;
+  }
+
+  function checkInput()
+  {
+    var _this = $(this),regex,index = stepNumber - 1,_val = _this.val().trim();
+    if (stepsArr[index] == 'email')
+    {
+      regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      if (regex.test(_val))
+      _a();else
+
+      _b();
+    } else
+    if (stepsArr[index] == 'username')
+    {
+      clearTimeout(timeOut);
+      timeOut = setTimeout(function ()
+      {
+        if (_val.length > 0)
+        _a();else
+
+        _b();
+      }, 500);
+    } else
+    if (stepsArr[index] == 'password')
+    {
+      if (_val.length >= 5)
+      _a();else
+
+      _b();
+    }
+  }
+
+  function clearForm()
+  {
+    inp.val('');
+    $('.inp-box').removeClass('active inactive');
+    nextAction.removeClass('active');
+    prevAction.removeAttr('class');
+    nextAction.removeAttr('class');
+  }
+
+  function moveToPreviousStep()
+  {
+    --stepNumber;
+
+    if (stepNumber < 1)
+    {
+      stepNumber = 1;
+      prevAction.removeClass('active');
+      return;
+    } else
+
+    {
+      if (stepNumber == 1)
+      prevAction.removeClass('active');
+
+      if (stepNumber <= lastCompletedStep)
+      stepComplete = true;
+
+      nextAction.addClass('active');
+
+      progress.width((stepNumber - 1) / totalSteps * 100 + '%');
+      $('#' + stepsArr[stepNumber]).removeClass('active');
+      $('#' + stepsArr[stepNumber - 1]).removeClass('inactive');
+    }
+  }
+
+  function moveToNextStep()
+  {
+    if (stepComplete && $('#' + stepsArr[stepNumber - 1]).find('.inp').val().trim().length > 0)
+    {
+      progress.width(stepNumber / totalSteps * 100 + '%');
+
+      prevAction.addClass('active');
+
+      if (stepNumber == totalSteps)
+      {
+        setTimeout(function ()
+        {
+          $('#progress-bar-cover').addClass('hide-form');
+
+          $('#working').fadeIn(0);
+
+          setTimeout(function ()
+          {
+            $('#working').addClass('inactive');
+            clearForm();
+          }, 2300);
+
+          setTimeout(function ()
+          {
+            $('#acc-success').addClass('active');
+          }, 3300);
+
+        }, 500);
+
+        return;
+      }
+
+      $('#' + stepsArr[stepNumber - 1]).addClass('inactive');
+      $('#' + stepsArr[stepNumber]).addClass('active');
+
+      if (stepNumber > lastCompletedStep)
+      {
+        lastCompletedStep = stepNumber;
+        stepComplete = false;
+      }
+
+      ++stepNumber; // Now on next step     
+
+      if (stepNumber <= lastCompletedStep && $('#' + stepsArr[stepNumber - 1]).find('.inp').val().trim().length > 0)
+      nextAction.addClass('active');else
+
+      nextAction.removeClass('active');
+    }
+  }
+
+  app_cover.hover(function ()
+  {
+    var f_elm = $('#' + stepsArr[0]);
+    if (!$(this).hasClass('active'))
+    {
+      $(this).addClass('active');
+      f_elm.addClass('active');
+      setTimeout(function () {f_elm.find('input').focus();}, 1205);
+      stepNumber = 1;
+      lastCompletedStep = 0;
+      stepComplete = false;
+    }
+  },
+  function ()
+  {
+    checkApp();
+  });
+
+  inp.on('keyup', checkInput);
+
+  prevAction.on('click', moveToPreviousStep);
+  nextAction.on('click', moveToNextStep);
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 

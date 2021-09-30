@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+<meta charset="UTF-8">
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+<title>CodePen - Instagram re-design</title>
+<style>
+* {
+box-sizing: border-box;
+}
+body {
+
+width:100%;
+height:100%;
+font-family: Sans-serif;
+}
+
+.flex-row > img {
+width: 25px;
+height: 25px;
+}
+
+.flex-row {
+display: flex;
+align-items: center;
+}
+
+.label-wrapper {
+margin: 0px 20px;
+}
+
+.insta-writing {
+padding: 0px 15px;
+}
+
+.menu {
+border-right: 2px solid #F5F5F5;
+height: 100%;
+width: 330px;
+background-color: #F5F5F5;
+overflow:hidden;
+min-width:330px;
+}
+
+.profil-img {
+background-image: url("https://m.media-amazon.com/images/M/MV5BOTIxNTE2NTQ3Nl5BMl5BanBnXkFtZTcwMzMwOTk2Nw@@._V1_UY1200_CR85,0,630,1200_AL_.jpg");
+width: 100px;
+height: 100px;
+background-size: cover;
+border-radius: 50%;
+border: 0.1em solid #eb2d53;
+margin: auto;
+margin-top: 30px;
+box-shadow: inset 0px 0px 0px 5px white;
+}
+
+.profil-info {
+text-align: center;
+}
+.city {
+color: grey;
+font-weight: normal;
+}
+
+.numbers{
+display: flex;
+justify-content: space-between;
+padding: 0 20px;
+}
+
+p{
+font-weight: bold;
+}
+
+.post-num {
+color: grey;
+font-weight: normal;
+}
+
+.feed-writing {
+color: #F82867;
+}
+
+.icons {
+display: flex;
+align-items: center;
+margin-top:15px;
+
+}
+
+.menu-elements {
+padding: 20px 15px;
+color:#A0A0A0;
+font-size:1.1em;
+font-weight: normal;
+}
+
+.icons > img {
+margin: 0px 25px 5px;
+}
+
+.right-page{
+margin-top:10px;
+flex:1;
+
+}
+
+.container{
+display:flex;
+width:100%;
+}
+
+.searchIcon{
+background-position:5px 5px;
+padding:0 45px;
+position:absolute;
+z-index:2;
+
+}
+.micro{
+background-position:5px 5px;
+right:0;
+position:absolute;
+z-index:2;
+
+}
+
+.has-search .text {
+padding-left: 30px;
+margin-left:35px;
+}
+.form{
+position:relative;
+z-index:2;
+display:inline-flex;
+align-items:center;
+}
+.text{
+border:1px solid #ddd;
+border-radius:4px;
+width:280px;
+height:30px;
+background-color:#F8F8F8;
+
+}
+.post-new{
+border:1px solid pink;
+width:190px;
+height:30px;
+background-color: #ee4466;
+border-radius:4px;
+color:white;
+
+text-align:center;
+font-size:17px;
+position:relative;
+}
+.top-bar{
+display:flex;
+align-items:center;
+}
+.plus{
+right:0;
+position:absolute;
+margin-top:2px;
+
+}
+
+.mail-heart{
+display:flex;
+margin:0 40px ;
+align-items:center;
+}
+.person-radius > img{
+width:30px;
+height:30px;
+border-radius:50%;
+background-size:cover;
+}
+
+.icon1{
+margin-right:20px;
+}
+
+.hr-new{
+margin-top:30px;
+border: 0.5px solid #ddd;
+}
+
+.featured{
+display:flex;
+justify-content:space-between;
+}
+
+.right-middle{
+display:flex;
+flex-wrap:wrap;
+padding:0 20px;
+width:100%;
+flex-direction:column;
+
+
+}
+
+.right-of-page{
+display:flex;
+justify-content:space-between;
+
+}
+
+.right-right{
+max-width:250px;
+}
+
+.popular-stor{
+width:150px;
+height:30px;
+border-radius:3px;
+border:1px solid #E0E0E0;
+color:#C0C0C0;
+background-color:#F8F8F8;
+font-weight:600;
+font-size:14px;
+}
+
+.last-right > img{
+padding:0 10px;
+max-width:100%;
+background-size:cover;
+border-radius:20px;
+}
+
+.last-right{
+width:25%;
+}
+.name2{
+text-align:center;
+}
+.cover-post{
+margin-left:auto;
+}
+.galery-wrapper{
+display:inline-flex;
+
+}
+.img-galery > img{
+width: 100%;
+height:100%;
+padding:0 5px;
+object-fit: cover;
+border-radius:10px;
+margin-top:-10px;
+
+}
+
+.featured-stories{
+width: 50%;
+margin: 0;
+}
+
+.featured {
+display:flex;
+flex-wrap:wrap;
+flex-direction: column;
+}
+
+.featured-header, .featured-body {
+display:flex;
+flex-direction: row;
+
+}
+.featured-header{
+justify-content:space-between;
+}
+
+.icon-two{
+display:flex;
+width:60px;
+justify-content:space-between;
+}
+
+.last-body{
+margin-top:10px;
+}
+
+.follows{
+display: flex;
+justify-content: space-between;
+padding: 0 10px;
+}
+.read{
+font-weight:bold;
+color:#282828;
+}
+.read-me{
+margin-top:15px;
+color: grey;
+}
+
+.post2{
+padding:15px 0 0 0;
+}
+
+
+.loader {
+width: 3rem;
+height: 3rem;
+border: 0.6rem solid #999;
+border-bottom-color: transparent;
+border-radius: 50%;
+margin: 0 auto;
+animation: loader 500ms linear infinite;
+}
+
+@keyframes loader {
+to {
+transform: rotate(360deg);
+}
+}
+@media (max-width: 840px){
+
+.last-right{
+display:none;
+}
+.menu{
+display:none;
+}
+.galery-wrapper{
+display:flex;
+flex-wrap:wrap;
+}
+.top-bar{
+display:none;
+}
+.img-galery{
+margin-bottom:10px;
+}
+}
+</style>
+
+<script>
+if (document.location.search.match(/type=embed/gi)) {
+window.parent.postMessage("resize", "*");
+}
+</script>
+
+
+</head>
+
+<body translate="no" >
+<div class="container">
+<div class="all flex-row">
+<div class="menu flex-column">
+<div class="flex-row label-wrapper">
+<img src="https://i.ibb.co/crgCrWT/instagram.png" />
+<h3 class="insta-writing">Instagram</h3>
+</div>
+<div class="profil-img"></div>
+<div class="profil-info">
+<h2 class="name">Shailene Woodley</h2>
+<h3 class="city">New York, NY</h3>
+<div class="numbers">
+<div class="post">
+<p>Post</p>
+<div class="post-num">116</div>
+</div>
+<div class="post">
+<p>Followers</p>
+<div class="post-num">48m</div>
+</div>
+<div class="post">
+<p>Following</p>
+<div class="post-num">48m</div>
+</div>
+</div>
+<div class="menu-elements">
+<div class="icons">
+<img src="https://i.ibb.co/5csvQKW/home-2.png" />
+<div class="feed-writing"> Feed </div>
+</div>
+<div class="icons">
+<img src="https://i.ibb.co/y8wD2HZ/explore-tool.png" />
+<div class="exp-writing"> Explore</div>
+</div>
+
+<div class="icons">
+<img src="https://i.ibb.co/tsDcKD1/hashtag.png" />
+<div class="trend-writing"> Trending Tags</div>
+</div>
+
+<div class="icons">
+<img src="https://i.ibb.co/G2r0G8N/tick-inside-a-circle.png" />
+<div class="top-writing"> Top Post </div>
+</div>
+
+<div class="icons">
+<img src="https://i.ibb.co/XDnYxL9/user-symbol-of-thin-outline.png" />
+<div class="people-writing"> People </div>
+</div>
+
+<div class="icons">
+<img src="https://i.ibb.co/dWcct0k/notification.png" />
+<div class="notif-writing"> Notification </div>
+</div>
+
+<div class="icons">
+<img src="https://i.ibb.co/rQcCQcL/direction.png" />
+<div class="direct-writing"> Direct </div>
+</div>
+
+<div class="icons">
+<img src="https://i.ibb.co/VNSj2GR/pie-chart.png" />
+<div class="stat-writing"> Stats </div>
+</div>
+
+<div class="icons">
+<img src="https://i.ibb.co/smVnQkg/settings.png" />
+<div class="set-writing"> Settings</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-page">
+<div class="top-bar">
+<div class="form has-search">
+<input class="text" type="search" placeholder="Search" name="search" />
+<span class="searchIcon">
+<img src="https://i.ibb.co/sqFgRq8/search.png" />
+</span>
+<span class="micro">
+<img src="https://i.ibb.co/HNx8Xty/microphone.png"/>
+</span>
+</div>
+<div class="cover-post">
+<button class="button post-new">Create New Post</button>
+<span class="plus">
+<img src="https://i.ibb.co/0YG23j8/plus-symbol.png" />
+</span>
+</div>
+<div class="mail-heart">
+<div class="icon1">
+<img src="https://i.ibb.co/6ZwMVGp/email.png" />
+</div>
+<div class="icon1">
+<img src="https://i.ibb.co/K91ZTyF/heart.png" />
+</div>
+<div class="person-radius">
+<img src="https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+</div>
+</div>
+<hr class="hr-new">
+<div class="right-of-page">
+<div class="right-middle">
+<div class="featured">
+<div class="featured-header">
+<h2 class="featured-stories"> Featured Stories</h2>
+<button class="button popular-stor"> Popular Stories</button>
+</div>
+<div class="featured-body">
+<div class="galery-wrapper">
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1562447279-69402cb4587d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1495954484750-af469f2f9be5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1462275646964-a0e3386b89fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1561363702-e07252da3399?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+</div>
+</div>
+</div>
+<div class="featured">
+<div class="featured-header">
+<h2 class="featured-stories"> Latest Feed</h2>
+<div class="icon-two">
+<div class="icon3">
+<img src="https://i.ibb.co/Jd2NwHV/menu-lines.png" />
+</div>
+<div class="icon3">
+<img src="https://i.ibb.co/tZdq3jg/four-boxes.png" />
+</div>
+</div>
+</div>
+<div class="featured-body">
+<div class="galery-wrapper">
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1426543881949-cbd9a76740a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1532347922424-c652d9b7208e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1414609245224-afa02bfb3fda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+</div>
+</div>
+<div class="last-body">
+<div class="galery-wrapper">
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1527212986666-4d2d47a80d5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+<div class="img-galery">
+<img
+src="https://images.unsplash.com/photo-1505158498176-0150297fbd7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+</div>
+</div>
+</div>
+<div class="loader"></div>
+
+</div>
+</div>
+<div class="last-right">
+<img src="https://images.unsplash.com/photo-1519058082700-08a0b56da9b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" />
+<h2 class="name2">BENJAMIN HARDMAN</h2>
+<div class="follows">
+<div class="post">
+<p>Photos</p>
+<div class="post-num">882</div>
+</div>
+<div class="post">
+<p>Followers</p>
+<div class="post-num">527k</div>
+</div>
+</div>
+<div class="read-me">
+Benjamin is a freelance photographer in Iceland. He is interested in UI development and design.
+Five years ago Benjamin embarked on his first photographic mission in an Arctict winter climate
+Benjamin is a freelance photographer in Iceland. He is interested in UI development and design.
+Five years ago Benjamin embarked on his first photographic mission in an Arctict winter climate...<span class="read"> Read more</span>
+</div>
+<div class="feature">
+<div class="post2">
+<p>Locations</p>
+<div class="post-num">Based in Iceland</div>
+</div>
+<div class="post2">
+<p>Profession</p>
+<div class="post-num">Photographer</div>
+</div>
+<div class="post2">
+<p>Profession</p>
+<div class="post-num">Developer</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js"></script>
+</body>
+
+</html>

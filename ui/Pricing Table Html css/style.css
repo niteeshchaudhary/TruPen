@@ -1,0 +1,174 @@
+/* Coding With Nick */
+
+
+/* General  Css */
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'raleway', sans-serif;
+    background: #ffffff;
+}
+
+a{
+    outline: none;
+    text-decoration: none;
+    transition: 0.3s;
+}
+h2{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.pricing-table-title{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: 60px 0 15px 0;
+}
+.pricing-table-title:first-child{
+    margin-top: 30px;
+}
+.pricing-table-title h2{
+    font-size: 35px;
+    font-weight: 900;
+    color: #5395ff;
+    letter-spacing: 2px;
+}
+
+/* pricing table Style */
+
+.pricing-table{
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.pricing-table .ptable-item{
+    width: 33.33%;
+    padding: 15px;
+}
+.pricing-table .ptable-single{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.pricing-table .ptable-header,
+.pricing-table .ptable-body,
+.pricing-table .ptable-footer {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background:#ffffff ;
+    overflow: hidden;
+}
+.pricing-table .ptable-title,
+.pricing-table .ptable-price,
+.pricing-table .ptable-description,
+.pricing-table .ptable-action{
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+/* Pricing table */
+
+.pricing-table.table .ptable-single:hover{
+    box-shadow: 0 0 10px #999999;
+}
+.pricing-table.table .ptable-header{
+    padding: 30px 0 50px 0;
+    background: #5395ff;
+}
+.pricing-table.table  .ptable-item.featured-item .ptable-header{
+    background: #71ce73;
+}
+.pricing-table.table .ptable-icon{
+    margin-bottom: 15px;
+}
+.pricing-table.table .ptable-icon i{
+    display: inline-block;
+    color: #ffffff;
+    font-size: 45px;
+}
+.pricing-table.table .ptable-title h2{
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 300;
+    margin-left: 2px;
+}
+.pricing-table.table .ptable-price h2{
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: 900;
+    margin-left: 15px;
+}
+.pricing-table.table .ptable-price h2 small{
+   position: absolute;
+    font-size: 18px;
+    font-weight: 900;
+    margin-left: -15px;
+    margin-top: 16px;
+}
+.pricing-table.table .ptable-price h2 span{
+     font-size: 16px;
+     font-weight: 300;
+     margin-left: 3px;
+    
+ }
+ .pricing-table.table .ptable-body{
+     padding: 30px 0;
+     background: #f7f7f7;
+     border-radius: 30px 30px 0 0;
+     margin-top: -30px;
+ }
+ .pricing-table.table  .ptable-description ul{
+     margin: 0;
+     padding: 0;
+     list-style: none;
+ }
+ .pricing-table.table  .ptable-description ul li{
+     color: #5395ff;
+     font-size: 14px;
+     font-weight: 300;
+     letter-spacing: 1px;
+     padding: 7px;
+ }
+ .pricing-table.table  .ptable-description ul li:last-child{
+     border: none;
+ }
+ .pricing-table.table .ptable-footer{
+     padding-bottom: 30px;
+     background: #f7f7f7;
+ }
+
+ .pricing-table.table .ptable-action a{
+     display: inline-block ;
+     padding: 10px 20px;
+     color: #ffffff;
+     font-size: 14px;
+     font-weight: 500;
+     letter-spacing: 2px;
+     background: #5395ff;
+     border-radius: 50px;
+ }
+ .pricing-table.table .ptable-action a i{
+     margin-right: 5px;
+ }
+ .pricing-table.table .ptable-action a:hover{
+     background: #71ce73;
+ }
+ .pricing-table.table .ptable-item.featured-item .ptable-action a{
+     background: #71ce73;
+ }
+ .pricing-table.table .ptable-item.featured-item .ptable-action a:hover{
+    background: #5395ff;
+}

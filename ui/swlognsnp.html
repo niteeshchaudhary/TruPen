@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>CodePen - Login &amp; Sign Up Form UI</title>
+  
+  
+  
+  
+<style>
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display");
+body, .message, .form, form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  height: 100vh;
+  background: #E8E8E8;
+  font-family: "Source Sans Pro", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  width: 700px;
+  height: 400px;
+  background: white;
+  position: relative;
+  display: grid;
+  grid-template: 100%/50% 50%;
+  box-shadow: 2px 2px 10px 0 rgba(51, 51, 51, 0.2);
+}
+
+.message {
+  position: absolute;
+  background: white;
+  width: 50%;
+  height: 100%;
+  transition: 0.5s all ease;
+  transform: translateX(100%);
+  z-index: 4;
+}
+.message:before {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 70%;
+  background: #C3C3D8;
+  opacity: 0;
+  left: 0;
+  top: 15%;
+}
+.message .button {
+  margin: 5px 0;
+}
+
+.signup:before {
+  opacity: 0.3;
+  left: 0;
+}
+
+.login:before {
+  opacity: 0.3;
+  left: 100%;
+}
+
+.btn-wrapper {
+  width: 60%;
+}
+
+.form {
+  width: 100%;
+  height: 100%;
+}
+.form--heading {
+  font-size: 18px;
+  height: 50px;
+  color: #809BCE;
+  font-family: "Playfair Display", serif;
+}
+
+form {
+  width: 70%;
+}
+form > * {
+  margin: 10px;
+}
+form input {
+  width: 90%;
+  border: 0;
+  border-bottom: 1px solid rgba(195, 195, 216, 0.5);
+  font-size: 13px;
+  font-weight: 300;
+  color: #797A9E;
+  letter-spacing: 0.11em;
+}
+form input::placeholder {
+  color: #C3C3D8;
+  font-size: 10px;
+}
+form input:focus {
+  outline: 0;
+  border-bottom: 1px solid rgba(128, 155, 206, 0.7);
+  transition: 0.6s all ease;
+}
+
+.button {
+  width: 100%;
+  height: 30px;
+  border: 0;
+  outline: 0;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  position: relative;
+  z-index: 3;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #809BCE, #9893DA);
+  font-family: "Playfair Display", serif;
+  cursor: pointer;
+}
+
+@media (max-width: 750px) {
+  .container {
+    transform: scale(0.8);
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div class="container">
+  <div class="message signup">
+    <div class="btn-wrapper">
+      <button class="button" id="signup">Sign Up</button>
+      <button class="button" id="login"> Login</button>
+    </div>
+  </div>
+  <div class="form form--signup">
+    <div class="form--heading">Welcome! Sign Up</div>
+    <form autocomplete="off">
+      <input type="text" placeholder="Name">
+      <input type="email" placeholder="Email">
+      <input type="password" placeholder="Password">
+      <button class="button">Sign Up</button>
+    </form>
+  </div>
+  <div class="form form--login">
+    <div class="form--heading">Welcome back! </div>
+    <form autocomplete="off">
+      <input type="text" placeholder="Name">
+      <input type="password" placeholder="Password">
+      <button class="button">Login</button>
+    </form>
+  </div>
+</div>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <script id="rendered-js" >
+$("#signup").click(function () {
+  $(".message").css("transform", "translateX(100%)");
+  if ($(".message").hasClass("login")) {
+    $(".message").removeClass("login");
+  }
+  $(".message").addClass("signup");
+});
+
+$("#login").click(function () {
+  $(".message").css("transform", "translateX(0)");
+  if ($(".message").hasClass("login")) {
+    $(".message").removeClass("signup");
+  }
+  $(".message").addClass("login");
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
