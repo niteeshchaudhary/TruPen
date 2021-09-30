@@ -69,7 +69,7 @@ svg {
    <div class="container"> 
     <div class="form"> 
       <h2>Sign Up to truPen</h2>
-      <form method="POST" name="signup" action="adduserEntry.php">
+      <form method="POST" name="signup" action="adduserEntry.php" onsubmit="return validateForm()">
         <div class="inputBx">
           <input type="text" name="LoginID" id = "LoginID" required="required">
           <span>User ID</span>
@@ -110,9 +110,8 @@ svg {
           <img src="cps.png" alt="key">
           <p id="error"></p>
         </div>
-      </form>
         <div class="inputBx">
-            <input type = "safe" value="Sign Up" id="submit" onclick="validate();"> 
+            <input type = "submit" value="Sign Up" id="submit"> 
         </div>
       </form>
       <p>Already have an Account ? <a href="index.php">Log-in</a></p>
@@ -124,37 +123,38 @@ svg {
   <script id="rendered-js" >
         const emojies = ['😑', '😕', '😊', '😎', '💪'];
         const emojiec = ['😒','😌','😑','😕', '✔️'];
-        const input = document.getElementById('password');
+        const inputp = document.getElementById('password');
         const inputc = document.getElementById('cpassword');
         const emoji = document.getElementById('emoji');
         const emojc = document.getElementById('emojc');
-        input.oninput = function () {
+        const error = document.getElementById('error');
+        inputp.oninput = function () {
           const fac=3.51;
-          var c=(document.forms["snup"]["password"].value).length;
+          var c=(document.forms["signup"]["password"].value).length;
           if(Math.floor(c/fac>4)){c=fac*4;}
           emoji.innerHTML = emojies[Math.floor(c/fac)];
         };
         inputc.oninput = function () {
-          var p=document.forms["snup"]["password"].value;
-          var cp=document.forms["snup"]["cpassword"].value;
+          var p=document.forms["signup"]["password"].value;
+          var cp=document.forms["signup"]["cpassword"].value;
           var s=similarity(p, cp);
           if(cp==""){s=0;}
           emojc.innerHTML = emojiec[Math.floor(4*s)];
         };
         function validateForm(){
-                  let x = document.forms["snup"]["password"].value;
-                  let y = document.forms["snup"]["cpassword"].value;
-                  let z=document.forms["snup"]["LoginID"].value;
+                  let x = document.forms["signup"]["password"].value;
+                  let y = document.forms["signup"]["cpassword"].value;
+                  let z=document.forms["signup"]["LoginID"].value;
                   if(x.length<8){
-                    alert("password minimum length should be 8");
+                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : password minimum length should be 8 !</font>";
                     return false;
                   }
                   else if(x!=y){
-                    alert("password din't match confirm password");
+                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : Password mismatch detected !</font>";
                     return false;
                   }
                   else if(z==""||x==""){
-                      alert("please provide all fields");
+                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : Empty Fields detected !</font>";
                     return false;
                   }
         }
@@ -208,24 +208,7 @@ svg {
       }
       return false;
     }
-    var error = document.getElementById('error');
-    function submitform(){
-          var c = document.forms["signup"];
-          c.submit();
-        }
-    function validate(){
-      var x = document.getElementById("password").value;
-      var y = document.getElementById("cpassword").value;
-      if(x === y && x.trim("")!=""){
-        submitform();
-      }
-      else if(x!=y){
-        error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : Password mismatch detected !</font>";
-      }
-      else{
-        error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : Empty Fields detected !</font>";
-      }
-    }
+
     function show_hide_cpassword(target) {
       var input = document.getElementById('cpassword');
       if (input.getAttribute('type') == 'password') {
