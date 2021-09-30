@@ -11,7 +11,6 @@
         window.console = window.console || function(t) {};
     </script>
 
-
     <script>
         if (document.location.search.match(/type=embed/gi)) {
             window.parent.postMessage("resize", "*");
@@ -85,13 +84,13 @@ if($result->num_rows == 0)
                         <div class="inputBx">
                             <input type="text" name="LoginID" id="LoginID" required="required">
                             <span>Login</span>
-                            <img src="us.png" alt="user">
+                            <img src="Image_Components\us.png" alt="user">
                         </div>
                         <div class="inputBx password">
-                            <input id="password-input" type="password" name="password" required="required">
+                            <input id="password" type="password" name="password" required="required">
                             <span>Password</span>
                             <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
-                            <img src="ps.png" alt="key">
+                            <img src="Image_Components\ps.png" alt="key">
                         </div>
                         <label class="remember"><input type="checkbox">
                         Remember</label>
@@ -110,38 +109,7 @@ if($result->num_rows == 0)
 
         </div>
     </section>
-
-    <script id="rendered-js">
-        function show_hide_password(target) {
-            var input = document.getElementById('password-input');
-            if (input.getAttribute('type') == 'password') {
-                target.classList.add('view');
-                input.setAttribute('type', 'text');
-            } else {
-                target.classList.remove('view');
-                input.setAttribute('type', 'password');
-            }
-            return false;
-        }
-        //# sourceURL=pen.js
-
-        // function to toggle button effect
-        function blink(c){
-        var s = document.getElementById(c);
-        s.classList.add("buttonOff");
-        s.addEventListener("mouseleave", ()=>{
-        s.classList.remove("buttonOn");
-        s.classList.add("buttonOff");
-        });
-        s.addEventListener("mouseover", ()=>{
-        s.classList.remove("buttonOff");
-        s.classList.add("buttonOn");
-        });
-        }
-
-    </script>
-
-
+    <script  id="rendered-js" src="Design_Components\Button-Effect.js"></script>
 
 </body>
 

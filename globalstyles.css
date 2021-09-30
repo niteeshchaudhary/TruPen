@@ -259,7 +259,7 @@ section {
     display: inline-block;
     width: 20px;
     height: 20px;
-    background: url(view.svg) 0 0 no-repeat;
+    background: url(Image_Components/view.svg) 0 0 no-repeat;
     transition: 0.5s;
 }
 
@@ -284,7 +284,7 @@ section {
     transition: 0.5s;*/
 }
 .form .inputBx .view {
-    background: url(no-view.svg) 0 0 no-repeat;
+    background: url(Image_Components/no-view.svg) 0 0 no-repeat;
     transition: 0.5s;
 }
 

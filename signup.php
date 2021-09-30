@@ -73,7 +73,7 @@ svg {
         <div class="inputBx">
           <input type="text" name="LoginID" id = "LoginID" required="required">
           <span>User ID</span>
-          <img src="us.png" alt="user">
+          <img src="Image_Components\us.png" alt="user">
         </div>
         <div class="inputBx password">
           <input type="password" name="password" id = "password" maxlength="17" required="required">
@@ -90,7 +90,7 @@ svg {
                       <text id="emoji" x="0" y="10">😑</text>
                     </g>
                   </svg></p>
-          <img src="ps.png" alt="key">
+          <img src="Image_Components\ps.png" alt="key">
         </div>
         <div class="inputBx password">
           <input  type="password" name="cpassword" id="cpassword" maxlength="17" required="required">
@@ -107,7 +107,7 @@ svg {
                       <text id="emojc" x="0" y="10">😒</text>
                     </g>
                   </svg></p>
-          <img src="cps.png" alt="key">
+          <img src="Image_Components\cps.png" alt="key">
           <p id="error"></p>
         </div>
         <div class="inputBx">
@@ -120,7 +120,8 @@ svg {
     
   </div>
 </section>
-  <script id="rendered-js" >
+<script  id="rendered-js" src="Design_Components\Button-Effect.js"></script>
+  <script>
         const emojies = ['😑', '😕', '😊', '😎', '💪'];
         const emojiec = ['😒','😌','😑','😕', '✔️'];
         const inputp = document.getElementById('password');
@@ -197,17 +198,6 @@ svg {
           }
           return costs[s2.length];
         }
-    function show_hide_password(target) {
-      var input = document.getElementById('password');
-      if (input.getAttribute('type') == 'password') {
-        target.classList.add('view');
-        input.setAttribute('type', 'text');
-      } else {
-        target.classList.remove('view');
-        input.setAttribute('type', 'password');
-      }
-      return false;
-    }
 
     function show_hide_cpassword(target) {
       var input = document.getElementById('cpassword');
