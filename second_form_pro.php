@@ -10,7 +10,6 @@ session_start();
 				$filePath = 'avatar.jpg';
 				$destinationFilePath = 'profile_pic/'.$x.'.jpg';
 				copy($filePath, $destinationFilePath);
-				exit();
 			}
 			else
 			{
