@@ -80,7 +80,7 @@ if($result->num_rows == 0)
                     <h2>LOGIN to truPen</h2>
                     <form method="POST" action="login.php">
                         <div class="inputBx">
-                            <input type="text" name="LoginID" id="LoginID" required="required">
+                            <input type="text" name="LoginID" id="LoginID" autocomplete="off" required="required">
                             <span>Login</span>
                             <img src="Image_Components/us.png" alt="user">
                         </div>
