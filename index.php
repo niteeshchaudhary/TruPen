@@ -81,7 +81,7 @@ if($result->num_rows == 0)
                             <img src="Image_Components\us.png" alt="user">
                         </div>
                         <div class="inputBx password">
-                            <input id="password-input" type="password" name="password" required="required">
+                            <input id="password" type="password" name="password" required="required">
                             <span>Password</span>
                             <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
                             <img src="Image_Components\ps.png" alt="key">
@@ -103,22 +103,7 @@ if($result->num_rows == 0)
 
         </div>
     </section>
-    <script src="Design_Components\Button-Effect.js"></script>
-    <script id="rendered-js">
-        function show_hide_password(target) {
-            var input = document.getElementById('password-input');
-            if (input.getAttribute('type') == 'password') {
-                target.classList.add('view');
-                input.setAttribute('type', 'text');
-            } else {
-                target.classList.remove('view');
-                input.setAttribute('type', 'password');
-            }
-            return false;
-        }
-    </script>
-
-
+    <script  id="rendered-js" src="Design_Components\Button-Effect.js"></script>
 
 </body>
 

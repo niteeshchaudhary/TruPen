@@ -120,8 +120,8 @@ svg {
     
   </div>
 </section>
-<script src="Design_Components\Button-Effect.js"></script>
-  <script id="rendered-js" >
+<script  id="rendered-js" src="Design_Components\Button-Effect.js"></script>
+  <script>
         const emojies = ['😑', '😕', '😊', '😎', '💪'];
         const emojiec = ['😒','😌','😑','😕', '✔️'];
         const inputp = document.getElementById('password');
@@ -198,17 +198,6 @@ svg {
           }
           return costs[s2.length];
         }
-    function show_hide_password(target) {
-      var input = document.getElementById('password');
-      if (input.getAttribute('type') == 'password') {
-        target.classList.add('view');
-        input.setAttribute('type', 'text');
-      } else {
-        target.classList.remove('view');
-        input.setAttribute('type', 'password');
-      }
-      return false;
-    }
 
     function show_hide_cpassword(target) {
       var input = document.getElementById('cpassword');
