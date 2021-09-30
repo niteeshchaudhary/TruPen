@@ -38,6 +38,12 @@ $sql = 'CREATE TABLE IF NOT EXISTS user
 		(No int NOT NULL AUTO_INCREMENT,
 		username varchar(120) NOT NULL UNIQUE,
 		 passcode varchar(120) NULL,
+		 firstname varchar(120) NULL,
+		 lastname varchar(120) NULL,
+		 email varchar(120) NULL,
+		 gender varchar(120) NULL,
+		 birthday varchar(120) NULL,
+		 bio varchar(800) NULL,
 		 PRIMARY KEY (No))';
 if ($con->query($sql) === FALSE)
 {
@@ -47,11 +53,11 @@ $sql = "SELECT * FROM user";
 $result = $con->query($sql) or die("Error: ". $con->error);
 if($result->num_rows == 0)
 {
-	$sql = "INSERT INTO user(username, passcode)
-			VALUES ('user', 'pass')";
+	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio)
+			VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person')";
 	$con->query($sql);
-	$sql = "INSERT INTO user(username, passcode)
-			VALUES ('eval', 'eva')";
+	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio)
+			VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person')";
 	$con->query($sql);
 }
 ?>
