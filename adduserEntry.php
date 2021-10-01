@@ -94,14 +94,14 @@ if($x==1){
 	copy($filePath, $destinationFilePath);
     echo '
     <audio id="sound" autoplay>
-    <source src="Sound FX\Login Sound Effect (No copyright sound effects) Sounds.mp3">
+    <source src="Sound_FX\Login Sound Effect (No copyright sound effects) Sounds.mp3">
     </audio> 
     You Have Successfully Signed-Up '; 
 }
 else{
     echo '
     <audio id="sound" autoplay>
-    <source src="Sound FX\Error.mp3">
+    <source src="Sound_FX\Error.mp3">
     </audio> 
     ERROR : Sign-Up failed :'.$error; 
 }

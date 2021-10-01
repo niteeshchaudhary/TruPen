@@ -172,7 +172,6 @@ svg {
                         }
                         else{
                           document.getElementById("error").innerHTML="";
-                          
                           submit_chk=false;
                         }
                     }
