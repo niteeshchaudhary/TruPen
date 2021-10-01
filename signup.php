@@ -171,6 +171,8 @@ svg {
                           submit_chk=true;
                         }
                         else{
+                          document.getElementById("error").innerHTML=""
+                          
                           submit_chk=false;
                         }
                     }
