@@ -81,7 +81,7 @@ if($result->num_rows == 0)
 	$con->query($sql);
 }
 $sql = 'CREATE TABLE IF NOT EXISTS quiz
-		(name varchar(120) PRIMARY KEY,
+		(name varchar(120) PRIMARY KEY UNIQUE,
 		 subject varchar(120),
 		 time_limit smallint(6),
 		 no_questions smallint(6),
@@ -95,11 +95,11 @@ $sql = "SELECT * FROM quiz";
 $result = $con->query($sql) or die("Error: ". $con->error);
 if($result->num_rows == 0)
 {
-	$sql = "INSERT INTO quiz(name, subject, time_limit, no_questions, total)
-			VALUES ('GenCS', 'CS101', '10', '4', '100')";
+	$sql = "INSERT INTO quiz(name, subject, time_limit, no_quetions, total)
+			VALUES ('GenCS', 'CS101', '10', '4', '4')";
 	$con->query($sql);
-	$sql = "INSERT INTO quiz(name, subject, time_limit, no_questions, total)
-			VALUES ('GenMath', 'MA101', '10', '4', '100')";
+	$sql = "INSERT INTO quiz(name, subject, time_limit, no_quetions, total)
+			VALUES ('GenMath', 'MA101', '10', '4', '4')";
 	$con->query($sql);
 }
 ?>

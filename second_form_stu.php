@@ -59,6 +59,6 @@ session_start();
 <label for="dob"><b>Date of Birth*</b></label><br><input type="date" name = "dob" required/><br>
 <label for="bio"><b>Bio</b></label><br>
 <textarea id="bio" class="text" cols="20" rows ="5" name="bio" form="second"></textarea>
-<input type="submit" value ="Update"/>
+<input type="submit" value ="Update"/></form>
 </body>
 </html>

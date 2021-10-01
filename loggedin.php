@@ -122,6 +122,7 @@ session_start();
             <div class="topnav">
                 <a class="active" href="loggedin.php">Home</a>
                 <a href="Quiz App/select.php">Quizzes</a>
+				<a href="Quiz App/create.php">Create Quiz</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>
