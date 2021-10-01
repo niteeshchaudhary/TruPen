@@ -89,6 +89,9 @@ mysqli_close($mysql);
 <?php
 if($x==1){
 	$_SESSION["user"] = $user_id;
+	$filePath = 'Image_Components/default.jpg';
+	$destinationFilePath = 'profile_pic/student/'.$user_id.'.jpg';
+	copy($filePath, $destinationFilePath);
     echo '
     <audio id="sound" autoplay>
     <source src="Sound FX\Login Sound Effect (No copyright sound effects) Sounds.mp3">

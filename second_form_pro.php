@@ -1,9 +1,6 @@
 <?php
 session_start();
 	$x = $_SESSION["user"];
-	$filePath = 'Image_Components/default.jpg';
-	$destinationFilePath = 'profile_pic/'.$x.'.jpg';
-	copy($filePath, $destinationFilePath);
 	if(isset($_FILES['image'])){
 		$x = $_SESSION["user"];
 			$imgFile = $_FILES['image']['name'];

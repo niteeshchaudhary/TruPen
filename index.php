@@ -51,10 +51,55 @@ $result = $con->query($sql) or die("Error: ". $con->error);
 if($result->num_rows == 0)
 {
 	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir)
-			VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person', 'profile_pic/user.jpg')";
+			VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person', 'profile_pic/student/user.jpg')";
 	$con->query($sql);
 	$sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir)
-			VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', 'profile_pic/eval.jpg')";
+			VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', 'profile_pic/student/eval.jpg')";
+	$con->query($sql);
+}
+$sql = 'CREATE TABLE IF NOT EXISTS admin
+		(username varchar(120) PRIMARY KEY,
+		 passcode varchar(120),
+		 firstname varchar(120),
+		 lastname varchar(120),
+		 email varchar(120) unique,
+		 gender varchar(120),
+		 birthday varchar(120),
+		 subject varchar(120),
+		 img_dir varchar(120)
+		)';
+if ($con->query($sql) === FALSE)
+{
+	die("Error creating table: " . $con->error);
+}
+$sql = "SELECT * FROM admin";
+$result = $con->query($sql) or die("Error: ". $con->error);
+if($result->num_rows == 0)
+{
+	$sql = "INSERT INTO admin(username, passcode, firstname, lastname, email, gender, birthday, subject, img_dir)
+			VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'MA101', 'profile_pic/teacher/user.jpg')";
+	$con->query($sql);
+}
+$sql = 'CREATE TABLE IF NOT EXISTS quiz
+		(name varchar(120) PRIMARY KEY,
+		 subject varchar(120),
+		 time_limit smallint(6),
+		 no_questions smallint(6),
+		 total smallint(6)
+		)';
+if ($con->query($sql) === FALSE)
+{
+	die("Error creating table: " . $con->error);
+}
+$sql = "SELECT * FROM quiz";
+$result = $con->query($sql) or die("Error: ". $con->error);
+if($result->num_rows == 0)
+{
+	$sql = "INSERT INTO quiz(name, subject, time_limit, no_questions, total)
+			VALUES ('GenCS', 'CS101', '10', '4', '100')";
+	$con->query($sql);
+	$sql = "INSERT INTO quiz(name, subject, time_limit, no_questions, total)
+			VALUES ('GenMath', 'MA101', '10', '4', '100')";
 	$con->query($sql);
 }
 ?>
