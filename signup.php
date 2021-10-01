@@ -167,11 +167,11 @@ svg {
                     success: function(msg){
                         document.getElementById("avail").innerHTML = emojiea[msg];
                         if(msg==2){
-                          document.getElementById("error").innerHTML="<font style='color:#FF2400;font-size:tiny;'>*Error : user name not available !</font>"
+                          document.getElementById("error").innerHTML="<font style='color:#FF2400;font-size:tiny;'>*Error : user name not available !</font>";
                           submit_chk=true;
                         }
                         else{
-                          document.getElementById("error").innerHTML=""
+                          document.getElementById("error").innerHTML="";
                           
                           submit_chk=false;
                         }
