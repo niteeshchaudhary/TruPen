@@ -1,3 +1,31 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.gradient-text {
+    font-size: 34px;
+    background-image: -webkit-gradient(linear, left top, right top, from(var(--color-m)), color-stop(var(--color-e)), color-stop(var(--color-m)), to(var(--color-v)));
+    background-image: -webkit-linear-gradient(left, var(--color-m) 0%, var(--color-e) 50%, var(--color-m) 150%, var(--color-v) 200%);
+    background-image: linear-gradient(to right, var(--color-m) 0%, var(--color-e) 50%, var(--color-m) 150%, var(--color-v) 200%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .buttonOn {
     background-color: #9eadc5;
     border: none;
@@ -271,6 +299,7 @@ section {
     width: 20px;
     height: 20px;
 }
+
 .form .inputBx .password-match {
     position: absolute;
     top: 5px;
@@ -279,6 +308,7 @@ section {
     width: 20px;
     height: 20px;
 }
+
 .form .inputBx .user-avail {
     position: absolute;
     top: 5px;
@@ -287,6 +317,7 @@ section {
     width: 20px;
     height: 20px;
 }
+
 .form .inputBx .view {
     background: url(Image_Components/no-view.svg) 0 0 no-repeat;
     transition: 0.5s;

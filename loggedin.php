@@ -12,7 +12,7 @@ session_start();
         <style>
             body {
                 color: orange;
-                background: #F8F0E3;
+                background: #f4ffff;
             }
             
             .container {
@@ -31,14 +31,19 @@ session_start();
             /* Add a black background color to the top navigation */
             
             .topnav {
-                background-color: #333;
+                position: sticky;
+                background-color: lightgray;
                 overflow: hidden;
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+
             }
             /* Style the links inside the navigation bar */
             
             .topnav a {
                 float: left;
-                color: #f2f2f2;
+                color: black;
                 text-align: center;
                 padding: 14px 16px;
                 text-decoration: none;
@@ -48,15 +53,36 @@ session_start();
             
             .topnav a:hover {
                 background-color: #ddd;
-                color: black;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             /* Add a color to the active/current link */
             
-            .topnav a.active {
-                background-color: #04AA6D;
-                color: white;
+            @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap");
+             :root {
+                --color-v: #7f71fe;
+                --color-m: #7e00ff;
+                --color-e: #ffbe3c;
             }
             
+            .topnav a.active {
+                font-weight: 400;
+                background-color: #4285F4;
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+            }
+            .gradient{
+                -webkit-text-stroke: 0.1pt white;
+                font-family: "Comfortaa", cursive;
+                background-image: -webkit-gradient(linear, left top, right top, from(var(--color-m)), color-stop(var(--color-e)), color-stop(var(--color-m)), to(var(--color-v)));
+                background-image: -webkit-linear-gradient(left, var(--color-m) 0%, var(--color-e) 50%, var(--color-m) 150%, var(--color-v) 200%);
+                background-image: linear-gradient(to right, var(--color-m) 0%, var(--color-e) 50%, var(--color-m) 150%, var(--color-v) 200%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
             .sidenav {
                 height: 100%;
                 width: 0;
@@ -64,7 +90,7 @@ session_start();
                 z-index: 1;
                 top: 0;
                 left: 0;
-                background-color: #111;
+                background-color: rgb(210, 210, 210);
                 overflow-x: hidden;
                 transition: 0.5s;
                 padding-top: 60px;
@@ -74,13 +100,13 @@ session_start();
                 padding: 8px 8px 8px 32px;
                 text-decoration: none;
                 font-size: 25px;
-                color: #818181;
+                color: #000000;
                 display: block;
                 transition: 0.3s;
             }
             
             .sidenav a:hover {
-                color: #f1f1f1;
+                color: #aefff4;
             }
             
             .sidenav .closebtn {
@@ -99,6 +125,21 @@ session_start();
                     font-size: 18px;
                 }
             }
+            
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(-360deg);
+                }
+            }
+            
+            .rotation {
+                animation-name: rotate;
+                animation-duration: 1s;
+                animation-iteration-count: 1;
+            }
         </style>
         <script>
             window.console = window.console || function(t) {};
@@ -116,13 +157,13 @@ session_start();
         <br>
         <center>
             <div class="container">
-                <h1><span style="font-size:30px;cursor:pointer" onclick="toggle();">&#9776; Dashboard</span></h1>
+                <h1><span style="font-size:30px;cursor:pointer" onclick="toggle();"> <div style = "display:inline-block;" id="rotation">&#9776; </div> Dashboard</span></h1>
             </div>
             <br><br>
             <div class="topnav">
-                <a class="active" href="loggedin.php">Home</a>
+                <a class="active gradient-text" href="loggedin.php"><img src="Image_Components\truPen Better Logo.png" style="width: 25pt;"><div style = "display:inline-block;" class="gradient">truPen</div></a>
                 <a href="Quiz App/select.php">Quizzes</a>
-				<a href="Quiz App/create.php">Create Quiz</a>
+                <a href="Quiz App/create.php">Create Quiz</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>
@@ -140,12 +181,19 @@ session_start();
         <script>
             function toggle() {
                 var x = document.getElementById("mySidenav");
+                var y = document.getElementById("rotation");
                 if (x.style.width === "250px") {
+                    y.classList.add("rotation");
                     closeNav();
                 } else {
+                    y.classList.add("rotation");
                     openNav();
                 }
+                setTimeout(() => {
+                    y.classList.remove("rotation");
+                }, 2500);
             }
+
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
             }
