@@ -5,7 +5,7 @@
 session_start();
 ?>
 <h1>Create Quiz</h1>
-<form align = "center" action="Q&A.php" method="post">
+<form align = "center" action="QnA.php" method="post">
 Name: <input type="text" name="name" required /><br>
 Subject: <input type="text" name="subject" required /><br>
 No of Questions: <input type="number" name="no" required /><br>
