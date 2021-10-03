@@ -31,13 +31,13 @@ session_start();
             /* Add a black background color to the top navigation */
             
             .topnav {
+                border-radius: 25px;
                 position: sticky;
                 background-color: lightgray;
                 overflow: hidden;
                 font-weight: 400;
                 display: flex;
                 align-items: center;
-
             }
             /* Style the links inside the navigation bar */
             
@@ -52,7 +52,8 @@ session_start();
             /* Change the color of links on hover */
             
             .topnav a:hover {
-                background-color: #ddd;
+                border-radius: 25px;
+                background-color: rgba(255, 251, 251, 0.418);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -73,7 +74,33 @@ session_start();
                 display: flex;
                 align-items: center;
             }
-            .gradient{
+            
+            @keyframes AnimationName {
+                0% {
+                    background-position: 0% 50%
+                }
+                50% {
+                    background-position: 100% 50%
+                }
+                100% {
+                    background-position: 0% 50%
+                }
+            }
+            
+            .topnav a.active:hover {
+                border-radius: 0px;
+                font-weight: 400;
+                background: linear-gradient(270deg, #4285f4, #7542f4, #eb42f4);
+                background-size: 600% 600%;
+                -webkit-animation: AnimationName 3s ease infinite;
+                -moz-animation: AnimationName 3s ease infinite;
+                animation: AnimationName 3s ease infinite;
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+            }
+            
+            .gradient {
                 -webkit-text-stroke: 0.1pt white;
                 font-family: "Comfortaa", cursive;
                 background-image: -webkit-gradient(linear, left top, right top, from(var(--color-m)), color-stop(var(--color-e)), color-stop(var(--color-m)), to(var(--color-v)));
@@ -83,6 +110,7 @@ session_start();
                 background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+            
             .sidenav {
                 height: 100%;
                 width: 0;
@@ -161,7 +189,10 @@ session_start();
             </div>
             <br><br>
             <div class="topnav">
-                <a class="active gradient-text" href="loggedin.php"><img src="Image_Components\truPen Better Logo.png" style="width: 25pt;"><div style = "display:inline-block;" class="gradient">truPen</div></a>
+                <a class="active gradient-text" href="loggedin.php"><img src="Image_Components\truPen Better Logo.png" style="width: 25pt;">
+                    <div style="display:inline-block;" class="gradient">truPen</div>
+                </a>
+                &nbsp;
                 <a href="Quiz App/select.php">Quizzes</a>
                 <a href="Quiz App/create.php">Create Quiz</a>
                 <a href="#contact">Contact</a>
@@ -191,7 +222,7 @@ session_start();
                 }
                 setTimeout(() => {
                     y.classList.remove("rotation");
-                }, 2500);
+                }, 1050);
             }
 
             function openNav() {
