@@ -16,7 +16,7 @@ $qryst="select * from ".$_GET["quiz_choosed"].";";
 <html>
 <head>
 <title><?php echo "Quiz : ".$_GET["quiz_choosed"]; ?></title>
-<link rel="stylesheet" href="style.css">
+
 <style>
   * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
@@ -31,7 +31,7 @@ img {vertical-align: middle;}
   max-height: 100px;
   min-height: 100px;
   left:15%;
-  top:5%;
+  top:10%;
 }
 
 /* Next & previous buttons */
@@ -178,7 +178,6 @@ img {vertical-align: middle;}
 }
 h2{
   padding: 1rem;
-  text-align: center;
   margin: 0;
 }
 
@@ -188,22 +187,12 @@ ul{
 }
 ul li{
   font-size: 1.2rem;
-  margin: 1rem 0;
+  margin: 1.3rem 1rem;
 }
 ul li label{
   cursor: pointer;
 }
-button{
-  background-color: #03cae4;
-  color: #fff;
-  border: none;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  font-size: 1.1rem;
-  font-family: inherit;
-  padding: 1.3rem;
-}
+
 .container {
     position: relative;
     padding: 50px;
@@ -368,11 +357,6 @@ button{
 </style>
 </head>
 <body>
-        <center>
-            <div class="container">
-                <h1><span style="font-size:30px;cursor:pointer" onclick="toggle();"> <div style = "display:inline-block;" id="rotation">&#9776; </div> Dashboard</span></h1>
-            </div>
-            <br><br>
             <div class="topnav">
                 <a class="active gradient-text" href="loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
                     <div style="display:inline-block;" class="gradient">truPen</div>
@@ -383,7 +367,6 @@ button{
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>
-        </center>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#">About</a>
@@ -412,80 +395,52 @@ button{
           </div>';
     }}
     ?>
-    <a  class="prev" onclick="plusDivs(-1)">&#10094;</a>
-    <a class="next" onclick="plusDivs(1)">&#10095;</a>
-    <a class="first" onclick="first()">&#10094;&#10094;</a>
-    <a class="last" onclick="last()">&#10095;&#10095;</a>
+    <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(-1)">&#10095;</a>
+    <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
+    <a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
       <div style="text-align:left">
       <div class="text"><a href="#" style="text-decoration: none;color:white;" id="blink">Submit</div>
       </div>
   </div>
-  <br>
-  <br>
-<br>
-<br>
-<br>
-<a href="newupload.php" style="text-decoration: none;" id = "blink2"><button>Upload Image</button></a>
-<br>
-<br>
-<br>
-<br>
 <form action="http://localhost/assperl/loggedin.php">
 <br>
 <button type="submit" id = "submit">Exit Quiz</button>
 </form>
 <script>
 var slideIndex = 1;
-var val;
-showDivs(slideIndex);
+showSlides(slideIndex);
 
-function plusDivs(n) {
-    val = n;
-    showDivs(slideIndex += n);
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    if (n > x.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = x.length };
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-        x[i].classList.add("left");
-    }
-    if (val != 1) {
-        x[slideIndex - 1].classList.remove("left");
-        x[slideIndex - 1].classList.add("right");
-    } else {
-        x[slideIndex - 1].classList.remove("right");
-        x[slideIndex - 1].classList.add("left");
-    }
-    x[slideIndex - 1].style.display = "block";
-}
-function first(){
-    var x = document.getElementsByClassName("mySlides");
-    var i;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    if(x[0].classList.item(0) != "left"){
-        x[0].classList.remove("right");
-        x[0].classList.add("left");
-    }
-    x[0].style.display = "block";
+function firstSlide() {
+  showSlides(slideIndex =1);
 }
 
-function last() {
-    var x = document.getElementsByClassName("mySlides");
-    var i;
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-    }
-    if(x[x.length-1].classList.item(0) != "right"){
-        x[x.length-1].classList.remove("left");
-        x[x.length-1].classList.add("right");
-    }
-    x[x.length-1].style.display = "block";
+function lastSlide() {
+  showSlides(slideIndex =-200);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
 }
 function toggle() {
                 var x = document.getElementById("mySidenav");
