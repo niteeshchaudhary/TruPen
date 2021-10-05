@@ -14,6 +14,7 @@ session_start();
             body {
                 color: orange;
                 background: #f4ffff;
+                transition: 0.5s;
             }
             .buttonOn {
     background-color: #9eadc5;
@@ -107,10 +108,12 @@ session_start();
 
             function openNav() {
                 document.getElementById("mySidenav").style.width = "250px";
+                document.body.style.marginLeft = "250px";
             }
 
             function closeNav() {
                 document.getElementById("mySidenav").style.width = "0";
+                document.body.style.marginLeft = "10px";
             }
             function blink(c){
 var s = document.getElementById(c);
