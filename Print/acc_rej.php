@@ -6,9 +6,18 @@ table, th, td {
   border: 1px solid black;
 }
 </style>
+<script type="text/javascript">
+function openPdf(s)
+{
+var omyFrame = document.getElementById("myFrame");
+omyFrame.style.display="block";
+omyFrame.src = s;
+}
+</script>
 </head>
 <body>
 <h1>Pending Requests</h1>
+<h3 style="color: red;">Please "Accept only after printing is successful!"</h3>
 <table>
 <tr>
  <th>User</th>
@@ -30,7 +39,7 @@ if($result->num_rows > 0)
  ?>
  <tr>
  <td><?php echo $row['user']; ?></td>
- <td><?php echo $row['location']; ?></td>
+ <td><input type="button" value="Preview/Print" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
  <td><?php echo $row['copies']; ?></td>
  <td><?php echo $row['type']; ?></td>
  <td><?php echo $row['comment']; ?></td>
@@ -42,6 +51,7 @@ if($result->num_rows > 0)
 }
 ?>
 </table>
+<iframe id="myFrame" style="display:none" width="1000" height="700"></iframe>
 <form action="../loggedin.php">
 <input type="submit" value="Back">
 </form>

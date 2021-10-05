@@ -6,6 +6,14 @@ table, th, td {
   border: 1px solid black;
 }
 </style>
+<script type="text/javascript">
+function openPdf(s)
+{
+var omyFrame = document.getElementById("myFrame");
+omyFrame.style.display="block";
+omyFrame.src = s;
+}
+</script>
 </head>
 <body>
 <h1>Pending Requests</h1>
@@ -29,7 +37,7 @@ if($result->num_rows > 0)
  {
  ?>
  <tr>
- <td><?php echo $row['location']; ?></td>
+ <td><input type="button" value="Preview" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
  <td><?php echo $row['copies']; ?></td>
  <td><?php echo $row['type']; ?></td>
  <td><?php echo $row['comment']; ?></td>
@@ -57,7 +65,7 @@ if($result->num_rows > 0)
  {
  ?>
  <tr>
- <td><?php echo $row['location']; ?></td>
+ <td><input type="button" value="Preview" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
  <td><?php echo $row['copies']; ?></td>
  <td><?php echo $row['type']; ?></td>
  <td><?php echo $row['comment']; ?></td>
@@ -84,7 +92,7 @@ if($result->num_rows > 0)
  {
  ?>
  <tr>
- <td><?php echo $row['location']; ?></td>
+ <td><input type="button" value="Preview" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
  <td><?php echo $row['copies']; ?></td>
  <td><?php echo $row['type']; ?></td>
  <td><?php echo $row['comment']; ?></td>
@@ -94,6 +102,8 @@ if($result->num_rows > 0)
 }
 ?>
 </table><br>
+<h1>Preview</h1>
+<iframe id="myFrame" style="display:none" width="1000" height="700"></iframe>
 </body>
 <form action="../loggedin.php">
 <input type="submit" value="Back">
