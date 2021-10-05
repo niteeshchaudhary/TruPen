@@ -69,7 +69,8 @@ session_start();
                 <a href="Quiz App/select.php">Quizzes</a>
                 <a href="Quiz App/create.php">Create Quiz</a>
 				<a href="Print/request.php">Print Request</a>
-				<a href="Print/accept.php">Print Accept</a>
+				<a href="Print/acc_rej.php">Print Accept/Reject</a>
+				<a href="Print/my_request.php">My Requests</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>

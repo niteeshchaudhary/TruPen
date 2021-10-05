@@ -66,5 +66,8 @@ session_start();
   </select><br>
   <label for="comment"><b>Comment: </b></label><br><input type="text" name = "comment" /><br>
 <input type="submit" value ="Request"/></form>
+<form action="../loggedin.php">
+<input type="submit" value="Back">
+</form>
 </body>
 </html>
