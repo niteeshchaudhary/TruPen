@@ -28,15 +28,6 @@ session_start();
             var filePath = fileInput.value;
             var allowedExtensions = /(\.pdf)$/i;
              const fi = document.getElementById('file');
-               const fsize = fi.files.item(0).size;
-                const file = Math.round((fsize / 1024));
-                // The size of the file.
-                if (file >= 5120) {
-                    alert(
-                      "File too Big, please select a file less than 5 MB");
-					  fileInput.value = '';
-					return false;
-                }
             if (!allowedExtensions.exec(filePath)) {
                 alert('Only .pdf files are allowed');
                 fileInput.value = '';
