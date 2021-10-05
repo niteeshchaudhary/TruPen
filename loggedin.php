@@ -71,6 +71,7 @@ session_start();
 				<a href="Print/request.php">Print Request</a>
 				<a href="Print/acc_rej.php">Print Accept/Reject</a>
 				<a href="Print/my_request.php">My Requests</a>
+                <a href="second_form_stu.php">Profile</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>
