@@ -1,14 +1,15 @@
 <?php
 session_start();
 	$x = $_SESSION["user"];
+	$upload_dir = 'profile_pic/';
+	$coverpic = $x;
 	if(isset($_FILES['image'])){
 		$x = $_SESSION["user"];
 			$imgFile = $_FILES['image']['name'];
 			$tmp_dir = $_FILES['image']['tmp_name'];
 			$imgSize = $_FILES['image']['size'];
 			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
-			$upload_dir = 'profile_pic/';
-			$coverpic = $x.".".$imgExt;
+			$coverpic = $coverpic.".".$imgExt;
 			move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
 	}
 		$con = new mysqli('localhost', 'root', NULL, 'trupendb');
@@ -21,7 +22,11 @@ session_start();
 				bio='".$_POST["bio"]."',
 				img_dir='".$upload_dir.$coverpic."'
 				WHERE username = '$x';";
-		$con->query($sql);
-		echo "Success!!";
-		exit();
+		if($con->query($sql)){
+			echo "Success!!";
+		}
+		else{
+			echo $mysql->error_log;
+		}
+		/*exit();*/
 ?>

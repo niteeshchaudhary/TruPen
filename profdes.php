@@ -5,9 +5,6 @@
   $result = $con->query($qryst);
   if ($result && $result->num_rows > 0) {
     if($row = $result->fetch_assoc()){
-      if($row["img_dir"]=="" || $row["img_dir"]==NULL){
-        $row["img_dir"]="profile_pic/student/user.jpg";
-      }
 ?>
 <!DOCTYPE html>
 <html>
@@ -429,7 +426,7 @@ button.complete .successMessage svg {
             <label for="DOB">Date of Birth</label>
 				</span><br>
 				<span>
-        <pre><a href="#" style="z-index: 4;margin-top:90%" >Change Password</a>       <a href="loggedin.php" style="z-index: 4;margin-top:90%" >Dashboard</a></pre>
+					<a href="#" style="z-index: 4;margin-top:90%" onclick="set();">Change Password</a>
 				</span>
         <div class="pos">
 				<div >
@@ -441,8 +438,22 @@ button.complete .successMessage svg {
 		</div>
 </form>
 <?php
+        echo"<script>
+        funtion set(){
+          document.findElementById('First_Name').innerHTML='".$row["firstname"]."';
+          document.findElementById('Last_Name').innerHTML='".$row["lastname"]."';
+          document.findElementById('Email_Id').value='".$row["email"]."';
+          document.findElementById('gender').value='".$row["gender"]."';
+          document.findElementById('dob').value='".$row["birthday"]."';
+          document.findElementById('bio').value='".$row["bio"]."';
+          document.getElementById('profile-image').style.background= 'url(".$row["img_dir"].") no-repeat center';
+          document.getElementById('profile-image').style.backgroundSize = '145px 145px';
+        }
+        set();
+        </script>";
     }
   }
+
 ?>
 <script type="text/javascript" src="Design_Components/jquery.min.js"></script>
 		<script>
