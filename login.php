@@ -57,7 +57,7 @@ body {
 
 $x = 0;
 
-$_SESSION['user_id'] = $_POST["LoginID"];
+$_SESSION['user'] = $_POST["LoginID"];
 $_SESSION['password'] = $_POST["password"];
 
 $mysql = new mysqli("localhost","root",NULL,"trupendb");

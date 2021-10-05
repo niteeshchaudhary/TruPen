@@ -91,16 +91,19 @@ if ($con->query($sql) === FALSE)
 {
 	die("Error creating table: " . $con->error);
 }
-$sql = "SELECT * FROM quiz";
-$result = $con->query($sql) or die("Error: ". $con->error);
-if($result->num_rows == 0)
+$sql = 'CREATE TABLE IF NOT EXISTS print
+		(No int NOT NULL AUTO_INCREMENT,
+		user varchar(120),
+		 location varchar(120),
+		 copies smallint(6),
+		 type varchar(120),
+		 status smallint(6),
+		 comment varchar(120),
+		 PRIMARY KEY (No)
+		)';
+if ($con->query($sql) === FALSE)
 {
-	$sql = "INSERT INTO quiz(name, subject, time_limit, no_quetions, total)
-			VALUES ('GenCS', 'CS101', '10', '4', '4')";
-	$con->query($sql);
-	$sql = "INSERT INTO quiz(name, subject, time_limit, no_quetions, total)
-			VALUES ('GenMath', 'MA101', '10', '4', '4')";
-	$con->query($sql);
+	die("Error creating table: " . $con->error);
 }
 ?>
 <body translate="no">
