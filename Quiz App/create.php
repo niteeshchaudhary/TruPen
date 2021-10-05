@@ -1,47 +1,29 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <title>Create Quiz</title>
+</head>
+<link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <style>
-    .topnav a {
-                float: left;
-                color: black;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-                font-size: 17px;
-            }
-            /* Change the color of links on hover */
-            
-            .topnav a:hover {
-                background-color: #ddd;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            /* Add a color to the active/current link */
-            
-            @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap");
-             :root {
-                --color-v: #7f71fe;
-                --color-m: #7e00ff;
-                --color-e: #ffbe3c;
-            }
-            
-            .topnav a.active {
-                font-weight: 400;
-                background-color: #4285F4;
-                font-weight: 400;
-                display: flex;
-                align-items: center;
-            }
             body {
                 color: orange;
                 background: #f4ffff;
             }
 </style>
 <body>
-<?php
-session_start();
-?>
+<div class="topnav">
+                <a class="active gradient-text" href="http://localhost/assperl/loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
+                    <div style="display:inline-block;" class="gradient">truPen</div>
+                </a>
+                &nbsp;
+                <a href="Quiz App/select.php">Quizzes</a>
+                <a href="Quiz App/create.php">Create Quiz</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+            </div>
 <h1>Create Quiz</h1>
 <form align = "center" action="QnA.php" method="post">
 Name: <input type="text" name="name" required /><br>
