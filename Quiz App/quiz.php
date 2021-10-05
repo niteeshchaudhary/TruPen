@@ -16,10 +16,13 @@ $qryst="select * from ".$_GET["quiz_choosed"].";";
 <html>
 <head>
 <title><?php echo "Quiz : ".$_GET["quiz_choosed"]; ?></title>
-
+<link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <style>
   * {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
+body {
+  font-family: Verdana, sans-serif; margin:0;
+  background: #f4ffff;
+}
 .mySlides {display: none;}
 img {vertical-align: middle;}
 
@@ -206,159 +209,89 @@ ul li label{
     border-radius: 10px;
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
 }
-
-
-/* Add a black background color to the top navigation */
-
-.topnav {
-    border-radius: 25px;
-    position: sticky;
-    background-color: lightgray;
-    overflow: hidden;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
+.sidepanel  {
+  text-align: center;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  height: 250px;
+  top: 200px;
+  right: 0;
+  background-color: #111;
+  overflow: hidden;
+  transition: 0.5s;
+  padding-top: 30px;
 }
 
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
 
-/* Style the links inside the navigation bar */
+.sidepanel a:hover {
+  color: #f1f1f1;
+}
 
-.topnav a {
-    float: left;
-    color: black;
+.sidepanel .closebtn1 {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+}
+
+.openbtn1 {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn1:hover {
+  background-color:#444;
+}
+
+.circlestyle{
+  border:none;
+  background-color:cyan;
+  box-shadow: 10px;
+  border-radius: 50%;
+  padding:5px;
+}
+.exitit{
+  background-color: #455d80;
+    border: none;
+    color: white;
+    padding: 10px 20px;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
-
-
-/* Change the color of links on hover */
-
-.topnav a:hover {
-    border-radius: 25px;
-    background-color: rgba(255, 251, 251, 0.418);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
-/* Add a color to the active/current link */
-
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&display=swap");
- :root {
-    --color-v: #7f71fe;
-    --color-m: #7e00ff;
-    --color-e: #ffbe3c;
-}
-
-.topnav a.active {
-    font-weight: 400;
-    background-color: #4285F4;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-}
-
-@keyframes AnimationName {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
-}
-
-.topnav a.active:hover {
-    border-radius: 0px;
-    font-weight: 400;
-    background: linear-gradient(270deg, #4285f4, #7542f4, #eb42f4);
-    background-size: 600% 600%;
-    -webkit-animation: AnimationName 3s ease infinite;
-    -moz-animation: AnimationName 3s ease infinite;
-    animation: AnimationName 3s ease infinite;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-}
-
-.gradient {
-    -webkit-text-stroke: 0.1pt white;
-    font-family: "Comfortaa", cursive;
-    background-image: -webkit-gradient(linear, left top, right top, from(var(--color-m)), color-stop(var(--color-e)), color-stop(var(--color-m)), to(var(--color-v)));
-    background-image: -webkit-linear-gradient(left, var(--color-m) 0%, var(--color-e) 50%, var(--color-m) 150%, var(--color-v) 200%);
-    background-image: linear-gradient(to right, var(--color-m) 0%, var(--color-e) 50%, var(--color-m) 150%, var(--color-v) 200%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: rgb(210, 210, 210);
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
+.exitit:hover {
+    background-color: #2a384d;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
     text-decoration: none;
-    font-size: 25px;
-    color: #000000;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #aefff4;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {
-        padding-top: 15px;
-    }
-    .sidenav a {
-        font-size: 18px;
-    }
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(-360deg);
-    }
-}
-
-.rotation {
-    animation-name: rotate;
-    animation-duration: 1s;
-    animation-iteration-count: 1;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 </style>
 </head>
-<body>
+<body style="margin-left:10px;margin-top:8px;margin-bottom:10px">
             <div class="topnav">
-                <a class="active gradient-text" href="loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
+                <a class="active gradient-text" href="http://localhost/assperl/loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
                     <div style="display:inline-block;" class="gradient">truPen</div>
                 </a>
                 &nbsp;
@@ -367,16 +300,12 @@ ul li label{
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
-        </div>
+            <div style="margin-right:10px" >
+                <h1 align="right" ><span style="font-size:30px;cursor:pointer;" class="circlestyle" onclick="toggle();"> <div style = "display:inline-block;width:40px;text-align: center;" id="rotation" >&#9776;</div></span></h1>
+            </div>
   <div class="slideshow-container">
+    <form method="post" action="#">
     <?php
-
     if ($result && $result->num_rows > 0) {
     for ($x = 0;$row = $result->fetch_assoc(); $x++) {
     echo '<div class="mySlides fade" id="'.$x.'">
@@ -395,17 +324,26 @@ ul li label{
           </div>';
     }}
     ?>
+    <div id="mySidePanel" class="sidepanel">
+            <?php
+            echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
+            for($i=1;$i<=$x;$i++){
+              $i1=$i-1;
+            echo '
+            <a onclick="firstSlide('.$i1.')">'.$i.'</a>
+            ';
+            }
+            echo '<button type="submit">SUBMIT</button>';
+            ?>
+     </div>
     <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(-1)">&#10095;</a>
     <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
     <a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
-      <div style="text-align:left">
-      <div class="text"><a href="#" style="text-decoration: none;color:white;" id="blink">Submit</div>
-      </div>
+    </form>
   </div>
 <form action="http://localhost/assperl/loggedin.php">
-<br>
-<button type="submit" id = "submit">Exit Quiz</button>
+<input type="submit" value="Exit Quiz" class="exitit">
 </form>
 <script>
 var slideIndex = 1;
@@ -415,8 +353,8 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-function firstSlide() {
-  showSlides(slideIndex =1);
+function firstSlide(x) {
+  showSlides(slideIndex =1+x);
 }
 
 function lastSlide() {
@@ -443,7 +381,7 @@ function showSlides(n) {
   dots[slideIndex-1].className += " active";
 }
 function toggle() {
-                var x = document.getElementById("mySidenav");
+                var x = document.getElementById("mySidePanel");
                 var y = document.getElementById("rotation");
                 if (x.style.width === "250px") {
                     y.classList.add("rotation");
@@ -458,11 +396,11 @@ function toggle() {
             }
 
             function openNav() {
-                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("mySidePanel").style.width = "250px";
             }
 
             function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("mySidePanel").style.width = "0";
             }
 </script>
 </body>

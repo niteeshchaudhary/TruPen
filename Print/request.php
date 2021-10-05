@@ -1,11 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
-<body>
 <?php 
 session_start();
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Print Request</title>
+</head>
+<link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+<body>
+<div class="topnav">
+                <a class="active gradient-text" href="http://localhost/assperl/loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
+                    <div style="display:inline-block;" class="gradient">truPen</div>
+                </a>
+                &nbsp;
+                <a href="Quiz App/select.php">Quizzes</a>
+                <a href="Quiz App/create.php">Create Quiz</a>
+                <a href="#contact">Contact</a>
+                <a href="#about">About</a>
+</div>
 <form align = "center" action="request2.php" method="post" enctype="multipart/form-data">
 <input type="file" id="file" accept="pdf/*" name="pdf" onchange="return fileValidation()" required />
 <div id="pdfPreview"></div>
