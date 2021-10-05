@@ -1,0 +1,86 @@
+<?php
+session_start();
+?>
+<html>
+<head>
+    <title>
+        LOGGING OFF
+    </title>
+    <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
+</head>     
+<style> 
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid cyan;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation-name: turn;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes turn {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+</style> 
+<body translate="no" style="color:purple;font: weight 1000px;">
+<br>
+
+<br>
+<div style="margin-top: 20pt; font-size:x-large" align="center">
+<br>
+</div>
+<br>
+<br>
+<br>
+<div align="center" style="color:red;">
+    Logging OFF</br>
+</div>
+<div align="center" id="print">
+</div>    
+
+<?php
+    // remove all session variables
+session_unset();
+
+// destroy the session
+session_destroy();
+echo '
+<audio id="sound" autoplay>
+    <source src="Sound_FX\Log-off.mp3">
+    </audio> 
+';
+header( "refresh:4 ; url = index.php" );
+?>
+
+<script>
+    x = document.getElementById("print");
+    x.innerHTML = "<div class='loader'></div> ";
+</script>    
+
+</body>
+</html>

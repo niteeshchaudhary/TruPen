@@ -27,7 +27,7 @@ if($result->num_rows > 0)
  ?>
  <tr>
 
- <td><a href="<?php echo 'qz.php?quiz_choosed='.$row['name']; ?>"><?php echo $row['name']; ?></a></td>
+ <td><a href="<?php echo 'quiz.php?quiz_choosed='.$row['name']; ?>"><?php echo $row['name']; ?></a></td>
  <td><?php echo $row['subject']; ?></td>
  <td><?php echo $row['time_limit']; ?></td>
  <td><?php echo $row['no_questions']; ?></td>
