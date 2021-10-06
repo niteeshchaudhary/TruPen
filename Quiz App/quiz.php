@@ -314,10 +314,10 @@ ul li label{
                 <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
                 <h2>'.$row["question"].'</h2>
                 <ul>
-                  <li><input type="radio" name="answer" id="a" class="answer"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-                  <li><input type="radio" name="answer" id="b" class="answer"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-                  <li><input type="radio" name="answer" id="c" class="answer"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-                  <li><input type="radio" name="answer" id="d" class="answer"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+                  <li><input type="radio" name="answer'.$x.'" id="a" class="answer"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
+                  <li><input type="radio" name="answer'.$x.'" id="b" class="answer"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
+                  <li><input type="radio" name="answer'.$x.'" id="c" class="answer"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
+                  <li><input type="radio" name="answer'.$x.'" id="d" class="answer"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
       	        </ul>
               </div>
             </div>
