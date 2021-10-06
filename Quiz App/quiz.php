@@ -330,14 +330,14 @@ ul li label{
             for($i=1;$i<=$x;$i++){
               $i1=$i-1;
             echo '
-            <a onclick="firstSlide('.$i1.')">'.$i.'</a>
+            <a onclick="currentSlide('.$i1.')">'.$i.'</a>
             ';
             }
             echo '<button type="submit">SUBMIT</button>';
             ?>
      </div>
     <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(-1)">&#10095;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
     <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
     <a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
     </form>
@@ -353,8 +353,8 @@ function plusSlides(n) {
   showSlides(slideIndex += n);
 }
 
-function firstSlide(x) {
-  showSlides(slideIndex =1+x);
+function firstSlide() {
+  showSlides(slideIndex =1);
 }
 
 function lastSlide() {
@@ -362,7 +362,7 @@ function lastSlide() {
 }
 
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides(slideIndex = n+1);
 }
 
 function showSlides(n) {
