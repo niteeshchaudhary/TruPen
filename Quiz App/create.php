@@ -15,12 +15,12 @@ session_start();
 </style>
 <body>
 <div class="topnav">
-                <a class="active gradient-text" href="http://localhost/assperl/loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
+                <a class="active gradient-text" href="../loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
                     <div style="display:inline-block;" class="gradient">truPen</div>
                 </a>
                 &nbsp;
-                <a href="Quiz App/select.php">Quizzes</a>
-                <a href="Quiz App/create.php">Create Quiz</a>
+                <a href="select.php">Quizzes</a>
+                <a href="create.php">Create Quiz</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>
