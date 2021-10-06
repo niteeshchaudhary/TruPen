@@ -8,8 +8,7 @@ session_start();
 			$imgFile = $_FILES['image']['name'];
 			$tmp_dir = $_FILES['image']['tmp_name'];
 			$imgSize = $_FILES['image']['size'];
-			$imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION));
-			$coverpic = $coverpic.".".$imgExt;
+			$coverpic = $coverpic."."."jpg";
 			move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
 	}
 		$con = new mysqli('localhost', 'root', NULL, 'trupendb');
