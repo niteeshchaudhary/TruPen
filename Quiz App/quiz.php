@@ -23,76 +23,88 @@ body {
   font-family: Verdana, sans-serif; margin:0;
   background: #f4ffff;
 }
-.mySlides {display: none;}
+.mySlides {
+  display: none;
+  height: 500px;
+}
 img {vertical-align: middle;}
-
+.main-container {
+  display:flexbox;
+  /*flex-flow: row wrap;*/
+  padding: 20px;
+  margin: 10px;
+  margin-left: 400px;
+  height:80%;
+  max-width:1300px;
+}
 /* Slideshow container */
 .slideshow-container {
-  max-width: 500px;
-  position: fixed;
-  min-width: 500px;
-  max-height: 100px;
-  min-height: 100px;
-  left:15%;
-  top:10%;
+  float: left;
+  max-width: 700px;
+  min-width: 600px;
+  max-height: 500px;
+  min-height: 400px;
 }
-
+.slideshow-container form {
+  max-width: 700px;
+  min-width: 600px;
+  max-height: 500px;
+  min-height: 400px;
+}
+.slideshow-container .navstp{
+  display: inline-block;
+  padding: 3px;
+  background-color: #f1f1f1;
+  width:100%;
+  height:63px;
+}
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   background-color: rgba(0,0,0,0.1);
-  position: absolute;
-  top: 100%;
+  margin-left: 5px;
+  margin-right: 5px;
   width: auto;
   padding: 16px;
-  margin-top: 300px;
   color: white;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 10%;
   user-select: none;
 }
 .first{
   cursor: pointer;
+  float: left;
   background-color: rgba(100,0,0,0.5);
-  position: absolute;
-  top: 100%;
-  margin-left:10%;
   width: auto;
   padding: 16px;
-  margin-top: 400px;
   color: white;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 10%;
   user-select: none;
 }
 .last {
   cursor: pointer;
+  float: right;
   background-color: rgba(0,100,0,0.5);
-  position: absolute;
-  top: 100%;
   width: auto;
   padding: 16px;
-  margin-top: 400px;
   color: white;
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  margin-left:100%;
+  border-radius: 10%;
   user-select: none;
 }
 /* Position the "next button" to the right */
-.next {
-  right: 30;
-  border-radius: 3px 0 0 3px;
+ .next {
+  float: right;
 }
 .prev {
-  left: 120;
-  border-radius: 3px 0 0 3px;
+  float: left;
 }
 
 /* On hover, add a black background color with a little bit see-through */
@@ -172,8 +184,8 @@ img {vertical-align: middle;}
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
-  width: 600px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 .quiz-header{
@@ -208,39 +220,6 @@ ul li label{
     backdrop-filter: blur(5px);
     border-radius: 10px;
     box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-}
-.sidepanel  {
-  text-align: center;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  height: 250px;
-  top: 200px;
-  right: 0;
-  background-color: #111;
-  overflow: hidden;
-  transition: 0.5s;
-  padding-top: 30px;
-}
-
-.sidepanel a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidepanel a:hover {
-  color: #f1f1f1;
-}
-
-.sidepanel .closebtn1 {
-  position: absolute;
-  top: 0;
-  left: 25px;
-  font-size: 36px;
 }
 
 .openbtn1 {
@@ -287,6 +266,141 @@ ul li label{
     margin: 4px 2px;
     cursor: pointer;
 }
+
+
+.navboxd {
+			  display: block;
+        float: right;
+			  height: 100%;
+			  width: 275px;
+			  align-content: center;
+			  background-color: rgba(235,235,235,0.13);
+			  border-radius: 10px;
+			  backdrop-filter: blur(10px);
+			  border: 2px solid rgba(255,255,255,0.1);
+			  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+			}
+			.flexbox {
+			  display: flex;
+			  padding-left: 5px;
+			  padding-right: 5px;
+        margin: 5px;
+			  flex-flow: row wrap;
+			  width: 260px; /* 4 items * item width(100+5+5) = 440 */
+			  background-color: rgba(235,235,235,0.13);
+			  border-radius: 10px;
+			  backdrop-filter: blur(10px);
+			  border: 2px solid rgba(255,255,255,0.1);
+			  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+			}
+
+			.flexbox .flex-item {
+			  padding: 5px;
+			  margin: 5px;
+			  width: 45px;
+        cursor: pointer;
+			  height: 45px;
+			  align-content: center;
+			  vertical-align: center;
+			  border-radius: 50%;
+			  background-color: #dfdfdf;
+			}
+			.flexbox .flex-item-rev {
+			  padding: 5px;
+			  margin: 5px;
+			  width: 45px;
+			  height: 45px;
+			  align-content: center;
+			  vertical-align: center;
+			  border-radius: 50%;
+			  background-color: #aa00aa;
+			}
+			.flexbox .flex-item-leftb {
+			  padding: 5px;
+			  margin: 5px;
+			  width: 45px;
+			  height: 45px;
+			  align-content: center;
+			  vertical-align: center;
+			  border-radius: 50%;
+			  background-color: #a00;
+			}
+			.flexbox .flex-item-attempt {
+			  padding: 5px;
+			  margin: 5px;
+			  width: 45px;
+			  height: 45px;
+			  align-content: center;
+			  vertical-align: center;
+			  border-radius: 50%;
+			  background-color: #0f0;
+			}
+			.flexbox .flex-item .con {
+			  display: block;
+			  padding: 5px;
+			  margin: 5px;
+			  border-radius: 50%;
+			  border-color: black;
+			  background-color: #fff;
+			  box-shadow: 5px;
+			  text-align: center;
+			}
+			.flexbox .flex-item-rev .con {
+			  display: block;
+			  padding: 5px;
+			  margin: 5px;
+			  border-radius: 50%;
+			  border-color: black;
+			  background-color: #fff;
+			  box-shadow: 5px;
+			  text-align: center;
+			}
+			.flexbox .flex-item-attempt .con {
+			  display: block;
+			  padding: 5px;
+			  margin: 5px;
+			  border-radius: 50%;
+			  border-color: black;
+			  background-color: #fff;
+			  box-shadow: 5px;
+			  text-align: center;
+			}
+			.flexbox .flex-item-leftb .con {
+			  display: block;
+			  padding: 5px;
+			  margin: 5px;
+			  border-radius: 50%;
+			  border-color: black;
+			  background-color: #ff0000;
+			  box-shadow: 5px;
+			  text-align: center;
+			}
+			.head {
+			  padding: 5px;
+			  margin: 5px;
+			  text-align: center;
+			  background-color: rgba(235,235,235,0.13);
+			  border-radius: 10px;
+			  backdrop-filter: blur(10px);
+			  border: 2px solid rgba(255,255,255,0.1);
+			  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+			}
+			.botm{
+				  padding: 5px;
+			    margin: 5px;
+          top: 400px;
+			    text-align: center;
+			    background-color: rgba(0,0,255,0.23);
+			    border-radius: 10px;
+			    backdrop-filter: blur(10px);
+			    border: 2px solid rgba(255,255,255,0.1);
+			    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+			}
+			.botm button {
+			  background-color: rgba(20,25,235,0.13);
+			  border-radius: 5px;
+			  border: 4px solid rgba(255,255,255,0.2);
+			}
 </style>
 </head>
 <body style="margin-left:10px;margin-top:8px;margin-bottom:10px">
@@ -300,47 +414,57 @@ ul li label{
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
             </div>
-            <div style="margin-right:10px" >
-                <h1 align="right" ><span style="font-size:30px;cursor:pointer;" class="circlestyle" onclick="toggle();"> <div style = "display:inline-block;width:40px;text-align: center;" id="rotation" >&#9776;</div></span></h1>
-            </div>
-  <div class="slideshow-container">
-    <form method="post" action="#">
-    <?php
-    if ($result && $result->num_rows > 0) {
-    for ($x = 0;$row = $result->fetch_assoc(); $x++) {
-    echo '<div class="mySlides fade" id="'.$x.'">
-            <div class="quiz-container" id="quiz">
-              <div class="quiz-header">
-                <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
-                <h2>'.$row["question"].'</h2>
-                <ul>
-                  <li><input type="radio" name="answer'.$x.'" id="a" class="answer"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-                  <li><input type="radio" name="answer'.$x.'" id="b" class="answer"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-                  <li><input type="radio" name="answer'.$x.'" id="c" class="answer"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-                  <li><input type="radio" name="answer'.$x.'" id="d" class="answer"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
-      	        </ul>
+  <div class="main-container">
+    <div class="slideshow-container">
+      <form method="post" action="#">
+      <?php
+      if ($result && $result->num_rows > 0) {
+      for ($x = 0;$row = $result->fetch_assoc(); $x++) {
+      echo '<div class="mySlides fade" id="'.$x.'">
+              <div class="quiz-container" id="quiz">
+                <div class="quiz-header">
+                  <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
+                  <h2>'.$row["question"].'</h2>
+                  <ul>
+                    <li><input type="radio" name="answer'.$x.'" id="a" class="answer"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
+                    <li><input type="radio" name="answer'.$x.'" id="b" class="answer"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
+                    <li><input type="radio" name="answer'.$x.'" id="c" class="answer"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
+                    <li><input type="radio" name="answer'.$x.'" id="d" class="answer"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </div>';
-    }}
+            </div>';
+      }}
+      ?>
+      </form>
+      <div class="navstp">
+        <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
+      </div>
+      
+    </div>
+  <?php
+      echo'<div class="navboxd">
+      <h1 class="head">Quiz Navigation</h1>
+        <hr noshade="2">
+      <div class="flexbox">';
+    //echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
+    for($i=1;$i<=$x;$i++){
+      $i1=$i-1;
+    //echo '<a onclick="currentSlide('.$i1.')">'.$i.'</a>';
+      echo'<div class="flex-item"><a onclick="currentSlide('.$i1.')">
+          <h6 class="con">'.$i.'</h6></a>
+        </div>';
+    }
+    //echo '<button type="submit">SUBMIT</button>';
+    echo'</div>
+    <hr noshade="2">
+      
+        <button><font color="white" ><b>Submit</b></font></button>
+    </div>';
     ?>
-    <div id="mySidePanel" class="sidepanel">
-            <?php
-            echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
-            for($i=1;$i<=$x;$i++){
-              $i1=$i-1;
-            echo '
-            <a onclick="currentSlide('.$i1.')">'.$i.'</a>
-            ';
-            }
-            echo '<button type="submit">SUBMIT</button>';
-            ?>
-     </div>
-    <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
-    <a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
-    </form>
   </div>
 <form action="../loggedin.php">
 <input type="submit" value="Exit Quiz" class="exitit">
