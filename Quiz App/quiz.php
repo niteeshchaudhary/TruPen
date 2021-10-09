@@ -110,12 +110,15 @@ img {vertical-align: middle;}
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
+  border: 2px solid rgba(200,250,250,0.8);
 }
 .first:hover{
   background-color: rgba(100,0,0,0.8);
+  border: 2px solid rgba(200,150,200,0.8);
 }
 .last:hover {
   background-color: rgba(0,100,0,0.8);
+  border: 2px solid rgba(200,150,200,0.8);
 }
 
 /* Caption text */
@@ -271,7 +274,7 @@ ul li label{
 .navboxd {
 			  display: block;
         float: right;
-			  height: 100%;
+			  height: 106%;
 			  width: 275px;
 			  align-content: center;
 			  background-color: rgba(235,235,235,0.13);
@@ -304,6 +307,9 @@ ul li label{
 			  vertical-align: center;
 			  border-radius: 50%;
 			  background-color: #dfdfdf;
+			}
+      .flexbox .act {
+			  background-color: #999999;
 			}
 			.flexbox .flex-item-rev {
 			  padding: 5px;
@@ -388,19 +394,38 @@ ul li label{
 			.botm{
 				  padding: 5px;
 			    margin: 5px;
-          top: 400px;
+          position: absolute;
+          bottom: 0;
+          width:96%;
 			    text-align: center;
 			    background-color: rgba(0,0,255,0.23);
 			    border-radius: 10px;
 			    backdrop-filter: blur(10px);
 			    border: 2px solid rgba(255,255,255,0.1);
 			    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+          background-color: #03cae4;
 			}
-			.botm button {
-			  background-color: rgba(20,25,235,0.13);
+			.botm .btn { 
 			  border-radius: 5px;
 			  border: 4px solid rgba(255,255,255,0.2);
-			}
+        color: #fff;
+        border: none;
+        display:inline-flex;
+        width: 100%;
+        font-size: 1 rem;
+        font-family: sans-serif;
+        padding: 1rem;
+        background-color: rgba(20,25,235,0.13);
+    }
+    .btn:hover {
+      border: 4px solid rgba(255,255,255,0.8);
+      background-color: rgba(200,25,25,0.4);
+    }
+
+    .btn:focus {
+      outline: none;
+      background-color: rgba(200,250,235,0.13);
+  }
 </style>
 </head>
 <body style="margin-left:10px;margin-top:8px;margin-bottom:10px">
@@ -447,7 +472,7 @@ ul li label{
     </div>
   <?php
       echo'<div class="navboxd">
-      <h1 class="head">Quiz Navigation</h1>
+      <h3 class="head">Quiz Navigation</h3>
         <hr noshade="2">
       <div class="flexbox">';
     //echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
@@ -461,8 +486,7 @@ ul li label{
     //echo '<button type="submit">SUBMIT</button>';
     echo'</div>
     <hr noshade="2">
-      
-        <button><font color="white" ><b>Submit</b></font></button>
+        <div class="botm"><button class="btn"><font color="white" ><b>Submit</b></font></button></div>
     </div>';
     ?>
   </div>
@@ -492,17 +516,17 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
+  var dots = document.getElementsByClassName("flex-item");
   if (n > slides.length) {slideIndex = 1}    
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";  
   }
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+      dots[i].className = dots[i].className.replace(" act", "");
   }
   slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  dots[slideIndex-1].className += " act";
 }
 function toggle() {
                 var x = document.getElementById("mySidePanel");
