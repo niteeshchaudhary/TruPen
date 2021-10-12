@@ -36,7 +36,7 @@
 			box-shadow: inset 1px 1px 10px 6px white;
 		}
 		.profil-img {
-          background-image:url("<?php echo $row["img_dir"]; ?>");
+          background-image:url("");
 					width: 145px;
 					height: 145px;
 					cursor: pointer;
@@ -418,11 +418,18 @@ button.complete .successMessage svg {
 				</span>
 				<span>
 				    <select class="skinny2"  name="gender" id="gender" value="<?php echo $row["gender"]; ?>">
-					    <option value="Male">Male</option>
-					    <option value="Female">Female</option>
-					    <option value="Others">Others</option>
+					    <option value="male">Male</option>
+					    <option value="female">Female</option>
+					    <option value="others">Others</option>
 					  </select><label for="Gender">Gender</label>
 				</span>
+        <?php
+          $a=["male"=>0,"female"=>1,"others"=>2];
+          echo "<script>document.getElementById('gender').selectedIndex=".$a[$row['gender']].";
+          document.getElementById('profile-image').style.background= 'url(".$row["img_dir"].") no-repeat center';
+          document.getElementById('profile-image').style.backgroundSize = '145px 145px';
+          </script>";
+        ?>
 				<span>
 				    <input class="balloon" id="dob" name = "dob" type="date" value="<?php echo $row["birthday"]; ?>" placeholder="Years you passed!" />
             <label for="DOB">Date of Birth</label>
