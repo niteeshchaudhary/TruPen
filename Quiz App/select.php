@@ -8,10 +8,15 @@ session_start();
 </head>
 <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <style>
-	body{
+	body
+	{
 		color:orange;
         background: #f4ffff;
         font-family: 'Poppins', sans-serif;
+	}
+	table, th, td 
+	{
+		border: 1px solid black;
 	}
 </style>
 <body>
@@ -53,10 +58,16 @@ if($result->num_rows > 0)
 {
  while($row = $result->fetch_assoc())
  {
+	 $sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
+	$result2 = $con->query($sql) or die("Error: ". $con->error);
+	if($result2->num_rows > 0)
+	{
+		continue;
+	}
  ?>
  <tr>
 
- <td><a href="<?php echo 'quiz.php?quiz_choosed='.$row['name'].'&time='.$row['time_limit']; ?>"><?php echo $row['name']; ?></a></td>
+ <td><a href="<?php echo 'quiz.php?quiz_name='.$row['name'].'&quiz_subject='.$row['subject'].'&time='.$row['time_limit']; ?>"><?php echo $row['name']; ?></a></td>
  <td><?php echo $row['subject']; ?></td>
  <td><?php echo $row['time_limit']; ?></td>
  <td><?php echo $row['no_questions']; ?></td>
@@ -66,5 +77,40 @@ if($result->num_rows > 0)
  }
 }
 ?>
+<h1>Not-Attempted</h1>
+<table>
+<tr>
+ <th>Name</th>
+ <th>Subject</th>
+ <th>Marks Obtained</th>
+ <th>Total Marks</th>
+ <th>Time Taken</th>
+ </tr>
+<?php
+$sql = "SELECT * FROM quiz";
+$result = $con->query($sql) or die("Error: ". $con->error);
+if($result->num_rows > 0)
+{
+ while($row = $result->fetch_assoc())
+ {
+	 $sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
+	$result2 = $con->query($sql) or die("Error: ". $con->error);
+	if($result2->num_rows > 0)
+	{
+		while($row2 = $result2->fetch_assoc()){
+?>
+	<tr>
+	<td><?php echo $row['name']; ?></td>
+	<td><?php echo $row['subject']; ?></td>
+	<td><?php echo $row2['marks']; ?></td>
+	<td><?php echo $row['total']; ?></td>
+	<td><?php echo $row2['time']; ?></td>
+	</tr>
+ <?php
+		}}
+ }
+}
+?>
+<h1>Attempted</h1>
 </body>
 </html>

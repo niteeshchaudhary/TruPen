@@ -57,7 +57,7 @@ if($result->num_rows == 0)
 			VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', 'profile_pic/student/eval.jpg')";
 	$con->query($sql);
 }
-$sql = 'CREATE TABLE IF NOT EXISTS admin
+$sql = 'CREATE TABLE IF NOT EXISTS teacher
 		(username varchar(120) PRIMARY KEY,
 		 passcode varchar(120),
 		 firstname varchar(120),
@@ -72,20 +72,21 @@ if ($con->query($sql) === FALSE)
 {
 	die("Error creating table: " . $con->error);
 }
-$sql = "SELECT * FROM admin";
+$sql = "SELECT * FROM teacher";
 $result = $con->query($sql) or die("Error: ". $con->error);
 if($result->num_rows == 0)
 {
-	$sql = "INSERT INTO admin(username, passcode, firstname, lastname, email, gender, birthday, subject, img_dir)
+	$sql = "INSERT INTO teacher(username, passcode, firstname, lastname, email, gender, birthday, subject, img_dir)
 			VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'MA101', 'profile_pic/teacher/user.jpg')";
 	$con->query($sql);
 }
 $sql = 'CREATE TABLE IF NOT EXISTS quiz
-		(name varchar(120) PRIMARY KEY UNIQUE,
+		(name varchar(120),
 		 subject varchar(120),
 		 time_limit smallint(6),
 		 no_questions smallint(6),
-		 total smallint(6)
+		 total smallint(6),
+		 UNIQUE(name, subject)
 		)';
 if ($con->query($sql) === FALSE)
 {

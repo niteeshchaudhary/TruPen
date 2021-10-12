@@ -4,18 +4,19 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "trupendb";
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$qryst="select * from ".$_GET["quiz_choosed"].";";
+$_SESSION["quiz_name"] = $_GET["quiz_name"];
+$_SESSION["quiz_subject"] = $_GET["quiz_subject"];
+$qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
      $result = $conn->query($qryst);
 ?>
 <html>
 <head>
-<title><?php echo "Quiz : ".$_GET["quiz_choosed"]; ?></title>
+<title><?php echo "Quiz : ".$_SESSION["quiz_name"]; ?></title>
 <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <style>
   * {box-sizing: border-box}
@@ -504,7 +505,7 @@ ul li label{
             </div>
   <div class="main-container">
     <div class="slideshow-container">
-      <form method="post" action="#">
+      <form method="post" action="evaluation.php">
       <?php
       $x=0;
       if ($result && $result->num_rows > 0) {
@@ -516,10 +517,10 @@ ul li label{
                   <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
                   <h2>'.$row["question"].'</h2>
                   <ul>
-                    <li><input type="radio" name="answer'.$x.'" id="a" class="answer"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-                    <li><input type="radio" name="answer'.$x.'" id="b" class="answer"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-                    <li><input type="radio" name="answer'.$x.'" id="c" class="answer"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-                    <li><input type="radio" name="answer'.$x.'" id="d" class="answer"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+                    <li><input type="radio" name="a_'.$x.'" id="a" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
+                    <li><input type="radio" name="b_'.$x.'" id="b" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
+                    <li><input type="radio" name="c_'.$x.'" id="c" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
+                    <li><input type="radio" name="d_'.$x.'" id="d" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
                   </ul>
                 </div>
               </div>
@@ -527,6 +528,7 @@ ul li label{
       }
       }
       ?>
+	  <input type="submit" value="Submit">
       </form>
       <div class="navstp">
         <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -553,11 +555,6 @@ ul li label{
           <h6 class="con">'.$i.'</h6></a>
         </div>';
     }
-    //echo '<button type="submit">SUBMIT</button>';
-    echo'</div>
-    <hr noshade="2">
-        <div class="botm"><button class="btn"><font color="white" ><b>Submit</b></font></button></div>
-    </div>';
     ?>
   </div>
 <form action="../loggedin.php">

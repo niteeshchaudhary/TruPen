@@ -1,5 +1,6 @@
 <?php
 session_start();
+$name_subject = $_SESSION["subject_quiz"];
 $name = $_SESSION["quiz_name"];
 $n = $_SESSION["quetion_no"];
 $i = 0;
@@ -14,7 +15,7 @@ while($i<$n)
 	$e = $_POST["d".$i];
 	$f = $_POST["answer".$i];
 	$g = $_POST["marks".$i];
-	$sql = "INSERT INTO $name(question, option_a, option_b, option_c, option_d, answer, marks)
+	$sql = "INSERT INTO $name_subject(question, option_a, option_b, option_c, option_d, answer, marks)
 			VALUES ('$a', '$b', '$c', '$d', '$e', '$f', '$g')";
 	if ($con->query($sql) === FALSE)
 	{
