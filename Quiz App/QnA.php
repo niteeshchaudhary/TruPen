@@ -51,7 +51,13 @@ Option A<input type="text" name = "<?php echo 'a'.$i ?>" required /><br>
 Option B<input type="text" name = "<?php echo 'b'.$i ?>" required /><br>
 Option C<input type="text" name = "<?php echo 'c'.$i ?>" required /><br>
 Option D<input type="text" name = "<?php echo 'd'.$i ?>" required /><br>
-Answer<input type="text" name = "<?php echo 'answer'.$i ?>" required /><br>
+Answer
+<select name="<?php echo 'answer'.$i ?>" id="answer">
+	<option value="a">a</option>
+	<option value="b">b</option>
+	<option value="c">c</option>
+	<option value="d">d</option>
+</select><br>
 Marks<input type="number" name = "<?php echo 'marks'.$i ?>" required /><br>
  <?php
  $i++;
