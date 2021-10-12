@@ -517,10 +517,10 @@ ul li label{
                   <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
                   <h2>'.$row["question"].'</h2>
                   <ul>
-                    <li><input type="radio" name="a_'.$x.'" id="a" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-                    <li><input type="radio" name="b_'.$x.'" id="b" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-                    <li><input type="radio" name="c_'.$x.'" id="c" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-                    <li><input type="radio" name="d_'.$x.'" id="d" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+                    <li><input type="radio" name="answer'.$x.'" id="a" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
+                    <li><input type="radio" name="answer'.$x.'" id="b" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
+                    <li><input type="radio" name="answer'.$x.'" id="c" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
+                    <li><input type="radio" name="answer'.$x.'" id="d" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
                   </ul>
                 </div>
               </div>

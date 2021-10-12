@@ -13,7 +13,7 @@ $user2 = $_SESSION["user"];
 while($row = $result1->fetch_assoc())
 {
 	$temp = $row["answer"].'_'.$x;
-	if(isset($_POST["$temp"]))
+	if($_POST["answer".$x] == $temp)
 	{
 		$marks += $row["marks"];
 	}
