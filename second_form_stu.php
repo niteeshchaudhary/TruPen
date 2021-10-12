@@ -278,7 +278,6 @@ button.loading .loadingCircle {
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-name: loading;
-  cy: 10;
 }
 
 button.complete .submitMessage svg {
