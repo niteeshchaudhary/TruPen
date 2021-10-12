@@ -424,7 +424,7 @@ button.complete .successMessage svg {
 					  </select><label for="Gender">Gender</label>
 				</span>
         <?php
-          $a=["male"=>0,"female"=>1,"others"=>2];
+          $a=[""=>0,"male"=>0,"female"=>1,"others"=>2];
           echo "<script>document.getElementById('gender').selectedIndex=".$a[$row['gender']].";
           document.getElementById('profile-image').style.background= 'url(".$row["img_dir"].") no-repeat center';
           document.getElementById('profile-image').style.backgroundSize = '145px 145px';
