@@ -74,7 +74,7 @@ echo '
     <source src="Sound_FX\Log-off.mp3">
     </audio> 
 ';
-header( "refresh:4 ; url = index.php" );
+header( "refresh:4 ; url = IITdh_portal.php" );
 ?>
 
 <script>

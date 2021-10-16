@@ -92,7 +92,7 @@
 <html lang="en" >
     <head>
         <meta charset="UTF-8">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
             * {
@@ -656,9 +656,46 @@
             .card-buttons {
             margin-right: 12px;
             }
+            .card-buttons:hover span{
+            transform: scale(1.1);
+            padding-right: 25px;
+            }
+            .card-buttons span {
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            }
+            .card-buttons span:after {
+                content: '\00bb';
+                opacity: 0;
+                transition: 0.5s;
+            }
+
+            .card-buttons:hover span:after {
+            opacity: 1;
+            }
             .card-buttons-msg {
             background-color: var(--inactive-color);
             color: var(--subtitle-color);
+            }
+
+            .card-buttons-msg:hover span{
+            transform: scale(1.1);
+            padding-right: 25px;
+            }
+            .card-buttons-msg span {
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+            }
+            .card-buttons-msg span:after {
+                content: '\00bb';
+                opacity: 0;
+                transition: 0.5s;
+            }
+
+            .card-buttons-msg:hover span:after {
+            opacity: 1;
             }
 
             .menu-dot {
@@ -1239,8 +1276,8 @@
                             <button class="search-buttons detail-button">24X7</button>
                         </div>
                         <div class="job-card-buttons">
-                            <button class="search-buttons card-buttons" onclick="location.href = 'stu_login.php'">Login</button>
-                            <button class="search-buttons card-buttons-msg" onclick="location.href = 'signup.php'">Sign Up</button>
+                            <button class="search-buttons card-buttons" onclick="location.href = 'stu_login.php'"><span>Login</span></button>
+                            <button class="search-buttons card-buttons-msg" onclick="location.href = 'signup.php'"><span>Sign Up</span></button>
                         </div>
                     </div>
 
@@ -1303,8 +1340,8 @@
                             <button class="search-buttons detail-button">24x7</button>
                         </div>
                         <div class="job-card-buttons">
-                            <button class="search-buttons card-buttons" onclick="location.href = 'tea_login.php'">Sign In</button>
-                            <button class="search-buttons card-buttons-msg" onclick="location.href = 'tea_signup.php'">Sign Up</button>
+                            <button class="search-buttons card-buttons" onclick="location.href = 'tea_login.php'"><span>Sign In</span></button>
+                            <button class="search-buttons card-buttons-msg" onclick="location.href = 'tea_signup.php'"><span>Sign Up</span></button>
                         </div>
                     </div>
 
@@ -1393,8 +1430,8 @@
                             <button class="search-buttons detail-button">Powerful Tool</button>
                         </div>
                         <div class="job-card-buttons">
-                            <button class="search-buttons card-buttons"> Sign In </button>
-                            <button class="search-buttons card-buttons-msg"> Sign Up </button>
+                            <button class="search-buttons card-buttons"><span> Sign In</span> </button>
+                            <button class="search-buttons card-buttons-msg"><span> Sign Up </span></button>
                         </div>
                     </div>
                 </div>
