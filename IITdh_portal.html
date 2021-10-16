@@ -6,176 +6,176 @@
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
             * {
-            outline: none;
-            box-sizing: border-box;
+                outline: none;
+                box-sizing: border-box;
             }
 
             :root {
-            --body-bg-color: #e5ecef;
-            --theme-bg-color: #fafafb;
-            --body-font: "Poppins", sans-serif;
-            --body-color: #2f2f33;
-            --active-color: #0162ff;
-            --active-light-color: #e1ebfb;
-            --header-bg-color: #fff;
-            --search-border-color: #efefef;
-            --border-color: #d8d8d8;
-            --alert-bg-color: #e8f2ff;
-            --subtitle-color: #83838e;
-            --inactive-color: #f0f0f0;
-            --placeholder-color: #9b9ba5;
-            --time-button: #fc5757;
-            --level-button: #5052d5;
-            --button-color: #fff;
+                --body-bg-color: #e5ecef;
+                --theme-bg-color: #fafafb;
+                --body-font: "Poppins", sans-serif;
+                --body-color: #2f2f33;
+                --active-color: #0162ff;
+                --active-light-color: #e1ebfb;
+                --header-bg-color: #fff;
+                --search-border-color: #efefef;
+                --border-color: #d8d8d8;
+                --alert-bg-color: #e8f2ff;
+                --subtitle-color: #83838e;
+                --inactive-color: #f0f0f0;
+                --placeholder-color: #9b9ba5;
+                --time-button: #fc5757;
+                --level-button: #5052d5;
+                --button-color: #fff;
             }
 
             .dark-mode {
-            --body-bg-color: #1d1d1d;
-            --theme-bg-color: #13131a;
-            --header-bg-color: #1c1c24;
-            --alert-bg-color: #292932;
-            --body-color: #fff;
-            --inactive-color: #292932;
-            --time-button: #fff;
-            --level-button: #fff;
-            --active-light-color: #263d63;
-            --border-color: #26262f;
-            --search-border-color: #26262f;
+                --body-bg-color: #1d1d1d;
+                --theme-bg-color: #13131a;
+                --header-bg-color: #1c1c24;
+                --alert-bg-color: #292932;
+                --body-color: #fff;
+                --inactive-color: #292932;
+                --time-button: #fff;
+                --level-button: #fff;
+                --active-light-color: #263d63;
+                --border-color: #26262f;
+                --search-border-color: #26262f;
             }
 
             ::-moz-placeholder {
-            color: var(--placeholder-color);
+                color: var(--placeholder-color);
             }
 
             :-ms-input-placeholder {
-            color: var(--placeholder-color);
+                color: var(--placeholder-color);
             }
 
             ::placeholder {
-            color: var(--placeholder-color);
+             color: var(--placeholder-color);
             }
 
             img {
-            max-width: 100%;
+                max-width: 100%;
             }
 
             html {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
+                box-sizing: border-box;
+                -webkit-font-smoothing: antialiased;
             }
 
             body {
-            background-color: var(--body-bg-color);
-            font-family: var(--body-font);
-            font-size: 15px;
-            color: var(--body-color);
+                background-color: var(--body-bg-color);
+                font-family: var(--body-font);
+                font-size: 15px;
+                color: var(--body-color);
             }
 
             .dark-light svg {
-            margin-right: 8px;
-            width: 22px;
-            cursor: pointer;
-            fill: transparent;
-            transition: 0.5s;
+                margin-right: 8px;
+                width: 22px;
+                cursor: pointer;
+                fill: transparent;
+                transition: 0.5s;
             }
 
             .dark-mode .dark-light svg {
-            fill: #ffce45;
-            stroke: #ffce45;
+                fill: #ffce45;
+                stroke: #ffce45;
             }
             .dark-mode .job-card svg {
-            box-shadow: none;
+             box-shadow: none;
             }
             .dark-mode .search.item {
-            color: var(--body-color);
-            border-color: var(--body-color);
+                color: var(--body-color);
+                border-color: var(--body-color);
             }
             .dark-mode .search-location svg,
-            .dark-mode .search-job svg,
-            .dark-mode .search-salary svg {
-            color: var(--body-color);
+                .dark-mode .search-job svg,
+                .dark-mode .search-salary svg {
+                color: var(--body-color);
             }
             .dark-mode .detail-button {
-            background-color: var(--inactive-color);
-            color: var(--subtitle-color);
+                background-color: var(--inactive-color);
+                color: var(--subtitle-color);
             }
 
             .job {
-            display: flex;
-            flex-direction: column;
-            max-width: 1400px;
-            height: 100vh;
-            margin: 0 auto;
-            overflow: hidden;
-            background-color: var(--theme-bg-color);
+                display: flex;
+                flex-direction: column;
+                max-width: 1400px;
+                height: 100vh;
+                margin: 0 auto;
+                overflow: hidden;
+                background-color: var(--theme-bg-color);
             }
 
             .logo {
-            display: flex;
-            align-items: center;
-            font-weight: 600;
-            font-size: 18px;
-            cursor: pointer;
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+                font-size: 18px;
+                cursor: pointer;
             }
             .logo svg {
-            width: 24px;
-            margin-right: 12px;
+                width: 24px;
+                margin-right: 12px;
             }
 
             .header {
-            display: flex;
-            align-items: center;
-            transition: box-shadow 0.3s;
-            flex-shrink: 0;
-            padding: 0 40px;
-            white-space: nowrap;
-            background-color: var(--header-bg-color);
-            height: 60px;
-            width: 100%;
-            font-size: 14px;
-            justify-content: space-between;
+                display: flex;
+                align-items: center;
+                transition: box-shadow 0.3s;
+                flex-shrink: 0;
+                padding: 0 40px;
+                white-space: nowrap;
+                background-color: var(--header-bg-color);
+                height: 60px;
+                width: 100%;
+                font-size: 14px;
+                justify-content: space-between;
             }
             .header-menu a {
-            text-decoration: none;
-            color: var(--body-color);
-            font-weight: 500;
+                text-decoration: none;
+                color: var(--body-color);
+                font-weight: 500;
             }
             .header-menu a:hover {
-            color: var(--active-color);
+                color: var(--active-color);
             }
             .header-menu a:not(:first-child) {
-            margin-left: 30px;
+                margin-left: 30px;
             }
             .header-menu a.active {
-            color: var(--active-color);
+                color: var(--active-color);
             }
 
             .user-settings {
-            display: flex;
-            align-items: center;
-            font-weight: 500;
+                display: flex;
+                align-items: center;
+                font-weight: 500;
             }
             .user-settings svg {
-            width: 20px;
-            color: #94949f;
+                width: 20px;
+                color: #94949f;
             }
 
             .user-menu {
-            position: relative;
-            margin-right: 8px;
-            padding-right: 8px;
-            border-right: 2px solid #d6d6db;
+                position: relative;
+                margin-right: 8px;
+                padding-right: 8px;
+                border-right: 2px solid #d6d6db;
             }
             .user-menu:before {
-            position: absolute;
-            content: "";
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            border: 2px solid var(--header-bg-color);
-            right: 6px;
-            top: -1px;
-            background-color: var(--active-color);
+                position: absolute;
+                content: "";
+                width: 7px;
+                height: 7px;
+                border-radius: 50%;
+                border: 2px solid var(--header-bg-color);
+                right: 6px;
+                top: -1px;
+                background-color: var(--active-color);
             }
 
             .user-profile {
