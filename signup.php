@@ -53,7 +53,7 @@ svg {
 <header>
         <div class="header">
             <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 512 512" fill="#fff" style="background-color:#99ffaa;border-radius:50%;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 512 512" fill="#fff" style="visibility: visible;background-color:#99ffaa;border-radius:50%;">
                     <g transform="translate(0.000000,524.000000) scale(0.110000,-0.110000)" fill="#000000" stroke="none">
                         <path d="M3234 3848 c-7 -11 6 -28 64 -89 l43 -46 -40 -63 c-23 -35 -41 -71
                         -41 -81 0 -10 -13 -41 -30 -67 -34 -56 -36 -67 -14 -76 17 -7 34 0 34 14 0 5
