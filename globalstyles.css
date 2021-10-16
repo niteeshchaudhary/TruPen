@@ -70,14 +70,14 @@
 
 .shape:first-child {
     background: linear-gradient( #1845ad, #23a2f6);
-    left: -80px;
-    top: -80px;
+    left: -60px;
+    top: -20px;
 }
 
 .shape:last-child {
     background: linear-gradient( to right, #ff512f, #f09819);
-    right: -30px;
-    bottom: -80px;
+    right: -50px;
+    bottom: -120px;
 }
 
 .social {
@@ -173,54 +173,61 @@ section {
 .box .square:nth-child(1) {
     width: 100px;
     height: 100px;
-    background: linear-gradient(to right, rgba(200, 0, 200, 0.5), rgba(255, 0, 255, 0.5));
     top: -15px;
     right: -45px;
+    background-image:url(Image_Components/glb.png);
+    background-size: cover;
 }
 
 .box .square:nth-child(2) {
     width: 150px;
     height: 150px;
     background: rgba(200, 100, 150, 0.5);
-    background: linear-gradient(to right, rgba(200, 50, 200, 0.4), rgba(100, 100, 255, 0.1));
     top: 105px;
     left: -125px;
     z-index: 2;
+    background-image:url(Image_Components/bk4.png);
+    background-size: cover;
 }
 
 .box .square:nth-child(3) {
     width: 60px;
     height: 60px;
-    background: linear-gradient(to right, rgba(200, 0, 100, 0.5), rgba(255, 100, 100, 0.8));
     bottom: 85px;
     right: -45px;
     z-index: 2;
+    background-image:url(Image_Components/chem.png);
+    background-size: cover;
 }
 
 .box .square:nth-child(4) {
     width: 50px;
     height: 50px;
-    background: linear-gradient(to right, rgba(200, 100, 200, 0.5), rgba(255, 200, 100, 0.4));
     bottom: 35px;
     left: -95px;
+    background-image:url(Image_Components/bk3.png);
+    background-size: cover;
 }
 
 .box .square:nth-child(5) {
     width: 50px;
     height: 50px;
-    background: linear-gradient(to right, rgba(100, 255, 250, 0.4), rgba(205, 200, 200, 0.5));
     top: -15px;
     left: -25px;
+    background-image:url(Image_Components/pencil.png);
+    background-size: cover;
 }
 
 .box .square:nth-child(6) {
-    width: 85px;
-    height: 85px;
-    background: linear-gradient(to right, rgba(200, 0, 0, 0.1), rgba(210, 200, 180, 0.5));
+    width: 100px;
+    height: 100px;
     top: 165px;
-    right: -155px;
+    right: -125px;
     z-index: 2;
+    background-image:url(Image_Components/bk.png);
+    background-size: cover;
 }
+
 
 .container {
     position: relative;
