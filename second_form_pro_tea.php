@@ -1,7 +1,7 @@
 <?php
 session_start();
 	$x = $_SESSION["user"];
-	$upload_dir = 'profile_pic/student/';
+	$upload_dir = 'profile_pic/teacher/';
 	$coverpic = $x;
 	if(isset($_FILES['image'])){
 		$x = $_SESSION["user"];
@@ -12,13 +12,13 @@ session_start();
 			move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
 	}
 		$con = new mysqli('localhost', 'root', NULL, 'trupendb');
-		$sql = "UPDATE user
+		$sql = "UPDATE teacher
 				SET firstname = '".$_POST["fname"]."', 
 				lastname= '".$_POST["lname"]."', 
 				email='".$_POST["email"]."', 
 				gender='".$_POST["gender"]."', 
 				birthday='".$_POST["dob"]."', 
-				bio='".$_POST["bio"]."',
+				subject='".$_POST["subject"]."',
 				img_dir='".$upload_dir.$coverpic."'
 				WHERE username = '$x';";
 		if($con->query($sql)){
