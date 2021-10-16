@@ -8,7 +8,7 @@
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost/GitHub/assperl/IITdh_portal.html",
+            "url": "http://localhost/GitHub/assperl/IITdh_portal.php",
             "webRoot": "${workspaceFolder}"
         }
     ]
