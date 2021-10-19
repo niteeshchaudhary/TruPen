@@ -1213,7 +1213,7 @@
         <div class="wrapper">
             <div class="searched-jobs">
                 <div class="searched-bar">
-                    <div class="searched-show"><img src="Image_Components\IITDH_logo.png" height="30" width="30"> IITdh Institute Portal</img> </div>
+                    <div class="searched-show"><img src="Image_Components\IITDH_logo.png" height="25" width="30"><span>&nbsp; IITdh Institute Portal</span></img> </div>
                 </div>
                 <div class="job-cards">
                     <div class="job-card">
