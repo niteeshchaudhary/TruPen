@@ -8,7 +8,7 @@ function getBotResponse(input) {
     } else if (input == "goodbye") {
         return "Talk to you later!";
     }
-    else if (input == "Fuck") {
+    else if (input.toLowerCase() == "fuck") {
         return "Fuck Yourself!";
     } 
     else {
