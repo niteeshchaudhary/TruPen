@@ -14,7 +14,7 @@ while($row = $result->fetch_assoc())
 		 $_SESSION["mail"] = $_POST["mailid"];
 		 $_SESSION['user'] = $row["username"];
 			$subject = "OTP to reset TruPen Login Password";
-			$body = "Hello ".$row["user"].", your OTP to reset password is: $rand
+			$body = "Hello ".$row["username"].", your OTP to reset password is: $rand
 			We hope everything goes smoothly.
 			Thank you.";
 			$headers = "From: ".$_POST["mailid"];
