@@ -62,6 +62,28 @@
                 VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'MA101', 'profile_pic/teacher/user.jpg')";
         $con->query($sql);
     }
+	$sql = 'CREATE TABLE IF NOT EXISTS office
+            (username varchar(120) PRIMARY KEY,
+            passcode varchar(120),
+            firstname varchar(120),
+            lastname varchar(120),
+            email varchar(120) unique,
+            gender varchar(120),
+            birthday varchar(120),
+            img_dir varchar(120)
+            )';
+    if ($con->query($sql) === FALSE)
+    {
+        die("Error creating table: " . $con->error);
+    }
+    $sql = "SELECT * FROM office";
+    $result = $con->query($sql) or die("Error: ". $con->error);
+    if($result->num_rows == 0)
+    {
+        $sql = "INSERT INTO office(username, passcode, firstname, lastname, email, gender, birthday, img_dir)
+                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'profile_pic/office/user.jpg')";
+        $con->query($sql);
+    }
     $sql = 'CREATE TABLE IF NOT EXISTS quiz
             (name varchar(120),
             subject varchar(120),
@@ -1430,8 +1452,8 @@
                             <button class="search-buttons detail-button">Powerful Tool</button>
                         </div>
                         <div class="job-card-buttons">
-                            <button class="search-buttons card-buttons"><span> Sign In</span> </button>
-                            <button class="search-buttons card-buttons-msg"><span> Sign Up </span></button>
+                            <button class="search-buttons card-buttons" onclick="location.href = 'Print/pri_login.php'"><span> Sign In</span> </button>
+                            <button class="search-buttons card-buttons-msg" onclick="location.href = 'Print/pri_signup.php'"><span> Sign Up </span></button>
                         </div>
                     </div>
                 </div>
