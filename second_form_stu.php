@@ -62,9 +62,10 @@
 			.box {
 			  display: inline-block;
 			  width: 98%;
-			  height: 120px;
+			  height: 95px;
 			  margin: 10px;
-			  background-color: #fff;
+        border-radius: 20px 20px 0 0;
+			  background-color: rgba(250, 250, 250, 0.3);
 			}
 			/* This is for the span where the image or text is placed. */
 			.box .sp {
@@ -72,7 +73,7 @@
 			  width: 150px;
 			  height: 150px;
 			  border-radius: 100%;
-			  margin-top: 5%;
+			  margin-top: 2%;
 			  margin-left: 10%;
 			  
 			  border: 20px solid white;
@@ -89,15 +90,16 @@
 			  position: relative;  
 			  /* z-index needs to be set to a negative number, below the circular image.*/
 			  z-index: -10;
-			  
+        
 			  display: inline-block;
 			  width: 100%;
-			  height: 510px;
+			  height: 500px;
 			  
 			  /* This number may need to be adjusted if any changes are made
 			  to border thickness. */
 			  margin-top: -114px;
-			  background-color: #f1f1f1;
+			  background-color: rgba(241, 241, 241, 0.6);
+        border-radius: 0 0 20px 20px;
 			  vertical-align: top;
 			}
       
@@ -401,7 +403,6 @@ button.complete .successMessage svg {
     <input type="file" id="file" accept="image/*" name="image" onchange="return fileValidation()">
 		<div class="box">
 		  <span class="sp"><div class="profil-img" id="profile-image" onclick="document.getElementById('file').click()"></div><p name = "id"><?php echo $_SESSION["user"]; ?></p>
-		  
 		  </span>
 		  <div class="box2">
 		  </div>
