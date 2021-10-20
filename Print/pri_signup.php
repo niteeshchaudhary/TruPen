@@ -180,14 +180,14 @@ svg {
                       <text id="emojc" x="0" y="10">😒</text>
                     </g>
                   </svg></p>
-          <img src="..\mage_Components/cps.png" alt="key">
+          <img src="../Image_Components/cps.png" alt="key">
           <p id="error"></p>
         </div>
         <div class="inputBx">
             <input type = "submit" value="Sign Up" id="submit"> 
         </div>
       </form>
-      <p>Already have an Account ? <a href="index.php">Log-in</a></p>
+      <p>Already have an Account ? <a href="pri_login.php">Log-in</a></p>
     </div>
   </div>
     

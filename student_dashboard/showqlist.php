@@ -15,6 +15,11 @@
       }
   	}
   }
+  if(!$_GET['sub']){
+	header( "refresh:0 ; url = dashboard.php" );
+  }
+	$sql = "SELECT * FROM quiz where subject='".$_GET['sub']."';";
+	$result = $con->query($sql) or die("Error: ". $con->error);
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -859,30 +864,6 @@
 					top: 10px;
 				}
 			}
-			.btn{
-				padding:5px;
-				width:100%;
-				height: 50px;
-				color:white;
-				font-size: 24px;
-				background-color: rgba(100,20,240,0.7);
-			}
-			.btn:hover{
-				padding:5px;
-				width:100%;
-				height: 50px;
-				color:white;
-				font-size: 24px;
-				background-color: rgba(100,200,20,0.7);
-			}
-			.btn:active{
-				padding:5px;
-				width:100%;
-				height: 50px;
-				color:white;
-				font-size: 24px;
-				background-color: rgba(0,0,255,0.7);
-			}
 		</style>
 
 		<script>
@@ -940,7 +921,7 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link">
+					<a href="dashboard.php" class="app-sidebar-link active">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
@@ -960,64 +941,217 @@
 							<line x1="3" y1="10" x2="21" y2="10" />
 						</svg>
 					</a>
+					<a href="print_req.php" class="app-sidebar-link">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer">
+							<polyline points="6 9 6 2 18 2 18 9"/>
+							<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+							<rect x="6" y="14" width="12" height="8"/>
+						</svg>
+					</a>
 					<a href="student_profile.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-profile">
-						<path stroke-width="1.3" d="M25.1 42c-9.4 0-17-7.6-17-17s7.6-17 17-17 17 7.6 17 17-7.7 17-17 17zm0-32c-8.3 0-15 6.7-15 15s6.7 15 15 15 15-6.7 15-15-6.8-15-15-15z" />
+						<circle cx="25" cy="25" r="17" />
 						<path stroke-width="1.3" d="M15.3 37.3l-1.8-.8c.5-1.2 2.1-1.9 3.8-2.7 1.7-.8 3.8-1.7 3.8-2.8v-1.5c-.6-.5-1.6-1.6-1.8-3.2-.5-.5-1.3-1.4-1.3-2.6 0-.7.3-1.3.5-1.7-.2-.8-.4-2.3-.4-3.5 0-3.9 2.7-6.5 7-6.5 1.2 0 2.7.3 3.5 1.2 1.9.4 3.5 2.6 3.5 5.3 0 1.7-.3 3.1-.5 3.8.2.3.4.8.4 1.4 0 1.3-.7 2.2-1.3 2.6-.2 1.6-1.1 2.6-1.7 3.1V31c0 .9 1.8 1.6 3.4 2.2 1.9.7 3.9 1.5 4.6 3.1l-1.9.7c-.3-.8-1.9-1.4-3.4-1.9-2.2-.8-4.7-1.7-4.7-4v-2.6l.5-.3s1.2-.8 1.2-2.4v-.7l.6-.3c.1 0 .6-.3.6-1.1 0-.2-.2-.5-.3-.6l-.4-.4.2-.5s.5-1.6.5-3.6c0-1.9-1.1-3.3-2-3.3h-.6l-.3-.5c0-.4-.7-.8-1.9-.8-3.1 0-5 1.7-5 4.5 0 1.3.5 3.5.5 3.5l.1.5-.4.5c-.1 0-.3.3-.3.7 0 .5.6 1.1.9 1.3l.4.3v.5c0 1.5 1.3 2.3 1.3 2.4l.5.3v2.6c0 2.4-2.6 3.6-5 4.6-1.1.4-2.6 1.1-2.8 1.6z"/>
 						</svg>
 					</a>
-					<a href="setting.php" class="app-sidebar-link active">
-						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-settings" viewBox="0 0 24 24">
-							<defs />
-							<circle cx="12" cy="12" r="3" />
-							<path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
+					<a href="../logoff.php" class="app-sidebar-link">
+						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-logout" viewBox="0 0 24 24">
+							<defs/>
+							<circle cx="12" cy="13" r="10" />
+							<line x1="12" y1="0" x2="12" y2="13" stroke-width="2" stroke="#f00" style="filter: drop-shadow(30px 30px 30px rgba(0, 255, 0, 1));"/>
+							<!--<path xmlns="http://www.w3.org/2000/svg" d="M 7 5 C -15 28, 40 22, 17 5 S 60 10 " fill="transparent"/>-->	
 						</svg>
 					</a>
 				</div>
 				<div class="projects-section">
 					<div class="projects-section-header">
-						<div class="project-box-wrapper">
-							<div class="project-box" style="background-color: #5555ff;">
-								<div class="project-box-header">
-									<span><h3><font color="#fff">Profile</font></h3></span>
-								</div>
-								<div class="project-box-content-header">
-									<?php echo'<img src="'.$uimg.'" height="150px" width="150px" style="border-radius:50%;" alt="profile img">'?>	
-								</div>
-								<div class="project-box-footer" style="align-items: center;">
-									<div class="participants">
-									<font color="#fff"><?php echo $row['firstname']." ".$row['lastname'] ?> &nbsp;</font>
-									</div>
-									<div class="days-left"  style="color: #8100ff;">
-										<?php echo $row['username'] ?>
-									</div>
-								</div>
+						<p><?php echo "Quizes : ".$_GET['sub']?></p>
+						<p class="time"><?php echo date('F, d');?></p>
+						<div class="view-actions">
+							<button class="view-btn list-view" title="List View">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+									<line x1="8" y1="6" x2="21" y2="6" />
+									<line x1="8" y1="12" x2="21" y2="12" />
+									<line x1="8" y1="18" x2="21" y2="18" />
+									<line x1="3" y1="6" x2="3.01" y2="6" />
+									<line x1="3" y1="12" x2="3.01" y2="12" />
+									<line x1="3" y1="18" x2="3.01" y2="18" />
+								</svg>
+							</button>
+							<button class="view-btn grid-view active" title="Grid View">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
+									<rect x="3" y="3" width="7" height="7" />
+									<rect x="14" y="3" width="7" height="7" />
+									<rect x="14" y="14" width="7" height="7" />
+									<rect x="3" y="14" width="7" height="7" />
+								</svg>
+							</button>
+						</div>
+					</div>
+					<!--<div class="projects-section-line">
+						<div class="projects-status">
+							<div class="item-status">
+								<span class="status-number">45</span>
+								<span class="status-type">In Progress</span>
+							</div>
+							<div class="item-status">
+								<span class="status-number">24</span>
+								<span class="status-type">Upcoming</span>
+							</div>
+							<div class="item-status">
+								<span class="status-number">62</span>
+								<span class="status-type">Total Projects</span>
 							</div>
 						</div>
-						<div class="project-box-wrapper">
-							<div class="project-box" style="background-color: #ff55ff;">
-								<div class="project-box-header">
-									<span><h3><font color="#fff">Password</font></h3></span>
-								</div>
-								<div class="project-box-content-header">
-								<img src="../Image_Components/lock.jpg" height="150px" width="150px" style="border-radius:50%;" alt="key">
-								</div>
-								<div class="project-box-footer" style="align-items: center;">
-									<div class="participants">
-									<font color="#fff">Change Password &nbsp;</font>
+					</div>-->
+					<div class="project-boxes jsGridView">
+						<?php 
+						$colorbk=array('#fee4cb','#e9e7fd',' #ffd3e2','#ffd3e2','#c8f7dc','#d5deff');
+						$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
+
+						if($result->num_rows > 0)
+						{
+							$cnt=0;
+						 while($row = $result->fetch_assoc())
+						 {
+							$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
+							$result2 = $con->query($sql) or die("Error: ". $con->error);
+							if($result2->num_rows > 0)
+							{
+								continue;
+							}
+								echo '
+						    	<div class="project-box-wrapper">
+										<div class="project-box" onclick="begQ(\''.'quiz_name='.$row['name'].'&quiz_subject='.$row['subject'].'&time='.$row['time_limit'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
+											<div class="project-box-header">
+												<span>*Un-Atttempted</span>
+												<div class="more-wrapper">
+													<button class="project-btn-more">
+														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+															<circle cx="12" cy="12" r="1" />
+															<circle cx="12" cy="5" r="1" />
+															<circle cx="12" cy="19" r="1" />
+														</svg>
+													</button>
+												</div>
+											</div>
+											<div class="project-box-content-header">
+												<p class="box-content-header">'.$row['name'].'</p>
+												<p class="box-content-subheader">'.$row["subject"].'</p>
+											</div>
+											<div class="box-progress-wrapper">
+												<p class="box-progress-header">Total Marks : '.$row['total'].'</p>
+												<div class="box-progress-bar">
+													<span class="box-progress" style="width: '.'0'.'%; background-color: #ff942e"></span>
+												</div>
+												<p class="box-progress-percentage">'.'0'.'%</p>
+											</div>
+											<div class="project-box-footer">
+												<div class="participants">
+													Total Questions : '.$row['no_questions'].'
+												</div>
+												<div class="days-left" style="color: '.$colors[$cnt%6].';">
+														'.$row['time_limit'].' seconds
+													</div>
+												</div>
+										</div>
+									</div>';
+									$cnt+=1;
+						    }
+						}
+						else{
+
+						}
+						$sql = "SELECT * FROM quiz where subject='".$_GET['sub']."';";
+						$result = $con->query($sql) or die("Error: ". $con->error);
+						if($result->num_rows > 0)
+						{
+							while($row = $result->fetch_assoc())
+							{
+								$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
+								$result2 = $con->query($sql) or die("Error: ". $con->error);
+								if($result2->num_rows > 0)
+								{
+									while($row2 = $result2->fetch_assoc()){
+										echo '
+										<div class="project-box-wrapper">
+												<div class="project-box" onclick="begQA(\''.'quiz_name='.$row['name'].'&quiz_subject='.$row['subject'].'&time='.$row['time_limit'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
+													<div class="project-box-header">
+														<span>*Atttempted</span>
+														<div class="more-wrapper">
+															<button class="project-btn-more">
+																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+																	<circle cx="12" cy="12" r="1" />
+																	<circle cx="12" cy="5" r="1" />
+																	<circle cx="12" cy="19" r="1" />
+																</svg>
+															</button>
+														</div>
+													</div>
+													<div class="project-box-content-header">
+														<p class="box-content-header">'.$row['name'].'</p>
+														<p class="box-content-subheader">'.$row["subject"].'</p>
+													</div>
+													<div class="box-progress-wrapper">
+														<p class="box-progress-header">* Score : '.$row2['marks']."/".$row['total'].'</p>
+														<div class="box-progress-bar">
+															<span class="box-progress" style="width: '.round((100*$row2['marks']/$row['total']),2).'%; background-color: #ff942e"></span>
+														</div>
+														<p class="box-progress-percentage">'.round((100*$row2['marks']/$row['total']),2).'%</p>
+													</div>
+													<div class="project-box-footer">
+														<div class="participants">
+															Total Questions : '.$row['no_questions'].'
+														</div>
+														<div class="days-left" style="color: '.$colors[$cnt%6].';">
+																'.$row['time_limit'].' seconds
+															</div>
+														</div>
+												</div>
+											</div>';
+									}
+								}
+							}
+						}
+
+						?>
+					</div>
+				</div>
+				<div class="messages-section">
+					<button class="messages-close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+							<circle cx="12" cy="12" r="10" />
+							<line x1="15" y1="9" x2="9" y2="15" />
+							<line x1="9" y1="9" x2="15" y2="15" />
+						</svg>
+					</button>
+					<div class="projects-section-header">
+						<p>Professor's Remarks</p>
+					</div>
+					<div class="messages">
+						<!--<div class="message-box">
+							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
+							<div class="message-content">
+								<div class="message-header">
+									<div class="name">Stephanie</div>
+										<div class="star-checkbox">
+											<input type="checkbox" id="star-1">
+											<label for="star-1">
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 	21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+											</svg>
+										</label>
 									</div>
-									<div class="days-left"  style="color: #aa08cc;">
-										Key
-									</div>
 								</div>
+								<p class="message-line">
+									I got your first assignment. It was quite good. 🥳 We can continue 	with the next assignment.
+								</p>
+								<p class="message-line time">
+									Dec, 12
+								</p>
 							</div>
-						</div>
-						<dl>
-							<dt> <button href="student_profile" class="btn">Profile</button></dt><br>
-							<dt> <button href="" class="btn">Change Password</button></dt><br>
-							<dt> <button href="logoff.php" class="btn">Logout</button></dt><br>
-						</dl>
-					</div>	
+						</div>-->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1056,7 +1190,10 @@
 					document.querySelector('.messages-section').classList.remove('show');
 				});
 			});
-			function gotoC(combo){
+			function begQ(data){
+				window.location.href = "../Quiz App/quiz.php?"+data;
+			}
+			function gotoQA(combo){
 				window.location.href = "#"+combo;
 			}
 		</script>

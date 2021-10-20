@@ -123,7 +123,7 @@ $_SESSION["p"] = "office";
                         <a href="#">Click Here</a>
                     </p>
                     <p>Don't have an account ? 
-                        <a href="signup.php">Sign up</a>
+                        <a href="pri_signup.php">Sign up</a>
                     </p>
                 </div>
             </div>

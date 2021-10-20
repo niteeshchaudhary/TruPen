@@ -7,7 +7,11 @@ function getBotResponse(input) {
         return "Hello there!";
     } else if (input == "goodbye") {
         return "Talk to you later!";
-    } else {
+    }
+    else if (input == "Fuck") {
+        return "Fuck Yourself!";
+    } 
+    else {
         return "Try asking something else!";
     }
 }
