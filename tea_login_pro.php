@@ -122,7 +122,7 @@ else{
 
 <?php
 if($x===1){
-    header( "refresh:5 ; url = loggedin.php" );
+    header( "refresh:2 ; url = loggedin.php" );
 }
 else{
     // remove all session variables
@@ -131,7 +131,7 @@ session_unset();
 // destroy the session
 session_destroy();
 
-    header( "refresh:5 ; url = index.php" );
+    header( "refresh:2 ; url = tea_login.php" );
 }
 ?>
 

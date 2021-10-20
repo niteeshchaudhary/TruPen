@@ -1,6 +1,5 @@
 <?php
   session_start();
-  $_SESSION["user"]="eval";
   $con = new mysqli('localhost', 'root', NULL, 'trupendb');
   $qryst="select * from user where username='". $_SESSION["user"]."';";
   $uimg="";
@@ -872,7 +871,7 @@
 		<div class="app-container">
 			<div class="app-header">
 				<div class="app-header-left">
-					<img src="../Image_Components\IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
+					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
 					<p class="app-name">Student</p>
 					<div class="search-wrapper">

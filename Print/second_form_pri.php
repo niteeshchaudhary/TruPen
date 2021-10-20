@@ -444,7 +444,7 @@ button.complete .successMessage svg {
     }
   }
 ?>
-<script type="text/javascript" src="Design_Components/jquery.min.js"></script>
+<script type="text/javascript" src="../Design_Components/jquery.min.js"></script>
 		<script>
         function updatedb(){
           var form = $('#second')[0];

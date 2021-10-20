@@ -118,7 +118,7 @@ else{
 </div>    
 
 <?php
-header( "refresh:5 ; url = second_form_tea.php" );
+header( "refresh:3 ; url = second_form_tea.php" );
 ?>
 
 <script>
