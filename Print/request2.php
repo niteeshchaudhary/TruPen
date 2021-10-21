@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<style>
-table, th, td {
-  border: 1px solid black;
-}
-</style>
-</head>
-<body>
 <?php
 session_start();
 	$x = $_SESSION["user"];
@@ -29,7 +19,3 @@ session_start();
 		$con->query($sql);
 		echo "Success!!";
 ?>
-<form action="../loggedin.php">
-<input type="submit" value="Back">
-</form>
-</body>

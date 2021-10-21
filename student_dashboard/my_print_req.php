@@ -3,6 +3,7 @@
   $con = new mysqli('localhost', 'root', NULL, 'trupendb');
   $qryst="select * from user where username='". $_SESSION["user"]."';";
   $uimg="";
+  $user = $_SESSION["user"];
   $result = $con->query($qryst);
   if ($result && $result->num_rows > 0) {
     if($row = $result->fetch_assoc()){
@@ -858,42 +859,22 @@
 					top: 10px;
 				}
 			}
-			input{
-					height: 35px;
-					width: 60%;
-					border-radius: 4px;
-					padding: 0px 10px;
-					margin: 8px;
-					font-size: 14px;
-					font-weight: 300;
-			}
-			input[type="submit"]{
-					height: 35px;
-					width: 60%;
-					border-radius: 5px;
-					padding: 0 10px;
-					margin: 8px;
-					font-size: 14px;
-					font-weight: 500;
-			}
-			input[type="submit"]:hover{
-					background: linear-gradient( to left, #9191ff, #658ff9);
-			}
-			input[type="submit"]:active{
-					background:linear-gradient( to right, #ff512f, #f09819);
-			}
-			select{
-					height: 35px;
-					width: 46%;
-					background-color: rgb(255,255,255);
-					border-radius: 3px;
-					padding: 0px 10px;
-					margin: 8px;
-					font-size: 14px;
-					font-weight: 300;
-				}
 		</style>
-
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			}
+			</style>
+			<script type="text/javascript">
+			function openPdf(s)
+			{
+				var omyFrameH = document.getElementById("myFrameholder");
+				var omyFrame = document.getElementById("myFrame");
+				omyFrameH.style.display="block";
+				omyFrame.style.display="block";
+				omyFrame.src = "../print/"+s;
+			}
+			</script>
 		<script>
 			if (document.location.search.match(/type=embed/gi)) {
 			window.parent.postMessage("resize", "*");
@@ -991,58 +972,109 @@
 						</svg>
 					</a>
 				</div>
+				
 				<div class="projects-section">
-					<div class="projects-section-header">
-						<div>
-							<form align = "center" id="pform" name="pform"  enctype="multipart/form-data">
-								<input type="file" id="file" accept="pdf/*" name="pdf" onchange="return fileValidation()" required /></br></br>		
-								<label for="copy"><b>No. Of Copies: </b></label><br><input type="number" name = "copy" required /><br><br>
-								<label for="type">Type:</label>
-								<select name="type" id="type" required>
-									<option value="back_to_back">Back-to-Back</option>
-									<option value="one_side">One-Side</option>
-								</select><br><br>
-								<label for="comment"><b>Comment: </b></label><br><input type="text" name = "comment" /><br><br>
-								<input type="submit" onclick="checkandreq()" value="Request">
-							</form>
+					<div class="project-boxes jsGridView">
+						<div style="display:flex;flex-flow: row wrap;">
+							<div style="padding:5px">
+								<h3>Pending Requests</h3>
+									<table>
+									<tr>
+									<th>File</th>
+									<th>Copies</th>
+									<th>Type</th>
+									<th>Comment</th>
+									<th>Delete</th>
+									</tr>
+									<?php
+									$sql = "SELECT * FROM print WHERE status LIKE '1' AND user LIKE '$user'";
+									$result = $con->query($sql) or die("Error: ". $con->error);
+									if($result->num_rows > 0)
+									{
+									while($row = $result->fetch_assoc())
+									{
+									?>
+									<tr>
+									<td><input type="button" value="Preview" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
+									<td><?php echo $row['copies']; ?></td>
+									<td><?php echo $row['type']; ?></td>
+									<td><?php echo $row['comment']; ?></td>
+									<td><a href="delete.php?id=<?php echo $row['location']; ?>">Delete</a></td>
+									</tr>
+									<?php
+									}
+									}
+									?>
+									</table>
+							</div>
+							<div style="padding:5px">
+								<h3>Accepted Requests</h3>
+								<table>
+								<tr>
+								<th>File</th>
+								<th>Copies</th>
+								<th>Type</th>
+								<th>Comment</th>
+								</tr>
+								<?php
+								$sql = "SELECT * FROM print WHERE status LIKE '2' AND user LIKE '$user'";
+								$result = $con->query($sql) or die("Error: ". $con->error);
+								if($result->num_rows > 0)
+								{
+								while($row = $result->fetch_assoc())
+								{
+								?>
+								<tr>
+								<td><input type="button" value="Preview" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
+								<td><?php echo $row['copies']; ?></td>
+								<td><?php echo $row['type']; ?></td>
+								<td><?php echo $row['comment']; ?></td>
+								</tr>
+								<?php
+								}
+								}
+								?>
+								</table>
+							</div>
+							<div style="padding:5px">
+								<h3>Rejected Requests</h3>
+								<table>
+								<tr>
+								<th>File</th>
+								<th>Copies</th>
+								<th>Type</th>
+								<th>Comment</th>
+								</tr>
+								<?php
+								$sql = "SELECT * FROM print WHERE status LIKE '0' AND user LIKE '$user'";
+								$result = $con->query($sql) or die("Error: ". $con->error);
+								if($result->num_rows > 0)
+								{
+								while($row = $result->fetch_assoc())
+								{
+								?>
+								<tr>
+								<td><input type="button" value="Preview" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
+								<td><?php echo $row['copies']; ?></td>
+								<td><?php echo $row['type']; ?></td>
+								<td><?php echo $row['comment']; ?></td>
+								</tr>
+								<?php
+								}
+								}
+								?>
+								</table>
+							</div>
 						</div>
-						<div id="pdfPreview"></div>
-					</div>
+						<div id="myFrameholder" style="display:none;background-color:f1f1f1;">
+							<h3>Preview</h3>
+								<iframe id="myFrame" style="display:none" width="1000" height="580">	
+								</iframe>
+						</div>
+					</div>	
 				</div>
 			</div>
 		</div>
-
-		<script type="text/javascript" src="../Design_Components/jquery.min.js"></script>
-
-		<script>
-			function fileValidation() {
-				var fileInput = 
-					document.getElementById('file');
-				var filePath = fileInput.value;
-				var allowedExtensions = /(\.pdf)$/i;
-				const fi = document.getElementById('file');
-				if (!allowedExtensions.exec(filePath)) {
-					alert('Only .pdf files are allowed');
-					fileInput.value = '';
-					return false;
-				}
-				else 
-				{
-					if (fileInput.files && fileInput.files[0]) {
-						var reader = new FileReader();
-						reader.onload = function(e) {
-							document.getElementById(
-								'pdfPreview').innerHTML = 
-								'<embed width="1000px" height="580px" src="' + e.target.result
-								+ '"/>';
-						};
-		
-						reader.readAsDataURL(fileInput.files[0]);
-					}
-				}
-			}
-		</script>
-
 		<script id="rendered-js" >
 			document.addEventListener('DOMContentLoaded', function () {
 				var modeSwitch = document.querySelector('.mode-switch');
@@ -1078,30 +1110,8 @@
 					document.querySelector('.messages-section').classList.remove('show');
 				});
 			});
-			function gotoC(combo){
-				window.location.href = "showqlist.php?sub="+combo;
-			}
-			function checkandreq(){
-				let x = document.forms["pform"]["copy"].value;
-				if(x>0 && document.getElementById('file').files.length!=0){
-					send_request();
-				}else{
-					//alert("please provide all neccesary fields");
-				}
-			}
-			function send_request(){
-				var form = $('#pform')[0];
-				$.ajax({
-						type:"POST",
-						url: "../print/request2.php",
-						processData: false,
-						contentType: false,
-						enctype: 'multipart/form-data',
-						data:  new FormData(form),
-							success: function(msg){
-							alert(msg);
-							}
-						});
+			function gotop_req(combo){
+				window.location.href = "p_req.php";
 			}
 		</script>
 

@@ -959,7 +959,7 @@
 				</div>
 				<div class="projects-section">
 					<div class="projects-section-header">
-						<p>Courses</p>
+						<p>Print Options</p>
 						<p class="time"><?php echo date('F, d');?></p>
 						<div class="view-actions">
 							<button class="view-btn list-view" title="List View">
@@ -1027,7 +1027,7 @@
 									</div>
 
 									<div class="project-box-wrapper">
-										<div class="project-box" onclick="gotoC()" style="background-color:#c8f7dc;">
+										<div class="project-box" onclick="gotomy_preq()" style="background-color:#c8f7dc;">
 											<div class="project-box-header">
 												<span></span>
 												<div class="more-wrapper">
@@ -1131,6 +1131,9 @@
 			});
 			function gotop_req(combo){
 				window.location.href = "p_req.php";
+			}
+			function gotomy_preq(combo){
+				window.location.href = "my_print_req.php";
 			}
 		</script>
 
