@@ -2,7 +2,7 @@
 var coll = document.getElementsByClassName("collapsible");
 
 for (let i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
+    coll[i].addEventListener("click", function() {
         this.classList.toggle("active");
 
         var content = this.nextElementSibling;
@@ -33,14 +33,18 @@ function getTime() {
     return time;
 }
 
+var time = getTime();
+$("#chat-timestamp").append(time);
 // Gets the first message
 function firstBotMessage() {
-    let firstMessage = "How's it going?"
-    document.getElementById("botStarterMessage").innerHTML = '<p class="botText"><span>' + firstMessage + '</span></p>';
+    let firstMessage = "Hello , what can I help you with? <br>Type 'help' to see all options available.";
+    document.getElementById("botStarterMessage").innerHTML = '<h5 id="chat-timestamp"></h5><p class="botText"><span>' + firstMessage + '</span></p>';
 
-    let time = getTime();
+    let t = getTime();
+    if (time != t) {
+        document.getElementById("chatbox").innerHTML = `${t}`;
+    }
 
-    $("#chat-timestamp").append(time);
     document.getElementById("userInput").scrollIntoView(false);
 }
 
@@ -55,16 +59,18 @@ function getHardResponse(userText) {
     document.getElementById("chat-bar-bottom").scrollIntoView(true);
 }
 
-//Gets the text text from the input box and processes it
+//Gets the text from the input box and processes it
 function getResponse() {
     let userText = $("#textInput").val();
+    let userHtml;
 
-    if (userText == "") {
-        userText = "I love Code Palace!";
+    let t = getTime();
+    if (time != t) {
+        time = t;
+        userHtml = `<h5>${time}</h5><p class="userText"><span>${userText}</span></p>`;
+    } else {
+        userHtml = `<p class="userText"><span>${userText}</span></p>`;
     }
-
-    let userHtml = '<p class="userText"><span>' + userText + '</span></p>';
-
     $("#textInput").val("");
     $("#chatbox").append(userHtml);
     document.getElementById("chat-bar-bottom").scrollIntoView(true);
@@ -77,7 +83,13 @@ function getResponse() {
 
 // Handles sending text via button clicks
 function buttonSendText(sampleText) {
-    let userHtml = '<p class="userText"><span>' + sampleText + '</span></p>';
+
+    let t = getTime();
+    if (time != t) {
+        time = t;
+    }
+
+    let userHtml = `<h5>${time}</h5><p class="userText"><span>${sampleText}</span></p>`;
 
     $("#textInput").val("");
     $("#chatbox").append(userHtml);
@@ -94,11 +106,11 @@ function sendButton() {
 }
 
 function heartButton() {
-    buttonSendText("Heart clicked!")
+    buttonSendText("<font style='font-size:xx-large;'>&nbsp;&nbsp;&hearts;&nbsp;&nbsp;</font>")
 }
 
 // Press enter to send a message
-$("#textInput").keypress(function (e) {
+$("#textInput").keypress(function(e) {
     if (e.which == 13) {
         getResponse();
     }

@@ -6,7 +6,7 @@
 }
 
 .collapsible {
-    background-color: rgb(82, 151, 255);
+    background-color: #4285F4;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -115,7 +115,8 @@
     display: inline-block;
     background: #5ca6fa;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-bottom-right-radius: 2px;
     max-width: 80%;
     margin-right: 10px;
@@ -135,7 +136,8 @@
     display: inline-block;
     background: #e0e0e0;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 14px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-bottom-left-radius: 2px;
     max-width: 80%;
     margin-left: 10px;
