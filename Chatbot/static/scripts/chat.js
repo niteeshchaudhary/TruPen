@@ -84,6 +84,11 @@ function getResponse() {
 // Handles sending text via button clicks
 function buttonSendText(sampleText) {
     let userHtml;
+    let userText = $("#textInput").val();
+    if (userText == "") {
+        sampleText = '<font style="font-size:xx-large;">' + sampleText + '</font>';
+    }
+    sampleText = userText + sampleText;
     let t = getTime();
     if (time != t) {
         time = t;
@@ -107,7 +112,7 @@ function sendButton() {
 }
 
 function heartButton() {
-    buttonSendText("<font style='font-size:xx-large;color:red;' class='fa fa-fw fa-heart'></font>")
+    buttonSendText("<font style='color:red;' class='fa fa-fw fa-heart'></font>")
 }
 
 // Press enter to send a message

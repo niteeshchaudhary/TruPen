@@ -1,8 +1,8 @@
 function getBotResponse(input) {
     //Add the responses here :)
-    input1 = input;
     input = input.trim(" ");
     input = input.toLowerCase();
+    //alert(input);
     help = `
     1. How to logout of trupen?<br>
     2. How to update my account details?<br>
@@ -21,40 +21,43 @@ function getBotResponse(input) {
         return "Ask your mom that!";
     } else if (input == "help" || input == "help!") {
         return "There , there , I am here now .<br>Here is a list of things you can ask me to do :<br>" + help;
-    } else if (input == "how to logout of trupen?") {
+    } else if (input == "how to logout of trupen?" || input == "1") {
         return "Click on your profile pic on the Dashboard page and a dropdown menu will appear where you can navigate to the log-off option .";
-    } else if (input == "how do i contact the website devs?") {
+    } else if (input == "how do i contact the website devs?" || input == "5") {
         return "";
-    } else if (input == "how to make a quiz?") {
+    } else if (input == "how to make a quiz?" || input == "4") {
         return "";
-    } else if (input == "how do i attempt a quiz?") {
+    } else if (input == "how do i attempt a quiz?" || input == "3") {
         return "";
-    } else if (input == "how to update my account details?") {
+    } else if (input == "how to update my account details?" || input == "2") {
         return "";
-    } else if (input == "how to print some documents?") {
+    } else if (input == "how to print some documents?" || input == "6") {
+        return `Go to the Dashboard.
+               <br>On the Appbar , there will be an option to Request/Print a file . 
+               <br>Click on that option.
+               <br>Now, you will be redirected to the Printing page where your print request will be sent to the admin .`;
+    } else if (input == "") {
         return "";
-    } else if (input1 == "<font style='font-size:xx-large;color:red;' class='fa fa-fw fa-heart'></font>") {
+    } else if (input == "") {
+        return "";
+    } else if (input == "") {
+        return "";
+    } else if (input == "") {
+        return "";
+    } else if (input == "") {
+        return "";
+    } else if (input == "") {
+        return "";
+    } else if (input == "") {
+        return "";
+    } else if (input == "") {
+        return "";
+    } else if (input == "") {
+        return "";
+    } else if (input == `<font style="font-size:xx-large;"><font style='color:red;' class='fa fa-fw fa-heart'></font></font>`) {
         return "Love you too :)";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
+    } else if (input == "thank you <font style='color:red;' class='fa fa-fw fa-heart'></font>" || input == "thank you<font style='color:red;' class='fa fa-fw fa-heart'></font>") {
+        return "Your welcome :) <br> Have a nice day !";
     } else {
         return "Try asking something else!";
     }
