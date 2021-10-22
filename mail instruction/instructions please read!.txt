@@ -1,6 +1,8 @@
-REPLACE php.ini file in: xampp/php folder.
-REPLACE sendmail.ini file in: xampp/sendmail folder.
+php.ini file in: xampp/php folder.
+sendmail.ini file in: xampp/sendmail folder.
 
+
+https://meetanshi.com/blog/send-mail-from-localhost-xampp-using-gmail/
 ------------------------------------------------------------
 Our gmail account:
 mailid: trupenofficial@gmail.com
