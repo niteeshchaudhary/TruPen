@@ -83,22 +83,23 @@ function getResponse() {
 
 // Handles sending text via button clicks
 function buttonSendText(sampleText) {
-
+    let userHtml;
     let t = getTime();
     if (time != t) {
         time = t;
+        userHtml = `<h5>${time}</h5><p class="userText"><span>${sampleText}</span></p>`;
+    } else {
+        userHtml = `<p class="userText"><span>${sampleText}</span></p>`;
     }
-
-    let userHtml = `<h5>${time}</h5><p class="userText"><span>${sampleText}</span></p>`;
 
     $("#textInput").val("");
     $("#chatbox").append(userHtml);
     document.getElementById("chat-bar-bottom").scrollIntoView(true);
 
     //Uncomment this if you want the bot to respond to this buttonSendText event
-    // setTimeout(() => {
-    //     getHardResponse(sampleText);
-    // }, 1000)
+    setTimeout(() => {
+        getHardResponse(sampleText);
+    }, 1000)
 }
 
 function sendButton() {
@@ -106,7 +107,7 @@ function sendButton() {
 }
 
 function heartButton() {
-    buttonSendText("<font style='font-size:xx-large;'>&nbsp;&nbsp;&hearts;&nbsp;&nbsp;</font>")
+    buttonSendText("<font style='font-size:xx-large;color:red;' class='fa fa-fw fa-heart'></font>")
 }
 
 // Press enter to send a message

@@ -1,5 +1,6 @@
 function getBotResponse(input) {
     //Add the responses here :)
+    input1 = input;
     input = input.trim(" ");
     input = input.toLowerCase();
     help = `
@@ -13,7 +14,7 @@ function getBotResponse(input) {
     if (input == "hello") {
         return "Hello there!";
     } else if (input.trim(" ") == "") {
-        return "Ughh, were you trying to type something? Please try again.";
+        return "Ughh, were you trying to type?<br> Please try again.";
     } else if (input == "goodbye") {
         return "Talk to you later!";
     } else if (input == "you suck") {
@@ -32,8 +33,8 @@ function getBotResponse(input) {
         return "";
     } else if (input == "how to print some documents?") {
         return "";
-    } else if (input == "") {
-        return "";
+    } else if (input1 == "<font style='font-size:xx-large;color:red;' class='fa fa-fw fa-heart'></font>") {
+        return "Love you too :)";
     } else if (input == "") {
         return "";
     } else if (input == "") {
