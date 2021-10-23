@@ -24,9 +24,15 @@ function getBotResponse(input) {
     } else if (input == "how to logout of trupen?" || input == "1") {
         return "Click on your profile pic on the Dashboard page and a dropdown menu will appear where you can navigate to the log-off option .";
     } else if (input == "how do i contact the website devs?" || input == "5") {
-        return "";
+        return `You can contact the web devs at our gmail address : <br><a href="mailto:trupenofficial@gmail.com">trupenofficial@gmail.com</a>
+        <br>Phone no. : 
+        <font style="display:inline-block;" class="tooltip"><a style="cursor: pointer;" class="copy-click" onclick="copytoclipboard();">+91 99290 72706</a>
+        <font id = "replace"><span class="tooltiptext">Copy to clipboard</span></font>
+        </font>
+        `;
     } else if (input == "how to make a quiz?" || input == "4") {
-        return "";
+        return `That's ez prof , just navigate to the Dashboard and look under the quizzes section.
+        <br>There would be a list of your quizzes along with an option to add a quiz .`;
     } else if (input == "how do i attempt a quiz?" || input == "3") {
         return "";
     } else if (input == "how to update my account details?" || input == "2") {

@@ -173,3 +173,66 @@
         border-radius: 0px;
     }
 }
+
+.container {
+    margin: 150px auto;
+    max-width: 640px;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+.copy-click {
+    position: relative;
+    padding-bottom: 2px;
+    text-decoration: none;
+    cursor: copy;
+    color: #484848;
+    border-bottom: 1px dashed #767676;
+    transition: background-color calc(var(--duration) * 2) var(--ease);
+}
+
+.copy-click:hover {
+    background-color: yellow;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: darkblue;
+    color: #fff;
+    font-size: 10pt;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+@keyframes shiftup {
+    0% {
+        visibility: visible;
+        transform: translateY(14px);
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.tooltip:hover .tooltiptext {
+    animation-name: shiftup;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+}

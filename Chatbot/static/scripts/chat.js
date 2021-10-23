@@ -115,6 +115,12 @@ function heartButton() {
     buttonSendText("<font style='color:red;' class='fa fa-fw fa-heart'></font>")
 }
 
+function copytoclipboard() {
+    navigator.clipboard.writeText("+91 99290 72706");
+    var x = document.getElementById("replace");
+    x.innerHTML = "<span class='tooltiptext' id='replace'>Copied !</span>";
+}
+
 // Press enter to send a message
 $("#textInput").keypress(function(e) {
     if (e.which == 13) {
