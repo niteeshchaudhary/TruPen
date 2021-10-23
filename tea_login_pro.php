@@ -80,6 +80,7 @@ $password = $_POST["password"];
         $passworddata = $row["passcode"]; 
         if($userdata === $user_id && $passworddata === $password){
             global $x;
+			$_SESSION["subject"] = $row["subject"];
             $x = 1;
         }
       }

@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Kolkata');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,9 +28,10 @@ session_start();
 <h1>Create Quiz</h1>
 <form align = "center" action="QnA.php" method="post">
 Name: <input type="text" name="name" required /><br>
-Subject: <input type="text" name="subject" required /><br>
+Subject: <input type="text" name="subject" value="<?php echo $_SESSION["subject"]; ?>" disabled /><br>
 No of Questions: <input type="number" name="no" required /><br>
-Time limit: <input type="number" name="time" required /><br>
+Time limit: <input type="datetime-local" name="time" min="<?php echo date('Y-m-d').'T'.date('H:i:s'); ?>" step="any" required /><br>
+Time limit(min): <input type="number" name="duration" required /><br>
 <input type="submit" value="Submit">
 </form>
 </body>

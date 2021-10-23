@@ -22,6 +22,7 @@ session_start();
 				img_dir='".$upload_dir.$coverpic."'
 				WHERE username = '$x';";
 		if($con->query($sql)){
+			$_SESSION["subject"] = $_POST["subject"];
 			echo "Success!!";
 		}
 		else{

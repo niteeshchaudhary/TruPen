@@ -87,6 +87,7 @@
     $sql = 'CREATE TABLE IF NOT EXISTS quiz
             (name varchar(120),
             subject varchar(120),
+			time varchar(120),
             time_limit smallint(6),
             no_questions smallint(6),
             total smallint(6),

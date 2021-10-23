@@ -5,14 +5,14 @@
 <body>
     <?php
 session_start();
-$_SESSION["subject_quiz"] = $_POST["subject"].'_'.$_POST["name"];
+$_SESSION["subject_quiz"] = $_SESSION["subject"].'_'.$_POST["name"];
 $_SESSION["quiz_name"] = $_POST["name"];
 $_SESSION["quetion_no"] = $_POST["no"];
 $n = $_POST["no"];
 $i = 0;
 $con = new mysqli('localhost', 'root', NULL, 'trupendb');
-$sql = "INSERT INTO quiz(name, subject, time_limit, no_questions)
-			VALUES ('".$_POST["name"]."', '".$_POST["subject"]."', '".$_POST["time"]."', '$n')";
+$sql = "INSERT INTO quiz(name, subject, time, time_limit, no_questions)
+			VALUES ('".$_POST["name"]."', '".$_SESSION["subject"]."', '".$_POST["time"]."', '".$_POST["duration"]."', '$n')";
 	$con->query($sql);
 $sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'
 		(sn INT AUTO_INCREMENT PRIMARY KEY,
