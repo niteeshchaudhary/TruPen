@@ -1300,7 +1300,7 @@
                         </div>
                         <div class="job-card-buttons">
                             <button class="search-buttons card-buttons" onclick="location.href = 'stu_login.php'"><span>Login</span></button>
-                            <button class="search-buttons card-buttons-msg" onclick="location.href = 'signup.php'"><span>Sign Up</span></button>
+                            <button class="search-buttons card-buttons-msg" onclick="location.href = 'stu_signup.php'"><span>Sign Up</span></button>
                         </div>
                     </div>
 
