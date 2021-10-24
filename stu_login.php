@@ -119,7 +119,7 @@
                         <a href="forgot_password/forgot_pass_stu_1.php">Click Here</a>
                     </p>
                     <p>Don't have an account ? 
-                        <a href="signup.php">Sign up</a>
+                        <a href="stu_signup.php">Sign up</a>
                     </p>
                 </div>
             </div>
