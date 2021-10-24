@@ -13,7 +13,7 @@ $user2 = $_SESSION["user"];
 while($row = $result1->fetch_assoc())
 {
 	$temp = $row["answer"].'_'.$x;
-	if($_POST["answer".$x] == $temp)
+	if(isset($_POST["answer".$x]) && $_POST["answer".$x] == $temp)
 	{
 		$marks += $row["marks"];
 	}
@@ -30,6 +30,6 @@ if ($con->query($sql) === FALSE)
 	die("Error: " . $con->error);
 }
 ?>
-<form action="../loggedin.php">
+<form action="../student_dashboard/dashboard.php">
 <input type = "submit" value="Back">
 </form>

@@ -1,16 +1,31 @@
 <?php 
 session_start(); 
+date_default_timezone_set('Asia/Kolkata');
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "trupendb";
 $conn = new mysqli($servername, $username, $password, $dbname);
+$sql = "SELECT time, time_limit FROM quiz WHERE name = '".$_POST["quiz_name"]."' AND subject = '".$_POST["quiz_subject"]."'";
+$result = $conn->query($sql);
+while($row = $result->fetch_assoc())
+{
+	$to_time = strtotime(implode(" ", explode("T", $row["time"])));
+	$time_limit = $row["time_limit"];
+	$from_time = strtotime(date('Y-m-d H:i:s'));
+	$t = $from_time - $to_time;
+}
+if($t<0)
+{
+	header("location:javascript://history.go(-1)");
+	exit();
+}
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$_SESSION["quiz_name"] = $_GET["quiz_name"];
-$_SESSION["quiz_subject"] = $_GET["quiz_subject"];
+$_SESSION["quiz_name"] = $_POST["quiz_name"];
+$_SESSION["quiz_subject"] = $_POST["quiz_subject"];
 $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
      $result = $conn->query($qryst);
 ?>
@@ -566,8 +581,9 @@ ul li label{
 <center><input type="submit" value="Exit Quiz" class="exitit"></center>
 </form>
 <?php
+$max = max(60*$time_limit-$t, 0);
   echo "
-  <script>let TIME_LIMIT =".$_GET['time']."</script>";
+  <script> let TIME_LIMIT =$max </script>";
 ?>
 <script>
 var slideIndex = 1;

@@ -1021,7 +1021,7 @@
 							}
 								echo '
 						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="begQ(\''.'quiz_name='.$row['name'].'&quiz_subject='.$row['subject'].'&time='.$row['time_limit'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
+										<div class="project-box" onclick="begQ();" style="background-color: '.$colorbk[$cnt%6].';">
 											<div class="project-box-header">
 												<span>*Un-Atttempted</span>
 												<div class="more-wrapper">
@@ -1035,6 +1035,11 @@
 												</div>
 											</div>
 											<div class="project-box-content-header">
+											<form method="POST" action="../Quiz App/quiz.php" id="myForm">
+											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
+											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
+											<input type="submit" value="Attempt">
+											</form>
 												<p class="box-content-header">'.$row['name'].'</p>
 												<p class="box-content-subheader">'.$row["subject"].'</p>
 											</div>
@@ -1050,7 +1055,7 @@
 													Total Questions : '.$row['no_questions'].'
 												</div>
 												<div class="days-left" style="color: '.$colors[$cnt%6].';">
-														'.$row['time_limit'].' seconds
+														'.$row['time_limit'].' minutes
 													</div>
 												</div>
 										</div>
@@ -1190,7 +1195,7 @@
 				});
 			});
 			function begQ(data){
-				window.location.href = "../Quiz App/quiz.php?"+data;
+				document.getElementById('myForm').submit();;
 			}
 			function gotoQA(combo){
 				window.location.href = "#"+combo;
