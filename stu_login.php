@@ -97,7 +97,7 @@
             <div class="container">
                 <div class="form">
                     <h2>LOGIN to truPen</h2>
-                    <form method="POST" action="login.php">
+                    <form method="POST" action="stulogin.php">
                         <div class="inputBx">
                             <input type="text" name="LoginID" id="LoginID" autocomplete="off" required="required">
                             <span>Login</span>

@@ -50,12 +50,11 @@ svg {
 </head>
 
 <body translate="no" >
-
 <header>
         <div class="header">
             <div class="logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 512 512" fill="#fff" style="visibility: visible;background-color:#99ffaa;border-radius:50%;">
-                    <g transform="translate(0.000000,512.000000) scale(0.110000,-0.110000)" fill="#000000" stroke="none">
+                    <g transform="translate(0.000000,524.000000) scale(0.110000,-0.110000)" fill="#000000" stroke="none">
                         <path d="M3234 3848 c-7 -11 6 -28 64 -89 l43 -46 -40 -63 c-23 -35 -41 -71
                         -41 -81 0 -10 -13 -41 -30 -67 -34 -56 -36 -67 -14 -76 17 -7 34 0 34 14 0 5
                         5 21 11 37 l10 27 21 -33 21 -33 -41 -41 -42 -41 -33 32 c-18 18 -40 32 -48
@@ -113,7 +112,6 @@ svg {
             </div>
         </div>
     </header>
-
 <div class="background">
    <div class="shape"></div>
    <div class="shape"></div>
@@ -132,7 +130,7 @@ svg {
    <div class="container"> 
     <div class="form"> 
       <h2>Sign Up to truPen</h2>
-      <form method="POST" name="signup" action="tea_adduserEntry.php" onsubmit="return validateForm()">
+      <form method="POST" name="signup" action="adduserEntry.php" onsubmit="return validateForm()">
         <div class="inputBx">
           <input type="text" name="LoginID" id = "LoginID" onfocusout="checkdb()" autocomplete="off" required="required">
           <p class="user-avail"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" text-rendering="optimizeSpeed" style="visibility: visible;">
@@ -188,7 +186,7 @@ svg {
             <input type = "submit" value="Sign Up" id="submit"> 
         </div>
       </form>
-      <p>Already have an Account ? <a href="tea_login.php">Log-in</a></p>
+      <p>Already have an Account ? <a href="stu_login.php">Log-in</a></p>
     </div>
   </div>
     
