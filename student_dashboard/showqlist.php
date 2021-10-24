@@ -1038,7 +1038,6 @@
 											<form method="POST" action="../Quiz App/quiz.php" id="myForm">
 											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
 											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
-											<input type="submit" value="Attempt">
 											</form>
 												<p class="box-content-header">'.$row['name'].'</p>
 												<p class="box-content-subheader">'.$row["subject"].'</p>
