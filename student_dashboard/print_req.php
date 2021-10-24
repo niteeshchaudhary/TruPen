@@ -1041,7 +1041,7 @@
 												</div>
 											</div>
 											<div class="project-box-content-header">
-												<p class="box-content-header">😊🖨️✍️🛒📡💵🏛️✔️➡️✅</p>
+												<p class="box-content-header">😊🖨️✍️🛒📡💵🏛️✅</p>
 												<p class="box-content-subheader">Your Previous Print Request</p>
 											</div>
 											<div class="project-box-footer">

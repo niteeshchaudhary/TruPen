@@ -118,7 +118,7 @@ else{
 </div>    
 
 <?php
-header( "refresh:3 ; url = second_form_stu.php" );
+header( "refresh:3 ; url = student_dashboard/student_profile.php" );
 ?>
 
 <script>

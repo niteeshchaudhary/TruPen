@@ -1021,7 +1021,7 @@
 							}
 								echo '
 						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="begQ();" style="background-color: '.$colorbk[$cnt%6].';">
+										<div class="project-box" onclick="begQ(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
 											<div class="project-box-header">
 												<span>*Un-Atttempted</span>
 												<div class="more-wrapper">
@@ -1035,7 +1035,7 @@
 												</div>
 											</div>
 											<div class="project-box-content-header">
-											<form method="POST" action="../Quiz App/quiz.php" id="myForm">
+											<form method="POST" action="../Quiz App/quiz.php" id="myForm'.$row['name'].'">
 											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
 											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
 											</form>
@@ -1194,7 +1194,7 @@
 				});
 			});
 			function begQ(data){
-				document.getElementById('myForm').submit();;
+				document.getElementById('myForm'+data).submit();
 			}
 			function gotoQA(combo){
 				window.location.href = "#"+combo;

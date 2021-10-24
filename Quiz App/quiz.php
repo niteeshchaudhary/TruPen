@@ -35,259 +35,259 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <style>
   * {box-sizing: border-box}
-body {
-  font-family: Verdana, sans-serif; margin:0;
-  background: #f4ffff;
-}
-.mySlides {
-  display: none;
-  height: 500px;
-}
-img {vertical-align: middle;}
-.main-container {
-  display:flexbox;
-  /*flex-flow: row wrap;*/
-  padding: 20px;
-  margin: 10px;
-  margin-left: 400px;
-  height:80%;
-  max-width:1300px;
-}
-/* Slideshow container */
-.slideshow-container {
-  float: left;
-  max-width: 700px;
-  min-width: 600px;
-  max-height: 500px;
-  min-height: 400px;
-}
-.slideshow-container form {
-  max-width: 700px;
-  min-width: 600px;
-  max-height: 500px;
-  min-height: 400px;
-}
-.slideshow-container .navstp{
-  display: inline-block;
-  padding: 3px;
-  background-color: #f1f1f1;
-  width:100%;
-  height:63px;
-}
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  background-color: rgba(0,0,0,0.1);
-  margin-left: 5px;
-  margin-right: 5px;
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 10%;
-  user-select: none;
-}
-.first{
-  cursor: pointer;
-  float: left;
-  background-color: rgba(100,0,0,0.5);
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 10%;
-  user-select: none;
-}
-.last {
-  cursor: pointer;
-  float: right;
-  background-color: rgba(0,100,0,0.5);
-  width: auto;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 10%;
-  user-select: none;
-}
-/* Position the "next button" to the right */
- .next {
-  float: right;
-}
-.prev {
-  float: left;
-}
+      body {
+        font-family: Verdana, sans-serif; margin:0;
+        background: #f4ffff;
+      }
+      .mySlides {
+        display: none;
+        height: 500px;
+      }
+      img {vertical-align: middle;}
+      .main-container {
+        display:flexbox;
+        /*flex-flow: row wrap;*/
+        padding: 20px;
+        margin: 10px;
+        margin-left: 400px;
+        height:80%;
+        max-width:1300px;
+      }
+      /* Slideshow container */
+      .slideshow-container {
+        float: left;
+        max-width: 700px;
+        min-width: 600px;
+        max-height: 500px;
+        min-height: 400px;
+      }
+      .slideshow-container form {
+        max-width: 700px;
+        min-width: 600px;
+        max-height: 500px;
+        min-height: 400px;
+      }
+      .slideshow-container .navstp{
+        display: inline-block;
+        padding: 3px;
+        background-color: #f1f1f1;
+        width:100%;
+        height:63px;
+      }
+      /* Next & previous buttons */
+      .prev, .next {
+        cursor: pointer;
+        background-color: rgba(0,0,0,0.1);
+        margin-left: 5px;
+        margin-right: 5px;
+        width: auto;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 10%;
+        user-select: none;
+      }
+      .first{
+        cursor: pointer;
+        float: left;
+        background-color: rgba(100,0,0,0.5);
+        width: auto;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 10%;
+        user-select: none;
+      }
+      .last {
+        cursor: pointer;
+        float: right;
+        background-color: rgba(0,100,0,0.5);
+        width: auto;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 10%;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        float: right;
+      }
+      .prev {
+        float: left;
+      }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-  border: 2px solid rgba(200,250,250,0.8);
-}
-.first:hover{
-  background-color: rgba(100,0,0,0.8);
-  border: 2px solid rgba(200,150,200,0.8);
-}
-.last:hover {
-  background-color: rgba(0,100,0,0.8);
-  border: 2px solid rgba(200,150,200,0.8);
-}
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover, .next:hover {
+        background-color: rgba(0,0,0,0.8);
+        border: 2px solid rgba(200,250,250,0.8);
+      }
+      .first:hover{
+        background-color: rgba(100,0,0,0.8);
+        border: 2px solid rgba(200,150,200,0.8);
+      }
+      .last:hover {
+        background-color: rgba(0,100,0,0.8);
+        border: 2px solid rgba(200,150,200,0.8);
+      }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  background-color: rgba(0,0,0,0.6);
-  font-size: 15px;
-  padding: 8px 12px;
-  position: relative;
-  bottom: -70px;
-  width: 100%;
-  text-align: center;
-}
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        background-color: rgba(0,0,0,0.6);
+        font-size: 15px;
+        padding: 8px 12px;
+        position: relative;
+        bottom: -70px;
+        width: 100%;
+        text-align: center;
+      }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  background-color: rgba(0,0,0,0.4);
-  font-size: 12px;
-  padding: 8px 12px;
-  text-align: center;
-  margin-left:85%;
-  top: 0;
-}
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        background-color: rgba(0,0,0,0.4);
+        font-size: 12px;
+        padding: 8px 12px;
+        text-align: center;
+        margin-left:85%;
+        top: 0;
+      }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
 
-.active, .dot:hover {
-  background-color: #717171;
-}
+      .active, .dot:hover {
+        background-color: #717171;
+      }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+      }
 
-.quiz-container{
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-.quiz-header{
-  padding: 4rem;
-}
-h2{
-  padding: 1rem;
-  margin: 0;
-}
+      .quiz-container{
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .quiz-header{
+        padding: 4rem;
+      }
+      h2{
+        padding: 1rem;
+        margin: 0;
+      }
 
-ul{
-  list-style-type: none;
-  padding: 0;
-}
-ul li{
-  font-size: 1.2rem;
-  margin: 1.3rem 1rem;
-}
-ul li label{
-  cursor: pointer;
-}
+      ul{
+        list-style-type: none;
+        padding: 0;
+      }
+      ul li{
+        font-size: 1.2rem;
+        margin: 1.3rem 1rem;
+      }
+      ul li label{
+        cursor: pointer;
+      }
 
-.container {
-    position: relative;
-    padding: 50px;
-    width: 260px;
-    min-height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
-}
+      .container {
+          position: relative;
+          padding: 50px;
+          width: 260px;
+          min-height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(5px);
+          border-radius: 10px;
+          box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+      }
 
-.openbtn1 {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
+      .openbtn1 {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+      }
 
-.openbtn1:hover {
-  background-color:#444;
-}
+      .openbtn1:hover {
+        background-color:#444;
+      }
 
-.circlestyle{
-  border:none;
-  background-color:cyan;
-  box-shadow: 10px;
-  border-radius: 50%;
-  padding:5px;
-}
-.exitit{
-  background-color: #455d80;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-.exitit:hover {
-    background-color: #2a384d;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
+      .circlestyle{
+        border:none;
+        background-color:cyan;
+        box-shadow: 10px;
+        border-radius: 50%;
+        padding:5px;
+      }
+      .exitit{
+        background-color: #455d80;
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      .exitit:hover {
+          background-color: #2a384d;
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
 
 
-.navboxd {
+      .navboxd {
 			  display: block;
         float: right;
 			  height: 50%;
@@ -455,8 +455,8 @@ ul li label{
   }
   .base-timer {
         position: relative;
-        width: 300px;
-        height: 300px;
+        width: 100px;
+        height: 100px;
     }
     
     .base-timer__svg {
@@ -497,13 +497,13 @@ ul li label{
     
     .base-timer__label {
         position: absolute;
-        width: 300px;
-        height: 300px;
+        width: 100px;
+        height: 100px;
         top: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 48px;
+        font-size: 25px;
     }
 </style>
 </head>
@@ -521,29 +521,29 @@ ul li label{
   <div class="main-container">
     <div class="slideshow-container">
       <form method="post" action="evaluation.php" id="myform">
-      <?php
-      $x=0;
-      if ($result && $result->num_rows > 0) {
-      global $x;
-      for ($x = 0;$row = $result->fetch_assoc(); $x++) {
-      echo '<div class="mySlides fade" id="'.$x.'">
-              <div class="quiz-container" id="quiz">
-                <div class="quiz-header">
-                  <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
-                  <h2>'.$row["question"].'</h2>
-                  <ul>
-                    <li><input type="radio" name="answer'.$x.'" id="a" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-                    <li><input type="radio" name="answer'.$x.'" id="b" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-                    <li><input type="radio" name="answer'.$x.'" id="c" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-                    <li><input type="radio" name="answer'.$x.'" id="d" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
-                  </ul>
-                </div>
-              </div>
-            </div>';
-      }
-      }
-      ?>
-	  <button type="submit" id="s">Submit</button>
+          <?php
+            $x=0;
+            if ($result && $result->num_rows > 0) {
+              global $x;
+              for ($x = 0;$row = $result->fetch_assoc(); $x++) {
+                echo '<div class="mySlides fade" id="'.$x.'">
+                        <div class="quiz-container" id="quiz">
+                          <div class="quiz-header">
+                            <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
+                            <h2>'.$row["question"].'</h2>
+                            <ul>
+                              <li><input type="radio" name="answer'.$x.'" id="a" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
+                              <li><input type="radio" name="answer'.$x.'" id="b" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
+                              <li><input type="radio" name="answer'.$x.'" id="c" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
+                              <li><input type="radio" name="answer'.$x.'" id="d" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>';
+              }
+            }
+          ?>
+        <button type="submit" id="s">Submit</button>
       </form>
       <br>
       <br>
@@ -556,7 +556,7 @@ ul li label{
       </div>
       
     </div>
-  <?php
+    <?php
       echo'
       <div class="timer-container" style="margin-right: 10pt;">
       <p id="app"></p>
@@ -565,26 +565,28 @@ ul li label{
       <h3 class="head">Quiz Navigation</h3>
         <hr noshade="2">
       <div class="flexbox">';
-    //echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
-    for($i=1;$i<=$x;$i++){
-      $i1=$i-1;
-    //echo '<a onclick="currentSlide('.$i1.')">'.$i.'</a>';
-      echo'<div class="flex-item"><a onclick="currentSlide('.$i1.')">
-          <h6 class="con">'.$i.'</h6></a>
-        </div>';
-    }
+      //echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
+      for($i=1;$i<=$x;$i++){
+        $i1=$i-1;
+        //echo '<a onclick="currentSlide('.$i1.')">'.$i.'</a>';
+        echo'<div class="flex-item"><a onclick="currentSlide('.$i1.')">
+            <h6 class="con">'.$i.'</h6></a>
+          </div>';
+      }
     ?>
   </div>
   <br>
   <br>
-<form action="../loggedin.php">
-<center><input type="submit" value="Exit Quiz" class="exitit"></center>
-</form>
-<?php
-$max = max(60*$time_limit-$t, 0);
-  echo "
-  <script> let TIME_LIMIT =$max </script>";
-?>
+  <form action="../loggedin.php">
+    <center><input type="submit" value="Exit Quiz" class="exitit"></center>
+  </form>
+  <?php
+  $max = max(60*$time_limit-$t, 0);
+    echo "
+    <script> let TIME_LIMIT =$max;
+      let TL =$t;  
+    </script>";
+  ?>
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -643,9 +645,9 @@ function toggle() {
                 document.getElementById("mySidePanel").style.width = "0";
             }
   // code for timer :
-    const FULL_DASH_ARRAY = 283;
-        const WARNING_THRESHOLD = 10;
-        const ALERT_THRESHOLD = 5;
+    const FULL_DASH_ARRAY = 360;
+        const WARNING_THRESHOLD = 30;
+        const ALERT_THRESHOLD = 10;
 
         const COLOR_CODES = {
             info: {
@@ -674,7 +676,7 @@ function toggle() {
       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
       <path
         id="base-timer-path-remaining"
-        stroke-dasharray="283"
+        stroke-dasharray="360"
         class="base-timer__path-remaining ${remainingPathColor}"
         d="
           M 50, 50
@@ -685,9 +687,7 @@ function toggle() {
       ></path>
     </g>
   </svg>
-  <span id="base-timer-label" class="base-timer__label">${formatTime(
-    timeLeft
-  )}</span>
+  <span id="base-timer-label" class="base-timer__label">${formatTime(timeLeft)}</span>
 </div>
 `;
 
@@ -753,16 +753,14 @@ function toggle() {
 
         function calculateTimeFraction() {
             const rawTimeFraction = timeLeft / TIME_LIMIT;
-            return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+           // return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+          return rawTimeFraction;
         }
 
         function setCircleDasharray() {
-            const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
-  ).toFixed(0)} 283`;
-            document
-                .getElementById("base-timer-path-remaining")
-                .setAttribute("stroke-dasharray", circleDasharray);
+            //const circleDasharray = `${(calculateTimeFraction() * FULL_DASH_ARRAY).toFixed(0)} 360`;
+            const circleDasharray = `${(timeLeft/TIME_LIMIT).toFixed(0)} 360`;
+            document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
         }
 </script>
 <script type="text/javascript">
