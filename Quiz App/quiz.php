@@ -753,5 +753,10 @@ function toggle() {
                 .setAttribute("stroke-dasharray", circleDasharray);
         }
 </script>
+<script type="text/javascript">
+function forcesubmit() {
+  document.getElementById("myform").submit();
+}
+</script>
 </body>
 </html>
