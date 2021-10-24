@@ -505,7 +505,7 @@ ul li label{
             </div>
   <div class="main-container">
     <div class="slideshow-container">
-      <form method="post" action="evaluation.php">
+      <form method="post" action="evaluation.php" id="myform">
       <?php
       $x=0;
       if ($result && $result->num_rows > 0) {
@@ -528,8 +528,11 @@ ul li label{
       }
       }
       ?>
-	  <input type="submit" value="Submit">
+	  <button type="submit">Submit</button>
       </form>
+      <br>
+      <br>
+      <br>
       <div class="navstp">
         <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
@@ -557,12 +560,14 @@ ul li label{
     }
     ?>
   </div>
+  <br>
+  <br>
 <form action="../loggedin.php">
-<input type="submit" value="Exit Quiz" class="exitit">
+<center><input type="submit" value="Exit Quiz" class="exitit"></center>
 </form>
 <?php
   echo "
-  <script>const TIME_LIMIT =".$_GET["time"]."</script>";
+  <script>let TIME_LIMIT =".$_GET["time"]."</script>";
 ?>
 <script>
 var slideIndex = 1;
@@ -640,6 +645,7 @@ function toggle() {
             }
         };
         //const TIME_LIMIT = 100;
+        //TIME_LIMIT = window.sessionStorage.getItem("Time");
         let timePassed = 0;
         let timeLeft = TIME_LIMIT;
         let timerInterval = null;
@@ -679,14 +685,18 @@ function toggle() {
             timerInterval = setInterval(() => {
                 timePassed = timePassed += 1;
                 timeLeft = TIME_LIMIT - timePassed;
+                <?php echo $_GET["time"] = "timeLeft"; ?>
+                //window.sessionStorage.setItem("time",timeLeft);
                 document.getElementById("base-timer-label").innerHTML = formatTime(
                     timeLeft
                 );
                 setCircleDasharray();
                 setRemainingPathColor(timeLeft);
 
-                if (timeLeft === 0) {
+                if (timeLeft <= 0) {
                     onTimesUp();
+                    //window.sessionStorage.setItem("time",0);
+                    return ;
                 }
             }, 1000);
         }
@@ -738,6 +748,11 @@ function toggle() {
                 .getElementById("base-timer-path-remaining")
                 .setAttribute("stroke-dasharray", circleDasharray);
         }
+</script>
+<script type="text/javascript">
+function forcesubmit() {
+  document.getElementById("myform").submit();
+}
 </script>
 </body>
 </html>

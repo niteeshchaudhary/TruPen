@@ -11,7 +11,7 @@ function getBotResponse(input) {
     5. How do I contact the website devs?<br>
     6. How to print some documents?<br>
     `
-    if (input == "hello") {
+    if (input == "hello" || input == "hi") {
         return "Hello there!";
     } else if (input.trim(" ") == "") {
         return "Ughh, were you trying to type?<br> Please try again.";
