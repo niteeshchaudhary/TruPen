@@ -72,7 +72,7 @@ $password = $_POST["password"];
 
     if($user_id)
     {
-      $command = "SELECT username,passcode FROM teacher WHERE username LIKE '$user_id'";
+      $command = "SELECT username,passcode, subject FROM teacher WHERE username LIKE '$user_id'";
       $data = $mysql -> query($command);
       while($row = $data->fetch_assoc())
       {
