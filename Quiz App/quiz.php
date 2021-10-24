@@ -505,7 +505,7 @@ ul li label{
             </div>
   <div class="main-container">
     <div class="slideshow-container">
-      <form method="post" action="evaluation.php">
+      <form method="post" action="evaluation.php" id="myform">
       <?php
       $x=0;
       if ($result && $result->num_rows > 0) {
@@ -528,8 +528,11 @@ ul li label{
       }
       }
       ?>
-	  <input type="submit" value="Submit">
+	  <button type="submit" id="s">Submit</button>
       </form>
+      <br>
+      <br>
+      <br>
       <div class="navstp">
         <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
@@ -557,14 +560,20 @@ ul li label{
     }
     ?>
   </div>
+  <br>
+  <br>
 <form action="../loggedin.php">
-<input type="submit" value="Exit Quiz" class="exitit">
+<center><input type="submit" value="Exit Quiz" class="exitit"></center>
 </form>
 <?php
   echo "
-  <script>const TIME_LIMIT =".$_GET["time"]."</script>";
+  <script>let TIME_LIMIT =".$_GET['time']."</script>";
 ?>
 <script>
+window.onbeforeunload = function() {
+  return "Quiz will be auto-submitted if you reload this page, are you sure?";
+  document.getElementById("myform").submit();
+};
 var slideIndex = 1;
 showSlides(slideIndex);
 
@@ -640,6 +649,7 @@ function toggle() {
             }
         };
         //const TIME_LIMIT = 100;
+        //TIME_LIMIT = window.sessionStorage.getItem("Time");
         let timePassed = 0;
         let timeLeft = TIME_LIMIT;
         let timerInterval = null;
@@ -679,18 +689,22 @@ function toggle() {
             timerInterval = setInterval(() => {
                 timePassed = timePassed += 1;
                 timeLeft = TIME_LIMIT - timePassed;
+                //window.sessionStorage.setItem("time",timeLeft);
                 document.getElementById("base-timer-label").innerHTML = formatTime(
                     timeLeft
                 );
                 setCircleDasharray();
                 setRemainingPathColor(timeLeft);
 
-                if (timeLeft === 0) {
+                if (timeLeft <= 0) {
                     onTimesUp();
+                    location.reload();
+                    document.getElementById("myform").submit();
+                    //window.sessionStorage.setItem("time",0);
+                    return ;
                 }
             }, 1000);
         }
-
         function formatTime(time) {
             const minutes = Math.floor(time / 60);
             let seconds = time % 60;

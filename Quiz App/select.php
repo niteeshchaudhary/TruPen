@@ -70,6 +70,7 @@ if($result->num_rows > 0)
  <td><a href="<?php echo 'quiz.php?quiz_name='.$row['name'].'&quiz_subject='.$row['subject'].'&time='.$row['time_limit']; ?>"><?php echo $row['name']; ?></a></td>
  <td><?php echo $row['subject']; ?></td>
  <td><?php echo $row['time_limit']; ?></td>
+ <?php $_SESSION["TIME_LIMIT"]=$row['time_limit'];?>
  <td><?php echo $row['no_questions']; ?></td>
  <td><?php echo $row['total']; ?></td>
  </tr>
