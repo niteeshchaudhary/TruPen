@@ -570,13 +570,6 @@ ul li label{
   <script>let TIME_LIMIT =".$_GET['time']."</script>";
 ?>
 <script>
-  function disableBack() { window.history.forward(); }
-        setTimeout("disableBack()", 0);
-        window.onunload = function () { null };
-window.onbeforeunload = function() {
-  return "Quiz will be auto-submitted if you reload this page, are you sure?";
-  
-};
 var slideIndex = 1;
 showSlides(slideIndex);
 
