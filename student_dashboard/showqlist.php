@@ -1108,7 +1108,7 @@
 															Total Questions : '.$row['no_questions'].'
 														</div>
 														<div class="days-left" style="color: '.$colors[$cnt%6].';">
-																'.$row['time_limit'].' seconds
+																'.$row['time_limit'].' minutes
 															</div>
 														</div>
 												</div>
