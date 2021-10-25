@@ -958,7 +958,7 @@
 				</div>
 				<div class="projects-section">
 
-						<iframe src="../Quiz App/create.php" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
+						<iframe src="../Quiz App/create.php" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
 						</iframe>
 						
 				</div>

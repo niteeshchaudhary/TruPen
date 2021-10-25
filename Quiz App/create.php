@@ -8,13 +8,13 @@ date_default_timezone_set('Asia/Kolkata');
     <title>Create Quiz</title>
 	<style>
 	body {
-		height: 100vh;
+		height: 80vh;
 		background-image: url(../Image_Components/cwb.jpg) center center fixed;
 		background-size: cover;
 }
 
 .shade {
-		overflow: auto;
+		height:520px;
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -27,6 +27,7 @@ date_default_timezone_set('Asia/Kolkata');
 		position: relative;
 		width: 670px;
 		margin: 2% auto;
+		height:470px;
 		border: tan solid 12px;
 		border-top: #bda27e solid 12px;
 		border-left: #b19876 solid 12px;
@@ -41,7 +42,7 @@ date_default_timezone_set('Asia/Kolkata');
 		display: block;
 		position: absolute;
 		width: 100%;
-		height: 100%;
+		height:100%;
 		/*background-image: linear-gradient( 175deg, transparent, transparent 40px, rgba(120, 120, 120, 0.1) 100px, rgba(120, 120, 120, 0.1) 110px, transparent 220px, transparent), linear-gradient( 200deg, transparent 80%, rgba(50, 50, 50, 0.3)), radial-gradient( ellipse at right bottom, transparent, transparent 200px, rgba(80, 80, 80, 0.1) 260px, rgba(80, 80, 80, 0.1) 320px, transparent 400px, transparent);
 		background-image:url(../Image_Components/grb.jpg);*/
 		border: #2c2c2c solid 2px;

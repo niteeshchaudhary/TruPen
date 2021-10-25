@@ -15,6 +15,7 @@ img {vertical-align: middle;}
 .slideshow-container {
   max-width: 30%;
   position: relative;
+  top: -130px;
   margin: auto;
 }
 
@@ -22,7 +23,7 @@ img {vertical-align: middle;}
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 25%;
   width: auto;
   padding: 16px;
   margin-top: 150px;
@@ -268,7 +269,7 @@ select::-ms-expand {
 }
 </style>
 </head>
-<body>
+<body style="height: 80vh;">
 <?php
 $_SESSION["subject_quiz"] = $_SESSION["subject"].'_'.$_POST["name"];
 $_SESSION["quiz_name"] = $_POST["name"];
