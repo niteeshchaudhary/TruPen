@@ -61,6 +61,7 @@ if ($mysql -> connect_errno) {
 
 $user_id= $_POST["LoginID"];
 $password = $_POST["password"];
+$subject = $_POST["subject"];
 echo "<br><br><br>";
 ?>
 
@@ -70,8 +71,9 @@ echo "<br><br><br>";
 <?php 
 $x=0;
 if($user_id && $password){
-    $command = "INSERT INTO teacher(username,passcode) VALUES('$user_id','$password')";
+    $command = "INSERT INTO teacher(username,passcode,subject) VALUES('$user_id','$password','$subject')";
     if ($mysql -> query($command)){
+		$_SESSION["subject"] = $subject;
         global $x;
         $x=1;
     }

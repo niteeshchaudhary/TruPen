@@ -184,6 +184,14 @@ svg {
           <img src="Image_Components/cps.png" alt="key">
           <p id="error"></p>
         </div>
+		
+		<div class="inputBx">
+          <input type="text" name="subject" id = "subject" autocomplete="off" required="required">
+          <p class="user-avail"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" text-rendering="optimizeSpeed" style="visibility: visible;"></p>
+          <span>Subject</span>
+          <img src="Image_Components/book.png" alt="user">
+        </div>
+		
         <div class="inputBx">
             <input type = "submit" value="Sign Up" id="submit"> 
         </div>
