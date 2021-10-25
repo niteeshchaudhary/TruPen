@@ -859,7 +859,7 @@
 				}
 			}
 		</style>
-		<style>
+		<!--<style>
 			.shade {
 					position: relative;
 					top: 0;
@@ -968,7 +968,7 @@
 					color: rgba(255, 255, 255, 1);
 					text-shadow: none;
 			}
-		</style>
+		</style>-->
 		<script>
 			if (document.location.search.match(/type=embed/gi)) {
 			window.parent.postMessage("resize", "*");
@@ -1068,12 +1068,13 @@
 				</div>
 				<div class="projects-section">
 					<!--<div class="projects-section-header">
+						<div>-->
 						<iframe src="../Quiz App/create.php" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
-						</iframe>-->
-						<div class="shade">
+						</iframe>
+						<!--<div class="shade">
 							<div class="blackboard">
 								<div class="form">
-									<form action="../Quiz App/QnA.php" method="post">
+									<form action="../Quiz App/Add_QA.php" method="post">
 											<p>
 													<label>Name: </label>
 													<input type="text" name="name" autocomplete="off" required>
@@ -1100,8 +1101,7 @@
 									</form>
 								</div>
 							</div>
-						</div>
-					<!--</div>-->
+						</div>-->
 				</div>
 			</div>
 		</div>
