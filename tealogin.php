@@ -4,7 +4,7 @@ session_start();
 <html>
 <head>
     <title>
-        User Login Page
+        Teacher Login Page
     </title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 </head>     
@@ -80,7 +80,7 @@ $password = $_POST["password"];
         $passworddata = $row["passcode"]; 
         if($userdata === $user_id && $passworddata === $password){
             global $x;
-            $_SESSION["subject"] = $row["subject"];
+			$_SESSION["subject"] = $row["subject"];
             $x = 1;
         }
       }
@@ -132,7 +132,7 @@ session_unset();
 // destroy the session
 session_destroy();
 
-    header( "refresh:5 ; url = tea_signup.php" );
+    header( "refresh:2 ; url = tea_login.php" );
 }
 ?>
 
