@@ -584,9 +584,6 @@
 				padding: 8px;
 				transition: 0.2s;
 			}
-			.project-box:hover {
-				transform: scale(1.04);
-			}
 
 			.project-btn-more {
 				padding: 0;
@@ -862,7 +859,116 @@
 				}
 			}
 		</style>
+		<style>
+			.shade {
+					position: relative;
+					top: 0;
+					left: 0;
+					bottom: 0;
+					right: 0;	
+					border-radius: 25px;
+					background: linear-gradient( to right, rgba(200, 250, 210, 0.1),rgba(200, 250, 210, 0.5), rgba(200, 250, 210, 0.1));	
+			}
 
+			.blackboard {
+					position: relative;
+					width: 640px;
+					margin: 2% auto;
+					border: tan solid 12px;
+					border-top: #bda27e solid 12px;
+					border-left: #b19876 solid 12px;
+					border-bottom: #c9ad86 solid 12px;
+					box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+					background: linear-gradient( to left, rgba(50, 65, 81, 1),rgba(150, 165, 281, 0.3));
+					background-color: #333;
+			}
+
+			.blackboard:before {
+					box-sizing: border-box;
+					display: block;
+					position: relative;
+					width: 100%;
+					height: 100%;
+					content: "Create Quiz";
+					font-family: 'Permanent Marker', cursive;
+					font-size: 2.2em;
+					color: rgba(238, 238, 238, 0.7);
+					text-align: center;
+					padding-top: 20px;
+			}
+
+			.form {
+					padding: 70px 20px 20px;
+			}
+
+			p {
+					position: relative;
+					margin-bottom: 1em;
+			}
+
+			label {
+					vertical-align: middle;
+					font-family: 'Permanent Marker', cursive;
+					font-size: 1.6em;
+					color: rgba(255, 238, 255, 0.9);
+			}
+
+			p:nth-of-type(5) > label {
+					vertical-align: top;
+			}
+
+			input{
+					vertical-align: middle;
+					padding-left: 10px;
+					background: none;
+					border: none;
+					font-family: 'Permanent Marker', cursive;
+					font-size: 1.6em;
+					color: rgba(255, 238, 255, 0.9);
+					line-height: 0.2em;
+					outline: none;
+			}
+			.number{
+					cursor: pointer;
+					color: rgba(255, 238, 255, 0.9);
+					line-height: 0.5em;
+					padding: 0;
+			}
+			.date{
+					cursor: pointer;
+					color: rgba(255, 238, 255, 0.9);
+					line-height: 2em;
+					padding: 0;
+			}
+			input[type="submit"] {
+					cursor: pointer;
+					border-style:outset;
+					border-color:red;
+					color: rgba(255, 238, 255, 0.9);
+					line-height: 1em;
+					border-radius: 10%;
+					padding: 0;
+			}
+
+			input[type="submit"]:focus {
+					background: rgba(238, 238, 238, 0.2);
+					border-radius: 30%;
+					color: rgba(238, 238, 238, 0.5);
+			}
+
+			::-moz-selection {
+					background: rgba(238, 238, 238, 0.2);
+					color: rgba(255, 238, 238, 0.8);
+					border-radius: 50%;
+					text-shadow: none;
+			}
+
+			::selection {
+					background: rgba(238, 238, 238, 0.4);
+					color: rgba(255, 255, 255, 1);
+					text-shadow: none;
+			}
+		</style>
 		<script>
 			if (document.location.search.match(/type=embed/gi)) {
 			window.parent.postMessage("resize", "*");
@@ -918,7 +1024,7 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link active">
+					<a href="dashboard.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
@@ -945,7 +1051,7 @@
 							<rect x="6" y="14" width="12" height="8"/>
 						</svg>
 					</a>
-					<a href="teacher_profile.php" class="app-sidebar-link">
+					<a href="teacher_profile.php" class="app-sidebar-link active">
 						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-profile">
 						<circle cx="25" cy="25" r="17" />
 						<path stroke-width="1.3" d="M15.3 37.3l-1.8-.8c.5-1.2 2.1-1.9 3.8-2.7 1.7-.8 3.8-1.7 3.8-2.8v-1.5c-.6-.5-1.6-1.6-1.8-3.2-.5-.5-1.3-1.4-1.3-2.6 0-.7.3-1.3.5-1.7-.2-.8-.4-2.3-.4-3.5 0-3.9 2.7-6.5 7-6.5 1.2 0 2.7.3 3.5 1.2 1.9.4 3.5 2.6 3.5 5.3 0 1.7-.3 3.1-.5 3.8.2.3.4.8.4 1.4 0 1.3-.7 2.2-1.3 2.6-.2 1.6-1.1 2.6-1.7 3.1V31c0 .9 1.8 1.6 3.4 2.2 1.9.7 3.9 1.5 4.6 3.1l-1.9.7c-.3-.8-1.9-1.4-3.4-1.9-2.2-.8-4.7-1.7-4.7-4v-2.6l.5-.3s1.2-.8 1.2-2.4v-.7l.6-.3c.1 0 .6-.3.6-1.1 0-.2-.2-.5-.3-.6l-.4-.4.2-.5s.5-1.6.5-3.6c0-1.9-1.1-3.3-2-3.3h-.6l-.3-.5c0-.4-.7-.8-1.9-.8-3.1 0-5 1.7-5 4.5 0 1.3.5 3.5.5 3.5l.1.5-.4.5c-.1 0-.3.3-.3.7 0 .5.6 1.1.9 1.3l.4.3v.5c0 1.5 1.3 2.3 1.3 2.4l.5.3v2.6c0 2.4-2.6 3.6-5 4.6-1.1.4-2.6 1.1-2.8 1.6z"/>
@@ -961,210 +1067,41 @@
 					</a>
 				</div>
 				<div class="projects-section">
-					<div class="projects-section-header">
-						<p>Courses</p>
-						<p class="time"><?php echo date('F, d');?></p>
-						<div class="view-actions">
-							<button class="view-btn list-view" title="List View">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
-									<line x1="8" y1="6" x2="21" y2="6" />
-									<line x1="8" y1="12" x2="21" y2="12" />
-									<line x1="8" y1="18" x2="21" y2="18" />
-									<line x1="3" y1="6" x2="3.01" y2="6" />
-									<line x1="3" y1="12" x2="3.01" y2="12" />
-									<line x1="3" y1="18" x2="3.01" y2="18" />
-								</svg>
-							</button>
-							<button class="view-btn grid-view active" title="Grid View">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
-									<rect x="3" y="3" width="7" height="7" />
-									<rect x="14" y="3" width="7" height="7" />
-									<rect x="14" y="14" width="7" height="7" />
-									<rect x="3" y="14" width="7" height="7" />
-								</svg>
-							</button>
-						</div>
-					</div>
-					<!--<div class="projects-section-line">
-						<div class="projects-status">
-							<div class="item-status">
-								<span class="status-number">45</span>
-								<span class="status-type">In Progress</span>
-							</div>
-							<div class="item-status">
-								<span class="status-number">24</span>
-								<span class="status-type">Upcoming</span>
-							</div>
-							<div class="item-status">
-								<span class="status-number">62</span>
-								<span class="status-type">Total Projects</span>
-							</div>
-						</div>
-					</div>-->
-					<div class="project-boxes jsGridView">
-						<?php 
-						  $colorbk=array('#fee4cb','#e9e7fd',' #4f3ff0','#ffd3e2','#c8f7dc','#d5deff');
-							$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
-							$qryst="select * from teacher;";
-						  $result = $con->query($qryst);
-								echo '
-						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="gotoC(\'createQ.php\');" style="background-color: #ffd3e2;">
-											<div class="project-box-header">
-												<span>*</span>
-												<div class="more-wrapper">
-													<button class="project-btn-more">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-															<circle cx="12" cy="12" r="1" />
-															<circle cx="12" cy="5" r="1" />
-															<circle cx="12" cy="19" r="1" />
-														</svg>
-													</button>
-												</div>
-											</div>
-											<div class="project-box-content-header">
-												<p class="box-content-header">➕</p>
-												<p class="box-content-subheader">'."Create Quiz".'</p>
-											</div>
-											
-											<div class="project-box-footer">
-												<div class="participants">
-													
-												</div>
-												<div class="days-left" style="color: #df3670;">
-														
-													</div>
-												</div>
-										</div>
-									</div>';
-								echo '
-								<div class="project-box-wrapper">
-									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #c8f7dc;">
-										<div class="project-box-header">
-											<span>*</span>
-											<div class="more-wrapper">
-												<button class="project-btn-more">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-														<circle cx="12" cy="12" r="1" />
-														<circle cx="12" cy="5" r="1" />
-														<circle cx="12" cy="19" r="1" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<div class="project-box-content-header">
-											<p class="box-content-header">👀📝🗒️📔📓📒</p>
-											<p class="box-content-subheader">'."Student Performances".'</p>
-										</div>
-										
-										<div class="project-box-footer">
-											<div class="participants">
-												
-											</div>
-											<div class="days-left" style="color: #4067f9;">
-													
-												</div>
-											</div>
-									</div>
-								</div>';
-								echo '
-								<div class="project-box-wrapper">
-									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #fee4cb;">
-										<div class="project-box-header">
-											<span>*</span>
-											<div class="more-wrapper">
-												<button class="project-btn-more">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-														<circle cx="12" cy="12" r="1" />
-														<circle cx="12" cy="5" r="1" />
-														<circle cx="12" cy="19" r="1" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<div class="project-box-content-header">
-											<p class="box-content-header">👨‍💼📆</p>
-											<p class="box-content-subheader">'."Student Attendence".'</p>
-										</div>
-										
-										<div class="project-box-footer">
-											<div class="participants">
-												
-											</div>
-											<div class="days-left" style="color: #ff942e;">
-													
-												</div>
-											</div>
-									</div>
-								</div>';
-								echo '
-								<div class="project-box-wrapper">
-									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #d5deff;">
-										<div class="project-box-header">
-											<span>*</span>
-											<div class="more-wrapper">
-												<button class="project-btn-more">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-														<circle cx="12" cy="12" r="1" />
-														<circle cx="12" cy="5" r="1" />
-														<circle cx="12" cy="19" r="1" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<div class="project-box-content-header">
-											<p class="box-content-header">📈📉📇📐📝</p>
-											<p class="box-content-subheader">'."All Over analysis of Quizes".'</p>
-										</div>
-										
-										<div class="project-box-footer">
-											<div class="participants">
-												
-											</div>
-											<div class="days-left" style="color: #4067f9;">
-													
-												</div>
-											</div>
-									</div>
-								</div>';
-						?>
-					</div>
-				</div>
-				<div class="messages-section">
-					<button class="messages-close">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-							<circle cx="12" cy="12" r="10" />
-							<line x1="15" y1="9" x2="9" y2="15" />
-							<line x1="9" y1="9" x2="15" y2="15" />
-						</svg>
-					</button>
-					<div class="projects-section-header">
-						<p>Professor's Remarks</p>
-					</div>
-					<div class="messages">
-						<!--<div class="message-box">
-							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
-							<div class="message-content">
-								<div class="message-header">
-									<div class="name">Stephanie</div>
-										<div class="star-checkbox">
-											<input type="checkbox" id="star-1">
-											<label for="star-1">
-											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
-												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 	21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-											</svg>
-										</label>
-									</div>
+					<!--<div class="projects-section-header">
+						<iframe src="../Quiz App/create.php" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
+						</iframe>-->
+						<div class="shade">
+							<div class="blackboard">
+								<div class="form">
+									<form action="../Quiz App/QnA.php" method="post">
+											<p>
+													<label>Name: </label>
+													<input type="text" name="name" autocomplete="off" required>
+											</p>
+											<p>
+													<label>Subject: </label>
+													<input type="text" name="subject" value="<?php echo $_SESSION["subject"]; ?>" disabled>
+											</p>
+											<p>
+													<label>Total Questions: </label>
+													<input type="number" name="no" class="number" style="width: 200px;" required>
+											</p>
+											<p>
+													<label>Start Time: </label>
+													<input type="datetime-local" class="date" name="time" min="<?php echo date('Y-m-d').'T'.date('H:i:s'); ?>" step="any" required>
+											</p>
+											<p>
+													<label>Time Limit: </label>
+													<input type="number" name="duration" style="width: 200px;" required>
+											</p>
+											<p class="wipeout">
+													<input type="submit" value="Create" style="width: 100px; height: 50px;">
+											</p>
+									</form>
 								</div>
-								<p class="message-line">
-									I got your first assignment. It was quite good. 🥳 We can continue 	with the next assignment.
-								</p>
-								<p class="message-line time">
-									Dec, 12
-								</p>
 							</div>
-						</div>-->
-					</div>
+						</div>
+					<!--</div>-->
 				</div>
 			</div>
 		</div>
@@ -1204,7 +1141,7 @@
 				});
 			});
 			function gotoC(combo){
-				window.location.href = combo;
+				window.location.href = "showqlist.php?qz="+combo;
 			}
 		</script>
 
