@@ -140,7 +140,7 @@ input[type="submit"]:focus {
 						</p>
 						<p>
 								<label>Total Questions: </label>
-								<input type="number" name="no" class="number" style="width: 200px;" required>
+								<input type="number" name="no" class="number" style="width: 200px;" min="1" required>
 						</p>
 						<p>
 								<label>Start Time: </label>
