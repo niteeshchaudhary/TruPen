@@ -123,7 +123,7 @@ else{
 
 <?php
 if($x===1){
-    header( "refresh:2 ; url = loggedin.php" );
+    header( "refresh:2 ; url = teacher_dashboard/dashboard.php" );
 }
 else{
     // remove all session variables

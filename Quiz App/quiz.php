@@ -645,7 +645,7 @@ function toggle() {
                 document.getElementById("mySidePanel").style.width = "0";
             }
   // code for timer :
-    const FULL_DASH_ARRAY = 360;
+    const FULL_DASH_ARRAY = 283;
         const WARNING_THRESHOLD = 30;
         const ALERT_THRESHOLD = 10;
 
@@ -676,7 +676,8 @@ function toggle() {
       <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
       <path
         id="base-timer-path-remaining"
-        stroke-dasharray="360"
+        stroke-dasharray="283"
+        stroke-dashoffset="0"
         class="base-timer__path-remaining ${remainingPathColor}"
         d="
           M 50, 50
@@ -759,8 +760,8 @@ function toggle() {
 
         function setCircleDasharray() {
             //const circleDasharray = `${(calculateTimeFraction() * FULL_DASH_ARRAY).toFixed(0)} 360`;
-            const circleDasharray = `${(timeLeft/TIME_LIMIT).toFixed(0)} 360`;
-            document.getElementById("base-timer-path-remaining").setAttribute("stroke-dasharray", circleDasharray);
+            const circleDasharray = ((TIME_LIMIT-timeLeft)/TIME_LIMIT*283).toString();;
+            document.getElementById("base-timer-path-remaining").setAttribute("stroke-dashoffset", circleDasharray);
         }
 </script>
 <script type="text/javascript">

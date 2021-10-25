@@ -178,7 +178,7 @@
 					</div>-->
 					<div class="project-boxes jsGridView">
 						<?php 
-						$colorbk=array('#fee4cb','#e9e7fd',' #ffd3e2','#ffd3e2','#c8f7dc','#d5deff');
+						$colorbk=array('#fee4cb','#e9e7fd',' #4f3ff0','#ffd3e2','#c8f7dc','#d5deff');
 						$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
 
 						if($result->num_rows > 0)

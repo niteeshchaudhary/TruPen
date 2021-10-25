@@ -945,7 +945,7 @@
 							<rect x="6" y="14" width="12" height="8"/>
 						</svg>
 					</a>
-					<a href="student_profile.php" class="app-sidebar-link">
+					<a href="teacher_profile.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-profile">
 						<circle cx="25" cy="25" r="17" />
 						<path stroke-width="1.3" d="M15.3 37.3l-1.8-.8c.5-1.2 2.1-1.9 3.8-2.7 1.7-.8 3.8-1.7 3.8-2.8v-1.5c-.6-.5-1.6-1.6-1.8-3.2-.5-.5-1.3-1.4-1.3-2.6 0-.7.3-1.3.5-1.7-.2-.8-.4-2.3-.4-3.5 0-3.9 2.7-6.5 7-6.5 1.2 0 2.7.3 3.5 1.2 1.9.4 3.5 2.6 3.5 5.3 0 1.7-.3 3.1-.5 3.8.2.3.4.8.4 1.4 0 1.3-.7 2.2-1.3 2.6-.2 1.6-1.1 2.6-1.7 3.1V31c0 .9 1.8 1.6 3.4 2.2 1.9.7 3.9 1.5 4.6 3.1l-1.9.7c-.3-.8-1.9-1.4-3.4-1.9-2.2-.8-4.7-1.7-4.7-4v-2.6l.5-.3s1.2-.8 1.2-2.4v-.7l.6-.3c.1 0 .6-.3.6-1.1 0-.2-.2-.5-.3-.6l-.4-.4.2-.5s.5-1.6.5-3.6c0-1.9-1.1-3.3-2-3.3h-.6l-.3-.5c0-.4-.7-.8-1.9-.8-3.1 0-5 1.7-5 4.5 0 1.3.5 3.5.5 3.5l.1.5-.4.5c-.1 0-.3.3-.3.7 0 .5.6 1.1.9 1.3l.4.3v.5c0 1.5 1.3 2.3 1.3 2.4l.5.3v2.6c0 2.4-2.6 3.6-5 4.6-1.1.4-2.6 1.1-2.8 1.6z"/>
@@ -1003,24 +1003,15 @@
 					</div>-->
 					<div class="project-boxes jsGridView">
 						<?php 
-						  $colorbk=array('#fee4cb','#e9e7fd',' #ffd3e2','#ffd3e2','#c8f7dc','#d5deff');
+						  $colorbk=array('#fee4cb','#e9e7fd',' #4f3ff0','#ffd3e2','#c8f7dc','#d5deff');
 							$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
 							$qryst="select * from teacher;";
 						  $result = $con->query($qryst);
-						  $cnt=0;
-						  if ($result && $result->num_rows > 0) {
-						    while($row = $result->fetch_assoc()){
-						    	$prof_img="abc";
-						    	if (file_exists('../profile_pic/teacher/'.$row['username'].'.jpg')) {
-									    $prof_img='../profile_pic/teacher/'.$row['username'].'.jpg';
-									} else {
-									    $prof_img= '../profile_pic/teacher/user.jpg';
-									}
-									echo '
+								echo '
 						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="gotoC(\''.$row["subject"].'\');" style="background-color: '.$colorbk[$cnt%6].';">
+										<div class="project-box" onclick="gotoC(\'Quiz App/create.php\');" style="background-color: #ffd3e2;">
 											<div class="project-box-header">
-												<span>*Compulsary Course</span>
+												<span>*</span>
 												<div class="more-wrapper">
 													<button class="project-btn-more">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -1032,33 +1023,110 @@
 												</div>
 											</div>
 											<div class="project-box-content-header">
-												<p class="box-content-header">'.$row["subject"].'</p>
-												<p class="box-content-subheader">'."Prototyping".'</p>
+												<p class="box-content-header">➕</p>
+												<p class="box-content-subheader">'."Create Quiz".'</p>
 											</div>
-											<div class="box-progress-wrapper">
-												<p class="box-progress-header">Progress</p>
-												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'60'.'%; background-color: #ff942e"></span>
-												</div>
-												<p class="box-progress-percentage">'.'60'.'%</p>
-											</div>
+											
 											<div class="project-box-footer">
 												<div class="participants">
-													<img src="'.$prof_img.'?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2555&q=80" alt="professor">
-													&nbsp'.$row['username'].'
+													
 												</div>
-												<div class="days-left" style="color: '.$colors[$cnt%6].';">
-														In Progress
+												<div class="days-left" style="color: #df3670;">
+														
 													</div>
 												</div>
 										</div>
 									</div>';
-									$cnt+=1;
-						    }
-						  }
-						  else{
-
-						  }
+								echo '
+								<div class="project-box-wrapper">
+									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #c8f7dc;">
+										<div class="project-box-header">
+											<span>*</span>
+											<div class="more-wrapper">
+												<button class="project-btn-more">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+														<circle cx="12" cy="12" r="1" />
+														<circle cx="12" cy="5" r="1" />
+														<circle cx="12" cy="19" r="1" />
+													</svg>
+												</button>
+											</div>
+										</div>
+										<div class="project-box-content-header">
+											<p class="box-content-header">👀📝🗒️📔📓📒</p>
+											<p class="box-content-subheader">'."Student Performances".'</p>
+										</div>
+										
+										<div class="project-box-footer">
+											<div class="participants">
+												
+											</div>
+											<div class="days-left" style="color: #4067f9;">
+													
+												</div>
+											</div>
+									</div>
+								</div>';
+								echo '
+								<div class="project-box-wrapper">
+									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #fee4cb;">
+										<div class="project-box-header">
+											<span>*</span>
+											<div class="more-wrapper">
+												<button class="project-btn-more">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+														<circle cx="12" cy="12" r="1" />
+														<circle cx="12" cy="5" r="1" />
+														<circle cx="12" cy="19" r="1" />
+													</svg>
+												</button>
+											</div>
+										</div>
+										<div class="project-box-content-header">
+											<p class="box-content-header">👨‍💼📆</p>
+											<p class="box-content-subheader">'."Student Attendence".'</p>
+										</div>
+										
+										<div class="project-box-footer">
+											<div class="participants">
+												
+											</div>
+											<div class="days-left" style="color: #ff942e;">
+													
+												</div>
+											</div>
+									</div>
+								</div>';
+								echo '
+								<div class="project-box-wrapper">
+									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #d5deff;">
+										<div class="project-box-header">
+											<span>*</span>
+											<div class="more-wrapper">
+												<button class="project-btn-more">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
+														<circle cx="12" cy="12" r="1" />
+														<circle cx="12" cy="5" r="1" />
+														<circle cx="12" cy="19" r="1" />
+													</svg>
+												</button>
+											</div>
+										</div>
+										<div class="project-box-content-header">
+											<p class="box-content-header">📈📉📇📐📝</p>
+											<p class="box-content-subheader">'."All Over analysis of Quizes".'</p>
+										</div>
+										
+										<div class="project-box-footer">
+											<div class="participants">
+												
+											</div>
+											<div class="days-left" style="color: #4067f9;">
+													
+												</div>
+											</div>
+									</div>
+								</div>';
 						?>
 					</div>
 				</div>
@@ -1136,7 +1204,7 @@
 				});
 			});
 			function gotoC(combo){
-				window.location.href = "showqlist.php?sub="+combo;
+				window.location.href = "../"+combo;
 			}
 		</script>
 
