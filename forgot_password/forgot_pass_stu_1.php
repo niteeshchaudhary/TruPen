@@ -704,7 +704,7 @@
                           alert('Email Not in database');
                         }
                         else if(msg==1){
-                          header("location: forgot_pass_stu_3.php");
+							$(location).prop('href', 'forgot_pass_stu_3.php');
                         }
                     }
                  });
