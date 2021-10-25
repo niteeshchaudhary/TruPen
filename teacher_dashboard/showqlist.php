@@ -565,6 +565,9 @@
 				background-color: var(--main-color-card);
 				cursor: pointer;
 			}
+			.project-box:hover {
+				transform: scale(1.04);
+			}
 			.project-box-header {
 				display: flex;
 				align-items: center;
@@ -586,6 +589,7 @@
 				margin: 0;
 			}
 			.project-box-wrapper {
+				overflow: hidden;
 				padding: 8px;
 				transition: 0.2s;
 			}

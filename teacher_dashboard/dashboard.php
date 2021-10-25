@@ -584,6 +584,9 @@
 				padding: 8px;
 				transition: 0.2s;
 			}
+			.project-box:hover {
+				transform: scale(1.04);
+			}
 
 			.project-btn-more {
 				padding: 0;
