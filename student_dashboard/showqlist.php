@@ -242,6 +242,7 @@
 						$result = $con->query($sql) or die("Error: ". $con->error);
 						if($result->num_rows > 0)
 						{
+							$cnt=0;
 							while($row = $result->fetch_assoc())
 							{
 								$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
@@ -287,6 +288,7 @@
 											</div>';
 									}
 								}
+								$cnt++;
 							}
 						}
 

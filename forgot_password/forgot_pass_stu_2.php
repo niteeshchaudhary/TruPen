@@ -1,10 +1,12 @@
 <?php
 session_start();
+//echo $_POST["mailid"]."  ";
 $user = 'root';
 $pass = '';
 $con = new mysqli('localhost', $user, $pass, 'trupendb');
 $sql = "SELECT * FROM user";
 $result = $con->query($sql) or die("Error: ". $con->error);
+$rs = 0;
 while($row = $result->fetch_assoc()) 
 {
      if($row["email"] == $_POST["mailid"])
@@ -20,21 +22,17 @@ while($row = $result->fetch_assoc())
 			$headers = "From: ".$_POST["mailid"];
 		if (mail($row["email"], $subject, $body, $headers)) 
 		{
-			header("location: forgot_pass_stu_3.php");
-			exit();
+			//header("location: forgot_pass_stu_3.php");
+			$rs=1;
 		} else 
 		{
-				echo "Email sending failed...";
-				echo '<form action="forgot_pass_stu_1.php">
-					<input type="submit" value="Back">
-					</form>';
-					exit();
+			//	echo "Email sending failed...";
+				$rs=2;
 		}
 	 }
 }
-echo "Email Not in database<br>";
-echo '<form action="forgot_pass_stu_1.php">
-					<input type="submit" value="Back">
-					</form>';
-					exit();
+if($rs==0){
+	//echo "Email Not in database<br>";
+}
+echo $rs;
 ?>
