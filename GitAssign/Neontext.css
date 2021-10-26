@@ -75,8 +75,14 @@ body {
 /* Float the link section to the right */
 
 .header-right {
-    float: right;
-    margin-right: 10em;
+    display: inline-block;
+    text-align: center;
+    padding-left: 18em;
+}
+
+.header-right a {
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 
@@ -95,14 +101,14 @@ body {
 
 .card {
     background: #01011a;
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 1px 4px 8px 0 rgba(255, 255, 255, 0.2);
     transition: 0.3s;
     width: 40%;
     border-radius: 5px;
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 2px 16px 32px 0 rgba(255, 255, 255, 0.2);
 }
 
 img {
