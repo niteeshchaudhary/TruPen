@@ -209,8 +209,8 @@
 										</div>
 									</div>';
 								echo '
-								<div class="project-box-wrapper">
-									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #c8f7dc;">
+								<div class="project-box-wrapper" onclick="window.location.href='."'quiz_analysis.php'".'">
+									<div class="project-box" style="background-color: #c8f7dc;">
 										<div class="project-box-header">
 											<span>*</span>
 											<div class="more-wrapper">
