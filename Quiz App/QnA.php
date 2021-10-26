@@ -27,8 +27,8 @@ img {vertical-align: middle;}
   width: auto;
   padding: 16px;
   margin-top: 150px;
-  margin-right: 350px;
-  margin-left: 350px;
+  margin-right: 200px;
+  margin-left: 200px;
   color: black;
   font-weight: bold;
   font-size: 18px;
