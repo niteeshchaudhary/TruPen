@@ -33,7 +33,42 @@
 		<title>TruPen - Teacher DashBoard</title>
 
 		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
-
+		<style>
+			  input{
+					height: 35px;
+					width: 60%;
+					border-radius: 4px;
+					padding: 0px 10px;
+					margin: 8px;
+					font-size: 14px;
+					font-weight: 300;
+			}
+			input[type="submit"]{
+					height: 35px;
+					width: 60%;
+					border-radius: 5px;
+					padding: 0 10px;
+					margin: 8px;
+					font-size: 14px;
+					font-weight: 500;
+			}
+			input[type="submit"]:hover{
+					background: linear-gradient( to left, #9191ff, #658ff9);
+			}
+			input[type="submit"]:active{
+					background:linear-gradient( to right, #ff512f, #f09819);
+			}
+			select{
+					height: 35px;
+					width: 46%;
+					background-color: rgb(255,255,255);
+					border-radius: 3px;
+					padding: 0px 10px;
+					margin: 8px;
+					font-size: 14px;
+					font-weight: 300;
+				}
+		</style>
 		<script>
 			if (document.location.search.match(/type=embed/gi)) {
 			window.parent.postMessage("resize", "*");
