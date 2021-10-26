@@ -1,0 +1,224 @@
+<html>
+
+<head>
+    <title>Project Proposal</title>
+    <link rel="stylesheet" type="text/css" href="Neontext.css"></link>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<style type="text/css">
+    <!-- body {
+        color: rgb(255, 189, 67);
+        font-size: medium;
+    }
+    
+    div.p {
+        margin-top: 7pt;
+    }
+    
+    td div.comp {
+        margin-top: -0.6ex;
+        margin-bottom: -1ex;
+    }
+    
+    td div.comb {
+        margin-top: -0.6ex;
+        margin-bottom: -.6ex;
+    }
+    
+    td div.norm {
+        line-height: normal;
+    }
+    
+    td div.hrcomp {
+        line-height: 0.9;
+        margin-top: -0.8ex;
+        margin-bottom: -1ex;
+    }
+    
+    td.sqrt {
+        border-top: 2 solid black;
+        border-left: 2 solid black;
+        border-bottom: none;
+        border-right: none;
+    }
+    
+    table.sqrt {
+        border-top: 2 solid black;
+        border-left: 2 solid black;
+        border-bottom: none;
+        border-right: none;
+    }
+    
+    h1 {
+        color: aqua;
+    }
+    
+    h2 {
+        color: red;
+    }
+    
+    h3 {
+        color: greenyellow;
+    }
+    
+    h4 {
+        color: bisque;
+    }
+    
+    h4 a {
+        color: aliceblue;
+    }
+    
+    .card {
+        background: #01011a;
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
+        transition: 0.3s;
+        width: 90%;
+        border-radius: 5px;
+    }
+    
+    img {
+        border-radius: 5px 5px 0 0;
+    }
+    
+    .container {
+        padding: 2px 16px;
+    }
+    
+    -->
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-latin-1" />
+</head>
+
+<body>
+
+    <br>
+
+    <div class="header">
+        <a href="index.html" class="logo" <center>
+            <font class="neonText">TruPen: An Online Examination System</font>
+            </center>
+        </a>
+        <div class="header-right">
+            <a class="active" href="overview.html">Overview</a>
+            <a href="team.html">Team</a>
+            <a href="project_components.html">Project Components</a>
+        </div>
+    </div>
+    <br>
+    <br><br><br><br>
+    <div class="card w3-container w3-animate-bottom">
+        <div class="container">
+            <p>
+                <p>
+                    <a name="toc.1">
+                        <h1>1&nbsp;Introduction</h1>
+                        Now-a-days, Online examination system has become popular for competitive examinations because of its unique features such as auto-evaluation, speed and accuracy. Moreover, it also helps environments by reducing the use of paper. In such a system, students
+                        are asked to select answers from multiple options given for a single question. Likewise, there are several questions which appear in the students’ systems. The questions and multiple options are saved in a database along with desired
+                        answers. Some single line text input quetions are also being implemented. Typically, a student can edit an answer after saving it, however, editing cannot be done after submitting the answer. There is another user -- administrator.
+                        The administrator can create, modify and delete questions and accordingly, the question is updated in the system.
+                        <br>
+                        <p>
+                            <a name="toc.1.1">
+                                <h2>1.1&nbsp;Inputs</h2>
+                                <ul>
+
+                                    <li> Subject Information with Code, so that all subjects can be identified using unique codes</li>
+
+                                    <li> User Information</li>
+
+                                    <li> If Student- Student Information (Name, Roll No, Email Address, Contact Number, Password)</li>
+
+                                    <li> If Administrator (Email Address, Password)</li>
+
+                                    <li> Set of Questions with multiple answers for each stored in a database along with desired answers.</li>
+                                </ul>
+                            </a>
+                        </p>
+                        <p>
+                            <a name="toc.1.2">
+                                <h2>1.2&nbsp;Operations</h2>
+                                <ol>
+
+                                    <li> Administrator</li>
+                                    <ul>
+
+                                        <li> Log-In</li>
+
+                                        <li> CREATE, MODIFY or DELETE tests and quetions. Accordingly, the question set must be updated.</li>
+
+                                        <li> Verify information of newly registered students.</li>
+
+                                        <li> Change grades if mal-practices are detected.</li>
+
+                                        <li> Log-Out</li>
+                                    </ul>
+
+                                    <li> Student
+                                        <ul>
+                                            <li> Log-In</li>
+
+                                            <li> Navigate through subjects and tests.</li>
+
+                                            <li> An interactive chat bot to resolve common queries.</li>
+
+                                            <li> A feedback and suggestions tab.</li>
+
+                                            <li> Answer the questions – SAVE and SUBMIT</li>
+
+                                            <li> Log-Out (Automatically logged out after Timeout)</li>
+                                        </ul>
+                                    </li>
+
+                                </ol>
+                                <p>
+                            </a>
+                            </p>
+                            <p>
+                                <a name="toc.1.3">
+                                    <h2>1.3&nbsp;Outputs</h2>
+                                    <ul>
+
+                                        <li> Dashboard contains list of courses/subjects.</li>
+
+                                        <li> Each subject can have an announcement tab.</li>
+
+                                        <li> Navigate through answers/explainations after the students have attempted the test.</li>
+
+                                        <li> Questions can be jumbled and can have different values for different students.</li>
+
+                                        <li> Display the result in DESCENDING order according to obtained marks with Roll Number</li>
+
+                                        <li> The result is also saved into a database for future use.</li>
+                                    </ul>
+                                </a>
+                            </p>
+                            <p>
+                                <a name="toc.1.4">
+                                    <h2>1.4&nbsp;Constraints</h2>
+                                    <ul>
+
+                                        <li> All users MUST register themselves into the system </li>
+
+                                        <li> Same set of questions should appear to all students.</li>
+
+                                        <li> Log-In information contains only Email Address and Password.</li>
+
+                                        <li> After clicking on SUBMIT, selected answers cannot be changed.</li>
+
+                                        <li> After clicking on SAVE, selected answers can be changed.</li>
+
+                                        <li> Preventing common mal-practices without breach of privacy.</li>
+
+                                        <li> Tests can be attempted only once except for a trial quiz.</li>
+                                    </ul>
+                                </a>
+                            </p>
+                        </p>
+                </p>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
