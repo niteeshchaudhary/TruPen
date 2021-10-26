@@ -14,6 +14,7 @@
       }
   	}
   }
+  $_SESSION["uimg"]=$uimg;
 ?>
 <!DOCTYPE html>
 <html lang="en" >
