@@ -94,7 +94,7 @@ body {
 }
 
 .card {
-    background: rgb(117, 117, 117);
+    background: #01011a;
     box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
     transition: 0.3s;
     width: 40%;
