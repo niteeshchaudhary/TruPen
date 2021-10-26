@@ -63,6 +63,10 @@ while($row = $result->fetch_assoc())
 				<p class="box-progress-header">Total Marks : '.$total.'</p>
 				<p class="box-progress-header">Submit Time: '.explode(" ", $row['time'])[1].'</p>
 				<p class="box-progress-header">Submit Date: '.explode(" ", $row['time'])[0].'</p>
+				<div class="box-progress-bar">
+				<span class="box-progress" style="width: '.round((100*$row['marks']/$total),2).'%; background-color: #ff942e"></span>
+				</div>
+				<p class="box-progress-percentage">'.round((100*$row['marks']/$total),2).'%</p>
 				</div>
 				<div class="project-box-footer">
 				</div>
