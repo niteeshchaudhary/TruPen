@@ -267,6 +267,18 @@ select::-ms-expand {
 .select:hover::after {
    color: #23b499;
 }
+.button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 </style>
 </head>
 <body style="height: 80vh;">
@@ -306,13 +318,15 @@ if ($con->query($sql) === FALSE)
 	die("Error creating table: " . $con->error);
 }
 ?>
-<div class="slideshow-container">
+<button type="button" class="button" onclick="slide()" id="slide" style="opacity: 0.6; cursor: not-allowed;" disabled>Layout 1</button>
+<button type="button" class="button" onclick="total()" id="total">Layout 2</button>
+<div align="center"  class="slideshow-container">
 <form method="POST" action="Add_Q.php" id="contact">
 <?php
  while($i<$n)
 {
  ?>
-<div align="center"  class="mySlides fade">
+<div align="center" id="slider<?php echo $i; ?>" class="mySlides">
         <h2><?php echo 'Question '.($i+1) ?></h2>
 		<label style="color: black;">Question</label>
 		<textarea cols="20" rows ="5" name="<?php echo 'question'.$i ?>" id="contact" form="contact" required></textarea>
@@ -341,8 +355,8 @@ if ($con->query($sql) === FALSE)
 <div align="center"><input type="submit" value="Create"></div>
 </form>
 </div>
-<a class="prev" onclick="plusSlides(-1)">&#10094; Prev </a>
-<a class="next" onclick="plusSlides(1)">Next &#10095;</a>
+<a class="prev" onclick="plusSlides(-1)" id="prev">&#10094; Prev </a>
+<a class="next" onclick="plusSlides(1)" id="next">Next &#10095;</a>
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -365,6 +379,44 @@ function showSlides(n) {
   }
   slides[slideIndex-1].style.display = "block";  
 }
+function total()
+{
+	for(var i=0; i<<?php echo $n; ?>; i++)
+	{
+		document.getElementById("slider"+i).classList.remove('mySlides');
+		document.getElementById("slider"+i).classList.add('x');
+		document.getElementById("slider"+i).removeAttribute('style');
+	}
+	document.getElementById("prev").style.visibility = "hidden";  
+	document.getElementById("next").style.visibility = "hidden";
+	document.getElementById("total").disabled = true;
+	document.getElementById("total").style.opacity = "0.6";
+	document.getElementById("total").style.cursor = "not-allowed";
+	document.getElementById("slide").removeAttribute('disabled');
+	document.getElementById("slide").removeAttribute('style');
+}
+function slide()
+{
+	for(var i=0; i<<?php echo $n; ?>; i++)
+	{
+		document.getElementById("slider"+i).classList.remove('x');
+		document.getElementById("slider"+i).classList.add('mySlides');  
+	}
+	var slides = document.getElementsByClassName("mySlides");
+		slideIndex = 1;
+		for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";  
+		}
+		slides[slideIndex-1].style.display = "block";
+	document.getElementById("next").removeAttribute('style'); 
+	document.getElementById("prev").removeAttribute('style');
+	document.getElementById("slide").disabled = true;
+	document.getElementById("slide").style.opacity = "0.6";
+	document.getElementById("slide").style.cursor = "not-allowed";	
+	document.getElementById("total").removeAttribute('disabled');
+	document.getElementById("total").removeAttribute('style');
+}
+
 </script>
 </body>
 </html> 
