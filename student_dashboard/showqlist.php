@@ -216,6 +216,8 @@
 												<p class="box-content-subheader">'.$row["subject"].'</p>
 											</div>
 											<div class="box-progress-wrapper">
+												<p class="box-progress-header">Time: '.explode("T", $row['time'])[1].'</p>
+												<p class="box-progress-header">Date: '.explode("T", $row['time'])[0].'</p>
 												<p class="box-progress-header">Total Marks : '.$row['total'].'</p>
 												<div class="box-progress-bar">
 													<span class="box-progress" style="width: '.'0'.'%; background-color: #ff942e"></span>
@@ -224,7 +226,7 @@
 											</div>
 											<div class="project-box-footer">
 												<div class="participants">
-													Total Questions : '.$row['no_questions'].'
+													Questions: '.$row['no_questions'].'
 												</div>
 												<div class="days-left" style="color: '.$colors[$cnt%6].';">
 														'.$row['time_limit'].' minutes
@@ -252,7 +254,7 @@
 									while($row2 = $result2->fetch_assoc()){
 										echo '
 										<div class="project-box-wrapper">
-												<div class="project-box" onclick="begQA(\''.'quiz_name='.$row['name'].'&quiz_subject='.$row['subject'].'&time='.$row['time_limit'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
+												<div class="project-box" onclick="begQa(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
 													<div class="project-box-header">
 														<span>*Atttempted</span>
 														<div class="more-wrapper">
@@ -266,11 +268,18 @@
 														</div>
 													</div>
 													<div class="project-box-content-header">
+													<form method="POST" action="../Quiz App/analysis.php" id="myForma'.$row['name'].'">
+													<input type="hidden" name="name" value="'.$row['name'].'">
+													<input type="hidden" name="subject" value="'.$row["subject"].'">
+													<input type="hidden" name="no" value="'.$row["no_questions"].'">
+													</form>
 														<p class="box-content-header">'.$row['name'].'</p>
 														<p class="box-content-subheader">'.$row["subject"].'</p>
 													</div>
 													<div class="box-progress-wrapper">
 														<p class="box-progress-header">* Score : '.$row2['marks']."/".$row['total'].'</p>
+														<p class="box-progress-header">Submit time: '.explode(" ", $row2['time'])[1].'</p>
+														<p class="box-progress-header">Submit date: '.explode(" ", $row2['time'])[0].'</p>
 														<div class="box-progress-bar">
 															<span class="box-progress" style="width: '.round((100*$row2['marks']/$row['total']),2).'%; background-color: #ff942e"></span>
 														</div>
@@ -278,7 +287,7 @@
 													</div>
 													<div class="project-box-footer">
 														<div class="participants">
-															Total Questions : '.$row['no_questions'].'
+															Questions: '.$row['no_questions'].'
 														</div>
 														<div class="days-left" style="color: '.$colors[$cnt%6].';">
 																'.$row['time_limit'].' minutes
@@ -370,6 +379,9 @@
 			});
 			function begQ(data){
 				document.getElementById('myForm'+data).submit();
+			}
+			function begQa(data){
+				document.getElementById('myForma'+data).submit();
 			}
 			function gotoQA(combo){
 				window.location.href = "#"+combo;

@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Kolkata');
 $user = 'root';
 $pass = '';
 $con = new mysqli('localhost', $user, $pass, 'trupendb');
@@ -30,7 +31,7 @@ while($row = $result1->fetch_assoc())
 	if(isset($_POST["answer".$x]))
 	{
 		$sql = "UPDATE ".$_SESSION["quiz_subject"]."_".$_SESSION["quiz_name"]."_result
-				SET ".$x."_m = '".explode("_", $_POST["answer".$x])[0]."'
+				SET ".$x."_m = '".explode("_", $_POST["answer".$x])[0]."_".$row["answer"]."'
 				 WHERE user = '$user2'";
 		if ($con->query($sql) === FALSE)
 		{
