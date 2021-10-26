@@ -171,14 +171,14 @@ svg {
             <input type = "submit" value="Change" id="submit"> 
         </div>
       </form>
-      <a href="loggedin.php">Back</a></p>
+      <a href="../IITdh_portal.php">Back</a></p>
     </div>
   </div>
     
   </div>
 </section>
-<script type="text/javascript" src="Design_Components/jquery.min.js"></script>
-<script  id="rendered-js" src="Design_Components/Button-Effect.js"></script>
+<script type="text/javascript" src="../Design_Components/jquery.min.js"></script>
+<script  id="rendered-js" src="../Design_Components/Button-Effect.js"></script>
   <script>
         const emojies = ['😑', '😕', '😊', '😎', '💪'];
         const emojiec = ['😒','😌','😑','😕', '✔️'];
@@ -226,7 +226,6 @@ svg {
         function validateForm(){
                   let x = document.forms["signup"]["password"].value;
                   let y = document.forms["signup"]["cpassword"].value;
-                  let z=document.forms["signup"]["LoginID"].value;
                   if(submit_chk){
                     return false;
                   }
