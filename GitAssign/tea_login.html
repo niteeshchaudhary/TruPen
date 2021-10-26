@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="trupen" content="truPen">
     <title>truPen | Login Form -&gt; HTML &amp; CSS</title>
-    <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="globalstyles.css">
     <style>
         .logo {
             display: flex;
@@ -14,10 +15,12 @@
             font-size: 18px;
             cursor: pointer;
         }
+        
         .logo svg {
             width: 24px;
             margin-right: 12px;
         }
+        
         .header {
             display: flex;
             align-items: center;
@@ -30,36 +33,43 @@
             font-size: 14px;
             justify-content: space-between;
         }
+        
         .header-menu a {
             text-decoration: none;
             color: var(--body-color);
             font-weight: 500;
         }
+        
         .header-menu a:hover {
             color: var(--active-color);
         }
+        
         .header-menu a:not(:first-child) {
             margin-left: 30px;
         }
+        
         .header-menu a.active {
             color: var(--active-color);
         }
+        
         .user-settings {
             display: flex;
             align-items: center;
             font-weight: 500;
         }
+        
         .user-settings svg {
             width: 20px;
             color: #94949f;
         }
-
+        
         .user-menu {
             position: relative;
             margin-right: 8px;
             padding-right: 8px;
             border-right: 2px solid #d6d6db;
         }
+        
         .user-menu:before {
             position: absolute;
             content: "";
@@ -70,6 +80,31 @@
             right: 6px;
             top: -1px;
             background-color: var(--active-color);
+        }
+        
+        .submit {
+            text-align: center;
+            font-size: 15px;
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+            background: #fff;
+            color: #111;
+            max-width: 100px;
+            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 8px 8px;
+            box-shadow: none;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 1.5s;
+        }
+        
+        .submit:hover {
+            background: linear-gradient(115deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.25));
+            color: #fff;
+            transition: 0.5s;
         }
     </style>
     <script>
@@ -82,6 +117,7 @@
         }
     </script>
 </head>
+
 <body translate="no">
     <header>
         <div class="header">
@@ -138,8 +174,7 @@
                         -10 -9 -27 -12 -38 -12 -38 14 -20 30 21 17 41 17 42 -9 78 -52 74 -48 71
                         -117 71 -36 0 -67 -3 -71 -6z"/>
                     </g>
-                </svg>
-                TruPen
+                </svg> TruPen
             </div>
             <div class="header-menu">
             </div>
@@ -177,14 +212,14 @@
                         </div>
                         <label class="remember"><input type="checkbox">
                         Remember</label>
-                        <div class="inputBx">
-                            <input type="submit" value="Log in">
+                        <div>
+                            <a href="teacher_dashboard/dashboard.html"><input class="submit" value="Log in"></a>
                         </div>
                     </form>
-                    <p>Forgot password? 
+                    <p>Forgot password?
                         <a href="forgot_password/forgot_pass_stu_1.html">Click Here</a>
                     </p>
-                    <p>Don't have an account ? 
+                    <p>Don't have an account ?
                         <a href="tea_signup.php">Sign up</a>
                     </p>
                 </div>
@@ -192,7 +227,7 @@
 
         </div>
     </section>
-    <script  id="rendered-js" src="Design_Components/Button-Effect.js"></script>
+    <script id="rendered-js" src="Design_Components/Button-Effect.js"></script>
 
 </body>
 

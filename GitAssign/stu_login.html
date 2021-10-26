@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="trupen" content="truPen">
     <title>truPen | Login Form -&gt; HTML &amp; CSS</title>
-    <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="globalstyles.css">
+    <style>
+        .submit {
+            text-align: center;
+            font-size: 15px;
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+            background: #fff;
+            color: #111;
+            max-width: 100px;
+            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 8px 8px;
+            box-shadow: none;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 1.5s;
+        }
+        
+        .submit:hover {
+            background: linear-gradient(115deg, rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.25));
+            color: #fff;
+            transition: 0.5s;
+        }
+    </style>
     <script>
         window.console = window.console || function(t) {};
     </script>
@@ -16,6 +43,7 @@
         }
     </script>
 </head>
+
 <body translate="no">
     <header>
         <div class="header">
@@ -72,8 +100,7 @@
                         -10 -9 -27 -12 -38 -12 -38 14 -20 30 21 17 41 17 42 -9 78 -52 74 -48 71
                         -117 71 -36 0 -67 -3 -71 -6z"/>
                     </g>
-                </svg>
-                TruPen
+                </svg> TruPen
             </div>
             <div class="header-menu">
             </div>
@@ -111,14 +138,14 @@
                         </div>
                         <label class="remember"><input type="checkbox">
                         Remember</label>
-                        <div class="inputBx">
-                            <a href="student_dashboard/dashboard.html"><input type="submit" value="Log in"></a>
+                        <div>
+                            <a href="student_dashboard/dashboard.html"><input class="submit" value="Log in"></a>
                         </div>
                     </form>
-                    <p>Forgot password? 
+                    <p>Forgot password?
                         <a href="forgot_password/forgot_pass_stu_1.html">Click Here</a>
                     </p>
-                    <p>Don't have an account ? 
+                    <p>Don't have an account ?
                         <a href="stu_signup.html">Sign up</a>
                     </p>
                 </div>
@@ -126,7 +153,7 @@
 
         </div>
     </section>
-    <script  id="rendered-js" src="Design_Components/Button-Effect.js"></script>
+    <script id="rendered-js" src="Design_Components/Button-Effect.js"></script>
 
 </body>
 
