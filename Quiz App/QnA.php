@@ -286,37 +286,10 @@ select::-ms-expand {
 $_SESSION["subject_quiz"] = $_SESSION["subject"].'_'.$_POST["name"];
 $_SESSION["quiz_name"] = $_POST["name"];
 $_SESSION["quetion_no"] = $_POST["no"];
+$_SESSION["temp_time"] = $_POST["time"];
+$_SESSION["temp_duration"] = $_POST["duration"];
 $n = $_POST["no"];
 $i = 0;
-$con = new mysqli('localhost', 'root', NULL, 'trupendb');
-$sql = "INSERT INTO quiz(name, subject, time, time_limit, no_questions)
-			VALUES ('".$_POST["name"]."', '".$_SESSION["subject"]."', '".$_POST["time"]."', '".$_POST["duration"]."', '$n')";
-	$con->query($sql);
-$sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'
-		(sn INT AUTO_INCREMENT PRIMARY KEY,
-         question TEXT unique,
-		 option_a varchar(120),
-		 option_b varchar(120),
-		 option_c varchar(120),
-		 option_d varchar(120),
-		 answer varchar(120),
-		 marks smallint(6)
-		)';
-
-if ($con->query($sql) === FALSE)
-{
-	die("Error creating table: " . $con->error);
-}
-$sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'_result'.'
-		(user varchar(120) PRIMARY KEY,
-         marks smallint(6),
-		 time smallint(6)
-		)';
-
-if ($con->query($sql) === FALSE)
-{
-	die("Error creating table: " . $con->error);
-}
 ?>
 <button type="button" class="button" onclick="slide()" id="slide" style="opacity: 0.6; cursor: not-allowed;" disabled>Layout 1</button>
 <button type="button" class="button" onclick="total()" id="total">Layout 2</button>
