@@ -292,7 +292,12 @@ function percent($num, $subject_name, $conn)
 	$c = 0;
 	while($row3 = $result3->fetch_assoc())
 	{
-		if(explode("_", $row3[$num."_m"])[0] == explode("_", $row3[$num."_m"])[1])
+		if($row3[$num."_m"]==NULL)
+		{
+			$a++;
+			continue;
+		}
+		elseif(explode("_", $row3[$num."_m"])[0] == explode("_", $row3[$num."_m"])[1])
 		{
 			$c++;
 		}
@@ -305,10 +310,10 @@ $subject = $_POST["subject"];
 $subject_name = $_POST["subject"].'_'.$_POST["name"];
 $n = $_POST["no"];
 $i = 0;
-$sql = "SELECT * FROM $subject_name"."_result"." where user=".$_SESSION["user"];
-$result1 = $conn->query($sql) or die("Error: ". $con->error);
+$sql = "SELECT * FROM $subject_name"."_result"." where user='".$_SESSION["user"]."'";
+$result1 = $conn->query($sql) or die("Error: ". $conn->error);
 $sql = "SELECT * FROM $subject_name";
-$result2 = $conn->query($sql) or die("Error: ". $con->error);
+$result2 = $conn->query($sql) or die("Error: ". $conn->error);
 ?>
 <button type="button" class="button" onclick="slide()" id="slide" style="opacity: 0.6; cursor: not-allowed;" disabled>Layout 1</button>
 <button type="button" class="button" onclick="total()" id="total">Layout 2</button>
