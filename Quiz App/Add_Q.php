@@ -24,10 +24,16 @@ if ($con->query($sql) === FALSE)
 {
 	die("Error creating table: " . $con->error);
 }
+$string = "";
+for($j=0; $j<$n; $j++)
+{
+	$string .= ", ".$j."_m varchar(4)";
+}
 $sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'_result'.'
 		(user varchar(120) PRIMARY KEY,
          marks smallint(6),
-		 time smallint(6)
+		 time varchar(120)
+		 '.$string.'
 		)';
 
 if ($con->query($sql) === FALSE)
