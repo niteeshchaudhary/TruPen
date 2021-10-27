@@ -175,7 +175,7 @@ section {
     height: 100px;
     top: -15px;
     right: -45px;
-    background-image:url(Image_Components/glb.png);
+    background-image: url(Image_Components/glb.png);
     background-size: cover;
 }
 
@@ -186,7 +186,7 @@ section {
     top: 105px;
     left: -125px;
     z-index: 2;
-    background-image:url(Image_Components/bk4.png);
+    background-image: url(Image_Components/bk4.png);
     background-size: cover;
 }
 
@@ -196,7 +196,7 @@ section {
     bottom: 85px;
     right: -45px;
     z-index: 2;
-    background-image:url(Image_Components/chem.png);
+    background-image: url(Image_Components/chem.png);
     background-size: cover;
 }
 
@@ -205,7 +205,7 @@ section {
     height: 50px;
     bottom: 35px;
     left: -95px;
-    background-image:url(Image_Components/bk3.png);
+    background-image: url(Image_Components/bk3.png);
     background-size: cover;
 }
 
@@ -214,7 +214,7 @@ section {
     height: 50px;
     top: -15px;
     left: -25px;
-    background-image:url(Image_Components/pencil.png);
+    background-image: url(Image_Components/pencil.png);
     background-size: cover;
 }
 
@@ -224,10 +224,9 @@ section {
     top: 165px;
     right: -125px;
     z-index: 2;
-    background-image:url(Image_Components/bk.png);
+    background-image: url(Image_Components/bk.png);
     background-size: cover;
 }
-
 
 .container {
     position: relative;
@@ -444,10 +443,12 @@ a:hover {
     font-size: 18px;
     cursor: pointer;
 }
+
 .logo svg {
     width: 24px;
     margin-right: 12px;
 }
+
 .header {
     display: flex;
     align-items: center;
@@ -460,25 +461,31 @@ a:hover {
     font-size: 14px;
     justify-content: space-between;
 }
+
 .header-menu a {
     text-decoration: none;
     color: var(--body-color);
     font-weight: 500;
 }
+
 .header-menu a:hover {
     color: var(--active-color);
 }
+
 .header-menu a:not(:first-child) {
     margin-left: 30px;
 }
+
 .header-menu a.active {
     color: var(--active-color);
 }
+
 .user-settings {
     display: flex;
     align-items: center;
     font-weight: 500;
 }
+
 .user-settings svg {
     width: 20px;
     color: #94949f;
@@ -490,6 +497,7 @@ a:hover {
     padding-right: 8px;
     border-right: 2px solid #d6d6db;
 }
+
 .user-menu:before {
     position: absolute;
     content: "";
