@@ -30,10 +30,45 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
 
-		<title>TruPen - Student DashBoard</title>
+		<title>TruPen - Teacher DashBoard</title>
 
 		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
-
+		<style>
+			  input{
+					height: 35px;
+					width: 60%;
+					border-radius: 4px;
+					padding: 0px 10px;
+					margin: 8px;
+					font-size: 14px;
+					font-weight: 300;
+			}
+			input[type="submit"]{
+					height: 35px;
+					width: 60%;
+					border-radius: 5px;
+					padding: 0 10px;
+					margin: 8px;
+					font-size: 14px;
+					font-weight: 500;
+			}
+			input[type="submit"]:hover{
+					background: linear-gradient( to left, #9191ff, #658ff9);
+			}
+			input[type="submit"]:active{
+					background:linear-gradient( to right, #ff512f, #f09819);
+			}
+			select{
+					height: 35px;
+					width: 46%;
+					background-color: rgb(255,255,255);
+					border-radius: 3px;
+					padding: 0px 10px;
+					margin: 8px;
+					font-size: 14px;
+					font-weight: 300;
+				}
+		</style>
 		<script>
 			if (document.location.search.match(/type=embed/gi)) {
 			window.parent.postMessage("resize", "*");
@@ -47,7 +82,7 @@
 				<div class="app-header-left">
 					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
-					<p class="app-name">Student</p>
+					<p class="app-name">Teacher</p>
 					<div class="search-wrapper">
 						<input class="search-input" type="text" placeholder="Search">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
