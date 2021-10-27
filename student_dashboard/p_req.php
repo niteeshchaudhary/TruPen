@@ -21,6 +21,10 @@
 	<head>
 
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../Chatbot/static/css/chat.css">
 		<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 		<meta name="apple-mobile-web-app-title" content="CodePen">
 
@@ -33,7 +37,7 @@
 		<title>TruPen - Student DashBoard</title>
 		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
   		<style>
-			  input{
+			.app-container input{
 					height: 35px;
 					width: 60%;
 					border-radius: 4px;
@@ -42,7 +46,7 @@
 					font-size: 14px;
 					font-weight: 300;
 			}
-			input[type="submit"]{
+			.app-container input[type="submit"]{
 					height: 35px;
 					width: 60%;
 					border-radius: 5px;
@@ -51,13 +55,13 @@
 					font-size: 14px;
 					font-weight: 500;
 			}
-			input[type="submit"]:hover{
+			.app-container input[type="submit"]:hover{
 					background: linear-gradient( to left, #9191ff, #658ff9);
 			}
-			input[type="submit"]:active{
+			.app-container input[type="submit"]:active{
 					background:linear-gradient( to right, #ff512f, #f09819);
 			}
-			select{
+			.app-container select{
 					height: 35px;
 					width: 46%;
 					background-color: rgb(255,255,255);
@@ -185,6 +189,67 @@
 				</div>
 			</div>
 		</div>
+		<!--ChatBot Code-->
+		<div class="chat-bar-collapsible">
+                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with us!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
+        </button>
+
+                    <div class="content">
+                        <div class="full-chat-block">
+                            <!-- Message Container -->
+                            <div class="outer-container">
+                                <div class="chat-container">
+                                    <!-- Messages -->
+                                    <div id="chatbox">
+                                        <h5 id="chat-timestamp"></h5>
+                                        <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                                    </div>
+
+                                    <!-- User input box -->
+                                    <div class="chat-bar-input-block">
+                                        <div id="userInput">
+                                            <input id="textInput" autocomplete="off" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                                            <p></p>
+                                        </div>
+
+                                        <div class="chat-bar-icons">
+                                            <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i>
+                                            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                                        </div>
+                                    </div>
+
+                                    <div id="chat-bar-bottom">
+                                        <p></p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="../Chatbot/static/scripts/responses.js"></script>
+            <script src="../Chatbot/static/scripts/chat.js"></script>
+            <script>
+                var i = 0;
+
+                function toggle(n) {
+                    i += n;
+                    var y = document.getElementById("rotation");
+                    if (i % 2 != 0) {
+                        y.innerHTML = "&#9650; <font color='black'> &#9660;</font>";
+                    } else {
+                        y.innerHTML = "<font color='black'>&#9650;</font> &#9660;";
+                    }
+                }
+            </script>
+            <!--ChatBot Code-->
 
 		<script type="text/javascript" src="../Design_Components/jquery.min.js"></script>
 
