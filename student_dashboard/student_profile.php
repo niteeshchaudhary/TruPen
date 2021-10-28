@@ -146,11 +146,10 @@
 		<!--ChatBot Code-->
 		<div class="chat-bar-collapsible">
                     <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with us!
-            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
-        </button>
-
+						<i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
+					</button>
                     <div class="content">
                         <div class="full-chat-block">
                             <!-- Message Container -->
@@ -187,7 +186,7 @@
 
                 </div>
             </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script type="text/javascript" src="../Design_Components/jquery.min.js"></script>
             <script src="../Chatbot/static/scripts/responses.js"></script>
             <script src="../Chatbot/static/scripts/chat.js"></script>
             <script>
