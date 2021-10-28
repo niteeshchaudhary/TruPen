@@ -43,13 +43,12 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
         display: none;
         height: 500px;
       }
-      img {vertical-align: middle;}
       .main-container {
-        display:flexbox;
+        display:flex;
         /*flex-flow: row wrap;*/
         padding: 20px;
-        margin: 10px;
-        margin-left: 400px;
+        margin: 0px;
+        margin-left: 100px;
         height:80%;
         max-width:1300px;
       }
@@ -290,7 +289,7 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
       .navboxd {
 			  display: block;
         float: right;
-			  height: 50%;
+			  height: 90%;
 			  width: 275px;
 			  align-content: center;
 			  background-color: rgba(235,235,235,0.13);
@@ -321,46 +320,53 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 			  height: 45px;
 			  align-content: center;
 			  vertical-align: center;
-			  border-radius: 50%;
-			  background-color: #dfdfdf;
+			  border-radius: 35% 60%;
+			  background-color:  #999999;
 			}
       .flexbox .act {
-			  background-color: #999999;
+			  /*background-color: #999999;*/
+        border-radius: 25%;
+        color: #0000ff;
+        font-size:22px;
+        border-color:#ffffff;
 			}
-			.flexbox .flex-item-rev {
+      .flexbox .flex-item .act{
+			  display: block;
+			  padding: 0 auto;
+			  margin: 0 auto;
+        height:32px;
+			  border-color: black;
+        font-size:18px;
+        border-radius: 25%;
+			  background: #555;
+			  box-shadow: 5px;
+			  text-align: center;
+        justify-content: center;
+			}
+      .flexbox .lft {
+			  display: block;
 			  padding: 5px;
 			  margin: 5px;
-			  width: 45px;
-			  height: 45px;
-			  align-content: center;
-			  vertical-align: center;
-			  border-radius: 50%;
-			  background-color: #aa00aa;
+			  border-color:#ff00af;
+			  background-color: #da0000;
+			  box-shadow: 5px;
+			  text-align: center;
 			}
-			.flexbox .flex-item-leftb {
+
+      .flexbox .atm {
+			  display: block;
 			  padding: 5px;
 			  margin: 5px;
-			  width: 45px;
-			  height: 45px;
-			  align-content: center;
-			  vertical-align: center;
-			  border-radius: 50%;
-			  background-color: #a00;
-			}
-			.flexbox .flex-item-attempt {
-			  padding: 5px;
-			  margin: 5px;
-			  width: 45px;
-			  height: 45px;
-			  align-content: center;
-			  vertical-align: center;
-			  border-radius: 50%;
-			  background-color: #0f0;
+			  border-color:#00ff00;
+			  background-color: #00da00;
+			  box-shadow: 5px;
+			  text-align: center;
 			}
 			.flexbox .flex-item .con {
 			  display: block;
 			  padding: 5px;
 			  margin: 5px;
+        height: 25px;
 			  border-radius: 50%;
 			  border-color: black;
 			  background-color: #fff;
@@ -397,6 +403,37 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 			  box-shadow: 5px;
 			  text-align: center;
 			}
+      .flexbox .flex-item-rev {
+			  padding: 5px;
+			  margin: 5px;
+			  width: 45px;
+			  height: 45px;
+			  align-content: center;
+			  vertical-align: center;
+			  border-radius: 50%;
+			  background-color: #aa00aa;
+			}
+			.flexbox .flex-item-leftb {
+			  padding: 5px;
+			  margin: 5px;
+			  width: 45px;
+			  height: 45px;
+			  align-content: center;
+			  vertical-align: center;
+			  border-radius: 50%;
+			  background-color: #a00;
+			}
+			.flexbox .flex-item-attempt {
+			  padding: 5px;
+			  margin: 5px;
+			  width: 45px;
+			  height: 35px;
+			  align-content: center;
+			  vertical-align: center;
+			  border-radius: 50%;
+			  background-color: #0f0;
+			}
+      
 			.head {
 			  padding: 5px;
 			  margin: 5px;
@@ -508,85 +545,78 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 </style>
 </head>
 <body style="margin-left:10px;margin-top:8px;margin-bottom:10px">
-            <div class="topnav">
-                <a class="active gradient-text" href="../loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
-                    <div style="display:inline-block;" class="gradient">truPen</div>
-                </a>
-                &nbsp;
-                <a href="select.php">Quizzes</a>
-                <a href="create.php">Create Quiz</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-            </div>
-  <div class="main-container">
-    <div class="slideshow-container">
-      <form method="post" action="evaluation.php" id="myform">
-          <?php
-            $x=0;
-            if ($result && $result->num_rows > 0) {
-              global $x;
-              for ($x = 0;$row = $result->fetch_assoc(); $x++) {
-                echo '<div class="mySlides fade" id="'.$x.'">
-                        <div class="quiz-container" id="quiz">
-                          <div class="quiz-header">
-                            <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
-                            <h2>'.$row["question"].'</h2>
-                            <ul>
-                              <li><input type="radio" name="answer'.$x.'" id="a" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-                              <li><input type="radio" name="answer'.$x.'" id="b" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-                              <li><input type="radio" name="answer'.$x.'" id="c" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-                              <li><input type="radio" name="answer'.$x.'" id="d" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
-                            </ul>
-                          </div>
-                        </div>
+
+            <div class="main-container">
+              <div class="slideshow-container">
+                <form method="post" action="evaluation.php" id="myform">
+                          <?php
+                            $x=0;
+                            if ($result && $result->num_rows > 0) {
+                              global $x;
+                              for ($x = 0;$row = $result->fetch_assoc(); $x++) {
+                                echo '<div class="mySlides fade" id="'.$x.'">
+                                        <div class="quiz-container" id="quiz">
+                                          <div class="quiz-header">
+                                            <div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
+                                            <h2>'.$row["question"].'</h2>
+                                            <ul>
+                                              <li><input type="radio" name="answer'.$x.'" id="a" onclick="check_select()" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
+                                              <li><input type="radio" name="answer'.$x.'" id="b" onclick="check_select()" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
+                                              <li><input type="radio" name="answer'.$x.'" id="c" onclick="check_select()" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
+                                              <li><input type="radio" name="answer'.$x.'" id="d" onclick="check_select()" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>';
+                              }
+                            }
+                          ?>
+                  <button type="submit" id="s">Submit</button>
+                  <a class="next" onclick="plusSlides(1)">Next</a>
+                </form>
+                <br>
+                <br>
+                <br>
+                <div class="navstp">
+                  <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
+                  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                  <a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
+                </div>
+              </div>
+                    <?php
+                      echo'
+                      <div class="timer-container" style="margin-right: 10pt;">
+                          <p id="app"></p>
+                      </div>
+                      <div class="navboxd">
+                          <h3 class="head">Quiz Navigation</h3>
+                          <hr noshade="2">
+                          <div class="flexbox">';
+                          //echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
+                          for($i=1;$i<=$x;$i++){
+                              $i1=$i-1;
+                              //echo '<a onclick="currentSlide('.$i1.')">'.$i.'</a>';
+                              echo'<div class="flex-item">
+                                      <a onclick="currentSlide('.$i1.')">
+                                      <h6 class="con">'.$i.'</h6></a>
+                                  </div>';
+                           }
+                        echo '</div>
+                        <form action="../loggedin.php">
+                                <center><input type="submit" value="Exit Quiz" class="exitit"></center>
+                              </form>
                       </div>';
-              }
-            }
-          ?>
-        <button type="submit" id="s">Submit</button>
-      </form>
-      <br>
-      <br>
-      <br>
-      <div class="navstp">
-        <a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        <a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
-      </div>
-      
-    </div>
-    <?php
-      echo'
-      <div class="timer-container" style="margin-right: 10pt;">
-      <p id="app"></p>
-      </div>
-      <div class="navboxd">
-      <h3 class="head">Quiz Navigation</h3>
-        <hr noshade="2">
-      <div class="flexbox">';
-      //echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
-      for($i=1;$i<=$x;$i++){
-        $i1=$i-1;
-        //echo '<a onclick="currentSlide('.$i1.')">'.$i.'</a>';
-        echo'<div class="flex-item"><a onclick="currentSlide('.$i1.')">
-            <h6 class="con">'.$i.'</h6></a>
-          </div>';
-      }
-    ?>
-  </div>
-  <br>
-  <br>
-  <form action="../loggedin.php">
-    <center><input type="submit" value="Exit Quiz" class="exitit"></center>
-  </form>
-  <?php
-  $max = max(60*$time_limit-$t, 0);
-    echo "
-    <script> let TIME_LIMIT =$max;
-      let TL =$t;  
-    </script>";
-  ?>
+                    ?>
+            </div>
+
+            <?php
+              $max = max(60*$time_limit-$t, 0);
+                echo "
+                <script> let TIME_LIMIT =$max;
+                  let TL =$t;  
+                </script>";
+              ?>
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -616,12 +646,36 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";  
   }
+  check_select();
   for (i = 0; i < dots.length; i++) {
+    if(dots[i].className.includes(" act") && !dots[i].className.includes(" lft") && !dots[i].className.includes(" atm")){
+      dots[i].className += " lft"; //dots[i].className.replace(" act", "");
+    }
       dots[i].className = dots[i].className.replace(" act", "");
   }
   slides[slideIndex-1].style.display = "block";  
+  if(dots[slideIndex-1].className.includes(" lft")){
+      dots[slideIndex-1].className.replace(" lft", "");
+  }
   dots[slideIndex-1].className += " act";
 }
+function check_select() { 
+            let k='input[name= "answer'+String(slideIndex-1)+'"]:checked';
+            var checkRadio = document.querySelector(k);
+            var dots = document.getElementsByClassName("flex-item");
+            if(checkRadio != null) {
+              if(dots[slideIndex-1].className.includes(" lft")){
+                dots[slideIndex-1].className = dots[slideIndex-1].className.replace(" lft", "");
+              }
+              if(!dots[slideIndex-1].className.includes(" atm")){
+                dots[slideIndex-1].className += " atm";
+              }
+            }
+            else {
+
+            }
+            
+        }
 function toggle() {
                 var x = document.getElementById("mySidePanel");
                 var y = document.getElementById("rotation");
