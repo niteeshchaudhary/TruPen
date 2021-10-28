@@ -27,8 +27,20 @@
 		<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
 
 		<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<style>
+			table, th, td {
+			border: 1px solid black;
+			}
+			</style>
+			<script type="text/javascript">
+			function openPdf(s)
+			{
+			var omyFrame = document.getElementById("myFrame");
+			omyFrame.style.display="block";
+			omyFrame.src = s;
+			}
+		</script>
 
 		<title>TruPen - Student DashBoard</title>
 		<link rel="stylesheet" href="styles.css?v=<?php echo time();?>">
@@ -87,44 +99,75 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="pri_dashboard.php" class="app-sidebar-link active">
+				<a href="pri_dashboard.php" class="app-sidebar-link active">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
 						</svg>
 					</a>
-					<a href="" class="app-sidebar-link">
-						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
-							<defs />
-							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
+					<!--
+					<a href="print_req.php" class="app-sidebar-link">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer">
+							<polyline points="6 9 6 2 18 2 18 9"/>
+							<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+							<rect x="6" y="14" width="12" height="8"/>
 						</svg>
-					</a>
-					<a href="#" class="app-sidebar-link">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
-							<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-							<line x1="16" y1="2" x2="16" y2="6" />
-							<line x1="8" y1="2" x2="8" y2="6" />
-							<line x1="3" y1="10" x2="21" y2="10" />
-						</svg>
-					</a>
+					</a>-->
 					<a href="pri_profile.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-profile">
 						<circle cx="25" cy="25" r="17" />
 						<path stroke-width="1.3" d="M15.3 37.3l-1.8-.8c.5-1.2 2.1-1.9 3.8-2.7 1.7-.8 3.8-1.7 3.8-2.8v-1.5c-.6-.5-1.6-1.6-1.8-3.2-.5-.5-1.3-1.4-1.3-2.6 0-.7.3-1.3.5-1.7-.2-.8-.4-2.3-.4-3.5 0-3.9 2.7-6.5 7-6.5 1.2 0 2.7.3 3.5 1.2 1.9.4 3.5 2.6 3.5 5.3 0 1.7-.3 3.1-.5 3.8.2.3.4.8.4 1.4 0 1.3-.7 2.2-1.3 2.6-.2 1.6-1.1 2.6-1.7 3.1V31c0 .9 1.8 1.6 3.4 2.2 1.9.7 3.9 1.5 4.6 3.1l-1.9.7c-.3-.8-1.9-1.4-3.4-1.9-2.2-.8-4.7-1.7-4.7-4v-2.6l.5-.3s1.2-.8 1.2-2.4v-.7l.6-.3c.1 0 .6-.3.6-1.1 0-.2-.2-.5-.3-.6l-.4-.4.2-.5s.5-1.6.5-3.6c0-1.9-1.1-3.3-2-3.3h-.6l-.3-.5c0-.4-.7-.8-1.9-.8-3.1 0-5 1.7-5 4.5 0 1.3.5 3.5.5 3.5l.1.5-.4.5c-.1 0-.3.3-.3.7 0 .5.6 1.1.9 1.3l.4.3v.5c0 1.5 1.3 2.3 1.3 2.4l.5.3v2.6c0 2.4-2.6 3.6-5 4.6-1.1.4-2.6 1.1-2.8 1.6z"/>
 						</svg>
 					</a>
-					<a href="#" class="app-sidebar-link">
-						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-settings" viewBox="0 0 24 24">
-							<defs />
-							<circle cx="12" cy="12" r="3" />
-							<path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z" />
+					<a href="../logoff.php" class="app-sidebar-link">
+						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-logout" viewBox="0 0 24 24">
+							<defs/>
+							<circle cx="12" cy="13" r="10" />
+							<line x1="12" y1="0" x2="12" y2="13" stroke-width="2" stroke="#f00" style="filter: drop-shadow(30px 30px 30px rgba(0, 255, 0, 1));"/>
+							<!--<path xmlns="http://www.w3.org/2000/svg" d="M 7 5 C -15 28, 40 22, 17 5 S 60 10 " fill="transparent"/>-->	
 						</svg>
 					</a>
 				</div>
 				<div class="projects-section">
 					<div class="projects-section-header">
-						<iframe src="acc_rej.php" name="targetframe" allowTransparency="true" scrolling="no" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
-						</iframe>
+						<div>
+							<h1>Pending Requests</h1>
+								<h3 style="color: red;">Please "Accept only after printing is successful!"</h3>
+								<table>
+								<tr>
+								<th>User</th>
+								<th>File</th>
+								<th>Copies</th>
+								<th>Type</th>
+								<th>Comment</th>
+								<th>Accept</th>
+								<th>Reject</th>
+								</tr>
+								<?php
+								$con = new mysqli('localhost', 'root', NULL, 'trupendb');
+								$sql = "SELECT * FROM print WHERE status LIKE '1'";
+								$result = $con->query($sql) or die("Error: ". $con->error);
+								if($result->num_rows > 0)
+								{
+								while($row = $result->fetch_assoc())
+								{
+								?>
+								<tr>
+								<td><?php echo $row['user']; ?></td>
+								<td><input type="button" value="Preview/Print" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
+								<td><?php echo $row['copies']; ?></td>
+								<td><?php echo $row['type']; ?></td>
+								<td><?php echo $row['comment']; ?></td>
+								<td><a href="accept.php?id=<?php echo $row['location']; ?>">Accept</a></td>
+								<td><a href="reject.php?id=<?php echo $row['location']; ?>">Reject</a></td>
+								</tr>
+								<?php
+								}
+								}
+								?>
+								</table>
+								<iframe id="myFrame" style="display:none" width="1000" height="700"></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
