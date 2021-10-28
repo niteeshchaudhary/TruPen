@@ -42,7 +42,7 @@
 			}
 		</script>
 
-		<title>TruPen - Student DashBoard</title>
+		<title>TruPen - Print DashBoard</title>
 		<link rel="stylesheet" href="styles.css?v=<?php echo time();?>">
 		<script>
 			if (document.location.search.match(/type=embed/gi)) {
@@ -57,7 +57,7 @@
 				<div class="app-header-left">
 					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
-					<p class="app-name">Student</p>
+					<p class="app-name">Print</p>
 					<div class="search-wrapper">
 						<input class="search-input" type="text" placeholder="Search">
 						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
