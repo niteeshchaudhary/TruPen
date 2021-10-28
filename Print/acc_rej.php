@@ -52,8 +52,5 @@ if($result->num_rows > 0)
 ?>
 </table>
 <iframe id="myFrame" style="display:none" width="1000" height="700"></iframe>
-<form action="../loggedin.php">
-<input type="submit" value="Back">
-</form>
 </body>
 </html>

@@ -440,7 +440,7 @@ button.complete .successMessage svg {
             <label for="DOB">Date of Birth</label>
 				</span><br>
 				<span>
-        <pre><a href="#" style="z-index: 4;margin-top:90%" >Change Password</a>       <a href="loggedin.php" style="z-index: 4;margin-top:90%" >Dashboard</a></pre>
+        <pre><a href="#" style="z-index: 4;margin-top:90%" >Change Password</a></pre>
 				</span>
 		</div>
 </form>
