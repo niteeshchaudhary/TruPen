@@ -120,7 +120,7 @@ else{
 </div>    
 
 <?php
-header( "refresh:3 ; url = second_form_tea.php" );
+header( "refresh:3 ; url = teacher_dashboard/teacher_profile.php" );
 ?>
 
 <script>

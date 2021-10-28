@@ -2,6 +2,7 @@
 <?php
 session_start();
 $conn = new mysqli('localhost', 'root', NULL, 'trupendb');
+$uimg=$_SESSION["uimg"];
 ?>
 <html>
 <head>

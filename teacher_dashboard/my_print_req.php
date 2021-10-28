@@ -1,7 +1,7 @@
 <?php
   session_start();
   $con = new mysqli('localhost', 'root', NULL, 'trupendb');
-  $qryst="select * from user where username='". $_SESSION["user"]."';";
+  $qryst="select * from teacher where username='". $_SESSION["user"]."';";
   $uimg="";
   $user = $_SESSION["user"];
   $result = $con->query($qryst);

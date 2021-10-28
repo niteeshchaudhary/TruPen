@@ -118,7 +118,7 @@ else{
 </div>    
 
 <?php
-header( "refresh:3 ; url = second_form_pri.php" );
+header( "refresh:3 ; url = pri_profile.php" );
 ?>
 
 <script>
