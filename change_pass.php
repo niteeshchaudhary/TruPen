@@ -174,7 +174,7 @@ svg {
             <input type = "submit" value="Change" id="submit"> 
         </div>
       </form>
-      <a href="loggedin.php">Back</a></p>
+      <a href="second_form_stu.php">Back</a></p>
     </div>
   </div>
     
