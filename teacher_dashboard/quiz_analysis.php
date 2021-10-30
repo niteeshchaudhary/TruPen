@@ -306,9 +306,9 @@ $uimg=$_SESSION["uimg"];
 
                 </div>
             </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-            <script src="../Chatbot/static/scripts/responses.js"></script>
-            <script src="../Chatbot/static/scripts/chat.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js?v=<?php echo time(); ?>"></script>
+            <script src="../Chatbot/static/scripts/responses.js?v=<?php echo time(); ?>"></script>
+            <script src="../Chatbot/static/scripts/chat.js?v=<?php echo time(); ?>"></script>
             <script>
                 var i = 0;
 
