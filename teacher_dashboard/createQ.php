@@ -22,16 +22,10 @@
 
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../Chatbot/static/css/chat.css">
-		<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-		<meta name="apple-mobile-web-app-title" content="CodePen">
-
-		<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-
-		<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
 
 		<title>TruPen - Professor's DashBoard</title>
@@ -136,8 +130,28 @@
 					</a>
 				</div>
 				<div class="projects-section">
-
-						<iframe src="../Quiz App/create.php" name="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
+				<div class="projects-section-header">
+						<p>Quiz Creator</p>
+						<p class="time"><?php echo date('F, d');?></p>
+						<div class="view-actions">
+							<button class="view-btn list-view" title="List View">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+									<line x1="8" y1="6" x2="21" y2="6" />
+									<line x1="8" y1="12" x2="21" y2="12" />
+									<line x1="8" y1="18" x2="21" y2="18" />
+									<line x1="3" y1="6" x2="3.01" y2="6" />
+									<line x1="3" y1="12" x2="3.01" y2="12" />
+									<line x1="3" y1="18" x2="3.01" y2="18" />
+								</svg>
+							</button>
+							<button class="view-btn grid-view active" title="Grid View">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
+									<rect x="3" y="3" width="14" height="14" />
+								</svg>
+							</button>
+						</div>
+					</div>
+						<iframe src="../Quiz App/create.php" name="targetframe" id="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
 						</iframe>
 						
 				</div>
@@ -187,7 +201,7 @@
 
                 </div>
             </div>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js?v=<?php echo time(); ?>"></script>
+            <script src="../Design_Components/jquery.min.js?v=<?php echo time(); ?>"></script>
             <script src="../Chatbot/static/scripts/responses.js?v=<?php echo time(); ?>"></script>
             <script src="../Chatbot/static/scripts/chat.js?v=<?php echo time(); ?>"></script>
             <script>
@@ -216,28 +230,23 @@
 				var listView = document.querySelector('.list-view');
 				var gridView = document.querySelector('.grid-view');
 				var projectsList = document.querySelector('.project-boxes');
-
+				var ifx = document.getElementById("targetframe");
+				var ify = (ifx.contentWindow || ifx.contentDocument);
+					
 				listView.addEventListener('click', function () {
 					gridView.classList.remove('active');
 					listView.classList.add('active');
-					projectsList.classList.remove('jsGridView');
-					projectsList.classList.add('jsListView');
+					if (ify.document)ify = ify.document;
+					ify.getElementById("total").click();
 				});
 
 				gridView.addEventListener('click', function () {
 					gridView.classList.add('active');
 					listView.classList.remove('active');
-					projectsList.classList.remove('jsListView');
-					projectsList.classList.add('jsGridView');
+					if (ify.document)ify = ify.document;
+					ify.getElementById("slide").click();
 				});
 
-				document.querySelector('.messages-btn').addEventListener('click', function () {
-					document.querySelector('.messages-section').classList.add('show');
-				});
-
-				document.querySelector('.messages-close').addEventListener('click', function () {
-					document.querySelector('.messages-section').classList.remove('show');
-				});
 			});
 			function gotoC(combo){
 				window.location.href = "showqlist.php?qz="+combo;

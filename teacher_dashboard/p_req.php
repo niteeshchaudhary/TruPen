@@ -251,7 +251,7 @@
                 }
             </script>
             <!--ChatBot Code-->
-		<script type="text/javascript" src="../Design_Components/jquery.min.js"></script>
+			<script src="../Design_Components/jquery.min.js?v=<?php echo time(); ?>"></script>
 
 		<script>
 			function fileValidation() {

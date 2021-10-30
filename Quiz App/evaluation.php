@@ -130,7 +130,7 @@ a:hover {
 	<h1>Congratulations!</h1> 
 	<p>You have scored <?php echo $marks?> out of <?php echo $x;?></p>
 	<br>
-	<a src="../student_dashboard/dashboard.php">Exit</a>
+	<a href="../student_dashboard/dashboard.php">Exit</a>
 </div>
 </body>
 </html>
