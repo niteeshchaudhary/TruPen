@@ -803,14 +803,14 @@
 						var checkRadio = document.querySelector(k);
 						var dots = document.getElementsByClassName("flex-item");
 						if(checkRadio != null) {
-						if(dots[slideIndex-1].className.includes(" lft")){
-							dots[slideIndex-1].className = dots[slideIndex-1].className.replace(" lft", "");
-							document.getElementById("uaq").innerHTML=Number(document.getElementById("uaq").innerHTML)-1;
-						}
-						if(!dots[slideIndex-1].className.includes(" atm")){
-							dots[slideIndex-1].className += " atm";
-							document.getElementById("atmq").innerHTML=Number(document.getElementById("atmq").innerHTML)+1;
-						}
+							if(dots[slideIndex-1].className.includes(" lft")){
+								dots[slideIndex-1].className = dots[slideIndex-1].className.replace(" lft", "");
+								document.getElementById("uaq").innerHTML=Number(document.getElementById("uaq").innerHTML)-1;
+							}
+							if(!dots[slideIndex-1].className.includes(" atm")){
+								dots[slideIndex-1].className += " atm";
+								document.getElementById("atmq").innerHTML=Number(document.getElementById("atmq").innerHTML)+1;
+							}
 						}
 						else {
 
