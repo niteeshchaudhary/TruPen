@@ -208,7 +208,7 @@
 												</div>
 											</div>
 											<div class="project-box-content-header">
-											<form method="POST" action="../Quiz App/quiz_con.php" id="myForm'.$row['name'].'">
+											<form method="POST" action="../Quiz App/quiz_b.php" id="myForm'.$row['name'].'">
 											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
 											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
 											</form>

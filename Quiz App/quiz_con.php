@@ -1448,49 +1448,71 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 				</div>
 				<div class="projects-section">
 					<div class="projects-section-header">
-						<div class="main-container">
-							<div class="slideshow-container">
-								<form method="post" action="evaluation.php" id="myform">
-										<?php
-											$x=0;
-											if ($result && $result->num_rows > 0) {
-											global $x;
-											for ($x = 0;$row = $result->fetch_assoc(); $x++) {
-												echo '<div class="mySlides fade" id="'.$x.'">
-														<div class="quiz-container" id="quiz">
-														<div class="quiz-header">
-															<div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
-															<h2>'.$row["question"].'</h2>
-															<ul>
-															<li><input type="radio" name="answer'.$x.'" id="a" onclick="check_select()" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-															<li><input type="radio" name="answer'.$x.'" id="b" onclick="check_select()" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-															<li><input type="radio" name="answer'.$x.'" id="c" onclick="check_select()" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-															<li><input type="radio" name="answer'.$x.'" id="d" onclick="check_select()" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
-															</ul>
-														</div>
-														</div>
-													</div>';
-											}
-											}
-										?>
-								<button type="submit" id="s">Submit</button>
-								<a class="next" onclick="plusSlides(1)">Next</a>
-								</form>
-								<br>
-								<br>
-								<br>
-								<div class="navstp">
-								<a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
-								<a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
-								<a class="next" onclick="plusSlides(1)">&#10095;</a>
-								<a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
+					</div>
+						<div class="project-boxes jsGridView">
+							<div class="main-container">
+								<div class="slideshow-container">
+									<form method="post" action="evaluation.php" id="myform">
+											<?php
+												$x=0;
+												if ($result && $result->num_rows > 0) {
+												global $x;
+												for ($x = 0;$row = $result->fetch_assoc(); $x++) {
+													echo '<div class="mySlides fade" id="'.$x.'">
+															<div class="quiz-container" id="quiz">
+															<div class="quiz-header">
+																<div class="numbertext">'.($x+1).' /'.$result->num_rows.'</div>
+																<h2>'.$row["question"].'</h2>
+																<ul>
+																<li><input type="radio" name="answer'.$x.'" id="a" onclick="check_select()" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
+																<li><input type="radio" name="answer'.$x.'" id="b" onclick="check_select()" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
+																<li><input type="radio" name="answer'.$x.'" id="c" onclick="check_select()" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
+																<li><input type="radio" name="answer'.$x.'" id="d" onclick="check_select()" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+																</ul>
+															</div>
+															</div>
+														</div>';
+												}
+												}
+											?>
+									<button type="submit" id="s">Submit</button>
+									<a class="next" onclick="plusSlides(1)">Next</a>
+									</form>
+									<br>
+									<br>
+									<br>
+									<div class="navstp">
+									<a  class="prev" onclick="plusSlides(-1)">&#10094;</a>
+									<a class="first" onclick="firstSlide()">&#10094;&#10094;</a>
+									<a class="next" onclick="plusSlides(1)">&#10095;</a>
+									<a class="last" onclick="lastSlide()">&#10095;&#10095;</a>
+									</div>
 								</div>
+							
+									
 							</div>
-									<?php
+						</div>
+					
+				</div>
+				<div class="messages-section">
+							<button class="messages-close">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+									<circle cx="12" cy="12" r="10" />
+									<line x1="15" y1="9" x2="9" y2="15" />
+									<line x1="9" y1="9" x2="15" y2="15" />
+								</svg>
+							</button>
+							<div class="projects-section-header">
+								<?php
 									echo'
 									<div class="timer-container" style="margin-right: 10pt;">
 										<p id="app"></p>
-									</div>
+									</div>'
+								?>
+							</div>
+							<div class="messages">
+							<?php
+									echo'
 									<div class="navboxd">
 										<h3 class="head">Quiz Navigation</h3>
 										<hr noshade="2">
@@ -1511,8 +1533,7 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 									</div>';
 									?>
 							</div>
-					</div>
-				</div>
+						</div>
 			</div>
 		</div>
 		<script id="rendered-js" >
