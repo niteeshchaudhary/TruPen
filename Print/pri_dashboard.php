@@ -24,7 +24,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../Chatbot/static/css/chat.css">
+        <link rel="stylesheet" href="../Chatbot/static/css/chat.css?v=<?php echo time(); ?>">
         <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
         <meta name="apple-mobile-web-app-title" content="CodePen">
 
@@ -33,11 +33,26 @@
         <link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <style>
-            table,
-            th,
-            td {
-                border: 1px solid black;
-            }
+            @import "../Design_Components/bootstrap.min.css";
+            table{
+  width:100%;
+  table-layout: fixed;
+}
+            th{
+  padding: 20px 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
         </style>
         <script type="text/javascript">
             function openPdf(s) {
@@ -73,7 +88,7 @@
                     </div>
                 </div>
                 <div class="app-header-right">
-                    <button class="mode-switch" title="Switch Theme">
+                    <button class="mode-switch" title="Switch Theme" onclick="tableui(1);">
 						<svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
 							<defs></defs>
 							<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
@@ -138,7 +153,10 @@
                         <div>
                             <h1>Pending Requests</h1>
                             <h3 style="color: red;">Please "Accept only after printing is successful!"</h3>
-                            <table>
+                            <br>
+                            <br>
+                            <br>
+                            <table id="table">
                                 <tr>
 									 <th>User</th>
 									 <th>File</th>
@@ -242,6 +260,21 @@
                         y.innerHTML = "&#9650; <font color='black'> &#9660;</font>";
                     } else {
                         y.innerHTML = "<font color='black'>&#9650;</font> &#9660;";
+                    }
+                }
+                var x = document.getElementById("table");
+                x.classList.add("table")
+                x.classList.add("table-dark");
+                var n=0;
+                function tableui(i){
+                    n+=i;
+                    if(n%2!=0){
+                        x.classList.remove("table-dark");
+                        x.classList.add("table-light");
+                    }
+                    else{
+                        x.classList.remove("table-light");
+                        x.classList.add("table-dark");
                     }
                 }
             </script>

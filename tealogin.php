@@ -4,7 +4,7 @@ session_start();
 <html>
 <head>
     <title>
-        Teacher Login Page
+        Professor Login Page
     </title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
 </head>     
@@ -72,7 +72,7 @@ $password = $_POST["password"];
 
     if($user_id)
     {
-      $command = "SELECT username,passcode, subject FROM teacher WHERE username LIKE '$user_id'";
+      $command = "SELECT username,passcode FROM teacher WHERE username LIKE '$user_id'";
       $data = $mysql -> query($command);
       while($row = $data->fetch_assoc())
       {
@@ -80,7 +80,6 @@ $password = $_POST["password"];
         $passworddata = $row["passcode"]; 
         if($userdata === $user_id && $passworddata === $password){
             global $x;
-			$_SESSION["subject"] = $row["subject"];
             $x = 1;
         }
       }
@@ -123,7 +122,7 @@ else{
 
 <?php
 if($x===1){
-    header( "refresh:2 ; url = teacher_dashboard/dashboard.php" );
+    header( "refresh:2 ; url = loggedin.php" );
 }
 else{
     // remove all session variables
@@ -132,7 +131,7 @@ session_unset();
 // destroy the session
 session_destroy();
 
-    header( "refresh:2 ; url = tea_login.php" );
+    header( "refresh:5 ; url = tea_signup.php" );
 }
 ?>
 
