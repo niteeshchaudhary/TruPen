@@ -10,6 +10,7 @@ function getBotResponse(input) {
     4. How to make a quiz? <br>
     5. How do I contact the website devs?<br>
     6. How to print some documents?<br>
+    7. How to login to truPen?<br>
     `
     if (input == "hello" || input == "hi") {
         return "Hello there!";
@@ -42,8 +43,8 @@ function getBotResponse(input) {
                <br>On the Appbar , there will be an option to Request/Print a file . 
                <br>Click on that option.
                <br>Now, you will be redirected to the Printing page where your print request will be sent to the admin .`;
-    } else if (input == "") {
-        return "";
+    } else if (input == "7" || input == "how to login to trupen?") {
+        return "Simple";
     } else if (input == "") {
         return "";
     } else if (input == "") {
