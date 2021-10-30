@@ -4,6 +4,7 @@ $con = new mysqli('localhost', 'root', NULL, 'trupendb');
 $name = $_POST["name"];
 $subject = $_POST["subject"];
 $total = $_POST["total"];
+$n = $_POST["no"];
 $sql = "SELECT * FROM ".$subject."_".$name."_result ORDER BY marks DESC";
 $result = $con->query($sql) or die("Error: ". $con->error);
 $uimg=$_SESSION["uimg"];
@@ -29,6 +30,7 @@ $uimg=$_SESSION["uimg"];
 			window.parent.postMessage("resize", "*");
 			}
 		</script>
+		<script src="../Design_Components/chart.min.js"></script>
 </head>
 <body translate="no" >
 		<div class="app-container">
@@ -209,6 +211,7 @@ $uimg=$_SESSION["uimg"];
 											$cnt+=1;
 								}
 							?>
+							<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 		</div>
 				</div>
 				<div class="messages-section">
@@ -352,5 +355,105 @@ $uimg=$_SESSION["uimg"];
 				window.location.href = combo;
 			}
 		</script>
+<?php		
+$subject_name = $subject."_".$name;
+$qryst="select * from ".$subject_name."_result";
+$result1 = $con->query($qryst);
+$correct = array();
+$wrong = array();
+$unattempted = array();
+$xdata = array();
+$i = 0;
+function number($num, $subject_name, $con) 
+{
+	$sql = "select ".$num."_m from ".$subject_name."_result";
+	$result3 = $con->query($sql) or die("Error: ". $conn->error);
+	$data = array();
+	$c = 0;
+	$w = 0;
+	$u = 0;
+	while($row3 = $result3->fetch_assoc())
+	{
+		if($row3[$num."_m"]==NULL)
+		{
+			$u++;
+			continue;
+		}
+		elseif(explode("_", $row3[$num."_m"])[0] == explode("_", $row3[$num."_m"])[1])
+		{
+			$c++;
+			continue;
+		}
+		else
+		{
+			$w++;
+			continue;
+		}
+	}
+	return array($c, $w, $u);
+}
+while($i<$n)
+{
+	$temp = number($i, $subject_name, $con);
+	array_push($correct, $temp[0]);
+	array_push($wrong, $temp[1]);
+	array_push($unattempted, $temp[2]);
+	array_push($xdata, $i+1);
+	$i++;
+}
+?>
+<script>
+var correct = <?php echo json_encode($correct); ?>;
+var wrong = <?php echo json_encode($wrong); ?>;
+var unattempted = <?php echo json_encode($unattempted); ?>;
+var xValues = <?php echo json_encode($xdata); ?>;
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+		label: "Correct",
+      data: correct,
+      borderColor: "green",
+      fill: false
+    },{
+		label: "Wrong",
+      data: wrong,
+      borderColor: "red",
+      fill: false
+    },{
+		label: "Unattempted",
+      data: unattempted,
+      borderColor: "gray",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: true},
+	scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+				scaleLabel: {
+					display: true,
+					labelString: 'Number of People'
+					}
+            }],
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Question number'
+					}
+            }]
+        },
+	title: {
+      display: true,
+      text: "Correct Wrong Unattempted count"
+    }
+  }
+});
+</script>
 </body>
 </html>

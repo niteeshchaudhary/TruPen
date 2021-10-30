@@ -26,6 +26,7 @@ $uimg=$_SESSION["uimg"];
 			window.parent.postMessage("resize", "*");
 			}
 		</script>
+		<script src="../Design_Components/chart.min.js"></script>
 </head>
 <body translate="no" >
 		<div class="app-container">
@@ -222,6 +223,7 @@ $uimg=$_SESSION["uimg"];
 												$cnt+=1;
 									}
 								?>
+								<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
 				</div>
 				</div>
 				<div class="messages-section">
@@ -365,5 +367,67 @@ $uimg=$_SESSION["uimg"];
 				window.location.href = combo;
 			}
 		</script>
+<?php
+$qryst="select * from quiz";
+$result1 = $con->query($qryst);
+$quizzes = array();
+$average = array();
+$colors = array("red", "green","blue","orange","brown");
+$color = array();
+$i = 0;
+while($row1 = $result1->fetch_assoc())
+{
+	array_push($quizzes,$row1["name"]);
+	$avg = 0;
+	$n = 0;
+	$sql = "SELECT marks FROM ".$_SESSION["subject"]."_".$row1["name"]."_result";
+	$result2 = $con->query($sql) or die("Error: ". $con->error);
+	while($row2 = $result2->fetch_assoc())
+	{
+		$avg += $row2["marks"];
+		$n++;
+	}
+	if($n>0){$avg = round($avg/$n, 2);}
+	array_push($average, 100*round($avg/$row1["total"], 2));
+	array_push($color, $colors[$i%5]);
+	$i++;
+}
+?>
+<script>
+var xValues = <?php echo json_encode($quizzes); ?>;
+var yValues = <?php echo json_encode($average); ?>;
+var barColors = <?php echo json_encode($color); ?>;
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+   options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+				scaleLabel: {
+					display: true,
+					labelString: 'Average % Marks'
+					}
+            }],
+			xAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: 'Quizzes'
+					}
+            }]
+        },
+		legend: {display: false}
+    }
+});
+</script>
 </body>
 </html>
