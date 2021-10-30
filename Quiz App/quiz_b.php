@@ -819,7 +819,7 @@
 					}
 			// code for timer :
 			const FULL_DASH_ARRAY = 283;
-			const WARNING_THRESHOLD = TL*30/100;
+			const WARNING_THRESHOLD = TL*25/100;
 			const ALERT_THRESHOLD = 10;
 
 			const COLOR_CODES = {
