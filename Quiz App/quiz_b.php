@@ -67,11 +67,12 @@
 				display:flex;
 				/*flex-flow: row wrap;*/
 				width:100%;
-				height:70vh;
+				height:68vh;
 			}
 			/* Slideshow container */
 			.slideshow-container {
 				float: left;
+				margin:4px;
 				width:100%;
 				height:65vh;
 			}
@@ -85,7 +86,7 @@
 				flex-direction: column;
 				background:rgba(250, 250, 250, 0.2);
 				border-radius: 5% 5%;
-				width:80px;
+				width:10%;
 				height:67vh;
 			}
 			/* Next & previous buttons */
@@ -161,7 +162,8 @@
 				font-size: 12px;
 				padding: 8px 12px;
 				text-align: center;
-				margin-left:85%;
+				margin-left:40%;
+				width:60px;
 				top: 0;
 			}
 
@@ -184,9 +186,9 @@
 			/* Fading animation */
 			.fade {
 				-webkit-animation-name: fade;
-				-webkit-animation-duration: 1.5s;
+				-webkit-animation-duration: 1s;
 				animation-name: fade;
-				animation-duration: 1.5s;
+				animation-duration: 1s;
 			}
 
 			@-webkit-keyframes fade {
@@ -205,9 +207,10 @@
 			}
 
 			.quiz-container{
-				background-color: #fff;
+				background-color: var(--projects-section);
 				border-radius: 10px;
-				box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.1);
+				box-shadow: 0 0 10px 2px var(--main-color);
+				color:var(--main-color);
 				width: 100%;
 				height: 100%;
 				overflow: hidden;
@@ -222,11 +225,11 @@
 
 			ul{
 				list-style-type: none;
-				padding: 0;
+				padding: 5px;
 			}
 			ul li{
 				font-size: 1.2rem;
-				margin: 1.3rem 1rem;
+				margin: 1.3rem 1.3rem;
 			}
 			ul li label{
 				cursor: pointer;
@@ -295,22 +298,21 @@
 			.navboxd {
 					display: block;
 					float: right;
-					height: 90%;
-					width: 275px;
+					overflow: hidden;
+					height: 80vh;
+					width: 100%;
 					align-content: center;
 					background-color: rgba(235,235,235,0.13);
 					border-radius: 10px;
 					backdrop-filter: blur(10px);
 					border: 2px solid rgba(255,255,255,0.1);
-					box-shadow: 0 0 40px rgba(8,7,16,0.6);
+					box-shadow: 0 0 10px rgba(8,7,16,0.6);
 				}
 				.flexbox {
 					display: flex;
-					padding-left: 5px;
-					padding-right: 5px;
+					padding: 5px;
 					margin: 5px;
 					flex-flow: row wrap;
-					width: 260px; /* 4 items * item width(100+5+5) = 440 */
 					background-color: rgba(235,235,235,0.13);
 					border-radius: 10px;
 					backdrop-filter: blur(10px);
@@ -448,21 +450,19 @@
 					border-radius: 10px;
 					backdrop-filter: blur(10px);
 					border: 2px solid rgba(255,255,255,0.1);
-					box-shadow: 0 0 40px rgba(8,7,16,0.6);
+					box-shadow: 0 0 10px rgba(8,7,16,0.6);
 				}
 					.botm{
 						padding: 5px;
 						margin: 5px;
 						position: absolute;
 						bottom: 0;
-						width:96%;
 						text-align: center;
-						background-color: rgba(0,0,255,0.23);
+						background-color: rgba(0,0,100,0.23);
 						border-radius: 10px;
 						backdrop-filter: blur(10px);
 						border: 2px solid rgba(255,255,255,0.1);
-						box-shadow: 0 0 40px rgba(8,7,16,0.6);
-						background-color: #03cae4;
+						box-shadow: 0 0 5px rgba(8,7,16,0.6);
 					}
 					.botm .btn { 
 						border-radius: 5px;
@@ -474,7 +474,7 @@
 						font-size: 1 rem;
 						font-family: sans-serif;
 						padding: 1rem;
-						background-color: rgba(20,25,235,0.13);
+						background-color: rgba(10,10,150,0.13);
 					}
 				.btn:hover {
 					border: 4px solid rgba(255,255,255,0.8);
@@ -497,11 +497,11 @@
 						border: 1px solid rgba(255,255,255,0);
 						box-shadow: 0 0 40px rgba(8,7,16,0);
 						top:-200px;
-			}
+				}
 			.base-timer {
 				position: relative;
-				width: 100px;
-				height: 100px;
+				width: 60px;
+				height: 60px;
 			}
 			
 			.base-timer__svg {
@@ -542,13 +542,13 @@
 			
 			.base-timer__label {
 				position: absolute;
-				width: 100px;
-				height: 100px;
+				width: 60px;
+				height: 60px;
 				top: 0;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: 25px;
+				font-size: 17px;
 			}
 		</style>
 
@@ -568,14 +568,7 @@
 					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
 					<p class="app-name">Student</p>
-					<div class="search-wrapper">
-						<input class="search-input" type="text" placeholder="Search">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
-							<defs></defs>
-							<circle cx="11" cy="11" r="8"></circle>
-							<path d="M21 21l-4.35-4.35"></path>
-						</svg>
-					</div>
+					<p  class="app-name">Quiz - <?php echo $_SESSION["quiz_name"];?></p>
 				</div>
 				<div class="app-header-right">
 					<button class="mode-switch" title="Switch Theme">
@@ -633,12 +626,19 @@
 								<span class="status-type">Attempted</span>
 							</div>
 							<div class="item-status">
-							<span class="status-number"><?php echo $result->num_rows;?></span>
+								<span class="status-number" id="ttq"><?php echo $result->num_rows;?></span>
 								<span class="status-type">Total Qusetions</span>
 							</div>
-							<div class="item-status">
-							<span class="status-number"><p id="app"></p></span>
-							</div>
+					
+								<span class="status-number">
+									<div class="search-wrapper" style="height:60px;width:60px;background:transparent;">
+										<p id="app"></p>
+										<!--<div class="box-progress-bar">
+											<span class="box-progress" id="timep" style="background-color:#0f0;"></span>
+										</div>-->
+									</div>
+								</span>
+					
 							
 						</div>
 					</div>
@@ -655,10 +655,10 @@
 																	<div class="numbertext">Q : '.($x+1).'</div>
 																	<h2>'.$row["question"].'</h2>
 																	<ul>
-																	<li><input type="radio" name="answer'.$x.'" id="a" onclick="check_select()" class="answer" value="a_'.$x.'"><label for="a" id="a_text">'.$row["option_a"].'</label></li>
-																	<li><input type="radio" name="answer'.$x.'" id="b" onclick="check_select()" class="answer" value="b_'.$x.'"><label for="b" id="b_text">'.$row["option_b"].'</label></li>
-																	<li><input type="radio" name="answer'.$x.'" id="c" onclick="check_select()" class="answer" value="c_'.$x.'"><label for="c" id="c_text">'.$row["option_c"].'</label></li>
-																	<li><input type="radio" name="answer'.$x.'" id="d" onclick="check_select()" class="answer" value="d_'.$x.'"><label for="d" id="d_text">'.$row["option_d"].'</label></li>
+																	<li><input type="radio" name="answer'.$x.'" id="a'.$x.'" onclick="check_select()" class="answer" value="a_'.$x.'">&nbsp&nbsp<label for="a'.$x.'" id="a_text">'.$row["option_a"].'</label></li>
+																	<li><input type="radio" name="answer'.$x.'" id="b'.$x.'" onclick="check_select()" class="answer" value="b_'.$x.'">&nbsp&nbsp<label for="b'.$x.'" id="b_text">'.$row["option_b"].'</label></li>
+																	<li><input type="radio" name="answer'.$x.'" id="c'.$x.'" onclick="check_select()" class="answer" value="c_'.$x.'">&nbsp&nbsp<label for="c'.$x.'" id="c_text">'.$row["option_c"].'</label></li>
+																	<li><input type="radio" name="answer'.$x.'" id="d'.$x.'" onclick="check_select()" class="answer" value="d_'.$x.'">&nbsp&nbsp<label for="d'.$x.'" id="d_text">'.$row["option_d"].'</label></li>
 																	</ul>
 																</div>
 																</div>
@@ -677,12 +677,12 @@
 											<a class="last" onclick="lastSlide()">&#10095;&#10095;</a><br>
 											<br>
 											<a  class="prev" onclick="plusSlides(-1)">&#10094;P</a><br>
-											<a class="next" onclick="plusSlides(1)">&#10095;N</a><br>
+											<a class="next" onclick="plusSlides(1)">N&#10095;</a><br>
 									</div>
 						</div>
 					</div>
 				</div>
-				<div class="messages-section">
+				<div class="messages-section" style="overflow: hidden;">
 					<button class="messages-close">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
 							<circle cx="12" cy="12" r="10" />
@@ -707,36 +707,11 @@
 												</div>';
 										}
 										echo '</div>
-										<form action="../loggedin.php">
-												<center><input type="submit" value="Exit Quiz" class="exitit"></center>
-											</form>
+											<div class="botm">
+												<button class="btn" onclick="forcesubmit()">Submit</button>
+											</div>
 									</div>';
 									?>
-					</div>
-					<div class="messages">
-								
-						<!--<div class="message-box">
-							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
-							<div class="message-content">
-								<div class="message-header">
-									<div class="name">Stephanie</div>
-										<div class="star-checkbox">
-											<input type="checkbox" id="star-1">
-											<label for="star-1">
-											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
-												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 	21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-											</svg>
-										</label>
-									</div>
-								</div>
-								<p class="message-line">
-									I got your first assignment. It was quite good. 🥳 We can continue 	with the next assignment.
-								</p>
-								<p class="message-line time">
-									Dec, 12
-								</p>
-							</div>
-						</div>-->
 					</div>
 				</div>
 			</div>
@@ -768,7 +743,7 @@
 			$max = max(60*$time_limit-$t, 0);
 			echo "
 			<script> let TIME_LIMIT =$max;
-				let TL =$t;  
+				let TL =$time_limit*60;  
 			</script>";
 		?>
 
@@ -808,7 +783,12 @@
 			check_select();
 			for (i = 0; i < dots.length; i++) {
 				if(dots[i].className.includes(" act") && !dots[i].className.includes(" lft") && !dots[i].className.includes(" atm")){
-				dots[i].className += " lft"; //dots[i].className.replace(" act", "");
+					dots[i].className += " lft"; //dots[i].className.replace(" act", "");
+					document.getElementById("uaq").innerHTML=Number(document.getElementById("uaq").innerHTML)+1;
+					var nv=Number(document.getElementById("ttq").innerHTML)
+					-Number(document.getElementById("uaq").innerHTML)
+					-Number(document.getElementById("atmq").innerHTML)-1;
+					document.getElementById("nvq").innerHTML=nv>=0?nv:0;
 				}
 				dots[i].className = dots[i].className.replace(" act", "");
 			}
@@ -825,9 +805,11 @@
 						if(checkRadio != null) {
 						if(dots[slideIndex-1].className.includes(" lft")){
 							dots[slideIndex-1].className = dots[slideIndex-1].className.replace(" lft", "");
+							document.getElementById("uaq").innerHTML=Number(document.getElementById("uaq").innerHTML)-1;
 						}
 						if(!dots[slideIndex-1].className.includes(" atm")){
 							dots[slideIndex-1].className += " atm";
+							document.getElementById("atmq").innerHTML=Number(document.getElementById("atmq").innerHTML)+1;
 						}
 						}
 						else {
@@ -837,7 +819,7 @@
 					}
 			// code for timer :
 			const FULL_DASH_ARRAY = 283;
-			const WARNING_THRESHOLD = 30;
+			const WARNING_THRESHOLD = TL*30/100;
 			const ALERT_THRESHOLD = 10;
 
 			const COLOR_CODES = {
@@ -861,7 +843,7 @@
 			let remainingPathColor = COLOR_CODES.info.color;
 
 			document.getElementById("app").innerHTML = `
-					<div class="base-timer">
+				<div class="base-timer">
 					<svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
 						<g class="base-timer__circle">
 						<circle class="base-timer__path-elapsed" cx="50" cy="50" r="45"></circle>
@@ -912,11 +894,13 @@
 			function formatTime(time) {
 				const minutes = Math.floor(time / 60);
 				let seconds = time % 60;
-
+				
 				if (seconds < 10) {
 					seconds = `0${seconds}`;
 				}
-
+				//document.getElementById("timep").style.width=String((time)*100/TL)+"%";
+				//document.getElementById("timep").style.backgroundColor="#0f0";
+				//document.getElementById("timep").setAttribute("class", `base-timer__path-remaining ${remainingPathColor}`);
 				return `${minutes}:${seconds}`;
 			}
 
@@ -950,9 +934,10 @@
 			}
 
 			function setCircleDasharray() {
+				const circleDasharray = String((TL-timeLeft)*283/TL);
 				//const circleDasharray = `${(calculateTimeFraction() * FULL_DASH_ARRAY).toFixed(0)} 360`;
-				const circleDasharray = ((TIME_LIMIT-timeLeft)/TIME_LIMIT*283).toString();;
-				document.getElementById("base-timer-path-remaining").setAttribute("stroke-dashoffset", circleDasharray);
+				//const circleDasharray = ((TIME_LIMIT-timeLeft)/TIME_LIMIT*283).toString();;
+				document.getElementById("base-timer-path-remaining").style.strokeDashoffset=circleDasharray;
 			}
 		</script>
 

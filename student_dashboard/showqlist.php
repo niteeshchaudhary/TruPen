@@ -178,7 +178,7 @@
 					</div>-->
 					<div class="project-boxes jsGridView">
 						<?php 
-						$colorbk=array('#fee4cb','#e9e7fd',' #4f3ff0','#ffd3e2','#c8f7dc','#d5deff');
+						$colorbk=array('#fee4cb','#e9e7fd',' #4feeff','#ffd3e2','#c8f7dc','#d5deff');
 						$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
 
 						if($result->num_rows > 0)
@@ -220,7 +220,7 @@
 												<p class="box-progress-header">Date: '.explode("T", $row['time'])[0].'</p>
 												<p class="box-progress-header">Total Marks : '.$row['total'].'</p>
 												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'0'.'%; background-color: #ff942e"></span>
+													<span class="box-progress" style="width: '.'0'.'%; background-color: '.$colors[$cnt%6].';"></span>
 												</div>
 												<p class="box-progress-percentage">'.'0'.'%</p>
 											</div>
@@ -281,7 +281,7 @@
 														<p class="box-progress-header">Submit time: '.explode(" ", $row2['time'])[1].'</p>
 														<p class="box-progress-header">Submit date: '.explode(" ", $row2['time'])[0].'</p>
 														<div class="box-progress-bar">
-															<span class="box-progress" style="width: '.round((100*$row2['marks']/$row['total']),2).'%; background-color: #ff942e"></span>
+															<span class="box-progress" style="width: '.round((100*$row2['marks']/$row['total']),2).'%; background-color: '.$colors[$cnt%6].';"></span>
 														</div>
 														<p class="box-progress-percentage">'.round((100*$row2['marks']/$row['total']),2).'%</p>
 													</div>

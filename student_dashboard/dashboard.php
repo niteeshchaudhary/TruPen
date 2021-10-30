@@ -179,7 +179,7 @@
 					</div>-->
 					<div class="project-boxes jsGridView">
 						<?php 
-						  $colorbk=array('#fee4cb','#e9e7fd','#4f3ff0','#ffd3e2','#c8f7dc','#d5deff');
+						  $colorbk=array('#fee4cb','#e9e7fd','#4feeff','#ffd3e2','#c8f7dc','#d5deff');
 							$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
 							$qryst="select * from teacher;";
 						  $result = $con->query($qryst);
@@ -214,7 +214,7 @@
 											<div class="box-progress-wrapper">
 												<p class="box-progress-header">Progress</p>
 												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'60'.'%; background-color: #ff942e"></span>
+													<span class="box-progress" style="width: '.'60'.'%; background-color:'.$colors[$cnt%6].';"></span>
 												</div>
 												<p class="box-progress-percentage">'.'60'.'%</p>
 											</div>
