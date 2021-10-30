@@ -80,7 +80,7 @@ img {vertical-align: middle;}
 }
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
 
-//import compass
+
 @import "compass";
 
 
@@ -288,7 +288,7 @@ select::-ms-expand {
 function percent($num, $subject_name, $conn) 
 {
 	$sql = "SELECT ".$num."_m FROM $subject_name"."_result";
-	$result3 = $conn->query($sql) or die("Error: ". $con->error);
+	$result3 = $conn->query($sql) or die("Error: ". $conn->error);
 	$a = 0;
 	$c = 0;
 	while($row3 = $result3->fetch_assoc())
