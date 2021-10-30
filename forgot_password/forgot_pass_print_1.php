@@ -709,7 +709,7 @@
   function checkdb(){
           $.ajax({
                    type:"POST",
-                   url: "forgot_pass_stu_2.php",
+                   url: "forgot_pass_print_2.php",
                    data:{ "mailid": emailText},
                     success: function(msg){
                         if(msg.slice(-1)==2){
@@ -719,7 +719,7 @@
                           alert('Email Not in database');
                         }
                         else if(msg==1){
-							$(location).prop('href', 'forgot_pass_stu_3.php');
+							$(location).prop('href', 'forgot_pass_print_3.php');
                         }
                     }
                  });

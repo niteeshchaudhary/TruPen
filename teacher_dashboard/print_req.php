@@ -7,7 +7,7 @@
   if ($result && $result->num_rows > 0) {
     if($row = $result->fetch_assoc()){
       if($row["img_dir"]=="" || $row["img_dir"]==NULL){
-        $uimg="../profile_pic/student/user.jpg";
+        $uimg="../profile_pic/teacher/user.jpg";
       }
       else{
       	$uimg="../".$row["img_dir"];

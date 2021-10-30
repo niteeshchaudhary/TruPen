@@ -131,7 +131,7 @@ svg {
    <div class="container"> 
     <div class="form"> 
       <h2>Change Password</h2>
-      <form method="POST" name="signup" action="forgot_pass_stu_5.php" onsubmit="return validateForm()">
+      <form method="POST" name="signup" action="forgot_pass_teacher_5.php" onsubmit="return validateForm()">
         <div class="inputBx password">
           <input type="password" name="new_pass" id = "password" maxlength="17" required="required">
           <span>New Password</span>
@@ -350,7 +350,7 @@ else
 				</div>
 				  <h1>Wrong OTP Entered!</h1> 
 				  <br>
-				  <form action="forgot_pass_stu_3.php">
+				  <form action="forgot_pass_teacher_3.php">
 			<input type="submit" value="Back" class="but">
 			</form>
 				</div>';

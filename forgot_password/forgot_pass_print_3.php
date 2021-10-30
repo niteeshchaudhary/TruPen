@@ -5,7 +5,7 @@
 	<head>
 		  <link rel='stylesheet' href='../Design_Components/bootstrap.min.css'>
 		<style type="text/css">
-			@keyframes AnimationName {
+		@keyframes AnimationName {
     0% {
         background-position: 0% 50%
     }
@@ -92,7 +92,7 @@
 		</style>
 	</head>
 	<body translate="no" >
-		<form action="forgot_pass_stu_4.php" method="POST" onsubmit="return validateForm()">
+		<form action="forgot_pass_print_4.php" method="POST" onsubmit="return validateForm()">
 
 		 <div class="container height-100 d-flex justify-content-center align-items-center">
 		    <div class="position-relative">

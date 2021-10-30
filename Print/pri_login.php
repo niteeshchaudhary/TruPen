@@ -120,7 +120,7 @@ $_SESSION["p"] = "office";
                         </div>
                     </form>
                     <p>Forgot password? 
-                        <a href="#">Click Here</a>
+                        <a href="../forgot_password/forgot_pass_print_1.php">Click Here</a>
                     </p>
                     <p>Don't have an account ? 
                         <a href="pri_signup.php">Sign up</a>

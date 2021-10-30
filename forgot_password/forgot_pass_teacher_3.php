@@ -92,7 +92,7 @@
 		</style>
 	</head>
 	<body translate="no" >
-		<form action="forgot_pass_stu_4.php" method="POST" onsubmit="return validateForm()">
+		<form action="forgot_pass_teacher_4.php" method="POST" onsubmit="return validateForm()">
 
 		 <div class="container height-100 d-flex justify-content-center align-items-center">
 		    <div class="position-relative">

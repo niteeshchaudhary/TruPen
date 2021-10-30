@@ -182,7 +182,7 @@
                         </div>
                     </form>
                     <p>Forgot password? 
-                        <a href="#">Click Here</a>
+                        <a href="forgot_password/forgot_pass_teacher_1.php">Click Here</a>
                     </p>
                     <p>Don't have an account ? 
                         <a href="tea_signup.php">Sign up</a>

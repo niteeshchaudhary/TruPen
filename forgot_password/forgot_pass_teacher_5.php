@@ -93,7 +93,7 @@ $sql = "UPDATE user
 				  <h1>Success</h1> 
 				  <p>We have successfully changed your account password.</p>
 				  <br>
-				  <a href="../stu_login.php">Login</a>
+				  <a href="../tea_login.php">Login</a>
 				</div>';
 		}
 		else{
@@ -105,12 +105,10 @@ $sql = "UPDATE user
 				  <h1 style="color:red;">Failed</h1> 
 				  <p>There was an error while changing your account password.</p>
 				  <br>
-				  <a href="../stu_login.php">Login</a>
+				  <a href="../tea_login.php">Login</a>
 				</div>';
 		}
 ?>
-</body>
-</html>
 </body>
 </html>
  
