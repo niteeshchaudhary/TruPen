@@ -26,11 +26,12 @@ omyFrame.src = s;
  <th>Type</th>
  <th>Comment</th>
  <th>Accept</th>
+ <th>Reason for Rejection</th>
  <th>Reject</th>
  </tr>
 <?php
 $con = new mysqli('localhost', 'root', NULL, 'trupendb');
-$sql = "SELECT * FROM print WHERE status LIKE '1'";
+$sql = "SELECT * FROM print WHERE status = '1'";
 $result = $con->query($sql) or die("Error: ". $con->error);
 if($result->num_rows > 0)
 {
@@ -43,8 +44,15 @@ if($result->num_rows > 0)
  <td><?php echo $row['copies']; ?></td>
  <td><?php echo $row['type']; ?></td>
  <td><?php echo $row['comment']; ?></td>
- <td><a href="accept.php?id=<?php echo $row['location']; ?>">Accept</a></td>
- <td><a href="reject.php?id=<?php echo $row['location']; ?>">Reject</a></td>
+ <form method="POST" action="reject.php" id="accept">
+	<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
+ </form>
+ <td><input type="button" onclick="begQ('accept')">Accept</td>
+ <form method="POST" action="reject.php" id="reject">
+	<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
+	<td><input type="text" name="reason" value="<?php echo $row['location']; ?>" required><td>
+ </form>
+ <td><input type="button" onclick="begQ('reject')">Reject</td>
  </tr>
  <?php
  }
@@ -53,4 +61,9 @@ if($result->num_rows > 0)
 </table>
 <iframe id="myFrame" style="display:none" width="1000" height="700"></iframe>
 </body>
+<script>
+function begQ(data){
+				document.getElementById(data).submit();
+			}
+</script>
 </html>

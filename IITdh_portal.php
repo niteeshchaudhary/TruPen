@@ -105,6 +105,7 @@
             type varchar(120),
             status smallint(6),
             comment varchar(120),
+			reason varchar(120),
             PRIMARY KEY (No)
             )';
     if ($con->query($sql) === FALSE)

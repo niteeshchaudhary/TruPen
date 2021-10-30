@@ -140,14 +140,15 @@
                             <h3 style="color: red;">Please "Accept only after printing is successful!"</h3>
                             <table>
                                 <tr>
-                                    <th>User</th>
-                                    <th>File</th>
-                                    <th>Copies</th>
-                                    <th>Type</th>
-                                    <th>Comment</th>
-                                    <th>Accept</th>
-                                    <th>Reject</th>
-                                </tr>
+									 <th>User</th>
+									 <th>File</th>
+									 <th>Copies</th>
+									 <th>Type</th>
+									 <th>Comment</th>
+									 <th>Accept</th>
+									 <th>Reason for Rejection</th>
+									 <th>Reject</th>
+								</tr>
                                 <?php
 								$con = new mysqli('localhost', 'root', NULL, 'trupendb');
 								$sql = "SELECT * FROM print WHERE status LIKE '1'";
@@ -158,22 +159,21 @@
 								{
 								?>
                                     <tr>
-                                        <td>
-                                            <?php echo $row['user']; ?>
-                                        </td>
-                                        <td><input type="button" value="Preview/Print" onclick="openPdf('<?php echo $row['location']; ?>')" /></td>
-                                        <td>
-                                            <?php echo $row['copies']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['type']; ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $row['comment']; ?>
-                                        </td>
-                                        <td><a href="accept.php?id=<?php echo $row['location']; ?>">Accept</a></td>
-                                        <td><a href="reject.php?id=<?php echo $row['location']; ?>">Reject</a></td>
-                                    </tr>
+										 <td><?php echo $row['user']; ?></td>
+										 <td><input type="button" value="Preview/Print" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
+										 <td><?php echo $row['copies']; ?></td>
+										 <td><?php echo $row['type']; ?></td>
+										 <td><?php echo $row['comment']; ?></td>
+										 <form method="POST" action="accept.php" id="accept">
+											<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
+											<td><input type="submit" value="Accept"></td>
+										 </form>
+										 <form method="POST" action="reject.php" id="reject">
+											<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
+											<td><input type="text" name="reason" required></td>
+											<td><input type="submit" value="Reject"></td>
+										 </form>
+									</tr>
                                     <?php
 								}
 								}
