@@ -219,6 +219,27 @@ a {
     align-items: center;
 }
 
+@keyframes osc {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-40deg);
+    }
+    60% {
+        transform: rotate(40deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+.oscillate {
+    animation-name: osc;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}
+
 .profile-btn {
     padding: 0;
     border: 0;
@@ -243,6 +264,17 @@ a {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
+}
+
+.profile-btn :hover {
+    padding: 0px;
+    border: 1;
+    display: flex;
+    align-items: center;
+    border-color: white;
+    border-radius: 10px;
+    background-color: white;
+    transition: 0.5s;
 }
 
 .page-content {

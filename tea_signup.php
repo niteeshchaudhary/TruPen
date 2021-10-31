@@ -203,7 +203,7 @@ svg {
   </div>
 </section>
 <script type="text/javascript" src="Design_Components/jquery.min.js"></script>
-<script  id="rendered-js" src="Design_Components/Button-Effect.js"></script>
+<script id="rendered-js" src="Design_Components/Button-Effect.js"></script>
   <script>
         const emojies = ['😑', '😕', '😊', '😎', '💪'];
         const emojiec = ['😒','😌','😑','😕', '✔️'];
