@@ -8,6 +8,10 @@ $sql = "select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 $result1 = $con->query($sql);
 $sql = "select * from quiz WHERE name = '".$_SESSION["quiz_name"]."'";
 $result2 = $con->query($sql);
+while($row2 = $result2->fetch_assoc())
+{
+	$total = $row2["total"];
+}
 $user2 = $_SESSION["user"];
 $sql = "INSERT INTO ".$_SESSION["quiz_subject"]."_".$_SESSION["quiz_name"]."_result"."(user)
 			VALUES('$user2')";
@@ -125,10 +129,10 @@ a:hover {
 <body>
 <div class="card">
 	<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-		<b class="marks"><?php echo $marks?>/<?php echo $x;?></b>
+		<b class="marks"><?php echo $marks?>/<?php echo $total;?></b>
 	</div>
 	<h1>Congratulations!</h1> 
-	<p>You have scored <?php echo $marks?> out of <?php echo $x;?></p>
+	<p>You have scored <?php echo $marks?> out of <?php echo $total;?></p>
 	<br>
 	<a href="../student_dashboard/dashboard.php">Exit</a>
 </div>
