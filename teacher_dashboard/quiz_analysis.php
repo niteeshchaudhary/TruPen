@@ -76,13 +76,13 @@ $uimg=$_SESSION["uimg"];
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link active">
+					<a href="dashboard.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
 						</svg>
 					</a>
-					<a href="" class="app-sidebar-link">
+					<a href="quiz_analysis.php" class="app-sidebar-link active">
 						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
 							<defs />
 							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
@@ -159,7 +159,7 @@ $uimg=$_SESSION["uimg"];
 							</div>
 						</div>
 					</div>-->
-					<div class="project-boxes jsGridView">
+					<div class="project-boxes jsGridView" style="overflow-x:hidden;">
 								<?php
 								$colorbk=array('#fee4cb','#e9e7fd',' #4f3ff0','#ffd3e2','#c8f7dc','#d5deff');
 								$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
@@ -222,46 +222,10 @@ $uimg=$_SESSION["uimg"];
 												</div>';
 												$cnt+=1;
 									}
-								?>
-								<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+								?>	
 				</div>
-				</div>
-				<div class="messages-section">
-					<button class="messages-close">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-							<circle cx="12" cy="12" r="10" />
-							<line x1="15" y1="9" x2="9" y2="15" />
-							<line x1="9" y1="9" x2="15" y2="15" />
-						</svg>
-					</button>
-					<div class="projects-section-header">
-						<p>Print Office Reply</p>
-					</div>
-					<div class="messages">
-						<!--<div class="message-box">
-							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
-							<div class="message-content">
-								<div class="message-header">
-									<div class="name">Stephanie</div>
-										<div class="star-checkbox">
-											<input type="checkbox" id="star-1">
-											<label for="star-1">
-											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
-												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 	21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-											</svg>
-										</label>
-									</div>
-								</div>
-								<p class="message-line">
-									I got your first assignment. It was quite good. 🥳 We can continue 	with the next assignment.
-								</p>
-								<p class="message-line time">
-									Dec, 12
-								</p>
-							</div>
-						</div>-->
-					</div>
-				</div>
+				<canvas id="myChart" style="width:100%;max-width:700px;;max-height:300px;margin-left:auto;margin-right:auto;"></canvas>
+						</div>
 			</div>
 		</div>
 		<!--ChatBot Code-->
@@ -350,14 +314,6 @@ $uimg=$_SESSION["uimg"];
 					listView.classList.remove('active');
 					projectsList.classList.remove('jsListView');
 					projectsList.classList.add('jsGridView');
-				});
-
-				document.querySelector('.messages-btn').addEventListener('click', function () {
-					document.querySelector('.messages-section').classList.add('show');
-				});
-
-				document.querySelector('.messages-close').addEventListener('click', function () {
-					document.querySelector('.messages-section').classList.remove('show');
 				});
 			});
 			function begQ(data){
