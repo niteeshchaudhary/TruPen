@@ -40,10 +40,27 @@
 		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
 		
 		<style>
-			table, th, td {
-			border: 1px solid black;
-			}
-			</style>
+            @import "../Design_Components/bootstrap.min.css";
+            table{
+  width:100%;
+  table-layout: fixed;
+}
+            th{
+  padding: 20px 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+        </style>
 			<script type="text/javascript">
 			function openPdf(s)
 			{
@@ -78,7 +95,7 @@
 					</div>
 				</div>
 				<div class="app-header-right">
-					<button class="mode-switch" title="Switch Theme">
+					<button class="mode-switch" title="Switch Theme" onclick="tableui(1);">
 						<svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
 							<defs></defs>
 							<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
@@ -156,8 +173,8 @@
 					<div class="project-boxes jsGridView">
 						<div style="display:flex;flex-flow: row wrap;">
 							<div style="padding:5px">
-								<h3>Pending Requests</h3>
-									<table>
+								<h3 id="head1">Pending Requests</h3>
+									<table id="table1">
 									<tr>
 									<th>File</th>
 									<th>Copies</th>
@@ -187,8 +204,8 @@
 									</table>
 							</div>
 							<div style="padding:5px">
-								<h3>Accepted Requests</h3>
-								<table>
+								<h3 id="head2">Accepted Requests</h3>
+								<table id="table2">
 								<tr>
 								<th>File</th>
 								<th>Copies</th>
@@ -216,8 +233,8 @@
 								</table>
 							</div>
 							<div style="padding:5px">
-								<h3>Rejected Requests</h3>
-								<table>
+								<h3 id="head3">Rejected Requests</h3>
+								<table id="table3">
 								<tr>
 								<th>File</th>
 								<th>Copies</th>
@@ -312,6 +329,44 @@
                         y.innerHTML = "&#9650; <font color='black'> &#9660;</font>";
                     } else {
                         y.innerHTML = "<font color='black'>&#9650;</font> &#9660;";
+                    }
+                }
+				var x1 = document.getElementById("table1");
+                x1.classList.add("table")
+                x1.classList.add("table-dark");
+				var x2 = document.getElementById("table2");
+                x2.classList.add("table")
+                x2.classList.add("table-dark");
+				var x3 = document.getElementById("table3");
+                x3.classList.add("table")
+                x3.classList.add("table-dark");
+				var y1 = document.getElementById("head1");
+				var y2 = document.getElementById("head2");
+				var y3 = document.getElementById("head3");
+                var n=0;
+                function tableui(i){
+                    n+=i;
+                    if(n%2!=0){
+                        x1.classList.remove("table-dark");
+                        x1.classList.add("table-light");
+						x2.classList.remove("table-dark");
+                        x2.classList.add("table-light");
+						x3.classList.remove("table-dark");
+                        x3.classList.add("table-light");
+						y1.innerHTML ="<h3 style='color:white'>Pending Requests</h3>";
+						y2.innerHTML ="<h3 style='color:white'>Accepted Requests</h3>";
+						y3.innerHTML ="<h3 style='color:white'>Rejected Requests</h3>";
+                    }
+                    else{
+                        x1.classList.remove("table-light");
+                        x1.classList.add("table-dark");
+						x2.classList.remove("table-light");
+                        x2.classList.add("table-dark");
+						x3.classList.remove("table-light");
+                        x3.classList.add("table-dark");
+						y1.innerHTML ="<h3 style='color:black'>Pending Requests</h3>";
+						y2.innerHTML ="<h3 style='color:black'>Accepted Requests</h3>";
+						y3.innerHTML ="<h3 style='color:black'>Rejected Requests</h3>";
                     }
                 }
             </script>
