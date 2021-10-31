@@ -93,13 +93,13 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link active">
+					<a href="dashboard.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
 						</svg>
 					</a>
-					<a href="chart.php" class="app-sidebar-link">
+					<a href="chart3.php" class="app-sidebar-link active">
 						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
 							<defs />
 							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
@@ -180,66 +180,6 @@
 						<?php 
 						$colorbk=array('#fee4cb','#e9e7fd',' #4feeff','#ffd3e2','#c8f7dc','#d5deff');
 						$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
-
-						if($result->num_rows > 0)
-						{
-							$cnt=0;
-						 while($row = $result->fetch_assoc())
-						 {
-							$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
-							$result2 = $con->query($sql) or die("Error: ". $con->error);
-							if($result2->num_rows > 0)
-							{
-								continue;
-							}
-								echo '
-						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="begQ(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
-											<div class="project-box-header">
-												<span>*Un-Atttempted</span>
-												<div class="more-wrapper">
-													<button class="project-btn-more">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-															<circle cx="12" cy="12" r="1" />
-															<circle cx="12" cy="5" r="1" />
-															<circle cx="12" cy="19" r="1" />
-														</svg>
-													</button>
-												</div>
-											</div>
-											<div class="project-box-content-header">
-											<form method="POST" action="../Quiz App/quiz_b.php" id="myForm'.$row['name'].'">
-											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
-											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
-											</form>
-												<p class="box-content-header">'.$row['name'].'</p>
-												<p class="box-content-subheader">'.$row["subject"].'</p>
-											</div>
-											<div class="box-progress-wrapper">
-												<p class="box-progress-header">Time: '.explode("T", $row['time'])[1].'</p>
-												<p class="box-progress-header">Date: '.explode("T", $row['time'])[0].'</p>
-												<p class="box-progress-header">Total Marks : '.$row['total'].'</p>
-												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'0'.'%; background-color: '.$colors[$cnt%6].';"></span>
-												</div>
-												<p class="box-progress-percentage">'.'0'.'%</p>
-											</div>
-											<div class="project-box-footer">
-												<div class="participants">
-													Questions: '.$row['no_questions'].'
-												</div>
-												<div class="days-left" style="color: '.$colors[$cnt%6].';">
-														'.$row['time_limit'].' minutes
-													</div>
-												</div>
-										</div>
-									</div>';
-									$cnt+=1;
-						    }
-						}
-						else{
-
-						}
 						$sql = "SELECT * FROM quiz where subject='".$_GET['sub']."';";
 						$result = $con->query($sql) or die("Error: ". $con->error);
 						if($result->num_rows > 0)
@@ -268,10 +208,11 @@
 														</div>
 													</div>
 													<div class="project-box-content-header">
-													<form method="POST" action="../Quiz App/analysis.php" id="myForma'.$row['name'].'">
+													<form method="POST" action="chart3.php" id="myForma'.$row['name'].'">
 													<input type="hidden" name="name" value="'.$row['name'].'">
 													<input type="hidden" name="subject" value="'.$row["subject"].'">
 													<input type="hidden" name="no" value="'.$row["no_questions"].'">
+													<input type="hidden" name="total" value="'.$row["total"].'">
 													</form>
 														<p class="box-content-header">'.$row['name'].'</p>
 														<p class="box-content-subheader">'.$row["subject"].'</p>

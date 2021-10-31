@@ -14,10 +14,7 @@
       }
   	}
   }
-  if(!$_GET['sub']){
-	header( "refresh:0 ; url = dashboard.php" );
-  }
-	$sql = "SELECT * FROM quiz where subject='".$_GET['sub']."';";
+	$sql = "SELECT * FROM quiz where subject='".$_POST['subject']."';";
 	$result = $con->query($sql) or die("Error: ". $con->error);
 ?>
 <!DOCTYPE html>
@@ -43,6 +40,7 @@
 			window.parent.postMessage("resize", "*");
 			}
 		</script>
+		<script src="../Design_Components/chart.min.js"></script>
 	</head>
 
 	<body translate="no" >
@@ -93,13 +91,13 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link active">
+					<a href="dashboard.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
 						</svg>
 					</a>
-					<a href="chart.php" class="app-sidebar-link">
+					<a href="chart3.php" class="app-sidebar-link active">
 						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
 							<defs />
 							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
@@ -137,7 +135,6 @@
 				</div>
 				<div class="projects-section">
 					<div class="projects-section-header">
-						<p><?php echo "Quizes : ".$_GET['sub']?></p>
 						<p class="time"><?php echo date('F, d');?></p>
 						<div class="view-actions">
 							<button class="view-btn list-view" title="List View">
@@ -177,131 +174,8 @@
 						</div>
 					</div>-->
 					<div class="project-boxes jsGridView">
-						<?php 
-						$colorbk=array('#fee4cb','#e9e7fd',' #4feeff','#ffd3e2','#c8f7dc','#d5deff');
-						$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
-
-						if($result->num_rows > 0)
-						{
-							$cnt=0;
-						 while($row = $result->fetch_assoc())
-						 {
-							$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
-							$result2 = $con->query($sql) or die("Error: ". $con->error);
-							if($result2->num_rows > 0)
-							{
-								continue;
-							}
-								echo '
-						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="begQ(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
-											<div class="project-box-header">
-												<span>*Un-Atttempted</span>
-												<div class="more-wrapper">
-													<button class="project-btn-more">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-															<circle cx="12" cy="12" r="1" />
-															<circle cx="12" cy="5" r="1" />
-															<circle cx="12" cy="19" r="1" />
-														</svg>
-													</button>
-												</div>
-											</div>
-											<div class="project-box-content-header">
-											<form method="POST" action="../Quiz App/quiz_b.php" id="myForm'.$row['name'].'">
-											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
-											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
-											</form>
-												<p class="box-content-header">'.$row['name'].'</p>
-												<p class="box-content-subheader">'.$row["subject"].'</p>
-											</div>
-											<div class="box-progress-wrapper">
-												<p class="box-progress-header">Time: '.explode("T", $row['time'])[1].'</p>
-												<p class="box-progress-header">Date: '.explode("T", $row['time'])[0].'</p>
-												<p class="box-progress-header">Total Marks : '.$row['total'].'</p>
-												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'0'.'%; background-color: '.$colors[$cnt%6].';"></span>
-												</div>
-												<p class="box-progress-percentage">'.'0'.'%</p>
-											</div>
-											<div class="project-box-footer">
-												<div class="participants">
-													Questions: '.$row['no_questions'].'
-												</div>
-												<div class="days-left" style="color: '.$colors[$cnt%6].';">
-														'.$row['time_limit'].' minutes
-													</div>
-												</div>
-										</div>
-									</div>';
-									$cnt+=1;
-						    }
-						}
-						else{
-
-						}
-						$sql = "SELECT * FROM quiz where subject='".$_GET['sub']."';";
-						$result = $con->query($sql) or die("Error: ". $con->error);
-						if($result->num_rows > 0)
-						{
-							$cnt=0;
-							while($row = $result->fetch_assoc())
-							{
-								$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
-								$result2 = $con->query($sql) or die("Error: ". $con->error);
-								if($result2->num_rows > 0)
-								{
-									while($row2 = $result2->fetch_assoc()){
-										echo '
-										<div class="project-box-wrapper">
-												<div class="project-box" onclick="begQa(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
-													<div class="project-box-header">
-														<span>*Atttempted</span>
-														<div class="more-wrapper">
-															<button class="project-btn-more">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-																	<circle cx="12" cy="12" r="1" />
-																	<circle cx="12" cy="5" r="1" />
-																	<circle cx="12" cy="19" r="1" />
-																</svg>
-															</button>
-														</div>
-													</div>
-													<div class="project-box-content-header">
-													<form method="POST" action="../Quiz App/analysis.php" id="myForma'.$row['name'].'">
-													<input type="hidden" name="name" value="'.$row['name'].'">
-													<input type="hidden" name="subject" value="'.$row["subject"].'">
-													<input type="hidden" name="no" value="'.$row["no_questions"].'">
-													</form>
-														<p class="box-content-header">'.$row['name'].'</p>
-														<p class="box-content-subheader">'.$row["subject"].'</p>
-													</div>
-													<div class="box-progress-wrapper">
-														<p class="box-progress-header">* Score : '.$row2['marks']."/".$row['total'].'</p>
-														<p class="box-progress-header">Submit time: '.explode(" ", $row2['time'])[1].'</p>
-														<p class="box-progress-header">Submit date: '.explode(" ", $row2['time'])[0].'</p>
-														<div class="box-progress-bar">
-															<span class="box-progress" style="width: '.round((100*$row2['marks']/$row['total']),2).'%; background-color: '.$colors[$cnt%6].';"></span>
-														</div>
-														<p class="box-progress-percentage">'.round((100*$row2['marks']/$row['total']),2).'%</p>
-													</div>
-													<div class="project-box-footer">
-														<div class="participants">
-															Questions: '.$row['no_questions'].'
-														</div>
-														<div class="days-left" style="color: '.$colors[$cnt%6].';">
-																'.$row['time_limit'].' minutes
-															</div>
-														</div>
-												</div>
-											</div>';
-									}
-								}
-								$cnt++;
-							}
-						}
-
-						?>
+						<canvas id="myChart1" style="width:100%;max-width:700px;;max-height:300px;margin-left:auto;margin-right:auto;"></canvas>
+						<canvas id="myChart2" style="width:100%;max-width:700px;;max-height:300px;margin-left:auto;margin-right:auto;"></canvas>
 					</div>
 				</div>
 				<div class="messages-section">
@@ -388,7 +262,114 @@
 				window.location.href = "#"+combo;
 			}
 		</script>
+<?php
+$name = $_POST["name"];
+$subject = $_POST["subject"];
+$subject_name = $subject."_".$name;
+$user = $_SESSION["user"];
+$total = $_POST["total"];
+$sql = "select marks, user from ".$subject_name."_result";
+$result = $con->query($sql);
+$max = 0;
+$min = $total;
+$avg = 0;
+$xdata1 = array();
+for($i=0; $i<5; $i++)
+{
+	array_push($xdata1, ($i*$total/5)."-".(($i+1)*$total/5));
+}
+$ydata1 = array(0, 0, 0, 0, 0);
+$d = $total/5;
+$n = 0;
+while($row = $result->fetch_assoc())
+{
+	$m = $row["marks"];
+	if($m>$max)
+	{
+		$max = $m;
+	}
+	if($m<$min)
+	{
+		$min = $m;
+	}
+	$avg += $m;
+	if($m==$total)
+	{
+		$ydata1[4]++;
+	}
+	else
+	{
+		$ydata1[floor(5*$m/$total)]++;
+	}
+	if($row["user"] == $user)
+	{
+		$usma = $m;
+	}
+	$n++;
+}
+$avg = 100*round($avg/($total*$n), 2);
+$xdata2 = array("Highest", "Average", "Lowest", "Your Score");
+$ydata2 = array(100*round($max/$total, 2), $avg, 100*round($min/$total, 2), 100*round($usma/$total, 2));
+?>
+<script>
+var xValues = <?php echo json_encode($xdata1); ?>;
+var yValues = <?php echo json_encode($ydata1); ?>;
+var barColors = [
+  "green",
+  "red",
+  "blue",
+  "brown",
+  "pink"
+];
+new Chart("myChart1", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "<?php echo 'Marks Distribution of classmates for '.$subject.' '.$name; ?>"
+    }
+  }
+});
+var xValues = <?php echo json_encode($xdata2); ?>;
+var yValues = <?php echo json_encode($ydata2); ?>;
+var barColors = ["red", "brown","pink","blue"];
 
-	</body>
-
+new Chart("myChart2", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+				scaleLabel: {
+					display: true,
+					labelString: 'Percentage Marks'
+					}
+            }],
+			xAxes: [{
+				scaleLabel: {
+					display: false
+					}
+            }]
+        },
+		legend: {display: false}
+    }
+});
+</script>
+</body>
 </html>

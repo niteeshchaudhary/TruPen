@@ -14,11 +14,7 @@
       }
   	}
   }
-  if(!$_GET['sub']){
-	header( "refresh:0 ; url = dashboard.php" );
-  }
-	$sql = "SELECT * FROM quiz where subject='".$_GET['sub']."';";
-	$result = $con->query($sql) or die("Error: ". $con->error);
+  $_SESSION["uimg"]=$uimg;
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -26,6 +22,10 @@
 	<head>
 
 		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../Chatbot/static/css/chat.css">
 		<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
 		<meta name="apple-mobile-web-app-title" content="CodePen">
 
@@ -36,6 +36,7 @@
 
 
 		<title>TruPen - Student DashBoard</title>
+
 		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
 
 		<script>
@@ -93,13 +94,13 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link active">
+					<a href="dashboard.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
 						</svg>
 					</a>
-					<a href="chart.php" class="app-sidebar-link">
+					<a href="chart.php" class="app-sidebar-link active">
 						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
 							<defs />
 							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
@@ -137,7 +138,7 @@
 				</div>
 				<div class="projects-section">
 					<div class="projects-section-header">
-						<p><?php echo "Quizes : ".$_GET['sub']?></p>
+						<p>Courses</p>
 						<p class="time"><?php echo date('F, d');?></p>
 						<div class="view-actions">
 							<button class="view-btn list-view" title="List View">
@@ -178,25 +179,24 @@
 					</div>-->
 					<div class="project-boxes jsGridView">
 						<?php 
-						$colorbk=array('#fee4cb','#e9e7fd',' #4feeff','#ffd3e2','#c8f7dc','#d5deff');
-						$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
-
-						if($result->num_rows > 0)
-						{
-							$cnt=0;
-						 while($row = $result->fetch_assoc())
-						 {
-							$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
-							$result2 = $con->query($sql) or die("Error: ". $con->error);
-							if($result2->num_rows > 0)
-							{
-								continue;
-							}
-								echo '
+						  $colorbk=array('#fee4cb','#e9e7fd','#4feeff','#ffd3e2','#c8f7dc','#d5deff');
+							$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
+							$qryst="select * from teacher;";
+						  $result = $con->query($qryst);
+						  $cnt=0;
+						  if ($result && $result->num_rows > 0) {
+						    while($row = $result->fetch_assoc()){
+						    	$prof_img="abc";
+						    	if (file_exists('../profile_pic/teacher/'.$row['username'].'.jpg')) {
+									    $prof_img='../profile_pic/teacher/'.$row['username'].'.jpg';
+									} else {
+									    $prof_img= '../profile_pic/teacher/user.jpg';
+									}
+									echo '
 						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="begQ(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
+										<div class="project-box" onclick="gotoC(\''.$row["subject"].'\');" style="background-color: '.$colorbk[$cnt%6].';">
 											<div class="project-box-header">
-												<span>*Un-Atttempted</span>
+												<span>*Compulsary Course</span>
 												<div class="more-wrapper">
 													<button class="project-btn-more">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -208,99 +208,33 @@
 												</div>
 											</div>
 											<div class="project-box-content-header">
-											<form method="POST" action="../Quiz App/quiz_b.php" id="myForm'.$row['name'].'">
-											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
-											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
-											</form>
-												<p class="box-content-header">'.$row['name'].'</p>
-												<p class="box-content-subheader">'.$row["subject"].'</p>
+												<p class="box-content-header">'.$row["subject"].'</p>
+												<p class="box-content-subheader">'."Prototyping".'</p>
 											</div>
 											<div class="box-progress-wrapper">
-												<p class="box-progress-header">Time: '.explode("T", $row['time'])[1].'</p>
-												<p class="box-progress-header">Date: '.explode("T", $row['time'])[0].'</p>
-												<p class="box-progress-header">Total Marks : '.$row['total'].'</p>
+												<p class="box-progress-header">Progress</p>
 												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'0'.'%; background-color: '.$colors[$cnt%6].';"></span>
+													<span class="box-progress" style="width: '.'60'.'%; background-color:'.$colors[$cnt%6].';"></span>
 												</div>
-												<p class="box-progress-percentage">'.'0'.'%</p>
+												<p class="box-progress-percentage">'.'60'.'%</p>
 											</div>
 											<div class="project-box-footer">
 												<div class="participants">
-													Questions: '.$row['no_questions'].'
+													<img src="'.$prof_img.'?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2555&q=80" alt="professor">
+													&nbsp'.$row['username'].'
 												</div>
 												<div class="days-left" style="color: '.$colors[$cnt%6].';">
-														'.$row['time_limit'].' minutes
+														In Progress
 													</div>
 												</div>
 										</div>
 									</div>';
 									$cnt+=1;
 						    }
-						}
-						else{
+						  }
+						  else{
 
-						}
-						$sql = "SELECT * FROM quiz where subject='".$_GET['sub']."';";
-						$result = $con->query($sql) or die("Error: ". $con->error);
-						if($result->num_rows > 0)
-						{
-							$cnt=0;
-							while($row = $result->fetch_assoc())
-							{
-								$sql = "SELECT * FROM ".$row['subject']."_".$row['name']."_result"." WHERE user like '".$_SESSION["user"]."'";
-								$result2 = $con->query($sql) or die("Error: ". $con->error);
-								if($result2->num_rows > 0)
-								{
-									while($row2 = $result2->fetch_assoc()){
-										echo '
-										<div class="project-box-wrapper">
-												<div class="project-box" onclick="begQa(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
-													<div class="project-box-header">
-														<span>*Atttempted</span>
-														<div class="more-wrapper">
-															<button class="project-btn-more">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-																	<circle cx="12" cy="12" r="1" />
-																	<circle cx="12" cy="5" r="1" />
-																	<circle cx="12" cy="19" r="1" />
-																</svg>
-															</button>
-														</div>
-													</div>
-													<div class="project-box-content-header">
-													<form method="POST" action="../Quiz App/analysis.php" id="myForma'.$row['name'].'">
-													<input type="hidden" name="name" value="'.$row['name'].'">
-													<input type="hidden" name="subject" value="'.$row["subject"].'">
-													<input type="hidden" name="no" value="'.$row["no_questions"].'">
-													</form>
-														<p class="box-content-header">'.$row['name'].'</p>
-														<p class="box-content-subheader">'.$row["subject"].'</p>
-													</div>
-													<div class="box-progress-wrapper">
-														<p class="box-progress-header">* Score : '.$row2['marks']."/".$row['total'].'</p>
-														<p class="box-progress-header">Submit time: '.explode(" ", $row2['time'])[1].'</p>
-														<p class="box-progress-header">Submit date: '.explode(" ", $row2['time'])[0].'</p>
-														<div class="box-progress-bar">
-															<span class="box-progress" style="width: '.round((100*$row2['marks']/$row['total']),2).'%; background-color: '.$colors[$cnt%6].';"></span>
-														</div>
-														<p class="box-progress-percentage">'.round((100*$row2['marks']/$row['total']),2).'%</p>
-													</div>
-													<div class="project-box-footer">
-														<div class="participants">
-															Questions: '.$row['no_questions'].'
-														</div>
-														<div class="days-left" style="color: '.$colors[$cnt%6].';">
-																'.$row['time_limit'].' minutes
-															</div>
-														</div>
-												</div>
-											</div>';
-									}
-								}
-								$cnt++;
-							}
-						}
-
+						  }
 						?>
 					</div>
 				</div>
@@ -342,7 +276,68 @@
 				</div>
 			</div>
 		</div>
-		<script src="oscillate.js?v=<?php echo time(); ?>"></script>
+		<!--ChatBot Code-->
+		<div class="chat-bar-collapsible">
+                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with us!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
+        </button>
+
+                    <div class="content">
+                        <div class="full-chat-block">
+                            <!-- Message Container -->
+                            <div class="outer-container">
+                                <div class="chat-container">
+                                    <!-- Messages -->
+                                    <div id="chatbox">
+                                        <h5 id="chat-timestamp"></h5>
+                                        <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                                    </div>
+
+                                    <!-- User input box -->
+                                    <div class="chat-bar-input-block">
+                                        <div id="userInput">
+                                            <input id="textInput" autocomplete="off" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                                            <p></p>
+                                        </div>
+
+                                        <div class="chat-bar-icons">
+                                            <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i>
+                                            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                                        </div>
+                                    </div>
+
+                                    <div id="chat-bar-bottom">
+                                        <p></p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <script src='../Design_Components/jquery.min.js?v=<?php echo time(); ?>'></script>
+            <script src="../Chatbot/static/scripts/responses.js?v=<?php echo time(); ?>"></script>
+            <script src="../Chatbot/static/scripts/chat.js?v=<?php echo time(); ?>"></script>
+			<script src="oscillate.js?v=<?php echo time(); ?>"></script>
+            <script>
+                var i = 0;
+
+                function toggle(n) {
+                    i += n;
+                    var y = document.getElementById("rotation");
+                    if (i % 2 != 0) {
+                        y.innerHTML = "&#9650; <font color='black'> &#9660;</font>";
+                    } else {
+                        y.innerHTML = "<font color='black'>&#9650;</font> &#9660;";
+                    }
+                }
+            </script>
+            <!--ChatBot Code-->
 		<script id="rendered-js" >
 			document.addEventListener('DOMContentLoaded', function () {
 				var modeSwitch = document.querySelector('.mode-switch');
@@ -378,14 +373,8 @@
 					document.querySelector('.messages-section').classList.remove('show');
 				});
 			});
-			function begQ(data){
-				document.getElementById('myForm'+data).submit();
-			}
-			function begQa(data){
-				document.getElementById('myForma'+data).submit();
-			}
-			function gotoQA(combo){
-				window.location.href = "#"+combo;
+			function gotoC(combo){
+				window.location.href = "chart2.php?sub="+combo;
 			}
 		</script>
 
