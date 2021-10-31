@@ -229,7 +229,7 @@ svg {
                     success: function(msg){
                         document.getElementById("avail").innerHTML = emojiea[msg];
                         if(msg==2){
-                          document.getElementById("error").innerHTML="<font style='color:#FF2400;font-size:tiny;'>*Error : user name not available !</font>";
+                          document.getElementById("error").innerHTML="<font style='color:#FF2400;font-size:tiny;-webkit-text-stroke: 0.1pt white;'>*Error : user name not available !</font>";
                           submit_chk=true;
                         }
                         else{
@@ -247,15 +247,15 @@ svg {
                     return false;
                   }
                   if(x.length<8){
-                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : password minimum length should be 8 !</font>";
+                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;-webkit-text-stroke: 0.1pt white;'>*Error : password minimum length should be 8 !</font>";
                     return false;
                   }
                   else if(x!=y){
-                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : Password mismatch detected !</font>";
+                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;-webkit-text-stroke: 0.1pt white;'>*Error : Password mismatch detected !</font>";
                     return false;
                   }
                   else if(z==""||x==""){
-                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;'>*Error : Empty Fields detected !</font>";
+                    error.innerHTML = "<font style='color:#FF2400;font-size:tiny;-webkit-text-stroke: 0.1pt white;'>*Error : Empty Fields detected !</font>";
                     return false;
                   }
         }

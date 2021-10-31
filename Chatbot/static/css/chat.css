@@ -141,7 +141,7 @@
     border-bottom-left-radius: 2px;
     max-width: 80%;
     margin-left: 10px;
-    animation: floatup 1s forwards
+    animation: floatup 1s forwards;
 }
 
 @keyframes floatup {

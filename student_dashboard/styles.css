@@ -558,8 +558,10 @@ a {
 
 .project-boxes.jsListView .project-box {
     display: flex;
+    width: 98%;
     border-radius: 10px;
     position: relative;
+    margin-left: 10px;
 }
 
 .project-boxes.jsListView .project-box>* {
@@ -655,7 +657,7 @@ a {
 
 .project-box-wrapper {
     overflow: hidden;
-    padding: 8px;
+    padding: 10px;
     transition: 0.2s;
 }
 

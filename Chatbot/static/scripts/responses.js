@@ -11,6 +11,9 @@ function getBotResponse(input) {
     5. How do I contact the website devs?<br>
     6. How to print some documents?<br>
     7. How to login to truPen?<br>
+    8. How to set quiz time limit?<br>
+    9. How do I change my password?<br>
+    10. How to change my profile info?<br>
     `
     if (input == "hello" || input == "hi") {
         return "Hello there!";
@@ -44,13 +47,31 @@ function getBotResponse(input) {
                <br>Click on that option.
                <br>Now, you will be redirected to the Printing page where your print request will be sent to the admin .`;
     } else if (input == "7" || input == "how to login to trupen?") {
-        return "Simple";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
-    } else if (input == "") {
-        return "";
+        return `Simple, just go to :
+                    <font style = "display:inline-block;"class = "tooltip" > 
+                    <a style = "cursor: pointer;" class = "copy-click" onclick = "copytoclipboard();">IITdh_portal.php</a> 
+                    <font id = "replace" > <span class = "tooltiptext" > Copy to clipboard </span></font>
+                    </font>
+                    <br>There you will have options to select your mode of login according to your occupation / access level .
+                    <br>
+                    {Student , Professor , Print Staff}
+                `;
+    } else if (input == "how to set quiz time limit?" || input == "8") {
+        return `As easy as it is , in truPen , you can easily set the quiz time limit when you make a quiz.
+                The time limit must be specified in seconds. 
+                <br>{Note: Once a quiz is created , you cannot change/update it.}`;
+    } else if (input == "how do i change my password?" || input == "9") {
+        return `
+        Security Breach ?<br>Forgot password? <br>No worries , we got you covered .
+        <br>With truPen , we have a password reset security system that sends OTP to your registered gmail account.
+        <br>After verification , you can change your password :) .
+        <br>You can change your password by going to your Occupation's Login page and click on "Forgot password?" option.
+        `;
+    } else if (input == "how to change my profile info?" || input == "10") {
+        return `
+        That's easy , just navigate to the profile info page after you sign-in .
+        <br>From there you can change the details and click on the 'update' button to update your profile information.
+        `;
     } else if (input == "") {
         return "";
     } else if (input == "") {
