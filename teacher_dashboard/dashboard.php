@@ -214,36 +214,6 @@
 										</div>
 									</div>';
 								echo '
-								<div class="project-box-wrapper" onclick="window.location.href='."'quiz_analysis.php'".'">
-									<div class="project-box" style="background-color: #c8f7dc;">
-										<div class="project-box-header">
-											<span>*</span>
-											<div class="more-wrapper">
-												<button class="project-btn-more">
-													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-														<circle cx="12" cy="12" r="1" />
-														<circle cx="12" cy="5" r="1" />
-														<circle cx="12" cy="19" r="1" />
-													</svg>
-												</button>
-											</div>
-										</div>
-										<div class="project-box-content-header">
-											<p class="box-content-header">👀📝🗒️📔📓📒</p>
-											<p class="box-content-subheader">'."Student Performances".'</p>
-										</div>
-										
-										<div class="project-box-footer">
-											<div class="participants">
-												
-											</div>
-											<div class="days-left" style="color: #4067f9;">
-													
-												</div>
-											</div>
-									</div>
-								</div>';
-								echo '
 								<div class="project-box-wrapper">
 									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #fee4cb;">
 										<div class="project-box-header">
