@@ -14,8 +14,6 @@
       }
   	}
   }
-	$sql = "SELECT * FROM quiz where subject='".$_POST['subject']."';";
-	$result = $con->query($sql) or die("Error: ". $con->error);
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -23,24 +21,32 @@
 	<head>
 
 		<meta charset="UTF-8">
-		<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-		<meta name="apple-mobile-web-app-title" content="CodePen">
-
-		<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-
-		<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../Chatbot/static/css/chat.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
 
 		<title>TruPen - Student DashBoard</title>
-		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
 
+		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
+		<script src="../Design_Components/jquery.min.js?v=<?php echo time(); ?>"></script>
 		<script>
 			if (document.location.search.match(/type=embed/gi)) {
 			window.parent.postMessage("resize", "*");
 			}
 		</script>
-		<script src="../Design_Components/chart.min.js"></script>
+		<script>
+			function postToIframe(){
+				$('body').append('<form action="analysis.php" method="post" target="targetframe" id="postToIframe"></form>');
+					$('#postToIframe').append('<input type="hidden" name="name" value="'+"<?php echo $_POST["name"];?>"+'" />');
+					$('#postToIframe').append('<input type="hidden" name="subject" value="'+"<?php echo $_POST["subject"];?>"+'" />');
+					$('#postToIframe').append('<input type="hidden" name="no" value="'+"<?php echo $_POST["no"]?>"+'" />');
+				
+				$('#postToIframe').submit().remove();
+			}
+		</script>
 	</head>
 
 	<body translate="no" >
@@ -91,13 +97,13 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link">
+					<a href="../student_dashboard/dashboard.php" class="app-sidebar-link active">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
 						</svg>
 					</a>
-					<a href="chart.php" class="app-sidebar-link active">
+					<a href="../student_dashboard/chart.php" class="app-sidebar-link">
 						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
 							<defs />
 							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
@@ -111,14 +117,14 @@
 							<line x1="3" y1="10" x2="21" y2="10" />
 						</svg>
 					</a>
-					<a href="print_req.php" class="app-sidebar-link">
+					<a href="../student_dashboard/print_req.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer">
 							<polyline points="6 9 6 2 18 2 18 9"/>
 							<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
 							<rect x="6" y="14" width="12" height="8"/>
 						</svg>
 					</a>
-					<a href="student_profile.php" class="app-sidebar-link">
+					<a href="../student_dashboard/student_profile.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-profile">
 						<circle cx="25" cy="25" r="17" />
 						<path stroke-width="1.3" d="M15.3 37.3l-1.8-.8c.5-1.2 2.1-1.9 3.8-2.7 1.7-.8 3.8-1.7 3.8-2.8v-1.5c-.6-.5-1.6-1.6-1.8-3.2-.5-.5-1.3-1.4-1.3-2.6 0-.7.3-1.3.5-1.7-.2-.8-.4-2.3-.4-3.5 0-3.9 2.7-6.5 7-6.5 1.2 0 2.7.3 3.5 1.2 1.9.4 3.5 2.6 3.5 5.3 0 1.7-.3 3.1-.5 3.8.2.3.4.8.4 1.4 0 1.3-.7 2.2-1.3 2.6-.2 1.6-1.1 2.6-1.7 3.1V31c0 .9 1.8 1.6 3.4 2.2 1.9.7 3.9 1.5 4.6 3.1l-1.9.7c-.3-.8-1.9-1.4-3.4-1.9-2.2-.8-4.7-1.7-4.7-4v-2.6l.5-.3s1.2-.8 1.2-2.4v-.7l.6-.3c.1 0 .6-.3.6-1.1 0-.2-.2-.5-.3-.6l-.4-.4.2-.5s.5-1.6.5-3.6c0-1.9-1.1-3.3-2-3.3h-.6l-.3-.5c0-.4-.7-.8-1.9-.8-3.1 0-5 1.7-5 4.5 0 1.3.5 3.5.5 3.5l.1.5-.4.5c-.1 0-.3.3-.3.7 0 .5.6 1.1.9 1.3l.4.3v.5c0 1.5 1.3 2.3 1.3 2.4l.5.3v2.6c0 2.4-2.6 3.6-5 4.6-1.1.4-2.6 1.1-2.8 1.6z"/>
@@ -134,7 +140,8 @@
 					</a>
 				</div>
 				<div class="projects-section">
-					<div class="projects-section-header">
+				<div class="projects-section-header">
+						<p>Quiz Questions</p>
 						<p class="time"><?php echo date('F, d');?></p>
 						<div class="view-actions">
 							<button class="view-btn list-view" title="List View">
@@ -149,74 +156,78 @@
 							</button>
 							<button class="view-btn grid-view active" title="Grid View">
 								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
-									<rect x="3" y="3" width="7" height="7" />
-									<rect x="14" y="3" width="7" height="7" />
-									<rect x="14" y="14" width="7" height="7" />
-									<rect x="3" y="14" width="7" height="7" />
+									<rect x="3" y="3" width="14" height="14" />
 								</svg>
 							</button>
 						</div>
 					</div>
-					<!--<div class="projects-section-line">
-						<div class="projects-status">
-							<div class="item-status">
-								<span class="status-number">45</span>
-								<span class="status-type">In Progress</span>
-							</div>
-							<div class="item-status">
-								<span class="status-number">24</span>
-								<span class="status-type">Upcoming</span>
-							</div>
-							<div class="item-status">
-								<span class="status-number">62</span>
-								<span class="status-type">Total Projects</span>
-							</div>
-						</div>
-					</div>-->
-					<div class="project-boxes jsGridView">
-						<canvas id="myChart1" style="width:100%;max-width:700px;;max-height:300px;margin-left:auto;margin-right:auto;"></canvas>
-						<canvas id="myChart2" style="width:100%;max-width:700px;;max-height:300px;margin-left:auto;margin-right:auto;"></canvas>
-					</div>
-				</div>
-				<div class="messages-section">
-					<button class="messages-close">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-							<circle cx="12" cy="12" r="10" />
-							<line x1="15" y1="9" x2="9" y2="15" />
-							<line x1="9" y1="9" x2="15" y2="15" />
-						</svg>
-					</button>
-					<div class="projects-section-header">
-						<p>Professor's Remarks</p>
-					</div>
-					<div class="messages">
-						<!--<div class="message-box">
-							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
-							<div class="message-content">
-								<div class="message-header">
-									<div class="name">Stephanie</div>
-										<div class="star-checkbox">
-											<input type="checkbox" id="star-1">
-											<label for="star-1">
-											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
-												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 	21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-											</svg>
-										</label>
-									</div>
-								</div>
-								<p class="message-line">
-									I got your first assignment. It was quite good. 🥳 We can continue 	with the next assignment.
-								</p>
-								<p class="message-line time">
-									Dec, 12
-								</p>
-							</div>
-						</div>-->
-					</div>
+						<iframe src="analysis.php" name="targetframe" id="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
+						</iframe>
+						
 				</div>
 			</div>
 		</div>
-		<script src="oscillate.js?v=<?php echo time(); ?>"></script>
+		<!--ChatBot Code-->
+		<div class="chat-bar-collapsible">
+                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with us!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
+        </button>
+
+                    <div class="content">
+                        <div class="full-chat-block">
+                            <!-- Message Container -->
+                            <div class="outer-container">
+                                <div class="chat-container">
+                                    <!-- Messages -->
+                                    <div id="chatbox">
+                                        <h5 id="chat-timestamp"></h5>
+                                        <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                                    </div>
+
+                                    <!-- User input box -->
+                                    <div class="chat-bar-input-block">
+                                        <div id="userInput">
+                                            <input id="textInput" autocomplete="off" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                                            <p></p>
+                                        </div>
+
+                                        <div class="chat-bar-icons">
+                                            <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i>
+                                            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                                        </div>
+                                    </div>
+
+                                    <div id="chat-bar-bottom">
+                                        <p></p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <script src="../Chatbot/static/scripts/responses.js?v=<?php echo time(); ?>"></script>
+            <script src="../Chatbot/static/scripts/chat.js?v=<?php echo time(); ?>"></script>
+			<script src="oscillate.js?v=<?php echo time(); ?>"></script>
+            <script>
+                var i = 0;
+
+                function toggle(n) {
+                    i += n;
+                    var y = document.getElementById("rotation");
+                    if (i % 2 != 0) {
+                        y.innerHTML = "&#9650; <font color='black'> &#9660;</font>";
+                    } else {
+                        y.innerHTML = "<font color='black'>&#9650;</font> &#9660;";
+                    }
+                }
+            </script>
+            <!--ChatBot Code-->
 		<script id="rendered-js" >
 			document.addEventListener('DOMContentLoaded', function () {
 				var modeSwitch = document.querySelector('.mode-switch');
@@ -229,147 +240,30 @@
 				var listView = document.querySelector('.list-view');
 				var gridView = document.querySelector('.grid-view');
 				var projectsList = document.querySelector('.project-boxes');
-
+				var ifx = document.getElementById("targetframe");
+				var ify = (ifx.contentWindow || ifx.contentDocument);
+					
 				listView.addEventListener('click', function () {
 					gridView.classList.remove('active');
 					listView.classList.add('active');
-					projectsList.classList.remove('jsGridView');
-					projectsList.classList.add('jsListView');
+					if (ify.document)ify = ify.document;
+					ify.getElementById("total").click();
 				});
 
 				gridView.addEventListener('click', function () {
 					gridView.classList.add('active');
 					listView.classList.remove('active');
-					projectsList.classList.remove('jsListView');
-					projectsList.classList.add('jsGridView');
+					if (ify.document)ify = ify.document;
+					ify.getElementById("slide").click();
 				});
 
-				document.querySelector('.messages-btn').addEventListener('click', function () {
-					document.querySelector('.messages-section').classList.add('show');
-				});
-
-				document.querySelector('.messages-close').addEventListener('click', function () {
-					document.querySelector('.messages-section').classList.remove('show');
-				});
 			});
-			function begQ(data){
-				document.getElementById('myForm'+data).submit();
-			}
-			function begQa(data){
-				document.getElementById('myForma'+data).submit();
-			}
-			function gotoQA(combo){
-				window.location.href = "#"+combo;
+			postToIframe();
+			function gotoC(combo){
+				window.location.href = "showqlist.php?qz="+combo;
 			}
 		</script>
-<?php
-$name = $_POST["name"];
-$subject = $_POST["subject"];
-$subject_name = $subject."_".$name;
-$user = $_SESSION["user"];
-$total = $_POST["total"];
-$sql = "select marks, user from ".$subject_name."_result";
-$result = $con->query($sql);
-$max = 0;
-$min = $total;
-$avg = 0;
-$xdata1 = array();
-for($i=0; $i<5; $i++)
-{
-	array_push($xdata1, ($i*$total/5)."-".(($i+1)*$total/5));
-}
-$ydata1 = array(0, 0, 0, 0, 0);
-$d = $total/5;
-$n = 0;
-while($row = $result->fetch_assoc())
-{
-	$m = $row["marks"];
-	if($m>$max)
-	{
-		$max = $m;
-	}
-	if($m<$min)
-	{
-		$min = $m;
-	}
-	$avg += $m;
-	if($m==$total)
-	{
-		$ydata1[4]++;
-	}
-	else
-	{
-		$ydata1[floor(5*$m/$total)]++;
-	}
-	if($row["user"] == $user)
-	{
-		$usma = $m;
-	}
-	$n++;
-}
-$avg = 100*round($avg/($total*$n), 2);
-$xdata2 = array("Highest", "Average", "Lowest", "Your Score");
-$ydata2 = array(100*round($max/$total, 2), $avg, 100*round($min/$total, 2), 100*round($usma/$total, 2));
-?>
-<script>
-var xValues = <?php echo json_encode($xdata1); ?>;
-var yValues = <?php echo json_encode($ydata1); ?>;
-var barColors = [
-  "green",
-  "red",
-  "blue",
-  "brown",
-  "pink"
-];
-new Chart("myChart1", {
-  type: "pie",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-    title: {
-      display: true,
-      text: "<?php echo 'Marks Distribution of classmates for '.$subject.' '.$name; ?>"
-    }
-  }
-});
-var xValues = <?php echo json_encode($xdata2); ?>;
-var yValues = <?php echo json_encode($ydata2); ?>;
-var barColors = ["red", "brown","pink","blue"];
 
-new Chart("myChart2", {
-  type: "bar",
-  data: {
-    labels: xValues,
-    datasets: [{
-      backgroundColor: barColors,
-      data: yValues
-    }]
-  },
-  options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
-				scaleLabel: {
-					display: true,
-					labelString: 'Percentage Marks'
-					}
-            }],
-			xAxes: [{
-				scaleLabel: {
-					display: false
-					}
-            }]
-        },
-		legend: {display: false}
-    }
-});
-</script>
-</body>
+	</body>
+
 </html>

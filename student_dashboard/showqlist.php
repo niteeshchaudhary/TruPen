@@ -268,7 +268,7 @@
 														</div>
 													</div>
 													<div class="project-box-content-header">
-													<form method="POST" action="../Quiz App/analysis.php" id="myForma'.$row['name'].'">
+													<form method="POST" action="../Quiz App/qwiseanalysis.php"  id="myForma'.$row['name'].'">
 													<input type="hidden" name="name" value="'.$row['name'].'">
 													<input type="hidden" name="subject" value="'.$row["subject"].'">
 													<input type="hidden" name="no" value="'.$row["no_questions"].'">
