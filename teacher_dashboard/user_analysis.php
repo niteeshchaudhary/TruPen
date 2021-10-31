@@ -450,7 +450,7 @@ new Chart("myChart", {
         },
 	title: {
       display: true,
-      text: "Correct Wrong Unattempted count"
+      text: "Correct Wrong Unattempted count for "+"<?php echo $name; ?>"
     }
   }
 });

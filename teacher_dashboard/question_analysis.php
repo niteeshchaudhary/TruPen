@@ -1,452 +1,370 @@
-<!DOCTYPE html>
 <?php
 session_start();
-$conn = new mysqli('localhost', 'root', NULL, 'trupendb');
-$uimg=$_SESSION["uimg"];
-?>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0;}
-.mySlides {display: none}
-img {vertical-align: middle;}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 30%;
-  position: relative;
-  top: -130px;
-  margin: auto;
-}
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 25%;
-  width: auto;
-  padding: 16px;
-  margin-top: 150px;
-  margin-right: 200px;
-  margin-left: 200px;
-  color: black;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
-}
-*, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
-
-
-@import "compass";
-
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  -o-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-body {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  font-size: 20px;
-  line-height: 25px;
-  color: black;
-  background: #4CAF50;
-}
-
-#contact input[type="text"],
-#contact input[type="number"],
-#contact input[type="email"],
-#contact input[type="tel"],
-#contact input[type="url"],
-#contact textarea,
-#contact input[type="submit"] {
-  font: 400 16px/16px "Roboto", Helvetica, Arial, sans-serif;
-}
-
-#contact {
-  background: #F9F9F9;
-  padding: 25px;
-  margin: 150px 0;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-#contact h3 {
-  display: block;
-  font-size: 30px;
-  font-weight: 300;
-  margin-bottom: 10px;
-}
-
-#contact h4 {
-  margin: 5px 0 15px;
-  display: block;
-  font-size: 13px;
-  font-weight: 400;
-}
-
-fieldset {
-  border: medium none !important;
-  margin: 0 0 10px;
-  min-width: 100%;
-  padding: 0;
-  width: 100%;
-}
-
-#contact input[type="text"],
-#contact input[type="number"],
-#contact input[type="email"],
-#contact input[type="tel"],
-#contact input[type="url"],
-#contact textarea {
-  width: 100%;
-  border: 1px solid #ccc;
-  background: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-}
-
-#contact input[type="text"]:hover,
-#contact input[type="number"]:hover,
-#contact input[type="email"]:hover,
-#contact input[type="tel"]:hover,
-#contact input[type="url"]:hover,
-#contact textarea:hover {
-  -webkit-transition: border-color 0.3s ease-in-out;
-  -moz-transition: border-color 0.3s ease-in-out;
-  transition: border-color 0.3s ease-in-out;
-  border: 1px solid #aaa;
-}
-
-#contact textarea {
-  height: 90px;
-  max-width: 100%;
-  resize: none;
-}
-
-#contact input[type="submit"] {
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  background: #4CAF50;
-  color: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-  font-size: 15px;
-}
-
-#contact button[type="submit"]:hover {
-  background: #43A047;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-}
-
-#contact button[type="submit"]:active {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
-#contact input:focus,
-#contact textarea:focus {
-  outline: 0;
-  border: 1px solid #aaa;
-}
-
-::-webkit-input-placeholder {
-  color: black;
-}
-
-:-moz-placeholder {
-  color: black;
-}
-
-::-moz-placeholder {
-  color: black;
-}
-
-:-ms-input-placeholder {
-  color: black;
-}
-:root {
-  --background-gradient: linear-gradient(30deg, #f39c12 30%, #f1c40f);
-  --gray: #34495e;
-  --darkgray: #2c3e50;
-}
-
-select {
-   -webkit-appearance:none;
-   -moz-appearance:none;
-   -ms-appearance:none;
-   appearance:none;
-   outline:0;
-   box-shadow:none;
-   border:0!important;
-   background: #5c6664;
-   background-image: none;
-   flex: 1;
-   padding: 0 .5em;
-   color:#fff;
-   cursor:pointer;
-   font-size: 1em;
-   font-family: 'Open Sans', sans-serif;
-}
-select::-ms-expand {
-   display: none;
-}
-.select {
-   position: relative;
-   display: flex;
-   width: 20em;
-   height: 3em;
-   line-height: 3;
-   background: #5c6664;
-   overflow: hidden;
-   border-radius: .25em;
-}
-.select::after {
-   content: '\25BC';
-   position: absolute;
-   top: 0;
-   right: 0;
-   padding: 0 1em;
-   background: #2b2e2e;
-   cursor:pointer;
-   pointer-events:none;
-   transition:.25s all ease;
-}
-.select:hover::after {
-   color: #23b499;
-}
-.button {
-  background-color: red;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-</style>
-</head>
-<body style="height: 80vh;">
-<?php
-function percent($num, $subject_name, $conn) 
-{
-	$sql = "SELECT ".$num."_m FROM $subject_name"."_result";
-	$result3 = $conn->query($sql) or die("Error: ". $conn->error);
-	$a = 0;
-	$c = 0;
-	while($row3 = $result3->fetch_assoc())
-	{
-		if($row3[$num."_m"]==NULL)
-		{
-			$a++;
-			continue;
-		}
-		elseif(explode("_", $row3[$num."_m"])[0] == explode("_", $row3[$num."_m"])[1])
-		{
-			$c++;
-		}
-		$a++;
-	}
-	return round(100*$c/$a ,2);
-}
+$con = new mysqli('localhost', 'root', NULL, 'trupendb');
 $name = $_POST["name"];
 $subject = $_POST["subject"];
-$subject_name = $_POST["subject"].'_'.$_POST["name"];
+$user = $_POST["user"];
 $n = $_POST["no"];
+$uimg=$_SESSION["uimg"];
+?>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../Chatbot/static/css/chat.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+		<title>TruPen - Teacher DashBoard</title>
+
+		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
+
+		<script>
+			if (document.location.search.match(/type=embed/gi)) {
+			window.parent.postMessage("resize", "*");
+			}
+		</script>
+		<script src="../Design_Components/chart.min.js"></script>
+</head>
+<body translate="no" >
+		<div class="app-container">
+			<div class="app-header">
+				<div class="app-header-left">
+					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
+					<!--<span class="app-icon"></span>-->
+					<p class="app-name">Teacher</p>
+					<div class="search-wrapper">
+						<input class="search-input" type="text" placeholder="Search">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+							<defs></defs>
+							<circle cx="11" cy="11" r="8"></circle>
+							<path d="M21 21l-4.35-4.35"></path>
+						</svg>
+					</div>
+				</div>
+				<div class="app-header-right">
+					<button class="mode-switch" title="Switch Theme">
+						<svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
+							<defs></defs>
+							<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+						</svg>
+					</button>
+					<button class="add-btn" title="Add New Project">
+						<svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
+							<line x1="12" y1="5" x2="12" y2="19" />
+							<line x1="5" y1="12" x2="19" y2="12" />
+						</svg>
+					</button>
+					<button class="notification-btn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+							<path d="M13.73 21a2 2 0 0 1-3.46 0" />
+						</svg>
+					</button>
+					<button class="profile-btn">
+						<img src='<?php echo  $uimg;?>' />
+						<span><?php echo  $_SESSION["user"];?></span>
+					</button>
+				</div>
+				<button class="messages-btn">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+						<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+					</svg>
+				</button>
+			</div>
+			<div class="app-content">
+				<div class="app-sidebar">
+					<a href="dashboard.php" class="app-sidebar-link active">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+							<polyline points="9 22 9 12 15 12 15 22" />
+						</svg>
+					</a>
+					<a href="" class="app-sidebar-link">
+						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
+							<defs />
+							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
+						</svg>
+					</a>
+					<a href="" class="app-sidebar-link">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+							<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+							<line x1="16" y1="2" x2="16" y2="6" />
+							<line x1="8" y1="2" x2="8" y2="6" />
+							<line x1="3" y1="10" x2="21" y2="10" />
+						</svg>
+					</a>
+					<a href="print_req.php" class="app-sidebar-link">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-printer">
+							<polyline points="6 9 6 2 18 2 18 9"/>
+							<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+							<rect x="6" y="14" width="12" height="8"/>
+						</svg>
+					</a>
+					<a href="teacher_profile.php" class="app-sidebar-link">
+						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-profile">
+						<circle cx="25" cy="25" r="17" />
+						<path stroke-width="1.3" d="M15.3 37.3l-1.8-.8c.5-1.2 2.1-1.9 3.8-2.7 1.7-.8 3.8-1.7 3.8-2.8v-1.5c-.6-.5-1.6-1.6-1.8-3.2-.5-.5-1.3-1.4-1.3-2.6 0-.7.3-1.3.5-1.7-.2-.8-.4-2.3-.4-3.5 0-3.9 2.7-6.5 7-6.5 1.2 0 2.7.3 3.5 1.2 1.9.4 3.5 2.6 3.5 5.3 0 1.7-.3 3.1-.5 3.8.2.3.4.8.4 1.4 0 1.3-.7 2.2-1.3 2.6-.2 1.6-1.1 2.6-1.7 3.1V31c0 .9 1.8 1.6 3.4 2.2 1.9.7 3.9 1.5 4.6 3.1l-1.9.7c-.3-.8-1.9-1.4-3.4-1.9-2.2-.8-4.7-1.7-4.7-4v-2.6l.5-.3s1.2-.8 1.2-2.4v-.7l.6-.3c.1 0 .6-.3.6-1.1 0-.2-.2-.5-.3-.6l-.4-.4.2-.5s.5-1.6.5-3.6c0-1.9-1.1-3.3-2-3.3h-.6l-.3-.5c0-.4-.7-.8-1.9-.8-3.1 0-5 1.7-5 4.5 0 1.3.5 3.5.5 3.5l.1.5-.4.5c-.1 0-.3.3-.3.7 0 .5.6 1.1.9 1.3l.4.3v.5c0 1.5 1.3 2.3 1.3 2.4l.5.3v2.6c0 2.4-2.6 3.6-5 4.6-1.1.4-2.6 1.1-2.8 1.6z"/>
+						</svg>
+					</a>
+					<a href="../logoff.php" class="app-sidebar-link">
+						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-logout" viewBox="0 0 24 24">
+							<defs/>
+							<circle cx="12" cy="13" r="10" />
+							<line x1="12" y1="0" x2="12" y2="13" stroke-width="2" stroke="#f00" style="filter: drop-shadow(30px 30px 30px rgba(0, 255, 0, 1));"/>
+							<!--<path xmlns="http://www.w3.org/2000/svg" d="M 7 5 C -15 28, 40 22, 17 5 S 60 10 " fill="transparent"/>-->	
+						</svg>
+					</a>
+				</div>
+				<div class="projects-section">
+					<div class="projects-section-header">
+						<p>Quiz Analysis-Student wise</p>
+						<p class="time"><?php echo date('F, d');?></p>
+						<div class="view-actions">
+							<button class="view-btn list-view" title="List View">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+									<line x1="8" y1="6" x2="21" y2="6" />
+									<line x1="8" y1="12" x2="21" y2="12" />
+									<line x1="8" y1="18" x2="21" y2="18" />
+									<line x1="3" y1="6" x2="3.01" y2="6" />
+									<line x1="3" y1="12" x2="3.01" y2="12" />
+									<line x1="3" y1="18" x2="3.01" y2="18" />
+								</svg>
+							</button>
+							<button class="view-btn grid-view active" title="Grid View">
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
+									<rect x="3" y="3" width="7" height="7" />
+									<rect x="14" y="3" width="7" height="7" />
+									<rect x="14" y="14" width="7" height="7" />
+									<rect x="3" y="14" width="7" height="7" />
+								</svg>
+							</button>
+						</div>
+					</div>
+					<!--<div class="projects-section-line">
+						<div class="projects-status">
+							<div class="item-status">
+								<span class="status-number">45</span>
+								<span class="status-type">In Progress</span>
+							</div>
+							<div class="item-status">
+								<span class="status-number">24</span>
+								<span class="status-type">Upcoming</span>
+							</div>
+							<div class="item-status">
+								<span class="status-number">62</span>
+								<span class="status-type">Total Projects</span>
+							</div>
+						</div>
+					</div>-->
+					<div class="project-boxes jsGridView">
+							<canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+							
+		</div>
+				</div>
+				<div class="messages-section">
+					<button class="messages-close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+							<circle cx="12" cy="12" r="10" />
+							<line x1="15" y1="9" x2="9" y2="15" />
+							<line x1="9" y1="9" x2="15" y2="15" />
+						</svg>
+					</button>
+					<div class="projects-section-header">
+						<p>Print Office Reply</p>
+					</div>
+					<div class="messages">
+						<!--<div class="message-box">
+							<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80" alt="profile image">
+							<div class="message-content">
+								<div class="message-header">
+									<div class="name">Stephanie</div>
+										<div class="star-checkbox">
+											<input type="checkbox" id="star-1">
+											<label for="star-1">
+											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+												<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 	21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+											</svg>
+										</label>
+									</div>
+								</div>
+								<p class="message-line">
+									I got your first assignment. It was quite good. 🥳 We can continue 	with the next assignment.
+								</p>
+								<p class="message-line time">
+									Dec, 12
+								</p>
+							</div>
+						</div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--ChatBot Code-->
+		<div class="chat-bar-collapsible">
+                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with us!
+            <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
+        </button>
+
+                    <div class="content">
+                        <div class="full-chat-block">
+                            <!-- Message Container -->
+                            <div class="outer-container">
+                                <div class="chat-container">
+                                    <!-- Messages -->
+                                    <div id="chatbox">
+                                        <h5 id="chat-timestamp"></h5>
+                                        <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                                    </div>
+
+                                    <!-- User input box -->
+                                    <div class="chat-bar-input-block">
+                                        <div id="userInput">
+                                            <input id="textInput" autocomplete="off" class="input-box" type="text" name="msg" placeholder="Tap 'Enter' to send a message">
+                                            <p></p>
+                                        </div>
+
+                                        <div class="chat-bar-icons">
+                                            <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i>
+                                            <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                                        </div>
+                                    </div>
+
+                                    <div id="chat-bar-bottom">
+                                        <p></p>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js?v=<?php echo time(); ?>"></script>
+            <script src="../Chatbot/static/scripts/responses.js?v=<?php echo time(); ?>"></script>
+            <script src="../Chatbot/static/scripts/chat.js?v=<?php echo time(); ?>"></script>
+            <script>
+                var i = 0;
+
+                function toggle(n) {
+                    i += n;
+                    var y = document.getElementById("rotation");
+                    if (i % 2 != 0) {
+                        y.innerHTML = "&#9650; <font color='black'> &#9660;</font>";
+                    } else {
+                        y.innerHTML = "<font color='black'>&#9650;</font> &#9660;";
+                    }
+                }
+            </script>
+            <!--ChatBot Code-->
+<script id="rendered-js" >
+			document.addEventListener('DOMContentLoaded', function () {
+				var modeSwitch = document.querySelector('.mode-switch');
+
+				modeSwitch.addEventListener('click', function () {
+					document.documentElement.classList.toggle('dark');
+					modeSwitch.classList.toggle('active');
+				});
+
+				var listView = document.querySelector('.list-view');
+				var gridView = document.querySelector('.grid-view');
+				var projectsList = document.querySelector('.project-boxes');
+
+				listView.addEventListener('click', function () {
+					gridView.classList.remove('active');
+					listView.classList.add('active');
+					projectsList.classList.remove('jsGridView');
+					projectsList.classList.add('jsListView');
+				});
+
+				gridView.addEventListener('click', function () {
+					gridView.classList.add('active');
+					listView.classList.remove('active');
+					projectsList.classList.remove('jsListView');
+					projectsList.classList.add('jsGridView');
+				});
+
+				document.querySelector('.messages-btn').addEventListener('click', function () {
+					document.querySelector('.messages-section').classList.add('show');
+				});
+
+				document.querySelector('.messages-close').addEventListener('click', function () {
+					document.querySelector('.messages-section').classList.remove('show');
+				});
+			});
+			function begQ(data){
+				document.getElementById('myForm'+data).submit();
+			}
+			function gotoC(combo){
+				window.location.href = combo;
+			}
+		</script>
+<?php		
+$subject_name = $subject."_".$name;
+$qryst="select * from ".$subject_name."_result where user = '$user'";
+$result1 = $con->query($qryst);
 $i = 0;
-$sql = "SELECT * FROM $subject_name"."_result"." where user='".$_POST["user"]."'";
-$result1 = $conn->query($sql) or die("Error: ". $conn->error);
-$sql = "SELECT * FROM $subject_name";
-$result2 = $conn->query($sql) or die("Error: ". $conn->error);
-?>
-<button type="button" class="button" onclick="slide()" id="slide" style="opacity: 0.6; cursor: not-allowed;" disabled>Layout 1</button>
-<button type="button" class="button" onclick="total()" id="total">Layout 2</button>
-<div align="center"  class="slideshow-container">
-<form id="contact">
-<?php
- while($row1 = $result1->fetch_assoc())
+$c = 0;
+$w = 0;
+$u = 0;
+while($row = $result1->fetch_assoc())
 {
-	while($row2 = $result2->fetch_assoc())
+	while($i<$n)
 	{
- ?>
-<div align="center" id="slider<?php echo $i; ?>" class="mySlides">
-		<?php
-			if($row1[$i."_m"] == NULL)
-			{
-				$marks = 0;
-				$color = "gray";
-				$str = "Not Attempted";
-			}
-			elseif(explode("_", $row1[$i."_m"])[0] != explode("_", $row1[$i."_m"])[1])
-			{
-				$marks = 0;
-				$color = "red";
-				$str = "Wrong Answer";
-			}
-			elseif(explode("_", $row1[$i."_m"])[0] == explode("_", $row1[$i."_m"])[1])
-			{
-				$marks = $row2["marks"];
-				$color = "green";
-				$str = "Correct Answer";
-			}
-		?>
-        <h2><?php echo 'Question '.($i+1) ?></h2>
-		<h3 style="color: <?php echo $color; ?>;"><?php echo $str ?></h3>
-		<?php
-			$per = percent($i, $subject_name, $conn);
-			if($per>50)
-			{
-				$col = "green";
-			}
-			else
-			{
-				$col = "red";
-			}
-		?>
-		<h3 style="color: <?php echo $col; ?>;"><?php echo $per; ?>% of got it right!</h3>
-		<label style="color: black;">Question</label>
-		<textarea cols="20" rows ="5" disabled><?php echo $row2["question"]; ?></textarea>
-        <label for="oa">Option A
-		<input type="text" value="<?php echo $row2["option_a"]; ?>" disabled></label>
-		<label for="ob">Option B 
-		<input type="text" value="<?php echo $row2["option_b"]; ?>" disabled></label>
-		<label for="oc">Option C 
-		<input type="text" value="<?php echo $row2["option_c"]; ?>" disabled></label>
-		<label for="od">Option D 
-		<input type="text" value="<?php echo $row2["option_d"]; ?>" disabled></label>
-		<label for="od">Correct Answer 
-		<input type="text" value="<?php echo $row2["answer"]; ?>" disabled></label>
-		<label for="od">Your Answer
-		<input type="text" value="<?php echo explode("_", $row1[$i."_m"])[0]; ?>" disabled></label>
-		<label for="ma">Marks
-		<input type="number" value="<?php echo $marks; ?>"/></label><br><br>
-</div>
- <?php
- $i++;
-	}
-}
-?>
-</form>
-</div>
-<a class="prev" onclick="plusSlides(-1)" id="prev">&#10094; Prev </a>
-<a class="next" onclick="plusSlides(1)" id="next">Next &#10095;</a>
-<script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  slides[slideIndex-1].style.display = "block";  
-}
-function total()
-{
-	for(var i=0; i<<?php echo $n; ?>; i++)
-	{
-		document.getElementById("slider"+i).classList.remove('mySlides');
-		document.getElementById("slider"+i).classList.add('x');
-		document.getElementById("slider"+i).removeAttribute('style');
-	}
-	document.getElementById("prev").style.visibility = "hidden";  
-	document.getElementById("next").style.visibility = "hidden";
-	document.getElementById("total").disabled = true;
-	document.getElementById("total").style.opacity = "0.6";
-	document.getElementById("total").style.cursor = "not-allowed";
-	document.getElementById("slide").removeAttribute('disabled');
-	document.getElementById("slide").removeAttribute('style');
-}
-function slide()
-{
-	for(var i=0; i<<?php echo $n; ?>; i++)
-	{
-		document.getElementById("slider"+i).classList.remove('x');
-		document.getElementById("slider"+i).classList.add('mySlides');  
-	}
-	var slides = document.getElementsByClassName("mySlides");
-		slideIndex = 1;
-		for (i = 0; i < slides.length; i++) {
-			slides[i].style.display = "none";  
+		if($row[$i."_m"]==NULL)
+		{
+			$u++;
+			$i++;
+			continue;
 		}
-		slides[slideIndex-1].style.display = "block";
-	document.getElementById("next").removeAttribute('style'); 
-	document.getElementById("prev").removeAttribute('style');
-	document.getElementById("slide").disabled = true;
-	document.getElementById("slide").style.opacity = "0.6";
-	document.getElementById("slide").style.cursor = "not-allowed";	
-	document.getElementById("total").removeAttribute('disabled');
-	document.getElementById("total").removeAttribute('style');
+		elseif(explode("_", $row[$i."_m"])[0] == explode("_", $row[$i."_m"])[1])
+		{
+			$c++;
+			$i++;
+			continue;
+		}
+		else
+		{
+			$w++;
+			$i++;
+			continue;
+		}
+	}
+	$ydata = array($c, $w, $u);
 }
-
+?>
+<script>
+var xValues = ["Correct", "Wrong", "Unattempted"];
+var yValues = <?php echo json_encode($ydata); ?>;
+var barColors = [
+  "green",
+  "red",
+  "gray"
+];
+new Chart("myChart", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "Individual user attempt distribution for "+"<?php echo $user; ?>"
+    }
+  }
+});
 </script>
 </body>
-</html> 
+</html>
