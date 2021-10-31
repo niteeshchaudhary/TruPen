@@ -80,7 +80,7 @@ $sql = "UPDATE ".$_SESSION["quiz_subject"]."_".$_SESSION["quiz_name"]."_result
 					margin: 0;
 				  }
 				.marks {
-				  color: #9ABC66;
+				  color: #9abc66;
 				  font-size: 100px;
 				  line-height: 200px;
 				  margin-left:-15px;
@@ -127,13 +127,45 @@ a:hover {
 }
 </style>
 <body>
+<?php
+$color = "#9abc66";
+$msg = 0;
+if($marks>=$total*80/100){
+	$color = "#9abc66";
+}
+else if($marks>=$total*50/100 && $marks<$total*80/100){
+	$color = "#d8ad74";
+}
+else if($marks>=$total*30/100 && $marks<$total*50/100){
+	$msg = 1;
+	$color = "#FF9F00";
+}
+else{
+	$msg =1;
+	$color="red";
+}
+?>
 <div class="card">
 	<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-		<b class="marks"><?php echo $marks?>/<?php echo $total;?></b>
+		<b class="marks">
+			<?php echo "<font style='color:".$color.";'>".$marks."/".$total."</font>";?>
+		</b>
 	</div>
+	<?php
+	if($msg==0){
+	echo '
 	<h1>Congratulations!</h1> 
-	<p>You have scored <?php echo $marks?> out of <?php echo $total;?></p>
+	<p>You have scored '.$marks.' out of '.$total.'</p>
+	<br>';
+	}
+	else{
+		echo '
+	<h1 style="color:red;">Better Luck next time!</h1>  
+	<p style="color:red;">You have scored '.$marks.' out of '.$total.'</p>
 	<br>
+	';
+	}
+	?>
 	<a href="../student_dashboard/dashboard.php">Exit</a>
 </div>
 </body>
