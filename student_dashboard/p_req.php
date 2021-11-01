@@ -133,13 +133,13 @@
 							<polyline points="9 22 9 12 15 12 15 22" />
 						</svg>
 					</a>
-					<a href="" class="app-sidebar-link">
+					<a href="chart.php" class="app-sidebar-link">
 						<svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
 							<defs />
 							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
 						</svg>
 					</a>
-					<a href="chart.php" class="app-sidebar-link">
+					<a href="" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
 							<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
 							<line x1="16" y1="2" x2="16" y2="6" />
