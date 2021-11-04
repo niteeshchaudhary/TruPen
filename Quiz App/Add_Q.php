@@ -137,6 +137,19 @@ $sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'
 				{
 					die("Error" . $con->error);
 				}
+				/*NOTIFICATION*/
+				$to = "user_all"; 
+				$from = $_SESSION["user"];
+				$note = "Quiz ".$name." has been scheduled, please check.";
+				$con = new mysqli('localhost', 'root', NULL, 'trupendb');
+				$date = date('Y-m-d H:i:s');
+				$sql = "INSERT INTO notifications(type_to, type_from, note, time)
+							VALUES ('$to', '$from', '$note', '$date')";
+				if ($con->query($sql) === FALSE)
+				{
+					die("Error " . $con->error);
+				}
+				/*NOTIFICATION*/
 				echo '<h1>Quiz Successfully created</h1>
 				<div class="card">
 					<div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">

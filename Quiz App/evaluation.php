@@ -55,6 +55,19 @@ $sql = "UPDATE ".$_SESSION["quiz_subject"]."_".$_SESSION["quiz_name"]."_result
 		{
 			die("Error: " . $con->error);
 		}
+/*NOTIFICATION*/
+$to = "user_".$user2; 
+$from = $_SESSION["quiz_name"]." ".$_SESSION["quiz_subject"];
+$note = "You have secured ".$marks." out of ".$total;
+$con = new mysqli('localhost', 'root', NULL, 'trupendb');
+$date = date('Y-m-d H:i:s');
+$sql = "INSERT INTO notifications(type_to, type_from, note, time)
+			VALUES ('$to', '$from', '$note', '$date')";
+if ($con->query($sql) === FALSE)
+{
+    die("Error " . $con->error);
+}
+/*NOTIFICATION*/
 ?>
 <html>
 <head>

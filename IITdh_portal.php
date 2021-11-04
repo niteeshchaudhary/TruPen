@@ -112,6 +112,18 @@
     {
         die("Error creating table: " . $con->error);
     }
+    $sql = 'CREATE TABLE IF NOT EXISTS notifications
+            (No int NOT NULL AUTO_INCREMENT,
+            type_to varchar(120),
+            type_from varchar(120),
+            note varchar(3000),
+            time varchar(120),
+            PRIMARY KEY (No)
+            )';
+    if ($con->query($sql) === FALSE)
+    {
+        die("Error creating table: " . $con->error);
+    }
 ?>
     <html lang="en">
 

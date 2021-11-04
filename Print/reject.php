@@ -11,6 +11,22 @@ $sql = "UPDATE print
 		$con->query($sql);
 $con->query($sql) or die("Error: ". $con->error);
 $con->query("ALTER TABLE print AUTO_INCREMENT = 1") or die("Error: ". $con->error);
+/*NOTIFICATION*/
+$name = $con->query("SELECT user FROM print WHERE location = '$id'")->fetch_object()->name;
+/* DANGER! */
+$to = "user_".$name; 
+/* DANGER! */
+$from = "office_".$_SESSION["user"]; /*$_SESSION["user"]*/
+$note = "You Print request has been Rejected. Reason: ".$reason;
+$con = new mysqli('localhost', 'root', NULL, 'trupendb');
+$date = date('Y-m-d H:i:s');
+$sql = "INSERT INTO notifications(type_to, type_from, note, time)
+			VALUES ('$to', '$from', '$note', '$date')";
+if ($con->query($sql) === FALSE)
+{
+    die("Error " . $con->error);
+}
+/*NOTIFICATION*/
 header('location:pri_dashboard.php');
 exit();
 ?>
