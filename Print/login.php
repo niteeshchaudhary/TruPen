@@ -96,14 +96,14 @@ $password = $_POST["password"];
 if($x==1){
     echo '
     <audio id="sound" autoplay>
-    <source src="Sound_FX\Login Sound Effect (No copyright sound effects) Sounds.mp3">
+    <source src="../Sound_FX/Login Sound Effect (No copyright sound effects) Sounds.mp3">
     </audio> 
     You Have Successfully Logged In '; 
 }
 else{
     echo '
     <audio id="sound" autoplay>
-    <source src="Sound_FX\Error.mp3">
+    <source src="../Sound_FX/Error.mp3">
     </audio> 
     ERROR : Login Credentials not matched.'; 
 }

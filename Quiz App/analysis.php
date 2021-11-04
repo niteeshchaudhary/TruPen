@@ -81,7 +81,7 @@ $conn = new mysqli('localhost', 'root', NULL, 'trupendb');
     }
     @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900);
 
-    //import compass
+    /*import compass*/
     @import "compass";
 
 
@@ -95,7 +95,6 @@ $conn = new mysqli('localhost', 'root', NULL, 'trupendb');
       -webkit-font-smoothing: antialiased;
       -moz-font-smoothing: antialiased;
       -o-font-smoothing: antialiased;
-      font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
     #contact input[type="text"],

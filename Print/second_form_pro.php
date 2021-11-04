@@ -21,7 +21,7 @@ session_start();
 				img_dir='".$upload_dir.$coverpic."'
 				WHERE username = '$x';";
 		if($con->query($sql)){
-			
+			echo "Success!!";
 		}
 		else{
 			echo $mysql->error_log;

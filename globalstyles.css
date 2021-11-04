@@ -509,3 +509,18 @@ a:hover {
     top: -1px;
     background-color: var(--active-color);
 }
+
+-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px rgb(0, 0, 0);
+    background-color: #F5F5F5;
+}
+
+-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555;
+}

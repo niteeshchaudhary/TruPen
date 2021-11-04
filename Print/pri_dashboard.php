@@ -7,7 +7,7 @@
   if ($result && $result->num_rows > 0) {
     if($row = $result->fetch_assoc()){
       if($row["img_dir"]=="" || $row["img_dir"]==NULL){
-        $uimg="../profile_pic/office/". $_SESSION["user"].".jpg";
+        $uimg="../profile_pic/office/user.jpg";
       }
       else{
       	$uimg=$row["img_dir"];
@@ -56,9 +56,11 @@ td{
         </style>
         <script type="text/javascript">
             function openPdf(s) {
-                var omyFrame = document.getElementById("myFrame");
-                omyFrame.style.display = "block";
-                omyFrame.src = s;
+                var omyFrameH = document.getElementById("myFrameholder");
+				var omyFrame = document.getElementById("myFrame");
+				omyFrameH.style.display="block";
+				omyFrame.style.display="block";
+				omyFrame.src = "../print/"+s;
             }
         </script>
 
@@ -155,7 +157,6 @@ td{
                             <h3 style="color: red;">Please "Accept only after printing is successful!"</h3>
                             <br>
                             <br>
-                            <br>
                             <table id="table">
                                 <tr>
 									 <th>User</th>
@@ -197,7 +198,11 @@ td{
 								}
 								?>
                             </table>
-                            <iframe id="myFrame" style="display:none" width="1000" height="700"></iframe>
+                            <div id="myFrameholder" style="display:none;background-color:f1f1f1;">
+							<h3>Preview</h3>
+								<iframe id="myFrame" style="display:none" width="790" height="380">	
+								</iframe>
+						</div>
                         </div>
                     </div>
                 </div>

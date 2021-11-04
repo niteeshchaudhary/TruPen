@@ -35,8 +35,8 @@
 
 
 		<title>TruPen - Print DashBoard</title>
-
-		<style>
+        <link rel="stylesheet" href="styles.css?v=<?php echo time();?>">
+		<style>/*
 			@charset "UTF-8";
 			@import url("https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap");
 			* {
@@ -861,7 +861,7 @@
 					right: 2px;
 					top: 10px;
 				}
-			}
+			}*/
 		</style>
 
 		<script>

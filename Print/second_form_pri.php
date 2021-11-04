@@ -3,10 +3,10 @@
   $con = new mysqli('localhost', 'root', NULL, 'trupendb');
   $qryst="select * from office where username='". $_SESSION["user"]."';";
   $result = $con->query($qryst);
-  if ($result && $result->num_rows>0) {
+  if ($result && $result->num_rows > 0) {
     if($row = $result->fetch_assoc()){
       if($row["img_dir"]=="" || $row["img_dir"]==NULL){
-        $row["img_dir"]="../profile_pic/office/".$_SESSION["user"].".jpg";
+        $row["img_dir"]="../profile_pic/office/user.jpg";
       }
 ?>
 <!DOCTYPE html>

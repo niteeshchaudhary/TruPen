@@ -186,6 +186,7 @@
                 background-color: var(--body-bg-color);
                 font-family: var(--body-font);
                 font-size: 15px;
+                overflow: hidden;
                 color: var(--body-color);
             }
             
