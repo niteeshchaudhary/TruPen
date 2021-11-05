@@ -2,7 +2,7 @@
 
 body{
     font-family: 'josefin Sans',sans-serif;
-    background-color: #f1f111;
+    background-image: url(Image_Components/bg-home3.png);
 }
 .maindiv{
     display: flex;
@@ -10,7 +10,7 @@ body{
 }
 .cardcon{
     position: absolute;
-    top:350px;
+    top:200px;
 }
 .cardcon > .card{
     position: absolute;

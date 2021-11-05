@@ -33,7 +33,8 @@
 
 		<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
 		<title>TruPen - Student DashBoard</title>
 		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
@@ -75,10 +76,44 @@
 						</svg>
 					</button>
 					<button class="notification-btn" onclick="oscillate();">
-						<svg id="rotate" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+						<div class="d-inline dropdown mr-3">
+					      <span class="dropdown-toggle" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					      	<svg  id="rotate"xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
 							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-							<path d="M13.73 21a2 2 0 0 1-3.46 0" />
-						</svg>
+							<path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+							</span>
+							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> 5</span>
+					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
+					        <div class="list-group" style="width:500px;" ">
+					          <div class="lg" >
+					            <!--<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+					              <h5 class="mb-1">Real Estate Marketing Automation: 6 Simple Systems</h5>
+					              <p class="mb-0">17 October 2016 | 9:32 pm</p>
+					            </a>-->
+					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+					              <h5 class="mb-1">How to Generate Seller Leads For $0.88 Using...</h5>
+					              <p class="mb-0">3 October 2016 | 9:58 pm</p>
+					            </a>
+					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+					              <h5 class="mb-1">AgentFire Re-Opens For Business. New Services,...</h5>
+					              <p class="mb-0">20 September 2016 | 6:28 pm</p>
+					            </a>
+					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+					              <h5 class="mb-1">Real Estate Blogging 101: How To Get Better...</h5>
+					              <p class="mb-0">7 September 2016 | 3:03 pm</p>
+					            </a>
+					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+					              <h5 class="mb-1">How To Get More Listings With Strategic...</h5>
+					              <p class="mb-0">16 August 2016 | 8:26 pm</p>
+					            </a>
+					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+					              <h5 class="mb-1">How To Find Strategic Real Estate Partners as...</h5>
+					              <p class="mb-0">9 August 2016 | 6:44 pm</p>
+					            </a>
+					          </div> <!-- /.lg -->
+					        </div> <!-- /.list group -->
+					      </div> <!-- /.dropdown-menu -->
+					    </div> <!-- /.dropdown -->
 					</button>
 					<button class="profile-btn">
 						<img src='<?php echo  $uimg;?>' />
@@ -345,7 +380,8 @@
 				window.location.href = "#"+combo;
 			}
 		</script>
-
+<script src='../Design_Components/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
 	</body>
 
 </html>
