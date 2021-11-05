@@ -786,11 +786,11 @@
 				if(dots[i].className.includes(" act") && !dots[i].className.includes(" lft") && !dots[i].className.includes(" atm")){
 					dots[i].className += " lft"; //dots[i].className.replace(" act", "");
 					document.getElementById("uaq").innerHTML=Number(document.getElementById("uaq").innerHTML)+1;
-					var nv=Number(document.getElementById("ttq").innerHTML)
+				}
+				var nv=Number(document.getElementById("ttq").innerHTML)
 					-Number(document.getElementById("uaq").innerHTML)
 					-Number(document.getElementById("atmq").innerHTML)-1;
 					document.getElementById("nvq").innerHTML=nv>=0?nv:0;
-				}
 				dots[i].className = dots[i].className.replace(" act", "");
 			}
 			slides[slideIndex-1].style.display = "block";  

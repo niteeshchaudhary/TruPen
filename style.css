@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+body{
+    font-family: 'josefin Sans',sans-serif;
+    background-color: #f1f111;
+}
+.maindiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardcon{
+    position: absolute;
+    top:350px;
+}
+.cardcon > .card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 400px;
+    transform-style: preserve-3d;
+    perspective: 600px;
+    transition: 0.5s;
+}
+.cardcon > .card .front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+    transition: 0.5s;
+}
+.cardcon > .card:hover .front{
+       position: absolute;
+    transform: rotateX(-180deg);
+}
+.cardcon > .card .back{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+    transition: 0.5s;
+}
+
+.cardcon > .card:hover .back{
+       position: absolute;
+    transform:rotateX(0deg) ;
+}
+.cardcon  > .card .back .details{
+       position: absolute;
+    top: 80%;
+   transform: translate(-50%,-50%);
+    left: 50%;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.cardcon > .card .back .details h2{
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    color: #fff;
+}
+ .cardcon > .card .back .details h2 span{
+    color: #00ff00;
+    font-size: 16px;
+}
+.social-icons{
+    padding: 10px 0;
+}
+.social-icons a{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    background: #262626;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: 0.5s;
+
+}
+.social-icons a .fab{
+    line-height: 36px;
+}
+.social-icons a:hover{
+    background: #a91e63;
+}
+svg {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.logo svg {
+    width: 24px;
+    margin-right: 12px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    transition: box-shadow 0.3s;
+    flex-shrink: 0;
+    padding: 0 40px;
+    white-space: nowrap;
+    background-color: rgba(255, 255, 255, 1);
+    height: 60px;
+    font-size: 14px;
+    justify-content: space-between;
+}
+
+.header-menu a {
+    text-decoration: none;
+    color: var(--body-color);
+    font-weight: 500;
+}
+
+.header-menu a:hover {
+    color: var(--active-color);
+}
+
+.header-menu a:not(:first-child) {
+    margin-left: 30px;
+}
+
+.header-menu a.active {
+    color: var(--active-color);
+}
+
+.user-settings {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.user-settings svg {
+    width: 20px;
+    color: #94949f;
+}
+
+.user-menu {
+    position: relative;
+    margin-right: 8px;
+    padding-right: 8px;
+    border-right: 2px solid #d6d6db;
+}
+
+.user-menu:before {
+    position: absolute;
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    border: 2px solid var(--header-bg-color);
+    right: 6px;
+    top: -1px;
+    background-color: var(--active-color);
+}
