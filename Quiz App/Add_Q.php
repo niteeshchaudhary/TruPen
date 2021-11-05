@@ -139,8 +139,8 @@ $sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'
 				}
 				/*NOTIFICATION*/
 				$to = "user_all"; 
-				$from = $_SESSION["user"];
-				$note = "Quiz ".$name." has been scheduled, please check.";
+				$from = "admin_".$_SESSION["user"];
+				$note = "Quiz ".$name." for ".explode("_", $name_subject)[0]." has been scheduled, please check.";
 				$con = new mysqli('localhost', 'root', NULL, 'trupendb');
 				$date = date('Y-m-d H:i:s');
 				$sql = "INSERT INTO notifications(type_to, type_from, note, time)

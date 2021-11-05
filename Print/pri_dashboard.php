@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $_SESSION["table"] = "office";
   $con = new mysqli('localhost', 'root', NULL, 'trupendb');
   $qryst="select * from office where username='". $_SESSION["user"]."';";
   $uimg="";
