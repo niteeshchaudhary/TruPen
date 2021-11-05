@@ -1,4 +1,6 @@
 <?php
+session_start();
+date_default_timezone_set('Asia/Kolkata');
 $user = 'root';
 $pass = '';
 $con = new mysqli('localhost', $user, $pass, 'trupendb');
@@ -10,10 +12,9 @@ $sql = "UPDATE print
 $con->query($sql) or die("Error: ". $con->error);
 $con->query("ALTER TABLE print AUTO_INCREMENT = 1") or die("Error: ". $con->error);
 /*NOTIFICATION*/
-$name = $con->query("SELECT user FROM print WHERE location = '$id'")->fetch_object()->name;
-/* DANGER! */
-$to = "user_".$name; 
-/* DANGER! */
+$name = $con->query("SELECT user FROM print WHERE location = '$id'")->fetch_object()->user;
+$p = $con->query("SELECT person FROM print WHERE location = '$id'")->fetch_object()->person;
+$to = $p."_".$name; 
 $from = "office_".$_SESSION["user"]; /*$_SESSION["user"]*/
 $note = "Your Print request has been Accepted!";
 $con = new mysqli('localhost', 'root', NULL, 'trupendb');

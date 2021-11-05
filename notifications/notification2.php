@@ -2,7 +2,7 @@
 session_start();
 date_default_timezone_set('Asia/Kolkata');
 $to = $_POST["s_t"]."_".$_POST["to"];
-$from = "admin_".$_POST["from"]; /*$_SESSION["user"]*/
+$from = $_SESSION["table"]."_".$_SESSION["user"];
 $note = $_POST["note"];
 $con = new mysqli('localhost', 'root', NULL, 'trupendb');
 $date = date('Y-m-d H:i:s');

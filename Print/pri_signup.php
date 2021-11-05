@@ -133,7 +133,7 @@ svg {
       <h2>Sign Up to truPen</h2>
       <form method="POST" name="signup" action="adduserEntry.php" onsubmit="return validateForm()">
         <div class="inputBx">
-          <input type="text" name="LoginID" id = "LoginID" onfocusout="checkdb()" autocomplete="off" required="required">
+          <input type="text" name="LoginID" id = "LoginID" onfocusout="checkdb()" minlength="4" autocomplete="off" required="required">
           <p class="user-avail"><svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" text-rendering="optimizeSpeed" style="visibility: visible;">
                     <g transform="matrix(1, 0, 0, 1, 32, 32)">
                       <g filter="url(#goo)">

@@ -99,6 +99,7 @@
     }
     $sql = 'CREATE TABLE IF NOT EXISTS print
             (No int NOT NULL AUTO_INCREMENT,
+            person varchar(120),
             user varchar(120),
             location varchar(120),
             copies smallint(6),
