@@ -10,7 +10,7 @@
 		<option value="admin">Teacher</option>
         <option value="office">Print Ofiice</option>
 		</select>
-        <h3>To</h3>
+        <h3>To *(Type "all" to send it to every person in the above category)</h3>
         <input type="text" name="to" required>
         <h3>Note</h3>
         <input type="text" name="note" required>

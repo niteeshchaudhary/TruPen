@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Kolkata');
 $name_subject = $_SESSION["subject_quiz"];
 $name = $_SESSION["quiz_name"];
 $n = $_SESSION["quetion_no"];

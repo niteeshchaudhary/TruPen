@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Asia/Kolkata');
 	$x = $_SESSION["user"];
 	$p = $_SESSION["table"];
 	$y = date('Y-m-d H-i-s');
