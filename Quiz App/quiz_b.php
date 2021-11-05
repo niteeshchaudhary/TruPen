@@ -49,6 +49,8 @@
 
 		<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
 
 		<title>TruPen - Student DashBoard</title>
@@ -583,12 +585,6 @@
 							<line x1="5" y1="12" x2="19" y2="12" />
 						</svg>
 					</button>
-					<button class="notification-btn" onclick="oscillate();">
-						<svg id="rotate" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
-							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-							<path d="M13.73 21a2 2 0 0 1-3.46 0" />
-						</svg>
-					</button>
 					<button class="profile-btn">
 						<img src='<?php echo  $uimg;?>' />
 						<span><?php echo  $_SESSION["user"];?></span>
@@ -947,6 +943,9 @@
 			document.getElementById("myform").submit();
 			}
 		</script>
+		<script src='../Design_Components/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+
 	</body>
 
 </html>
