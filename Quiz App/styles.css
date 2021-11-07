@@ -41,7 +41,7 @@
     --star: #ffd92c;
     --light-font: rgba(255, 255, 255, .8);
     --more-list-bg: #2f3142;
-    --qtt:#00ffff;
+    --qtt: #00ffff;
     --more-list-bg-hover: rgba(195, 207, 244, 0.1);
     --more-list-shadow: rgba(195, 207, 244, 0.1);
     --message-btn: rgba(195, 207, 244, 0.1);
@@ -56,7 +56,6 @@ body {
 
 body {
     font-family: "DM Sans", sans-serif;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     background-color: var(--app-container);
@@ -907,4 +906,19 @@ a {
         right: 2px;
         top: 10px;
     }
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px rgb(0, 0, 0);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid #555555;
 }

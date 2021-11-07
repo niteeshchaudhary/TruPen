@@ -1,29 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
-
-body{
-    font-family: 'josefin Sans',sans-serif;
+body {
+    font-family: 'josefin Sans', sans-serif;
     background-image: url(Image_Components/bg-home3.png);
 }
-.maindiv{
+
+.maindiv {
     display: flex;
     flex-wrap: wrap;
 }
-.cardcon{
+
+.cardcon {
     position: absolute;
-    top:200px;
+    top: 200px;
 }
-.cardcon > .card{
+
+.cardcon>.card {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     width: 300px;
     height: 400px;
     transform-style: preserve-3d;
     perspective: 600px;
     transition: 0.5s;
 }
-.cardcon > .card .front{
+
+.cardcon>.card .front {
     position: absolute;
     top: 0;
     left: 0;
@@ -34,49 +37,56 @@ body{
     transform: rotateX(0deg);
     transition: 0.5s;
 }
-.cardcon > .card:hover .front{
-       position: absolute;
+
+.cardcon>.card:hover .front {
+    position: absolute;
     transform: rotateX(-180deg);
 }
-.cardcon > .card .back{
+
+.cardcon>.card .back {
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     backface-visibility: hidden;
     transform: rotateX(180deg);
     transition: 0.5s;
 }
 
-.cardcon > .card:hover .back{
-       position: absolute;
-    transform:rotateX(0deg) ;
+.cardcon>.card:hover .back {
+    position: absolute;
+    transform: rotateX(0deg);
 }
-.cardcon  > .card .back .details{
-       position: absolute;
+
+.cardcon>.card .back .details {
+    position: absolute;
     top: 80%;
-   transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
     width: 100%;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
 }
-.cardcon > .card .back .details h2{
+
+.cardcon>.card .back .details h2 {
     margin: 0;
     padding: 0;
     font-size: 24px;
     color: #fff;
 }
- .cardcon > .card .back .details h2 span{
+
+.cardcon>.card .back .details h2 span {
     color: #00ff00;
     font-size: 16px;
 }
-.social-icons{
+
+.social-icons {
     padding: 10px 0;
 }
-.social-icons a{
+
+.social-icons a {
     display: inline-block;
     width: 36px;
     height: 36px;
@@ -86,19 +96,22 @@ body{
     text-decoration: none;
     border-radius: 50%;
     transition: 0.5s;
-
 }
-.social-icons a .fab{
+
+.social-icons a .fab {
     line-height: 36px;
 }
-.social-icons a:hover{
+
+.social-icons a:hover {
     background: #a91e63;
 }
+
 svg {
     width: 100%;
     height: 100%;
     visibility: hidden;
 }
+
 .logo {
     display: flex;
     align-items: center;

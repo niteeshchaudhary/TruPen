@@ -54,7 +54,6 @@ body {
 
 body {
     font-family: "DM Sans", sans-serif;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     background-color: var(--app-container);
@@ -955,7 +954,8 @@ a {
     background-color: #000000;
     border: 2px solid #555555;
 }
-.lg a{
-                background: var(--more-list-bg);
-                color: var(--main-color);
-            }
+
+.lg a {
+    background: var(--more-list-bg);
+    color: var(--main-color);
+}
