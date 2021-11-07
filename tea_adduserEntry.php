@@ -71,8 +71,9 @@ echo "<br><br><br>";
 <?php 
 $x=0;
 if($user_id && $password){
-    $command = "INSERT INTO teacher(username,passcode,subject) VALUES('$user_id','$password','$subject')";
+    $command = "INSERT INTO teacher(username,passcode,subject,cost) VALUES('$user_id','$password','$subject','0')";
     if ($mysql -> query($command)){
+        $_SESSION["table"] = "teacher";
 		$_SESSION["subject"] = $subject;
         global $x;
         $x=1;

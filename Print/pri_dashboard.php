@@ -165,6 +165,7 @@ td{
 									 <th>Copies</th>
 									 <th>Type</th>
 									 <th>Comment</th>
+                                     <th>Cost</th>
 									 <th>Accept</th>
 									 <th>Reason for Rejection</th>
 									 <th>Reject</th>
@@ -186,6 +187,7 @@ td{
 										 <td><?php echo $row['comment']; ?></td>
 										 <form method="POST" action="accept.php" id="accept">
 											<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
+                                            <td><input type="number" min="1" name="cost" required></td>
 											<td><input type="submit" value="Accept"></td>
 										 </form>
 										 <form method="POST" action="reject.php" id="reject">

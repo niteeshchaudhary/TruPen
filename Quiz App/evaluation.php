@@ -57,7 +57,7 @@ $sql = "UPDATE ".$_SESSION["quiz_subject"]."_".$_SESSION["quiz_name"]."_result
 		}
 /*NOTIFICATION*/
 $to = "user_".$user2; 
-$from = $_SESSION["quiz_name"]." ".$_SESSION["quiz_subject"];
+$from = $_SESSION["quiz_name"]."_".$_SESSION["quiz_subject"];
 $note = "You have secured ".$marks." out of ".$total." in ".$_SESSION["quiz_name"]." ".$_SESSION["quiz_subject"];
 $con = new mysqli('localhost', 'root', NULL, 'trupendb');
 $date = date('Y-m-d H:i:s');

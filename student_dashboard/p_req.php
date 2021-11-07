@@ -124,26 +124,23 @@
 					              <h5 class="mb-1">Real Estate Marketing Automation: 6 Simple Systems</h5>
 					              <p class="mb-0">17 October 2016 | 9:32 pm</p>
 					            </a>-->
-					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-					              <h5 class="mb-1">How to Generate Seller Leads For $0.88 Using...</h5>
-					              <p class="mb-0">3 October 2016 | 9:58 pm</p>
-					            </a>
-					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-					              <h5 class="mb-1">AgentFire Re-Opens For Business. New Services,...</h5>
-					              <p class="mb-0">20 September 2016 | 6:28 pm</p>
-					            </a>
-					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-					              <h5 class="mb-1">Real Estate Blogging 101: How To Get Better...</h5>
-					              <p class="mb-0">7 September 2016 | 3:03 pm</p>
-					            </a>
-					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-					              <h5 class="mb-1">How To Get More Listings With Strategic...</h5>
-					              <p class="mb-0">16 August 2016 | 8:26 pm</p>
-					            </a>
-					            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-					              <h5 class="mb-1">How To Find Strategic Real Estate Partners as...</h5>
-					              <p class="mb-0">9 August 2016 | 6:44 pm</p>
-					            </a>
+								<?php
+									$qryst="select * from notifications";
+									$result5 = $con->query($qryst);
+									while($row5 = $result5->fetch_assoc())
+									{
+										$a = explode("_", $row5["type_to"])[0];
+										$b = explode("_", $row5["type_to"])[1];
+										if($a==$_SESSION["table"] && ($b==$_SESSION["user"] || $b=="all"))
+										{
+											echo '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+											<p class="mb-0">From '.explode("_", $row5["type_from"])[0].' '.explode("_", $row5["type_from"])[1].'</p>
+											<h5>'.$row5['note'].'</h5>
+											<p class="mb-0">'.$row5['time'].'</p>
+										  </a>';
+										}
+									}
+								?>
 					          </div> <!-- /.lg -->
 					        </div> <!-- /.list group -->
 					      </div> <!-- /.dropdown-menu -->
@@ -207,16 +204,28 @@
 				<div class="projects-section">
 					<div class="projects-section-header">
 						<div>
+							<?php 
+								$name = $_SESSION["user"];
+								$p = $_SESSION["table"];
+								$cost = $con->query("SELECT cost FROM $p WHERE username = '$name'")->fetch_object()->cost;
+								$k=0;
+								if($cost>50)
+								{
+									$k=1;
+									echo '<h2 style="color: red">Cost Exceeded</h2>';
+								}
+							?>
+							<h6>Present cost: <?php echo $cost; ?> &nbsp;&nbsp;&nbsp; Cost Limit: 50</h6>
 							<form align = "center" id="pform" name="pform"  enctype="multipart/form-data">
-								<input type="file" id="file" accept="pdf/*" name="pdf" onchange="return fileValidation()" required /></br></br>		
-								<label for="copy"><b>No. Of Copies: </b></label><br><input type="number" name = "copy" required /><br><br>
+								<input type="file" id="file" accept="pdf/*" name="pdf" onchange="return fileValidation()" required /></br>	
+								<label for="copy"><b>No. Of Copies: </b></label><br><input type="number" name = "copy" required /><br>
 								<label for="type">Type:</label>
 								<select name="type" id="type" required>
 									<option value="back_to_back">Back-to-Back</option>
 									<option value="one_side">One-Side</option>
 								</select><br><br>
 								<label for="comment"><b>Comment: </b></label><br><input type="text" name = "comment" /><br><br>
-								<input type="submit" onclick="checkandreq()" value="Request">
+								<input type="submit" onclick="checkandreq()" value="Request" <?php if($k==1){echo 'disabled';} ?>>
 							</form>
 						</div>
 						<div id="pdfPreview"></div>
