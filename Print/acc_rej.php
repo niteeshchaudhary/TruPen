@@ -25,6 +25,7 @@ omyFrame.src = s;
  <th>Copies</th>
  <th>Type</th>
  <th>Comment</th>
+ <th>Cost</th>
  <th>Accept</th>
  <th>Reason for Rejection</th>
  <th>Reject</th>
@@ -44,8 +45,9 @@ if($result->num_rows > 0)
  <td><?php echo $row['copies']; ?></td>
  <td><?php echo $row['type']; ?></td>
  <td><?php echo $row['comment']; ?></td>
- <form method="POST" action="reject.php" id="accept">
+ <form method="POST" action="accept.php" id="accept">
 	<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
+	<td><input type="number" min="1" name="cost" required><td>
  </form>
  <td><input type="button" onclick="begQ('accept')">Accept</td>
  <form method="POST" action="reject.php" id="reject">

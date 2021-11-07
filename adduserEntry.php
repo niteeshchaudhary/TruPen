@@ -70,8 +70,9 @@ echo "<br><br><br>";
 <?php 
 $x=0;
 if($user_id && $password){
-    $command = "INSERT INTO user(username,passcode) VALUES('$user_id','$password')";
+    $command = "INSERT INTO user(username,passcode,cost) VALUES('$user_id','$password', '0')";
     if ($mysql -> query($command)){
+        $_SESSION["table"] = "user";
         global $x;
         $x=1;
     }

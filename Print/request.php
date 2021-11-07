@@ -49,6 +49,20 @@ session_start();
             }
         }
     </script><br>
+    <?php
+        session_start();
+        date_default_timezone_set('Asia/Kolkata');
+        $user = 'root';
+        $pass = '';
+        $con = new mysqli('localhost', $user, $pass, 'trupendb');
+        $cost = $con->query("SELECT cost FROM ".$_SESSION["table"]." WHERE user = '".$_SESSION["user"]."'")->fetch_object()->cost;
+        $k=0;
+        if($cost>50)
+        {
+            $k=1;
+            echo "<h1>Cost Exceeded</h1>";
+        }
+    ?>
 <label for="copy"><b>No. Of Copies: </b></label><br><input type="number" name = "copy" required /><br>
  <label for="type">Type:</label>
   <select name="type" id="type" required>
@@ -58,7 +72,7 @@ session_start();
   <label for="comment"><b>Comment: </b></label><br><input type="text" name = "comment" /><br>
 <input type="submit" value ="Request"/></form>
 <form action="../loggedin.php">
-<input type="submit" value="Back">
+<input type="submit" value="Back" <?php if($k==1){echo 'disabled';} ?>>
 </form>
 </body>
 </html>
