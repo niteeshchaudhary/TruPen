@@ -1,6 +1,6 @@
 <?php
   session_start();
-  $_SESSION["table"] = "admin";
+  $_SESSION["table"] = "teacher";
   $con = new mysqli('localhost', 'root', NULL, 'trupendb');
   $qryst="select * from teacher where username='". $_SESSION["user"]."';";
   $uimg="";

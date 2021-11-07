@@ -218,6 +218,7 @@
 									echo '<h2 style="color: red">Cost Exceeded</h2>';
 								}
 							?>
+							<h3>Present cost: <?php echo $cost; ?> &nbsp;&nbsp;&nbsp; Cost Limit: 50</h3>
 							<form align = "center" id="pform" name="pform"  enctype="multipart/form-data">
 								<input type="file" id="file" accept="pdf/*" name="pdf" onchange="return fileValidation()" required /></br></br>		
 								<label for="copy"><b>No. Of Copies: </b></label><br><input type="number" name = "copy" required /><br><br>
