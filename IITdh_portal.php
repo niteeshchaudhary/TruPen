@@ -22,7 +22,8 @@
             gender varchar(120),
             birthday varchar(120),
             bio varchar(800),
-            img_dir varchar(120)
+            img_dir varchar(120),
+            cost smallint(6)
             )';
     if ($con->query($sql) === FALSE)
     {
@@ -32,11 +33,11 @@
     $result = $con->query($sql) or die("Error: ". $con->error);
     if($result->num_rows == 0)
     {
-        $sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir)
-                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person', 'profile_pic/student/user.jpg')";
+        $sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir, cost)
+                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person', 'profile_pic/student/user.jpg', '0')";
         $con->query($sql);
-        $sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir)
-                VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', 'profile_pic/student/eval.jpg')";
+        $sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir, cost)
+                VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', 'profile_pic/student/eval.jpg', '0')";
         $con->query($sql);
     }
     $sql = 'CREATE TABLE IF NOT EXISTS teacher
@@ -48,7 +49,8 @@
             gender varchar(120),
             birthday varchar(120),
             subject varchar(120),
-            img_dir varchar(120)
+            img_dir varchar(120),
+            cost smallint(6)
             )';
     if ($con->query($sql) === FALSE)
     {
@@ -58,8 +60,8 @@
     $result = $con->query($sql) or die("Error: ". $con->error);
     if($result->num_rows == 0)
     {
-        $sql = "INSERT INTO teacher(username, passcode, firstname, lastname, email, gender, birthday, subject, img_dir)
-                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'MA101', 'profile_pic/teacher/user.jpg')";
+        $sql = "INSERT INTO teacher(username, passcode, firstname, lastname, email, gender, birthday, subject, img_dir, cost)
+                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'MA101', 'profile_pic/teacher/user.jpg', '0')";
         $con->query($sql);
     }
 	$sql = 'CREATE TABLE IF NOT EXISTS office

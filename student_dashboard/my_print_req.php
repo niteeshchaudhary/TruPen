@@ -275,6 +275,7 @@ td{
 								<th>Copies</th>
 								<th>Type</th>
 								<th>Comment</th>
+								<th>Reason</th>
 								</tr>
 								<?php
 								$sql = "SELECT * FROM print WHERE status LIKE '0' AND user LIKE '$user'";
@@ -289,6 +290,7 @@ td{
 								<td><?php echo $row['copies']; ?></td>
 								<td><?php echo $row['type']; ?></td>
 								<td><?php echo $row['comment']; ?></td>
+								<td><?php echo $row['reason']; ?></td>
 								</tr>
 								<?php
 								}

@@ -207,6 +207,17 @@
 				<div class="projects-section">
 					<div class="projects-section-header">
 						<div>
+							<?php 
+								$name = $_SESSION["user"];
+								$p = $_SESSION["table"];
+								$cost = $con->query("SELECT cost FROM $p WHERE username = '$name'")->fetch_object()->cost;
+								$k=0;
+								if($cost>50)
+								{
+									$k=1;
+									echo '<h2 style="color: red">Cost Exceeded</h2>';
+								}
+							?>
 							<form align = "center" id="pform" name="pform"  enctype="multipart/form-data">
 								<input type="file" id="file" accept="pdf/*" name="pdf" onchange="return fileValidation()" required /></br></br>		
 								<label for="copy"><b>No. Of Copies: </b></label><br><input type="number" name = "copy" required /><br><br>
@@ -216,7 +227,7 @@
 									<option value="one_side">One-Side</option>
 								</select><br><br>
 								<label for="comment"><b>Comment: </b></label><br><input type="text" name = "comment" /><br><br>
-								<input type="submit" onclick="checkandreq()" value="Request">
+								<input type="submit" onclick="checkandreq()" value="Request" <?php if($k==1){echo 'disabled';} ?>>
 							</form>
 						</div>
 						<div id="pdfPreview"></div>
