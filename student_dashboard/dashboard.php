@@ -83,17 +83,14 @@
 							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
 							<path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
 							</span>
-							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> 5</span>
+							<?php
+									$qryst="select * from notifications";
+									$result5 = $con->query($qryst);?>
+							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> <?php  echo mysqli_num_rows($result5);?></span>
 					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
 					        <div class="list-group" style="width:500px;" ">
 					          <div class="lg" >
-					            <!--<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-					              <h5 class="mb-1">Real Estate Marketing Automation: 6 Simple Systems</h5>
-					              <p class="mb-0">17 October 2016 | 9:32 pm</p>
-					            </a>-->
 								<?php
-									$qryst="select * from notifications";
-									$result5 = $con->query($qryst);
 									while($row5 = $result5->fetch_assoc())
 									{
 										$a = explode("_", $row5["type_to"])[0];
@@ -215,14 +212,22 @@
 							$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
 							$qryst="select * from teacher;";
 						  $result = $con->query($qryst);
+						  
 						  $cnt=0;
 						  if ($result && $result->num_rows > 0) {
 						    while($row = $result->fetch_assoc()){
 						    	$prof_img="abc";
+								$cq = $con->query("select count(subject) from quiz where subject='".$row["subject"]."';");
 						    	if (file_exists('../profile_pic/teacher/'.$row['username'].'.jpg')) {
 									    $prof_img='../profile_pic/teacher/'.$row['username'].'.jpg';
 									} else {
 									    $prof_img= '../profile_pic/teacher/user.jpg';
+									}
+									$df=0;
+									if($cq && $cq->num_rows>0)
+									{
+										$rr=$cq->fetch_assoc();
+										$df=$rr["count(subject)"];
 									}
 									echo '
 						    	<div class="project-box-wrapper">
@@ -246,9 +251,9 @@
 											<div class="box-progress-wrapper">
 												<p class="box-progress-header">Progress</p>
 												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'60'.'%; background-color:'.$colors[$cnt%6].';"></span>
+													<span class="box-progress" style="width: '.($df*100/12).'%; background-color:'.$colors[$cnt%6].';"></span>
 												</div>
-												<p class="box-progress-percentage">'.'60'.'%</p>
+												<p class="box-progress-percentage">'.round($df*100/12).'%</p>
 											</div>
 											<div class="project-box-footer">
 												<div class="participants">
