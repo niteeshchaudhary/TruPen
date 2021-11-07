@@ -36,6 +36,11 @@ include "createdb.php";
   <link href="bootstrap/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="bootstrap/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+          <script src="Design_Components/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link rel="stylesheet" href="form.css" >
+        <script src="form.js"></script>
+
   <style>
 
       #preloader {
@@ -170,13 +175,11 @@ include "createdb.php";
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#">Home</a></li>
-          <li><a class="nav-link scrollto" href="#">About Us</a></li>
-          <li><a class="nav-link scrollto" href="#">Contact US</a></li>
-          <li><a class="nav-link   scrollto" href="#">Register</a></li>
-          <li><a class="nav-link scrollto" href="#">Portals</a></li>
-          <li><a class="nav-link scrollto" href="#">FAQ</a></li>
-         <!-- <li><a class="getstarted scrollto" href="#">Login/Signup</a></li>-->
+          <li><a class="nav-link scrollto active" href="">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+          <li><a class="nav-link scrollto" href="#Contact">Contact US</a></li>
+          <li><a class="nav-link scrollto" href="IITdh_portal.php">Portals</a></li>
+          <li><a class="getstarted scrollto" href="Register_insti.html">Register</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -358,11 +361,11 @@ include "createdb.php";
                   <div class="col-lg-6 wow fadeInUp">
                       <div class="content-lms">
                           <h3>
-                                #1 LMS Plugin
+                                LMS Plugin
                           </h3>
-                          <p>Education WP theme uses LearnPress, the #1 WP LMS Plugin on , which
-                              offers you a lot of benefits, such as: easy to update, independent from the theme,
-                              easy to change, create & sell courses online.</p>
+                          <p>Our website ( TruPen ) uses php security, and jQuery ,which
+                              offers you a lot of benefits, such as : easy to update, independent from the system,
+                              easy to change, create & take courses online.</p>
                       </div>
                       <div class="content-progressbar">
                             <div class="row">
@@ -408,439 +411,155 @@ include "createdb.php";
                             <div class="col-lg-6">
                                   <div class="img-item-learnpress">
                                         <div class="img-learn-01 img-center">
-                                             <a href="https://wordpress.org/plugins/wp-events-manager-woocommerce-payment-methods-integration/" class="wow fadeInRight" target="_blank">
-                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/WP-Events-Manager-icon.png" alt="WP Events Manager" title="WP Events Manager">
+                                             <a href="#" class="wow fadeInRight" target="_blank">
+                                                  <img src="Image_Components/WP-Events-Manager-icon.png" alt="WP Events Manager" title="WP Events Manager">
                                               </a>
-                                              <a href="https://wordpress.org/plugins/learnpress-offline-payment/" class="wow fadeInRight" target="_blank">
-                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Offline-Payment-icon.png" alt="Offline Payment" title="Offline Payment">
+                                              <a href="#" class="wow fadeInRight" target="_blank">
+                                                  <img src="Image_Components/Offline-Payment-icon.png" alt="Offline Payment" title="Offline Payment">
                                               </a>
-                                              <a href="https://wordpress.org/plugins/learnpress-fill-in-blank/" class="wow fadeInRight" target="_blank">
-                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Fill-in-blank-question-icon.png" alt="Fill in blank question" title="Fill in blank question">
+                                              <a href="#" class="wow fadeInRight" target="_blank">
+                                                  <img src="Image_Components/Fill-in-blank-question-icon.png" alt="Fill in blank question" title="Fill in blank question">
                                               </a>
                                         </div>
                                         <div class="img-learn-02 img-center">
-                                              <a href="https://wordpress.org/plugins/learnpress-import-export/" class="wow fadeInRight" target="_blank">
-                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Export-import-icon.png" alt="Export import" title="Export import">
+                                              <a href="#" class="wow fadeInRight" target="_blank">
+                                                  <img src="Image_Components/Export-import-icon.png" alt="Export import" title="Export import">
                                               </a>
-                                              <a href="https://wordpress.org/plugins/learnpress-prerequisites-courses/" class="wow fadeInRight" target="_blank">
-                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Prerequisites-icon.png" alt="Prerequisites" title="Prerequisites">
+                                              <a href="#" class="wow fadeInRight" target="_blank">
+                                                  <img src="Image_Components/Prerequisites-icon.png" alt="Prerequisites" title="Prerequisites">
                                               </a>
-                                              <a href="https://wordpress.org/plugins/learnpress-wishlist/" class="wow fadeInRight" target="_blank">
-                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Course-wishlist-icon.png" alt="Course wishlist" title="Course wishlist">
+                                              <a href="#" class="wow fadeInRight" target="_blank">
+                                                  <img src="Image_Components/Course-wishlist-icon.png" alt="Course wishlist" title="Course wishlist">
                                               </a>
-                                              <a href="https://wordpress.org/plugins/learnpress-course-review/" class="wow fadeInRight" target="_blank">
-                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Course-review-icon.png" alt="Course review" title="Course review">
+                                              <a href="#" class="wow fadeInRight" target="_blank">
+                                                  <img src="Image_Components/Course-review-icon.png" alt="Course review" title="Course review">
                                               </a>
                                         </div>
                                         <div class="img-learn-03 img-center">
-                                                <a href="https://wordpress.org/plugins/learnpress-buddypress/" class="wow fadeInRight" target="_blank">
-                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/BuddyPress-icon.png" alt="BuddyPress" title="BuddyPress">
+                                                <a href="#" class="wow fadeInRight" target="_blank">
+                                                    <img src="Image_Components/BuddyPress-icon.png" alt="BuddyPress" title="BuddyPress">
                                                 </a>
-                                                <a href="https://wordpress.org/plugins/learnpress-bbpress/" class="wow fadeInRight" target="_blank">
-                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/bbPress-icon.png" alt="BbPress" title="BbPress">
+                                                <a href="#" class="wow fadeInRight" target="_blank">
+                                                    <img src="Image_Components/bbPress-icon.png" alt="BbPress" title="BbPress">
                                                 </a>
-                                                <a href="https://thimpress.com/product/h5p/" class="wow fadeInRight" target="_blank">
-                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/H5P-icon.png" alt="H5P" title="H5P">
+                                                <a href="#" class="wow fadeInRight" target="_blank">
+                                                    <img src="Image_Components/H5P-icon.png" alt="H5P" title="H5P">
                                                 </a>
                                         </div>
                                   </div>
                             </div>
                       </div>
                   </div>
-                  <div id="scroll-to-add-ons"></div>
-                        <div class="row-content-wrap">
-                            <div class="col-sm-12 wow fadeInUp">
-                                  <div class="button-modal-1">
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                                            Add-Ons
-                                        </button>
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                      <div class="modal-content">
-                                                          <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">×</span>
-                                                                </button>
-                                                          </div>
-                                                          <div class="model-title"><h3>LearnPress</h3></div>
-                                                          <div class="model-sub"><p>LearnPress WordPress LMS Theme Bundle is a serie of
-                                                            premium LearnPress add-ons that you can get for free if you purchase our
-                                                            LearnPress WordPress Themes.</p>
-                                                          </div>
-                                                          <div class="modal-body">
-                                                                <div class="col-lg-6 item-plugin">
-                                                                      <div class="row-modal">
-                                                                            <a href="https://thimpress.com/product/authorize-net-add-on-learnpress" target="_blank">
-                                                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-01.png" alt="Authorize.net Add-on" title="Authorize.net Add-on">
-                                                                            </a>
-                                                                            <div class="content">
-                                                                                <div class="title-content">
-                                                                                <a href="https://thimpress.com/product/authorize-net-add-on-learnpress" target="_blank">AUTHORIZE.NET ADD-ON FOR LEARNPRESS</a>
-                                                                                </div>
-                                                                                <div class="sub-content"><p>Transaction can be done by
-                                                                                  Authorize.net account if other payment gateways are not
-                                                                                  available.</p>
-                                                                                </div>
-                                                                            </div>
-                                                                      </div>
-                                                                </div>
-                                                          <div class="col-lg-6 item-plugin">
-                                                              <div class="row-modal">
-                                                                  <a href="https://thimpress.com/product/2checkout-add-learnpress/" target="_blank">
-                                                                      <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-02.png" alt="2Checkout Add-on" title="2Checkout Add-on">
-                                                                  </a>
-                                                                  <div class="content">
-                                                                      <div class="title-content">
-                                                                          <a href="https://thimpress.com/product/2checkout-add-learnpress/" target="_blank">
-                                                                              2CHECKOUT ADD-ON FOR LEARNPRESS
-                                                                          </a>
-                                                                      </div>
-                                                                      <div class="sub-content"><p>Transaction can be done by 2Checkout
-                                                                        account if other payment gateways are not available.</p>
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                          <div class="col-lg-6 item-plugin">
-                                                              <div class="row-modal">
-                                                                <a href="https://thimpress.com/product/commission-add-on-for-learnpress/" target="_blank">
-                                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-03.png" alt="Commission Add-on" title="Commission Add-on">
-                                                                </a>
-                                                                <div class="content">
-                                                                    <div class="title-content">
-                                                                        <a href="https://thimpress.com/product/commission-add-on-for-learnpress/" target="_blank">COMMISSION ADD-ON FOR LEARNPRESS</a>
-                                                                    </div>
-                                                                <div class="sub-content"><p>Support withdrawal transaction via
-                                                                    Paypal and Offline Payment.</p>
-                                                                </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                      <div class="col-lg-6 item-plugin">
-                                                          <div class="row-modal">
-                                                              <a href="https://thimpress.com/product/paid-memberships-pro-add-learnpress/" target="_blank">
-                                                                  <img src="https://thimpress.com/wp-content/uploads/2016/05/PAID-MEMBERSHIPS-PRO.png" alt="Paid Membership Pro Add-on" title="Paid Membership Pro Add-on">
-                                                              </a>
-                                                              <div class="content">
-                                                                  <div class="title-content">
-                                                                      <a href="https://thimpress.com/product/paid-memberships-pro-add-learnpress/" target="_blank">PAID MEMBERSHIPS PRO ADD-ON FOR
-                                                                      LEARNPRESS</a>
-                                                                  </div>
-                                                                  <div class="sub-content"><p>Allow to buy courses individually or
-                                                                          only via subscriptions.</p>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                      <div class="col-lg-6 item-plugin">
-                                                          <div class="row-modal">
-                                                              <a href="https://thimpress.com/product/gradebook-add-on-for-learnpress/" target="_blank">
-                                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-05.png" alt="Gradebook Add-on" title="Gradebook Add-on">
-                                                              </a>
-                                                              <div class="content">
-                                                                  <div class="title-content">
-                                                                        <a href="https://thimpress.com/product/gradebook-add-on-for-learnpress/" target="_blank">GRADEBOOK ADD-ON FOR LEARNPRESS</a>
-                                                                  </div>
-                                                                  <div class="sub-content"><p>Track process and result of student
-                                                                    in each course.</p>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                      <div class="col-lg-6 item-plugin">
-                                                          <div class="row-modal">
-                                                              <a href="https://thimpress.com/product/sorting-choice-add-on-for-learnpress/" target="_blank">
-                                                                        <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-06.png" alt="Sorting Choice Add-on" title="Sorting Choice Add-on">
-                                                              </a>
-                                                              <div class="content">
-                                                                  <div class="title-content">
-                                                                      <a href="https://thimpress.com/product/sorting-choice-add-on-for-learnpress/" target="_blank">SORTING CHOICE ADD-ON FOR LEARNPRESS</a>
-                                                                  </div>
-                                                                  <div class="sub-content"><p>Students receive full credit if ALL
-                                                                        the choices are in the correct order.</p>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                      <div class="col-lg-6 item-plugin">
-                                                          <div class="row-modal">
-                                                              <a href="https://thimpress.com/product/content-drip-add-on-for-learnpress/" target="_blank">
-                                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-07.png" alt="Content Drip Add-on" title="Content Drip Add-on">
-                                                              </a>
-                                                              <div class="content">
-                                                                  <div class="title-content">
-                                                                      <a href="https://thimpress.com/product/content-drip-add-on-for-learnpress/" target="_blank">CONTENT DRIP ADD-ON FOR LEARNPRESS</a>
-                                                                  </div>
-                                                                  <div class="sub-content"><p>Students need to pass the
-                                                                      prerequisite course items to access the next ones.</p>
-                                                                  </div>
-                                                              </div>
-                                                          </div>
-                                                      </div>
-                                                      <div class="col-lg-6 item-plugin">
-                                                            <div class="row-modal">
-                                                                    <a href="https://thimpress.com/product/mycred-add-on-for-learnpress/" target="_blank">
-                                                                        <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-08.png" alt="myCred Add-on" title="myCred Add-on">
-                                                                    </a>
-                                                                    <div class="content">
-                                                                        <div class="title-content">
-                                                                              <a href="https://thimpress.com/product/mycred-add-on-for-learnpress/" target="_blank">MYCRED ADD-ON FOR LEARNPRESS</a>
-                                                                        </div>
-                                                                        <div class="sub-content"><p>Build point management system for
-                                                                            different purposes.</p>
-                                                                        </div>
-                                                                    </div>
-                                                            </div>
-                                                      </div>
-                                                      <div class="col-lg-6 item-plugin">
-                                                            <div class="row-modal">
-                                                                  <a href="https://thimpress.com/product/random-quiz-add-on-for-learnpress/" target="_blank">
-                                                                      <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-09.png" alt="Random Quiz Add-on" title="Random Quiz Add-on">
-                                                                  </a>
-                                                                  <div class="content">
-                                                                        <div class="title-content">
-                                                                            <a href="https://thimpress.com/product/random-quiz-add-on-for-learnpress/" target="_blank">RANDOM QUIZ ADD-ON FOR LEARNPRESS</a>
-                                                                        </div>
-                                                                        <div class="sub-content"><p>Shuffle the questions in each
-                                                                              quiz.</p>
-                                                                        </div>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                      <div class="col-lg-6 item-plugin">
-<div class="row-modal">
-<a href="https://thimpress.com/product/co-instructors-add-on-for-learnpress/" target="_blank">
-<img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-10.png" alt="Co-instructor Add-on" title="Co-instructor Add-on">
-</a>
-<div class="content">
-<div class="title-content">
-<a href="https://thimpress.com/product/co-instructors-add-on-for-learnpress/" target="_blank">CO-INSTRUCTORS ADD-ON FOR LEARNPRESS</a>
-</div>
-<div class="sub-content"><p>Co-instructor can only edit his own
-lesson and cannot edit the other class content of the
-author.</p></div>
-</div>
-</div>
-</div>
-<div class="col-lg-6 item-plugin">
-<div class="row-modal">
-<a href="https://thimpress.com/product/collections-add-on-for-learnpress/" target="_blank">
-<img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-11.png" alt="Collections Add-on" title="Collections Add-on">
-</a>
-<div class="content">
-<div class="title-content">
-<a href="https://thimpress.com/product/collections-add-on-for-learnpress/" target="_blank">COLLECTIONS ADD-ON FOR LEARNPRESS</a>
-</div>
-<div class="sub-content"><p>Group the related courses into one
-collection.</p></div>
-</div>
-</div>
-</div>
-<div class="col-lg-6 item-plugin">
-<div class="row-modal">
-<a href="https://thimpress.com/product/woocommerce-add-on-for-learnpress/" target="_blank">
-<img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-12.png" alt="WooCommerce Add-on" title="WooCommerce Add-on">
-</a>
-<div class="content">
-<div class="title-content">
-<a href="https://thimpress.com/product/woocommerce-add-on-for-learnpress/" target="_blank">WOOCOMMERCE ADD-ON FOR LEARNPRESS</a>
-</div>
-<div class="sub-content"><p>Transaction can be done by
-WooCommerce account if other payment gateways are not
-available.</p></div>
-</div>
-</div>
-</div>
-<div class="col-lg-6 item-plugin">
-<div class="row-modal">
-<a href="https://thimpress.com/product/stripe-add-on-for-learnpress/" target="_blank">
-<img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-13.png" alt="Stripe Add-on" title="Stripe Add-on">
-</a>
-<div class="content">
-<div class="title-content">
-<a href="https://thimpress.com/product/stripe-add-on-for-learnpress/" target="_blank">STRIPE ADD-ON FOR LEARNPRESS</a></div>
-<div class="sub-content"><p>Transaction can be done by Stripe
-account.</p></div>
-</div>
-</div>
-</div>
-<div class="col-lg-6 item-plugin">
-<div class="row-modal">
-<a href="https://thimpress.com/product/certificates-add-on-for-learnpress/" target="_blank">
-<img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-14.png" alt="Certificates Add-on" title="Certificates Add-on">
-</a>
-<div class="content">
-<div class="title-content">
-<a href="https://thimpress.com/product/certificates-add-on-for-learnpress/" target="_blank">CERTIFICATES ADD-ON FOR LEARNPRESS</a>
-</div>
-<div class="sub-content"><p>Many information fields can be added
-and customized.</p></div>
-</div>
-</div>
-</div>
-</div>
-<div class="modal-button">
-<a href="https://thimpress.com/wordpress/learnpress/" target="_blank" title="LearnPress">
-LearnPress
-</a></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+              </div>
+
+              <div class="thim-block-customer-home" id="Contact" style="background-image: url(Image_Components/bg-home6.png)">
+                    <div class="title-custommer wow fadeInLeft">
+                        <iframe src="formpage.html" style="width:100%;height: 700px;"></iframe>
+                    </div>
+              </div>
 
 
+          <div class="thim-block-customer-home" style="background-image: url(Image_Components/bg-home7.png)">
+                <div class="title-custommer wow fadeInLeft">
+                      <div class="container-content-wrap">
+                            <h2>Customer Service</h2>
+                      </div>
+                </div>
+                <div class="container-content-wrap">
+                      <div class="row-content-wrap">
+                            <div class="col-lg-7">
+                                <div class="title-content wow fadeInUp">
+                                    <h3>
+                                    Customers LOVE TruPen
+                                    </h3>
+                                </div>
+                                <div class="img-content-big wow fadeInLeft">
+                                   <img src="Image_Components/big-image.png" alt="Cú" title="">
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                  <div class="list-testiminials wow fadeInRight">
+                                      <div class="item-testiminials">
+                                          <div class="item-testiminials-hover">
+                                              <div class="content-infor">
+                                                  <div class="img-content">
+                                                      <img src="Image_Components/user-1.png" alt="Taniyah Feedback" title="Taniyah Feedback">
+                                                  </div>
+                                                  <div class="text-content">
+                                                      <div class="name">
+                                                      Taniyah
+                                                      </div>
+                                                      <div class="rating">
+                                                          <span></span><span></span><span></span><span></span><span></span>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                              <div class="content-des">
+                                                          The support I have had has been exceptional, I cannot thank the team enough. Go
+                                                      well guys, you are amazing.
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="item-testiminials">
+                                          <div class="item-testiminials-hover">
+                                              <div class="content-infor">
+                                                  <div class="img-content">
+                                                        <img src="Image_Components/user-2.png" alt="Eltoma Feedback" title="Eltoma Feedback">
+                                                  </div>
+                                                  <div class="text-content">
+                                                        <div class="name">
+                                                              Eltoma
+                                                        </div>
+                                                        <div class="rating">
+                                                            <span></span><span></span><span></span><span></span><span></span>
+                                                        </div>
+                                                  </div>
+                                              </div>
+                                              <div class="content-des">
+                                                This is an amazing theme with an amazing support team. Will continue to support
+                                                these guys. Great job guys!
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="item-testiminials">
+                                            <div class="item-testiminials-hover">
+                                                <div class="content-infor">
+                                                    <div class="img-content">
+                                                        <img src="Image_Components/user-3.png" alt="Emily Feedback" title="Emily Feedback">
+                                                    </div>
+                                                    <div class="text-content">
+                                                        <div class="name">
+                                                          Emily
+                                                        </div>
+                                                        <div class="rating">
+                                                              <span></span><span></span><span></span><span></span><span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="content-des">
+                                                  Theme is beautifully done, with many great features. Best of all, TruPen is an
+                                                  awesome support guy! Really thumbs up!
+                                                </div>
+                                            </div>
+                                      </div>
+                                  </div>
+                            </div>
+                      </div>
+                </div>
+          </div>
 
 
-<div class="thim-block-elementor-home" style="background-image: url(Image_Components/bg-home6.png)">
-<div class="fl-right">
-<div class="title-elementor wow fadeInRight">
-<h2>
-Elementor
-</h2>
-</div>
-</div>
-<div class="container-content-wrap">
-<div class="row-content-wrap">
-<div class="thim-elementor-content">
-<div class="col-lg-7 wow fadeInLeft">
-<div class="content-img">
-<img src="Image_Components/elementor-img-01.png" alt="Elementor Compatible" title="Elementor Compatible">
-</div>
-</div>
-<div class="col-lg-5 wow fadeInUp">
-<div class="content-text">
-<p>
-Elementor is the leading website builder platform for professionals on WordPress
-with 5+ million active installations. Therefore, it is tested carefully with a large
-community of developers.
-And now, <span>Eduma is fully compatible with Elementor.</span>
-</p>
-<p class="text-color">Design forms visually, easy control every aspect of your web
-design workflow from one place. Build websites that load faster, and speed up the
-process of building theme</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<div class="thim-block-customer-home" style="background-image: url(Image_Components/bg-home7.png)">
+<div class="thim-block-30000-home" id="about" style="background-image: url(Image_Components/bg-home8.png)">
 <div class="title-custommer wow fadeInLeft">
-<div class="container-content-wrap">
-<h2>Customer Service</h2>
-</div>
-</div>
-<div class="container-content-wrap">
-<div class="row-content-wrap">
-<div class="col-lg-7">
-<div class="title-content wow fadeInUp">
-<h3>
-Customers LOVE Eduma
-</h3>
-</div>
-<div class="img-content-big wow fadeInLeft">
-<img src="Image_Components/big-image.png" alt="Cú" title="">
-</div>
-</div>
-<div class="col-lg-5">
-<div class="list-testiminials wow fadeInRight">
-<div class="item-testiminials">
-<div class="item-testiminials-hover">
-<div class="content-infor">
-<div class="img-content">
-<img src="Image_Components/user-1.png" alt="Taniyah Feedback" title="Taniyah Feedback">
-</div>
-<div class="text-content">
-<div class="name">
-Taniyah
-</div>
-<div class="rating">
-<span></span><span></span><span></span><span></span><span></span>
-</div>
-</div>
-</div>
-<div class="content-des">
-The support I have had has been exceptional, I cannot thank the team enough. Go
-well guys, you are amazing.
-</div>
-</div>
-</div>
-<div class="item-testiminials">
-<div class="item-testiminials-hover">
-<div class="content-infor">
-<div class="img-content">
-<img src="Image_Components/user-2.png" alt="Eltoma Feedback" title="Eltoma Feedback">
-</div>
-<div class="text-content">
-<div class="name">
-Eltoma
-</div>
-<div class="rating">
-<span></span><span></span><span></span><span></span><span></span>
-</div>
-</div>
-</div>
-<div class="content-des">
-This is an amazing theme with an amazing support team. Will continue to support
-these guys. Great job guys!
-</div>
-</div>
-</div>
-<div class="item-testiminials">
-<div class="item-testiminials-hover">
-<div class="content-infor">
-<div class="img-content">
-<img src="Image_Components/user-3.png" alt="Emily Feedback" title="Emily Feedback">
-</div>
-<div class="text-content">
-<div class="name">
-Emily
-</div>
-<div class="rating">
-<span></span><span></span><span></span><span></span><span></span>
-</div>
-</div>
-</div>
-<div class="content-des">
-Theme is beautifully done, with many great features. Best of all, Ken is an
-awesome support guy! Really thumbs up!
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
-
-<div class="thim-block-30000-home" style="background-image: url(Image_Components/bg-home8.png)">
-<div class="content-30000">
-<div class="content-text">
-<div class="title-30000">
-<h3>
-<span class="counter">30,000</span>+
-</h3>
-</div>
-<div class="sub-30000">
-<h3>Users Trust Eduma</h3>
-</div>
-</div>
-<div class="button-30000 col-lg-3">
-</div>
-</div>
-</div>
-
-        <div class="thim-block-customer-home" style="background-image: url(Image_Components/bg-home9.png)">
-              <div class="title-custommer wow fadeInLeft">
-
+         <div>
+                  <h1> </h1>
+                  <h1> </h1>
+                  <h1> </h1>
+                  <h1> </h1>
+                  <h1> </h1>
+                  <h1> </h1>
+          </div>
                       <div class="section-title">
                         <h2>About Us</h2>
                       </div>
@@ -864,10 +583,11 @@ awesome support guy! Really thumbs up!
                       </div>
 
               </div>
-        </div>
+</div>
 
         <div class="thim-block-customer-home" style="background-image: url(Image_Components/bg-home9.png)">
               <div class="title-custommer wow fadeInRightBig">
+                
                 <div class="section-title">
                   <h2>Our Team</h2>
                   <p>Meet our team members who developed this website</p>
@@ -902,13 +622,12 @@ awesome support guy! Really thumbs up!
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Important Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="">Home</a></li>
               <!--<li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Login/Signup</a></li>-->
               <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Register</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="search_flights.html">Portals</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#faq">FAQ</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="IITdh_portal.php">Portals</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#Contact">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="Register_insti.html">Register</a></li>
             </ul>
           </div>
 
@@ -929,15 +648,8 @@ awesome support guy! Really thumbs up!
       </div>
     </div>
 
-    <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>TruPen - Quiz APP</span></strong>. All Rights Reserved
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short">
+     <a href="#" class="back-to-top d-flex align-items-center justify-content-center" style="background:orange;">
+    <i class="bi bi-arrow-up-short" >
          <div id="back-to-top" class="btn-back-to-top">
             <p>
             Top
@@ -945,6 +657,14 @@ awesome support guy! Really thumbs up!
         </div>
     </i>
   </a>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>TruPen - Quiz APP</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+</div>
    
 
   <script src="Design_Components/jquery.min.js"></script>        
