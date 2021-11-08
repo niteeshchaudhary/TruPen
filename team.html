@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Design_Components/e48d166edc.js"></script>
+    <title>TruPen- About</title>
+    <link rel="stylesheet" href="/Design_Components/bootstrap.min.css">
+    
+    <script src="Design_Components/bootstrap.min.js"></script>
+    <script src="Design_Components/jquery.min.js"></script>
+
+</head>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.card {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  height: 430px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.4em;
+  background-color: #141414;
+  position: relative;
+  display:inline-block;
+  animation: animatebottom 0.4s
+}
+.card * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.card .background {
+  width: 100%;
+  vertical-align: top;
+  opacity: 0.5;
+  -webkit-filter: grayscale(50%) blur(10px);
+  filter: grayscale(50%) blur(5px);
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+.card .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  max-width: 100px;
+  opacity: 1;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+.card .profile:hover{
+    border-radius: 30%;
+    transition:1s;
+}
+.card h3 {
+  margin: 0 0 5px;
+  font-weight: 400;
+}
+.card h3 span {
+  display: block;
+  font-size: 0.8em;
+  color: #f39c12;
+  opacity: 0.75;
+}
+.card i {
+  padding: 10px 5px;
+  display: inline-block;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  opacity: 0.65;
+}
+.card a {
+  text-decoration: none;
+}
+.card i:hover {
+  opacity: 1;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.card:hover .background,
+.card.hover .background {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+body{
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.contain{
+    color:white;
+    height: 100px;
+    animation: fadeInAnimation ease 3s
+    display:flex; flex-direction:column; justify-content:center;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 3px rgb(0,0,0);
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+h1{
+  color: white;
+  font-size: 100px;
+  margin-top: 7%;
+}
+.content-wrap{
+  background-color: rgba(0,0,128,0.2);
+  border-radius: 0px 3px 3px 0px;
+}
+
+</style>
+<body translate="no">
+
+<div class="contain">
+<div class="card">
+<img src="Image_Components/Shashank_P.jpg" alt="Shashank_P" class="background"/>
+<img src="Image_Components/Shashank_P.jpg" class="profile"/>
+
+    <h3>Shashank P<span>200010048</span></h3>
+
+    <div class="icons">
+    <a href="#">
+    <i class="ion-social-facebook-outline"></i>
+    </a>
+    <a href="#"> 
+    <i class="ion-social-twitter-outline"></i>
+    </a>
+    <a href="#">
+    <i class="ion-social-instagram-outline"></i></a>
+    </div>
+  
+</div>
+<div class="card">
+<img src="Image_Components/nkc-beta.jpg" height="310" width="300" alt="Niteesh" class="background"/>
+<img src="Image_Components/nkc-beta.jpg" alt="Niteesh" class="profile"/>
+
+    <h3>Niteesh Kamal Chaudhary<span>200010035</span></h3>
+
+    <div class="icons">
+    <a href="#">
+    <i class="ion-social-facebook-outline"></i>
+    </a>
+    <a href="#"> 
+    <i class="ion-social-twitter-outline"></i>
+    </a>
+    <a href="#"> 
+    <i class="ion-social-instagram-outline"></i>
+    </a>
+    </div>
+
+</div>
+<div class="card">
+<img src="Image_Components/tabish-alpha.jpg" height="310" width="300" alt="Tabish" class="background"/>
+<img src="Image_Components/tabish-alpha.jpg" alt="Tabish" class="profile"/>
+  
+    <h3>Tabish Khalid Halim<span>200020049</span></h3>
+
+    <div class="icons">
+    <a href="#">
+    <i class="ion-social-facebook-outline"></i>
+    </a>
+    <a href="#"> 
+    <i class="ion-social-twitter-outline"></i>
+    </a>
+    <a href="#"> 
+    <i class="ion-social-instagram-outline"></i>
+    </a>
+    </div>
+
+</div>
+</div>
+<style>
+
+ul{
+  list-style-type: none;
+}
+.list-inline-item{
+  display: inline-block;
+}
+
+a {
+  color: #6c757d;
+  text-decoration: none;
+}
+a:hover {
+  color: #fec503;
+  text-decoration: none;
+}
+
+::selection {
+  background: #fec503;
+  text-shadow: none;
+}
+
+footer {
+  padding: 2rem 0;
+  background-color: #212529;
+  // .container .row:not(:last-child) {
+  //   padding-bottom: 2rem;
+  // }
+}
+
+.footer-column:not(:first-child) {
+    padding-top: 2rem;
+    @media (min-width: 768px) {
+      padding-top: 0rem;
+    }
+  }
+
+.footer-column {
+  margin-left:230px;
+  text-align: left;
+  .nav-item {
+    .nav-link {
+      padding: 0.1rem 0;
+    }
+    span.nav-link {
+      color: #6c757d;
+    }
+    span.footer-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+    }
+    .fas {
+      margin-right: 0.5rem;
+    }
+  }
+  ul {
+    display: inline-block;
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+  }
+}
+
+ul.social-buttons {
+  margin-bottom: 0;
+}
+
+ul.social-buttons li a:active,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:hover {
+  background-color: #fec503;
+}
+
+ul.social-buttons li a {
+  font-size: 20px;
+  line-height: 40px;
+  display: block;
+  width: 40px;
+  height: 40px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  color: #fff;
+  border-radius: 100%;
+  outline: 0;
+  background-color: #1a1d20;
+}
+
+footer .quick-links {
+  font-size: 90%;
+  line-height: 40px;
+  margin-bottom: 0;
+  text-transform: none;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.copyright {
+  color: white;
+}
+
+.fa-ellipsis-h {
+  color: white;
+  padding: 2rem 0;
+}
+footer div{
+  display: inline-block;
+}
+</style>
+
+<script>
+$(".hover").mouseleave(
+  function () {
+    $(this).removeClass("hover");
+  }
+);
+</script>
+</body>
+</html>
