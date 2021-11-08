@@ -34,10 +34,10 @@
     if($result->num_rows == 0)
     {
         $sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir, cost)
-                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person', 'profile_pic/student/user.jpg', '0')";
+                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'fantastic person', '../profile_pic/student/user.jpg', '0')";
         $con->query($sql);
         $sql = "INSERT INTO user(username, passcode, firstname, lastname, email, gender, birthday, bio, img_dir, cost)
-                VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', 'profile_pic/student/eval.jpg', '0')";
+                VALUES ('eval', 'eva', 'eval', 'eva', 'eval@gmail.com', 'female', '2003-05-17', 'cool person', '../profile_pic/student/eval.jpg', '0')";
         $con->query($sql);
     }
     $sql = 'CREATE TABLE IF NOT EXISTS teacher
@@ -61,7 +61,7 @@
     if($result->num_rows == 0)
     {
         $sql = "INSERT INTO teacher(username, passcode, firstname, lastname, email, gender, birthday, subject, img_dir, cost)
-                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'MA101', 'profile_pic/teacher/user.jpg', '0')";
+                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'MA101', '../profile_pic/teacher/user.jpg', '0')";
         $con->query($sql);
     }
 	$sql = 'CREATE TABLE IF NOT EXISTS office
@@ -83,7 +83,7 @@
     if($result->num_rows == 0)
     {
         $sql = "INSERT INTO office(username, passcode, firstname, lastname, email, gender, birthday, img_dir)
-                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', 'profile_pic/office/user.jpg')";
+                VALUES ('user', 'pass', 'foo', 'bar', 'user@gmail.com', 'male', '2000-08-14', '../profile_pic/office/user.jpg')";
         $con->query($sql);
     }
     $sql = 'CREATE TABLE IF NOT EXISTS quiz
@@ -1339,7 +1339,7 @@
             <div class="wrapper">
                 <div class="searched-jobs">
                     <div class="searched-bar">
-                        <div class="searched-show"><img src="Image_Components\IITDH_logo.png" height="25" width="30"><span>&nbsp; IITdh Institute Portal</span></img>
+                        <div class="searched-show"><img src="Image_Components\truPen Better Logo.png" height="25" width="30"><span>&nbsp; TruPen Portal</span></img>
                         </div>
                     </div>
                     <div class="job-cards">
@@ -1385,9 +1385,10 @@
                             <div class="job-card-subtitle">
                                 <p>
                                     <font face="Clear Sans Light">
-                                        Student can connect to their institute for:
-                                        <br><br> &nbsp - &nbsp examination<br> &nbsp - &nbsp test analyhsis <br> &nbsp - &nbsp results<br> &nbsp - &nbsp order printout<br> &nbsp - &nbsp assignments<br> &nbsp - &nbsp class notes<br> &nbsp - &nbsp interect
-                                        with teachers<br> &nbsp - &nbsp ask doubts<br> &nbsp - &nbsp etc<br><br><br>
+                                        Students can use this website to:
+                                        <br><br> &nbsp - &nbsp Write Tests<br> &nbsp - &nbsp Analyze the Results 
+                                        <br> &nbsp - &nbsp Ask for a Printout<br> &nbsp - &nbsp Connect with other students<br> &nbsp - &nbsp Contact Teachers
+                                        <br> &nbsp - &nbsp Compare your performance with the class<br> &nbsp - &nbsp Key with explaination<br> &nbsp - &nbsp Ask Doubts<br> &nbsp - &nbsp Make use of Tru-Bot.
                                     </font>
                                 </p>
                             </div>
@@ -1442,7 +1443,10 @@
                                 <p>
                                     <font face="Clear Sans Light">
                                         Professors can:
-                                        <br><br> &nbsp - &nbsp connect to students<br> &nbsp - &nbsp solve their query<br> &nbsp - &nbsp create a quiz<br> &nbsp - &nbsp check results<br> &nbsp - &nbsp send assignments<br> &nbsp - &nbsp upload class notes<br>                                        &nbsp - &nbsp order printout<br> &nbsp - &nbsp give grades to students<br> &nbsp - &nbsp etc.<br><br><br>
+                                        <br><br> &nbsp - &nbsp Connect with students<br> &nbsp - &nbsp Clear doubts
+                                        <br> &nbsp - &nbsp Create a Quiz<br> &nbsp - &nbsp Check Results<br> &nbsp - &nbsp Order a Printout
+                                        <br> &nbsp - &nbsp Compare user performances<br>&nbsp - &nbsp Upload Answer key and Explaination
+                                        <br> &nbsp - &nbsp Compare difficulty of Questions<br>&nbsp - &nbsp Connect with other teachers.
                                     </font>
                                 </p>
                             </div>
@@ -1524,12 +1528,13 @@
                                 <p>
                                     <font face="Clear Sans Light">
                                         Print office:
-                                        <br><br> &nbsp - &nbsp will get request<br> &nbsp - &nbsp may accept request<br> &nbsp - &nbsp may deny with suitable reason<br> &nbsp - &nbsp can automate printing<br> &nbsp - &nbsp easy to handle<br> &nbsp - &nbsp
-                                        user friendly<br> &nbsp - &nbsp connects with multiple users<br> &nbsp - &nbsp can reply app. time to request<br> &nbsp - &nbsp to recive the print outs<br><br><br>
+                                        <br><br> &nbsp - &nbsp Get print requests<br> &nbsp - &nbsp Accept a Request<br> &nbsp - &nbsp Reject a request with a Reason<br> &nbsp - &nbsp Easy to Handle UI
+                                        <br> &nbsp - &nbsp Connect with other Users
+                                        <br> &nbsp - &nbsp Charge appropriate costs.
                                 </p>
                             </div>
                             <div class="job-detail-buttons">
-                                <button class="search-buttons detail-button">Powerful Tool</button>
+                                <button class="search-buttons detail-button">24x7</button>
                             </div>
                             <div class="job-card-buttons">
                                 <button class="search-buttons card-buttons" onclick="location.href = 'Print/pri_login.php'"><span> Sign In</span> </button>
@@ -1540,7 +1545,7 @@
                 </div>
                 <!--ChatBot Code-->
                 <div class="chat-bar-collapsible">
-                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with us!
+                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with Tru-Bot !
             <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>

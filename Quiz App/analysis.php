@@ -401,6 +401,10 @@ $conn = new mysqli('localhost', 'root', NULL, 'trupendb');
             <label for="od" style="width:100%;">Option D </label>
             <input type="text" class='<?php if($row2["answer"]=="d"){echo "cor";}elseif(explode("_", $row1[$i."_m"])[0]=="d"){echo "wor";}else{echo "simp";}?>' value="<?php echo $row2["option_d"]; ?>" disabled>
           </div>
+          <div style="display:flex;flex-wrap:wrap;float:right;width:100%;">
+            <label for="exp" style="width:100%;">Explaination </label>
+            <input type="text"  value="<?php echo $row2["exp"]; ?>" disabled id="exp">
+          </div>
       </div>
     </div>
 </div>

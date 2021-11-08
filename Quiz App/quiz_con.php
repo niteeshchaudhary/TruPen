@@ -1390,7 +1390,7 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 		<div class="app-container">
 			<div class="app-header">
 				<div class="app-header-left">
-					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
+					<img src="../Image_Components/truPen Better Logo.png" height="40" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
 					<p class="app-name">Student</p>
 					<div class="search-wrapper">

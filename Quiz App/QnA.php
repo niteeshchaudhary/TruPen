@@ -341,6 +341,10 @@ $i = 0;
             </select><br>
           </div>
       </div>
+      <div style="display:flex;flex-wrap:wrap;float:right;width:100%;">
+            <label for="ex" style="width:100%;">Explaination </label>
+            <input type="text" name = "<?php echo 'exp'.$i ?>" required id="exp" >
+        </div>
       <div style="display:flex-inline;padding:3px;margin:2px;width:100%;">
         <label for="ma">Marks
         <input type="number" name = "<?php echo 'marks'.$i ?>" required id="ma" /></label><br><br>

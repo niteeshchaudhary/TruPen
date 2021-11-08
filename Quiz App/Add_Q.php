@@ -18,6 +18,7 @@ $sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'
 		 option_c varchar(120),
 		 option_d varchar(120),
 		 answer varchar(120),
+		 exp varchar(120),
 		 marks smallint(6)
 		)';
 ?>
@@ -123,8 +124,9 @@ $sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'
 				$e = $_POST["d".$i];
 				$f = $_POST["answer".$i];
 				$g = $_POST["marks".$i];
-				$sql = "INSERT INTO $name_subject(question, option_a, option_b, option_c, option_d, answer, marks)
-						VALUES ('$a', '$b', '$c', '$d', '$e', '$f', '$g')";
+				$h = $_POST["exp".$i];
+				$sql = "INSERT INTO $name_subject(question, option_a, option_b, option_c, option_d, answer, exp, marks)
+						VALUES ('$a', '$b', '$c', '$d', '$e', '$f', '$h', '$g')";
 				if ($con->query($sql) === FALSE)
 				{
 					die("Error: " . $con->error);

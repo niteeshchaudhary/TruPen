@@ -10,7 +10,7 @@
         $uimg="../profile_pic/student/user.jpg";
       }
       else{
-      	$uimg="../".$row["img_dir"];
+      	$uimg=$row["img_dir"];
       }
   	}
   }
@@ -44,7 +44,7 @@
 		<div class="app-container">
 			<div class="app-header">
 				<div class="app-header-left">
-					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
+					<img src="../Image_Components/truPen Better Logo.png" height="40" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
 					<p class="app-name">Student</p>
 					<div class="search-wrapper">
@@ -297,7 +297,7 @@
 		</div>
 		<!--ChatBot Code-->
 		<div class="chat-bar-collapsible">
-                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with us!
+                    <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with Tru-Bot !
             <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>

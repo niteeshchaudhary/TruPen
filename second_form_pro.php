@@ -19,7 +19,7 @@ session_start();
 				gender='".$_POST["gender"]."', 
 				birthday='".$_POST["dob"]."', 
 				bio='".$_POST["bio"]."',
-				img_dir='".$upload_dir.$coverpic."'
+				img_dir='"."../".$upload_dir.$coverpic."'
 				WHERE username = '$x';";
 		if($con->query($sql)){
 			echo "Success!!";

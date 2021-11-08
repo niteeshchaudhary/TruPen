@@ -10,7 +10,7 @@
         $uimg="../profile_pic/student/user.jpg";
       }
       else{
-      	$uimg="../".$row["img_dir"];
+      	$uimg=$row["img_dir"];
       }
   	}
   }
@@ -43,7 +43,7 @@
 		<div class="app-container">
 			<div class="app-header">
 				<div class="app-header-left">
-					<img src="../Image_Components/IITDH_logo.png" height="40" width="50" alt="i_logo"></img>
+					<img src="../Image_Components/truPen Better Logo.png" height="40" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
 					<p class="app-name">Student</p>
 					<div class="search-wrapper">

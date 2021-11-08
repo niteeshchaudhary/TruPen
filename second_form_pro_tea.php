@@ -19,7 +19,7 @@ session_start();
 				gender='".$_POST["gender"]."', 
 				birthday='".$_POST["dob"]."', 
 				subject='".$_POST["subject"]."',
-				img_dir='".$upload_dir.$coverpic."'
+				img_dir='"."../".$upload_dir.$coverpic."'
 				WHERE username = '$x';";
 		if($con->query($sql)){
 			$_SESSION["subject"] = $_POST["subject"];
