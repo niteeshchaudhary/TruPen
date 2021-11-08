@@ -375,8 +375,8 @@ $conn = new mysqli('localhost', 'root', NULL, 'trupendb');
 				$col = "red";
 			}
 		?>
-    <h4 style="color: <?php echo $color; ?>;"><?php echo $str ?> , Marks: <?php echo $marks; ?></h4>
-		<p style="color: <?php echo $col; ?>;"><?php echo $per; ?>% of got it right!</p>
+    <h4 style="color: <?php echo $color; ?>;margin-top:15px;"><?php echo $str ?> , Marks: <?php echo $marks; ?></h4>
+		<p style="color: <?php echo $col; ?>;margin-top:10px;margin-bottom:15px"><?php echo $per; ?>% of got it right!</p>
     
     <label style="color: black;">Question</label>
 		<textarea cols="20" rows ="5" disabled><?php echo $row2["question"]; ?></textarea>
