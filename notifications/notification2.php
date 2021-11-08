@@ -12,6 +12,6 @@ if ($con->query($sql) === FALSE)
 {
     die("Error " . $con->error);
 }
-header('location: notification1.php');
+header("location:javascript://history.go(-1)");
 exit();
 ?>

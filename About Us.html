@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="Design_Components/e48d166edc.js"></script>
     <title>TruPen- About</title>
-    <link rel="stylesheet" href="/Design/Components/bootstrap.min.css">
+    <link rel="stylesheet" href="/Design_Components/bootstrap.min.css">
     
     <script src="Design_Components/bootstrap.min.js"></script>
     <script src="Design_Components/jquery.min.js"></script>
@@ -22,7 +22,7 @@
   margin: 10px;
   min-width: 230px;
   max-width: 315px;
-  width: 100%;
+  height: 430px;
   color: #ffffff;
   text-align: center;
   line-height: 1.4em;
@@ -94,10 +94,17 @@
   transform: scale(1.3);
 }
 body{
-    background-image: url(Image_Components/bg-home3.png);
-    background-color:rgba(40,40,40);
+  display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.contain{
     color:white;
+    height: 100px;
     animation: fadeInAnimation ease 3s
+    display:flex; flex-direction:column; justify-content:center;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
@@ -138,7 +145,7 @@ body{
 	border: 2px solid #555555;
 }
 h1{
-  color: #C1292E;
+  color: white;
   font-size: 100px;
   margin-top: 7%;
 }
@@ -149,26 +156,24 @@ h1{
 
 </style>
 <body translate="no">
-<br/>
-<br/>
-<br>
-<div class="content-wrap">
-<center><h1>About Us</h1></center>
-</div>
-<div class="card" style="margin-left:260px">
+<div class="contain">
+<div class="card">
 <img src="Image_Components/Shashank_P.jpg" alt="Shashank_P" class="background"/>
 <img src="Image_Components/Shashank_P.jpg" class="profile"/>
 
     <h3>Shashank P<span>200010048</span></h3>
 
-    <div class="icons">
-    <a href="#">
+     <div class="icons">
+    <a href="https://www.facebook.com/shashank.prakash.2832">
     <i class="ion-social-facebook-outline"></i>
     </a>
-    <a href="#"> 
-    <i class="ion-social-twitter-outline"></i>
-    </a>
     <a href="#">
+    <i class="ion-social-linkedin-outline"></i>
+    </a>
+    <a href="https://github.com/shashankp28"> 
+    <i class="ion-social-github-outline"></i>
+    </a>
+    <a href="https://www.instagram.com/mystic_mickey28/">
     <i class="ion-social-instagram-outline"></i></a>
     </div>
   
@@ -179,14 +184,15 @@ h1{
 
     <h3>Niteesh Kamal Chaudhary<span>200010035</span></h3>
 
-    <div class="icons">
-    <a href="#">
+    <a href="https://www.facebook.com/niteesh.chaudhary.14">
     <i class="ion-social-facebook-outline"></i>
     </a>
-    <a href="#"> 
-    <i class="ion-social-twitter-outline"></i>
+    <i class="ion-social-linkedin-outline"></i>
     </a>
-    <a href="#"> 
+    <a href="https://github.com/niteeshchaudhary"> 
+    <i class="ion-social-github-outline"></i>
+    </a>
+    <a href="https://www.instagram.com/_niteesh_chaudhary_/"> 
     <i class="ion-social-instagram-outline"></i>
     </a>
     </div>
@@ -199,24 +205,22 @@ h1{
     <h3>Tabish Khalid Halim<span>200020049</span></h3>
 
     <div class="icons">
-    <a href="#">
+    <a href="https://www.facebook.com/tabish.khalidhalim/">
     <i class="ion-social-facebook-outline"></i>
     </a>
-    <a href="#"> 
-    <i class="ion-social-twitter-outline"></i>
+    <a href="https://www.linkedin.com/in/tabish-khalid-halim-27209b201/"> 
+    <i class="ion-social-linkedin-outline"></i>
     </a>
-    <a href="#"> 
+    <a href="https://github.com/tkhalim14"> 
+    <i class="ion-social-github-outline"></i>
+    </a>
+    <a href="https://www.instagram.com/thesnagtalker007/"> 
     <i class="ion-social-instagram-outline"></i>
     </a>
     </div>
 
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+</div>
 <style>
 
 ul{
@@ -277,7 +281,6 @@ footer {
   }
   ul {
     display: inline-block;
-    margin-top: 0;
     @media (min-width: 768px) {
       text-align: left;
     }
@@ -329,72 +332,6 @@ footer div{
   display: inline-block;
 }
 </style>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 footer-column">
-        <ul>
-          <li class="nav-item">
-            <span class="footer-title">Links</span>
-          </li>
-          <br>
-          <li class="nav-item">
-            <a class="nav-link" href="Home.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="IITdh_portal.php">Portal</a>
-          </li>
-          <li>&nbsp;</li>
-          <li>&nbsp;</li>
-          <li>&nbsp;</li>
-          
-        </ul>
-      </div>
-      <div class="col-md-4 footer-column">
-        <ul>
-          <li class="nav-item">
-            <span class="footer-title">Project Details</span>
-          </li>
-          <br>
-          <li class="nav-item">
-            <a class="nav-link" href="https://tkhalim14.github.io/SSL-submission/">Beta phase Report</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://tkhalim14.github.io/SSL-submission/overview.html">Overview</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/niteeshchaudhary/assperl">Repository</a>
-          </li>
-          <li>&nbsp;</li>
-          <li>&nbsp;</li>
-        </ul>
-      </div>
-      <div class="col-md-4 footer-column">
-        <ul>
-          <li class="nav-item">
-            <span class="footer-title">Contact & Support</span>
-          </li>
-          <br>
-          <li class="nav-item">
-            <span class="nav-link"><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 8809896690 - Tabish Khalid Halim</span>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link"><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 99290 72706 - Niteesh Kamal Chaudhary</a>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link"><i class="fas fa-phone"></i>&nbsp;&nbsp;+91 94833 03320 - Shashank P</a>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link"><i class="fas fa-envelope"></i>&nbsp;&nbsp;trupenofficial@gmail.com</a>
-          </li>
-          <li class="nav-item">
-            <span class="nav-link"><i class="fas fa-star"></i>&nbsp;&nbsp;Give feedback</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-<br>
-</footer>
 
 <script>
 $(".hover").mouseleave(
