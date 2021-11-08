@@ -80,7 +80,40 @@
 							<line x1="5" y1="12" x2="19" y2="12" />
 						</svg>
 					</button>
-				
+					<button class="notification-btn" onclick="oscillate();">
+						<div class="d-inline dropdown mr-3">
+					      <span class="dropdown-toggle" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					      	<svg  id="rotate"xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+							<path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+							</span>
+							<?php
+								$qryst="select * from notifications where type_to='".$_SESSION["table"]."_".$_SESSION["user"]."' or type_to='".$_SESSION["table"]."_all';";
+								$result5 = $con->query($qryst);?>
+							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> <?php  echo mysqli_num_rows($result5);?></span>
+					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
+					        <div class="list-group" style="width:500px;" ">
+					          <div class="lg" >
+								<?php
+									while($row5 = $result5->fetch_assoc())
+									{
+										$a = explode("_", $row5["type_to"])[0];
+										$b = explode("_", $row5["type_to"])[1];
+										if($a==$_SESSION["table"] && ($b==$_SESSION["user"] || $b=="all"))
+										{
+											echo '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+											<p class="mb-0">From '.explode("_", $row5["type_from"])[0].' '.explode("_", $row5["type_from"])[1].'</p>
+											<h5>'.$row5['note'].'</h5>
+											<p class="mb-0">'.$row5['time'].'</p>
+										  </a>';
+										}
+									}
+								?>
+					          </div> <!-- /.lg -->
+					        </div> <!-- /.list group -->
+					      </div> <!-- /.dropdown-menu -->
+					    </div> <!-- /.dropdown -->
+					</button>
 					<button class="profile-btn">
 						<img src='<?php echo  $uimg;?>' />
 						<span><?php echo  $_SESSION["user"];?></span>
@@ -260,7 +293,8 @@
 				window.location.href = "showqlist.php?qz="+combo;
 			}
 		</script>
-
+<script src='../Design_Components/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
 	</body>
 
 </html>
