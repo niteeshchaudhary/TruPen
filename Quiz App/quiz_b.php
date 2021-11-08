@@ -638,18 +638,27 @@
 										<form method="post" action="evaluation.php" id="myform">
 												<?php
 													global $x;
-													for ($x = 0;$row = $result->fetch_assoc(); $x++) {
-														echo '<div class="mySlides fade" id="'.$x.'">
+													$row = array();
+													while($x = $result->fetch_assoc()){
+													$row[] = $x;
+													}
+													$q = 1;
+													$al = array("a", "b", "c", "d");
+													shuffle($al);
+													$arr = range(0, count($row)-1);
+													shuffle($arr);
+													foreach ($arr as $x) {
+														echo '<div class="mySlides" id="'.$x.'">
 																<div class="quiz-container" id="quiz">
 																<div class="quiz-header">
-																	<div class="numbertext">Q : '.($x+1).'</div>
-																	<h2>'.$row["question"].'</h2>
-																	<ul>
-																	<li><input type="radio" name="answer'.$x.'" id="a'.$x.'" onclick="check_select()" class="answer" value="a_'.$x.'">&nbsp&nbsp<label for="a'.$x.'" id="a_text">'.$row["option_a"].'</label></li>
-																	<li><input type="radio" name="answer'.$x.'" id="b'.$x.'" onclick="check_select()" class="answer" value="b_'.$x.'">&nbsp&nbsp<label for="b'.$x.'" id="b_text">'.$row["option_b"].'</label></li>
-																	<li><input type="radio" name="answer'.$x.'" id="c'.$x.'" onclick="check_select()" class="answer" value="c_'.$x.'">&nbsp&nbsp<label for="c'.$x.'" id="c_text">'.$row["option_c"].'</label></li>
-																	<li><input type="radio" name="answer'.$x.'" id="d'.$x.'" onclick="check_select()" class="answer" value="d_'.$x.'">&nbsp&nbsp<label for="d'.$x.'" id="d_text">'.$row["option_d"].'</label></li>
-																	</ul>
+																	<div class="numbertext">Q : '.($q++).'</div>
+																	<h2>'.$row[$x]["question"].'</h2>
+																	<ul>';
+																	foreach ($al as $y)
+																	{
+																		echo '<li><input type="radio" name="answer'.$x.'" id="'.$y.$x.'" onclick="check_select()" class="answer" value="'.$y.'_'.$x.'">&nbsp&nbsp<label for="'.$y.$x.'" id="a_text">'.$row[$x]["option_".$y].'</label></li>';
+																	}
+																	echo '</ul>
 																</div>
 																</div>
 															</div>';
@@ -688,7 +697,7 @@
 										<hr noshade="2">
 										<div class="flexbox">';
 										//echo"<a style='color:#f1f1f1'>QUESTIONS</a>";
-										for($i=1;$i<=$x;$i++){
+										for($i=1;$i<count($row)+1;$i++){
 											$i1=$i-1;
 											//echo '<a onclick="currentSlide('.$i1.')">'.$i.'</a>';
 											echo'<div class="flex-item">
