@@ -211,10 +211,17 @@
 						  if ($result && $result->num_rows > 0) {
 						    while($row = $result->fetch_assoc()){
 						    	$prof_img="abc";
+								$cq = $con->query("select count(subject) from quiz where subject='".$row["subject"]."';");
 						    	if (file_exists('../profile_pic/teacher/'.$row['username'].'.jpg')) {
 									    $prof_img='../profile_pic/teacher/'.$row['username'].'.jpg';
 									} else {
 									    $prof_img= '../profile_pic/teacher/user.jpg';
+									}
+									$df=0;
+									if($cq && $cq->num_rows>0)
+									{
+										$rr=$cq->fetch_assoc();
+										$df=$rr["count(subject)"];
 									}
 									echo '
 						    	<div class="project-box-wrapper">
@@ -238,9 +245,9 @@
 											<div class="box-progress-wrapper">
 												<p class="box-progress-header">Progress</p>
 												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.'60'.'%; background-color:'.$colors[$cnt%6].';"></span>
+													<span class="box-progress" style="width: '.($df*100/12).'%; background-color:'.$colors[$cnt%6].';"></span>
 												</div>
-												<p class="box-progress-percentage">'.'60'.'%</p>
+												<p class="box-progress-percentage">'.round($df*100/12).'%</p>
 											</div>
 											<div class="project-box-footer">
 												<div class="participants">
