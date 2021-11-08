@@ -28,6 +28,8 @@
         <link rel="stylesheet" href="../Chatbot/static/css/chat.css?v=<?php echo time(); ?>">
         <link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+
         <style>
             @import "../Design_Components/bootstrap.min.css";
             table{
@@ -99,10 +101,42 @@ td{
 						</svg>
 					</button>
                     <button class="notification-btn" onclick="oscillate();">
-						<svg id="rotate" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+						<div class="d-inline dropdown mr-3">
+					      <span class="dropdown-toggle" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					      	<svg  id="rotate"xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
 							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-							<path d="M13.73 21a2 2 0 0 1-3.46 0" />
-						</svg>
+							<path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+							</span>
+							<?php $qryst="select * from notifications where type_to='".$_SESSION["table"]."_".$_SESSION["user"]."' or type_to='".$_SESSION["table"]."_all';";
+									$result5 = $con->query($qryst);?>
+							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;">  <?php  echo mysqli_num_rows($result5);?></span>
+					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
+					        <div class="list-group" style="width:500px;">
+					          <div class="lg" >
+					            <!--<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+					              <h5 class="mb-1">Real Estate Marketing Automation: 6 Simple Systems</h5>
+					              <p class="mb-0">17 October 2016 | 9:32 pm</p>
+					            </a>-->
+								<?php
+									
+									while($row5 = $result5->fetch_assoc())
+									{
+										$a = explode("_", $row5["type_to"])[0];
+										$b = explode("_", $row5["type_to"])[1];
+										if($a==$_SESSION["table"] && ($b==$_SESSION["user"] || $b=="all"))
+										{
+											echo '<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+											<p class="mb-0">From '.explode("_", $row5["type_from"])[0].' '.explode("_", $row5["type_from"])[1].'</p>
+											<h5>'.$row5['note'].'</h5>
+											<p class="mb-0">'.$row5['time'].'</p>
+										  </a>';
+										}
+									}
+								?>
+					          </div> <!-- /.lg -->
+					        </div> <!-- /.list group -->
+					      </div> <!-- /.dropdown-menu -->
+					    </div> <!-- /.dropdown -->
 					</button>
                     <button class="profile-btn">
 						<img src='<?php echo  $uimg;?>' />
@@ -283,7 +317,8 @@ td{
                     window.location.href = "#" + combo;
                 }
             </script>
-
+<script src='../Design_Components/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
     </body>
 
     </html>
