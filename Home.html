@@ -1,0 +1,1157 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Trupen -Quiz APP</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="Design_Components/bootstrap.min.css?v=1.1">
+<link rel="stylesheet" type="text/css" href="Design_Components/animsition.min.css?v=1">
+<link rel="stylesheet" type="text/css" href="Design_Components/animate.css?v=1">
+<link rel="stylesheet" type="text/css" href="Design_Components/swiper-bundle.min.css?v=1">
+<link rel="stylesheet" type="text/css" href="Design_Components/jquery.lineProgressbar.css?v=1">
+
+
+<link rel="stylesheet" type="text/css" href="Design_Components/style-child.css?v=1.0.9">
+   <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="bootstrap/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="bootstrap/vendor/aos/aos.css" rel="stylesheet">
+  <link href="bootstrap/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="bootstrap/css/style.css" rel="stylesheet">
+
+  <link href="bootstrap/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="bootstrap/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <style>
+
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9999;
+        overflow: hidden;
+        background: rgba(17, 88, 209, 0.9);
+      }
+
+      #preloader:before {
+        content: "";
+        position: fixed;
+        top: calc(50% - 30px);
+        left: calc(50% - 30px);
+        border: 6px solid rgba(17, 88, 209, 0.9);
+        border-top-color: #fff;
+        border-bottom-color: #fff;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        -webkit-animation: animate-preloader 1s linear infinite;
+        animation: animate-preloader 1s linear infinite;
+      }
+
+      @-webkit-keyframes animate-preloader {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes animate-preloader {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      #header .logo {
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+            font-weight: 450;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+          }
+          
+          #header .logo img {
+            max-height: 40px;
+          }
+          
+
+          .col-sm-3 {
+          width: 100%;
+        }
+
+    </style>
+<link rel="stylesheet" type="text/css" href="Design_Components/style-child.css?v=1.0.9">
+</head>
+
+<body bgcolor="black">
+
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+         <div class="logo" >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="10 0 512 512" fill="#fff" style="visibility: visible;background-color:#FFA500;border-radius:50%;box-shadow: 5px 0 10px 10px rgba(255, 200, 9, 0.8);">
+                    <g transform="translate(0.000000,524.000000) scale(0.110000,-0.110000)" fill="#000000" stroke="none">
+                        <path d="M3234 3848 c-7 -11 6 -28 64 -89 l43 -46 -40 -63 c-23 -35 -41 -71
+                        -41 -81 0 -10 -13 -41 -30 -67 -34 -56 -36 -67 -14 -76 17 -7 34 0 34 14 0 5
+                        5 21 11 37 l10 27 21 -33 21 -33 -41 -41 -42 -41 -33 32 c-18 18 -40 32 -48
+                        32 -8 0 -97 -83 -198 -184 -131 -131 -182 -189 -178 -200 4 -9 14 -16 24 -16
+                        10 0 93 75 185 167 167 166 167 167 188 148 21 -19 21 -19 -267 -307 l-288
+                        -288 103 -102 102 -103 282 282 c195 194 291 283 308 285 18 2 25 9 25 24 0
+                        13 24 47 56 81 31 32 59 69 63 81 9 27 18 28 33 2 12 -19 13 -19 65 5 28 13
+                        75 27 104 31 48 6 52 8 58 36 3 17 6 48 6 69 l0 39 110 -7 c81 -4 110 -3 110
+                        6 0 6 -72 92 -160 190 l-159 179 -123 6 c-233 11 -359 12 -364 4z"/>
+                        <path d="M2544 2668 c-33 -35 -204 -356 -204 -383 0 -8 7 -18 16 -22 21 -8
+                        349 160 392 201 l32 31 -103 103 -103 102 -30 -32z"/>
+                        <path d="M1280 2525 l0 -65 -46 0 c-58 0 -111 -25 -129 -61 -22 -42 -22 -1006
+                        0 -1048 31 -62 34 -62 574 -59 479 3 490 3 518 24 53 40 53 32 53 565 0 488 0
+                        497 -21 523 -29 37 -71 56 -124 56 l-45 0 0 65 0 65 -65 0 -65 0 0 -65 0 -65
+                        -260 0 -260 0 0 65 0 65 -65 0 -65 0 0 -65z m840 -750 l0 -355 -455 0 -455 0
+                        0 355 0 355 455 0 455 0 0 -355z"/>
+                        <path d="M1730 1845 l-155 -155 -67 67 -68 68 -35 -35 -35 -35 103 -103 102
+                        -102 195 195 195 195 -35 29 c-19 17 -37 30 -40 31 -3 0 -75 -70 -160 -155z"/>
+                        <path d="M3330 1519 c-371 -270 -675 -497 -674 -503 2 -17 184 -266 195 -266
+                        17 0 1359 982 1358 993 0 15 -181 259 -194 264 -5 1 -314 -218 -685 -488z
+                        m751 374 c34 -49 73 -102 86 -119 l23 -31 -652 -474 c-358 -261 -659 -480
+                        -669 -486 -15 -11 -27 1 -105 109 l-88 121 29 25 29 24 20 -25 c12 -13 34 -42
+                        50 -63 46 -59 43 -22 -3 40 -23 30 -41 57 -41 60 0 3 13 14 30 26 l30 21 25
+                        -28 c27 -31 36 -13 10 23 -13 19 -12 23 15 42 16 12 33 22 38 22 5 0 28 -27
+                        51 -60 23 -33 47 -58 52 -54 5 3 -11 35 -37 71 -49 69 -49 67 0 95 17 9 23 7
+                        34 -11 8 -11 21 -21 29 -21 11 0 11 6 -4 31 l-18 31 29 23 29 23 51 -66 c27
+                        -36 52 -60 54 -54 2 7 -15 37 -37 67 -23 30 -41 58 -41 62 0 4 12 17 28 29
+                        l27 22 22 -26 c26 -33 42 -22 19 14 -17 24 -17 26 1 40 48 38 50 38 95 -26 40
+                        -57 58 -73 58 -50 0 6 -19 36 -42 67 l-42 55 29 24 c37 30 39 30 55 -1 14 -25
+                        30 -33 30 -15 0 6 -7 21 -15 34 -15 23 -15 25 14 45 16 12 33 21 38 21 5 0 29
+                        -27 53 -60 24 -32 47 -57 52 -54 10 6 6 13 -45 81 l-39 53 23 20 c31 25 46 25
+                        61 0 13 -20 38 -28 38 -11 0 5 -7 14 -15 21 -8 7 -15 18 -15 26 0 17 60 59 69
+                        48 4 -5 24 -33 45 -61 33 -46 56 -66 56 -47 0 3 -20 34 -45 68 l-44 63 30 23
+                        31 22 23 -28 c28 -34 45 -26 21 10 -22 34 -21 39 14 59 l29 18 43 -60 c24 -33
+                        46 -61 51 -61 16 0 5 23 -34 76 -43 58 -42 71 3 95 14 8 23 4 43 -18 27 -31
+                        34 -16 10 21 -15 22 -14 25 19 50 l34 26 47 -65 c25 -36 51 -63 56 -60 5 4
+                        -12 35 -37 71 l-46 64 24 20 c12 11 28 19 34 20 7 0 40 -39 75 -87z"/>
+                        <path d="M2727 1801 l-27 -6 40 -57 41 -57 55 6 c61 7 60 8 37 -54 -3 -7 -1
+                        -13 4 -13 6 0 18 18 28 40 l18 39 -42 56 c-39 52 -44 55 -84 54 -23 -1 -54 -4
+                        -70 -8z"/>
+                        <path d="M3094 1705 c-48 -38 -54 -46 -38 -51 10 -4 41 -15 67 -26 l48 -18 47
+                        36 47 36 5 -38 c3 -21 10 -39 17 -41 9 -3 10 7 6 34 -9 58 -17 67 -82 90 l-60
+                        22 -57 -44z"/>
+                        <path d="M2432 1589 c-29 -22 -52 -43 -52 -47 0 -5 28 -18 62 -30 67 -24 60
+                        -26 131 28 l27 22 0 -25 c0 -32 9 -57 21 -57 12 0 0 82 -15 96 -6 7 -36 21
+                        -67 32 l-55 20 -52 -39z"/>
+                        <path d="M2707 1464 c-3 -4 11 -31 31 -60 l37 -54 58 2 c51 3 57 1 53 -14 -4
+                        -10 -9 -27 -12 -38 -12 -38 14 -20 30 21 17 41 17 42 -9 78 -52 74 -48 71
+                        -117 71 -36 0 -67 -3 -71 -6z"/>
+                    </g>
+                </svg>
+                <span ><b><font color="white">TruPen</font></b></span>
+            </div>
+
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#">Home</a></li>
+          <li><a class="nav-link scrollto" href="About Us.html">About Us</a></li>
+          <li><a class="nav-link scrollto" href="#">Contact US</a></li>
+          <li><a class="nav-link   scrollto" href="#">Register</a></li>
+          <li><a class="nav-link scrollto" href="#">Portals</a></li>
+          <li><a class="nav-link scrollto" href="#">FAQ</a></li>
+         <!-- <li><a class="getstarted scrollto" href="#">Login/Signup</a></li>-->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+<div id="main-content">
+      <div class="thim-block-slider-home" style="background:url(Image_Components/bg-home.jpg)">
+              <div class="container">
+                      <div class="content">
+                            <div class="slider-img">
+                                <div class="img-text animated fadeInLeft">
+                                   <img src="Image_Components/text-bg.png" alt="">
+                                </div>
+                            </div>
+                            <div class="slider-text">
+                                <div class="content-text">
+                                  <h3 class="title-silde animated fadeInDown">
+                                    The best for online education
+                                  </h3>
+                                  <h1 class="title-lms animated fadeInRightBig">TruPen <br> Quiz App</h1>
+                                  <div class="button-eduma animated fadeInUp">
+                                      <a href="#" class="btn btn-slide-left" target="_blank">Register Your Institue Now!!</a>
+                                  </div>
+                                </div>
+                            </div>
+                      </div>
+                      <div class="plugin-img">
+                          <div class="col-lg-2 img-tree wow fadeInUp">
+                              <img src="Image_Components/tree.png" alt="" title="">
+                          </div>
+                          <div class="col-lg-9 img-laptop wow fadeInLeft">
+                              <img src="Image_Components/laptop1.png" alt="" title="">
+                          </div>
+                      </div>
+              </div>
+      </div>
+
+    <div class="thim-block-video-home" style="background-image: url(Image_Components/bg-home3.png)">
+      <script>
+        var trailer = document.getElementById('trailer');
+      </script>
+
+      <div class="container-content">
+          <div class="row-content">
+              <div class="video-review col-lg-7">
+                    <div class="wrapper-video-rs">
+                          <div class="bg-video" id="bg-video">
+                                  <div class="button-play" id="trailer"></div>
+                                          <img src="Image_Components/bg-v.png" alt=""/>
+                                  </div>
+                                  <video controls playsinline id="player" width="100%">
+                                        <script>
+                                              var video = document.getElementById('player');
+                                              document.getElementById('trailer').onclick = function () {
+                                                    document.getElementById("player").style.display = "block";
+                                                    video.setAttribute('src', 'abc.mp4');
+                                                    video.play();
+                                                    document.getElementById("bg-video").style.opacity = "0";
+                                              }
+                                              document.getElementById("player").style.display = "none";
+                                         </script>
+                                  </video>
+                          </div>
+                    </div>
+                    <div class="content-number-one">
+                          <img src="Image_Components/number-one.png" alt="Eduma Top 1 Selling Education Theme" title="Eduma Top 1 Selling Education Theme">
+                                  <div class="title-number">
+                                            <h3>Number One Quiz App</h3>
+                                  </div>
+                                  <div class="rating">
+                                      <span></span><span></span><span></span><span></span><span></span>
+                                  </div>
+                    </div>
+                    <div class="counter-content wow fadeInUp">
+                        <div class="col-lg-3 col-md-6 pd-content">
+                            <div class="item-counter">
+                                <div class="item-couner-hover">
+                                    <img src="Image_Components/bag.png" alt="30,000 Sales" title="50,000 Sales">
+                                    <span class="counter">50000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 pd-content">
+                            <div class="item-counter">
+                                <div class="item-couner-hover">
+                                    <img src="Image_Components/heart.png" alt="100000 5 Star" title="1,700 5 Star">
+                                    <span class="counter">100000</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 pd-content">
+                            <div class="item-counter">
+                                <div class="item-couner-hover">
+                                    <img src="Image_Components/mesg.png" alt="10500 Comments" title="10500 Comments">
+                                    <span class="counter">10500</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 pd-content">
+                            <div class="item-counter">
+                                <div class="item-couner-hover">
+                                      <img src="Image_Components/icon-01.png" alt="Power Elite Author" title="Power Elite Author">
+                                      <span>Best Website</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="thim-block-demo-home" style="background-image: url(Image_Components/bg-home9.png)">
+          <div class="col-lg-4 col-md-7" style="margin: auto;" id="lists">
+                <div class="title-20">
+                    <h2 class="wow fadeIn">100+</h2>
+                    <div class="item-span-r">
+                        <span>Included</span>
+                    </div>
+                    <h3 class="wow fadeInUp">Premium Courses</h3>
+                    <p class="wow fadeInUp">Easy to Use</p>
+                </div>
+          </div>
+          <div class="container-content" id="scroll-to-demo">
+                  <div class="row-content warpper-list-demo">
+                        <div class="demo-tabs-wapper filters wow fadeInUp">
+                              <ul class="filters-demo-tabs" >
+                                  <li>
+                                    <a href="#lists" class="filter active" data-filter="*">For All</a>
+                                  </li>
+                                  <li>
+                                    <a class="filter" href="#lists" data-filter=".university">University</a>
+                                  </li>
+                                  <li>
+                                    <a class="filter" href="#lists" data-filter=".technology">Technology</a>
+                                  </li>
+                                  <li>
+                                    <a class="filter" href="#lists" data-filter=".school">School</a>
+                                  </li>
+                                  <li>
+                                    <a class="filter" href="#lists" data-filter=".academy">Academy</a>
+                                  </li>
+                                  <li>
+                                    <a class="filter" href="#lists" data-filter=".personal">Personal</a>
+                                  </li>
+                              </ul>
+                        </div>
+                        <div class="thim-content-text">
+                            <div class="text-box col-lg-5">
+                                <h3 class="wow fadeInLeft">
+                                    We Supports Every Platform
+                                </h3>
+                                <p class="wow fadeInUp">
+                                  Trupen is made with full mobile support,Laptop support and desktop support.
+                                </p>
+                            </div>
+                            <div class="img-box wow zoomIn">
+                                  <img src="Image_Components/laptop.png" alt="Full Mobile Support" title="Mobile Support">
+                            </div>
+                        </div>
+                  </div>
+          </div>
+    </div>  
+
+
+
+<div class="thim-block-learnpress-home" style="background-image: url(Image_Components/bg-home5.png)">
+      <div class="title-learnpress wow fadeInLeft">
+            <div class="container-content-wrap">
+                <h2>
+                LearnPress
+                </h2>
+            </div>
+      </div>
+      <div class="container-content-wrap">
+          <div class="row-content-wrap">
+              <div class="thim-learnpress-content">
+                  <div class="col-lg-6 wow fadeInUp">
+                      <div class="content-lms">
+                          <h3>
+                                #1 LMS Plugin
+                          </h3>
+                          <p>Education WP theme uses LearnPress, the #1 WP LMS Plugin on , which
+                              offers you a lot of benefits, such as: easy to update, independent from the theme,
+                              easy to change, create & sell courses online.</p>
+                      </div>
+                      <div class="content-progressbar">
+                            <div class="row">
+                                    <div class="col-lg-4 col-md-4">
+                                        <div class="text">Community</div>
+                                            <div class="progressbar-item">
+                                                <svg class="radial-progress" data-percentage="82" viewBox="0 0 80 80">
+                                                        <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                                                        <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle>
+                                                        <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">82%
+                                                        </text>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4">
+                                            <div class="text">Customized</div>
+                                                  <div class="progressbar-item">
+                                                      <svg class="radial-progress" data-percentage="75" viewBox="0 0 80 80">
+                                                        <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                                                        <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;
+                                                                                  "></circle>
+                                                        <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">75%</text>
+                                                      </svg>
+                                                  </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4">
+                                                <div class="text">Update</div>
+                                                      <div class="progressbar-item">
+                                                          <svg class="radial-progress" data-percentage="90" viewBox="0 0 80 80">
+                                                            <circle class="incomplete" cx="40" cy="40" r="35"></circle>
+                                                            <circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;
+                                                                                    "></circle>
+                                                            <text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">90%
+                                                                </text>
+                                                          </svg>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                            </div>
+
+
+                            <div class="col-lg-6">
+                                  <div class="img-item-learnpress">
+                                        <div class="img-learn-01 img-center">
+                                             <a href="https://wordpress.org/plugins/wp-events-manager-woocommerce-payment-methods-integration/" class="wow fadeInRight" target="_blank">
+                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/WP-Events-Manager-icon.png" alt="WP Events Manager" title="WP Events Manager">
+                                              </a>
+                                              <a href="https://wordpress.org/plugins/learnpress-offline-payment/" class="wow fadeInRight" target="_blank">
+                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Offline-Payment-icon.png" alt="Offline Payment" title="Offline Payment">
+                                              </a>
+                                              <a href="https://wordpress.org/plugins/learnpress-fill-in-blank/" class="wow fadeInRight" target="_blank">
+                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Fill-in-blank-question-icon.png" alt="Fill in blank question" title="Fill in blank question">
+                                              </a>
+                                        </div>
+                                        <div class="img-learn-02 img-center">
+                                              <a href="https://wordpress.org/plugins/learnpress-import-export/" class="wow fadeInRight" target="_blank">
+                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Export-import-icon.png" alt="Export import" title="Export import">
+                                              </a>
+                                              <a href="https://wordpress.org/plugins/learnpress-prerequisites-courses/" class="wow fadeInRight" target="_blank">
+                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Prerequisites-icon.png" alt="Prerequisites" title="Prerequisites">
+                                              </a>
+                                              <a href="https://wordpress.org/plugins/learnpress-wishlist/" class="wow fadeInRight" target="_blank">
+                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Course-wishlist-icon.png" alt="Course wishlist" title="Course wishlist">
+                                              </a>
+                                              <a href="https://wordpress.org/plugins/learnpress-course-review/" class="wow fadeInRight" target="_blank">
+                                                  <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/Course-review-icon.png" alt="Course review" title="Course review">
+                                              </a>
+                                        </div>
+                                        <div class="img-learn-03 img-center">
+                                                <a href="https://wordpress.org/plugins/learnpress-buddypress/" class="wow fadeInRight" target="_blank">
+                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/BuddyPress-icon.png" alt="BuddyPress" title="BuddyPress">
+                                                </a>
+                                                <a href="https://wordpress.org/plugins/learnpress-bbpress/" class="wow fadeInRight" target="_blank">
+                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/bbPress-icon.png" alt="BbPress" title="BbPress">
+                                                </a>
+                                                <a href="https://thimpress.com/product/h5p/" class="wow fadeInRight" target="_blank">
+                                                    <img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/H5P-icon.png" alt="H5P" title="H5P">
+                                                </a>
+                                        </div>
+                                  </div>
+                            </div>
+                      </div>
+                  </div>
+                  <div class="row-modal">
+<a href="https://thimpress.com/product/co-instructors-add-on-for-learnpress/" target="_blank">
+<img src="https://eduma.thimpress.com/wp-content/themes/eduma-child-landingpage/assets/images/lp-10.png" alt="Co-instructor Add-on" title="Co-instructor Add-on">
+</a>
+<br />
+<br>
+</div>
+</div>
+
+
+<div class="thim-block-elementor-home" style="background-image: url(Image_Components/bg-home6.png)">
+<div class="fl-right">
+<div class="title-elementor wow fadeInRight">
+<h2>
+TruPen
+</h2>
+</div>
+</div>
+<div class="container-content-wrap">
+<div class="row-content-wrap">
+<div class="thim-elementor-content">
+<div class="col-lg-7 wow fadeInLeft">
+<div class="content-img">
+<img src="Image_Components/elementor-img-01.png" alt="Elementor Compatible" title="Elementor Compatible">
+</div>
+</div>
+<div class="col-lg-5 wow fadeInUp">
+<div class="content-text">
+<p class="text-color">Design quizzes visually, easy control every aspect of your web
+design workflow from one place.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+        <div class="thim-block-customer-home divstyle">
+              <div class="title-learnpress wow fadeInLeft">
+            <div class="container-content-wrap">
+                <h2>
+                About Us
+                </h2>
+            </div>
+      </div>
+      <br>
+      <br>
+                <div class="row">
+                      <style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+.card {
+  font-family: 'Open Sans', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.4em;
+  background-color: #141414;
+  position: relative;
+  display:inline-block;
+  animation: animatebottom 0.4s
+}
+.card * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.card .background {
+  width: 100%;
+  vertical-align: top;
+  opacity: 0.5;
+  -webkit-filter: grayscale(50%) blur(10px);
+  filter: grayscale(50%) blur(5px);
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+.card .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  max-width: 100px;
+  opacity: 1;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  -webkit-transform: translate(-50%, 0%);
+  transform: translate(-50%, 0%);
+}
+.card .profile:hover{
+    border-radius: 30%;
+    transition:1s;
+}
+.card h3 {
+  margin: 0 0 5px;
+  font-weight: 400;
+  opacity:100%;
+}
+.card h3 span {
+  display: block;
+  font-size: 0.8em;
+  color: #f39c12;
+  opacity: 0.75;
+}
+.card i {
+  padding: 10px 5px;
+  display: inline-block;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  opacity: 0.65;
+}
+.card a {
+  text-decoration: none;
+}
+.card i:hover {
+  opacity: 1;
+  -webkit-transition: all 0.35s ease;
+  transition: all 0.35s ease;
+}
+.card:hover .background,
+.card.hover .background {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+.divstyle{
+    background-image: url(Image_Components/bg-home3.png);
+    background-color:rgb(0, 0, 90);
+    color:white;
+    animation: fadeInAnimation ease 3s
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animatebottom {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 3px rgb(0,0,0);
+	background-color: #F5F5F5;
+}
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+h1{
+  color: #C1292E;
+  font-size: 100px;
+  margin-top: 7%;
+}
+.content-wrap{
+  background-color: rgba(0,0,128,0.2);
+  border-radius: 0px 3px 3px 0px;
+}
+</style>
+<div class="content-wrap">
+<center><h1>Meet the Team</h1></center>>
+</div>
+<div class="card" style="margin-left:260px">
+<img src="Image_Components/Shashank_P.jpg" height="310" width="300" alt="Shashank_P" class="background"/>
+<img src="Image_Components/Shashank_P.jpg" class="profile"/>
+
+    <h3 style="color:white">Shashank P<span>200010048</span></h3>
+
+    <div class="icons">
+    <a href="https://www.facebook.com/shashank.prakash.2832">
+    <i class="ion-social-facebook-outline"></i>
+    </a>
+    <a href="#"> 
+    <i class="ion-social-linkedin-outline"></i>
+    </a>
+    <a href="https://github.com/shashankp28"> 
+    <i class="ion-social-github-outline"></i>
+    </a>
+    <a href="https://www.instagram.com/mystic_mickey28/">
+    <i class="ion-social-instagram-outline"></i></a>
+    </div>
+  
+</div>
+<div class="card">
+<img src="Image_Components/nkc-beta.jpg" height="310" width="300" alt="Niteesh" class="background"/>
+<img src="Image_Components/nkc-beta.jpg" alt="Niteesh" class="profile"/>
+
+    <h3 style="color:white">Niteesh Kamal Chaudhary<span>200010035</span></h3>
+
+    <div class="icons">
+    <a href="https://www.facebook.com/niteesh.chaudhary.14">
+    <i class="ion-social-facebook-outline"></i>
+    </a>
+    <a href="#"> 
+    <i class="ion-social-linkedin-outline"></i>
+    </a>
+    <a href="https://github.com/niteeshchaudhary"> 
+    <i class="ion-social-github-outline"></i>
+    </a>
+    <a href="https://www.instagram.com/_niteesh_chaudhary_/"> 
+    <i class="ion-social-instagram-outline"></i>
+    </a>
+    </div>
+
+</div>
+<div class="card">
+<img src="Image_Components/tabish-alpha.jpg" height="310" width="300" alt="Tabish" class="background"/>
+<img src="Image_Components/tabish-alpha.jpg" alt="Tabish" class="profile"/>
+  
+    <h3 style="color:white">Tabish Khalid Halim<span>200020049</span></h3>
+
+    <div class="icons">
+    <a href="https://www.facebook.com/tabish.khalidhalim/">
+    <i class="ion-social-facebook-outline"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/tabish-khalid-halim-27209b201/"> 
+    <i class="ion-social-linkedin-outline"></i>
+    </a>
+    <a href="https://github.com/tkhalim14"> 
+    <i class="ion-social-github-outline"></i>
+    </a>
+    <a href="https://www.instagram.com/thesnagtalker007/"> 
+    <i class="ion-social-instagram-outline"></i>
+    </a>
+    </div>
+
+</div>
+
+<div>
+</div>
+<br>
+<br>
+<br>
+
+
+
+                </div>
+              </div>
+        </div>
+
+
+  <footer>
+
+<style>
+ul{
+  list-style-type: none;
+}
+</style>
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-contact" style="margin-left:5%">
+            <h3>TruPen - Quiz APP</h3>
+            <p>
+              Katra Mandi <br>
+              Noida, Delhi 302089<br>
+              India <br><br>
+              <strong>Phone:</strong> +91-696969696<br>
+              <strong>Email:</strong> trupenofficial@gmail.com<br>
+            </p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links" style="margin-left:5%">
+            <h4>Important Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="Home.html">Home</a></li>
+              <!--<li><i class="bx bx-chevron-right"></i> <a href="process_login_signup.php">Login/Signup</a></li>-->
+              <li><i class="bx bx-chevron-right"></i> <a href="About Us.html">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="IITdh_portal.php">Portal</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="About Us.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6 footer-links" style="margin-left:5%">
+            <h4>Our Social Networks</h4>
+            <p>Connect with us through any of them</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+<br>
+    <div class="container footer-bottom clearfix">
+      <div class="copyright" style="margin-left: 35%;">
+        &copy; Copyright <strong><span>TruPen - Quiz APP</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short">
+         <div id="back-to-top" class="btn-back-to-top">
+            <p>
+            Top
+            </p>
+        </div>
+    </i>
+  </a>
+   
+
+  <script src="Design_Components/jquery.min.js"></script>        
+  <script src="Design_Components/isotope.pkgd.min.js"></script>
+
+<script src="Design_Components/swiper-bundle.min.js?v=1"></script>
+
+
+<script src="Design_Components/animsition.min.js?v=1"></script>
+
+<script src="Design_Components/jquery.waypoints.min.js?v=1"></script>
+
+<script src="Design_Components/wow.min.js?v=1"></script>
+
+<script src="Design_Components/jquery.counterup.min.js?v=1"></script>
+
+<script src="Design_Components/main.min.js?v=1.7.3" min></script>
+
+  <script type="text/javascript">
+  var tp_chameleon_url_stylesheet = 'https://eduma.thimpress.com/wp-content/themes/eduma/style-1.css';
+  var tp_chameleon_url_admin_ajax = 'https://eduma.thimpress.com/wp-admin/admin-ajax.php';
+  var tp_chameleon_wp_nonce = '2a29a6a66b';
+  var tp_chameleon_primary_color = 'rgb(255, 182, 6)';
+  var tp_chameleon_selector_wrapper_box = '.content-pusher';
+  var tp_chameleon_class_boxed = 'boxed-area';
+  var tp_chameleon_src_patterns = 'https://eduma.thimpress.com/wp-content/plugins/tp-chameleon/images/patterns/';
+  var tp_chameleon_setting = {
+    layout: tp_chameleon_getCookie('tp_chameleon_layout'),
+    pattern_type: tp_chameleon_getCookie('tp_chameleon_pattern_type'),
+    pattern_src: tp_chameleon_getCookie('tp_chameleon_pattern_src'),
+    primary_color: tp_chameleon_getCookie('tp_chameleon_primary_color'),
+    primary_color_rgb: tp_chameleon_getCookie('tp_chameleon_primary_color_rgb'),
+    body_font: tp_chameleon_getCookie('tp_chameleon_body_font'),
+    body_font_code: tp_chameleon_getCookie('tp_chameleon_body_font_code'),
+    heading_font: tp_chameleon_getCookie('tp_chameleon_heading_font'),
+    heading_font_code: tp_chameleon_getCookie('tp_chameleon_heading_font_code')
+  };
+
+  var tp_chameleon_site_url = '//eduma.thimpress.com';
+
+  function tp_chameleon_setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+  }
+
+  function tp_chameleon_deleteCookie(cname) {
+    var d = new Date();
+    d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=; " + expires;
+  }
+
+  function tp_chameleon_deleteAllCookie() {
+    var all_cookie = [
+      'tp_chameleon_layout',
+      'tp_chameleon_pattern_type',
+      'tp_chameleon_pattern_src',
+      'tp_chameleon_primary_color',
+      'tp_chameleon_primary_color_rgb',
+      'tp_chameleon_body_font',
+      'tp_chameleon_body_font_code',
+      'tp_chameleon_heading_font',
+      'tp_chameleon_heading_font_code'
+    ];
+
+    for (var i = 0; i < all_cookie.length; i++) {
+      tp_chameleon_deleteCookie(all_cookie[i]);
+    }
+  }
+
+  function tp_chameleon_getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1);
+      if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+
+    return '';
+  }
+
+  function tp_chameleon_set_first_visit() {
+    tp_chameleon_setCookie('tp_chameleon_first_visit', 1, 1);
+  }
+
+  function tp_chameleon_check_first_visit() {
+    return !(tp_chameleon_getCookie('tp_chameleon_first_visit') == '1' );
+  }
+
+  jQuery(document).ready(function ($) {
+    var $preview = $('.tp-preview-images');
+
+    $('.tp_demo').hover(
+      function (event) {
+        var url_prewview = $(this).attr('data-preview');
+        if( url_prewview ) {
+          $preview.find('img').attr('src', url_prewview);
+          $preview.show();
+        }
+      },
+      function () {
+        $preview.hide();
+      }
+    );
+
+    $('.tp_demo').mousemove(function (event) {
+      var y = (event.clientY);
+      $preview.css('top', y - 250);
+    });
+
+    function tp_chameleon_open() {
+      tp_chameleon_set_first_visit();
+      $('#tp_style_selector').addClass('show').animate({right: '0px'}, 'medium');
+      $('#tp_style_selector .open').hide();
+      $('#tp_style_selector .close').show();
+    }
+
+    function tp_chameleon_close() {
+      $('#tp_style_selector').removeClass('show').animate({right: '-350px'}, 'medium');
+      $('#tp_style_selector .close').hide();
+      $('#tp_style_selector .open').show();
+    }
+
+    function tp_form_newsletter_show() {
+            tp_chameleon_set_first_visit();
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 200) {
+                    $('.tp-email-form .button-email').addClass('bounceInUp animated active');
+                    var cookie_name = 'hide_form_email1';
+                    $.cookie(cookie_name, '1', {expires: 3, path: '/'});
+                }
+            });
+        }
+
+    function tp_change_background_pattern(url_pattern) {
+      var $body = $('body');
+      $body.removeClass('tp_background_image');
+      $body.addClass('tp_background_pattern');
+      $body.css('background-image', 'url("' + url_pattern + '")')
+    }
+
+    function tp_change_background_image(url_image) {
+      var $body = $('body');
+      $body.removeClass('tp_background_pattern');
+      $body.addClass('tp_background_image');
+      $body.css('background-image', 'url("' + url_image + '")')
+    }
+
+    function tp_chameleon_change_layout_wide() {
+      tp_chameleon_setCookie('tp_chameleon_layout', 'wide', 1);
+
+      var $body = $('body');
+      $('.tp-change-layout').removeClass('active');
+      $('.tp-change-layout.layout-wide').addClass('active');
+      $('#tp_style_selector .boxed-mode').slideUp(300);
+      $(tp_chameleon_selector_wrapper_box).removeClass(tp_chameleon_class_boxed);
+      $body.css('background-image', 'none');
+    }
+
+    function tp_chameleon_change_layout_boxed() {
+      tp_chameleon_setCookie('tp_chameleon_layout', 'boxed', 1);
+      $('.tp-change-layout').removeClass('active');
+      $('.tp-change-layout.layout-boxed').addClass('active');
+      $('#tp_style_selector .boxed-mode').slideDown(300);
+      $(tp_chameleon_selector_wrapper_box).addClass(tp_chameleon_class_boxed);
+    }
+
+    function tp_chameleon_change_background_pattern(pattern_src) {
+      tp_chameleon_setCookie('tp_chameleon_pattern_src', pattern_src, 1);
+      tp_chameleon_setCookie('tp_chameleon_pattern_type', 'pattern', 1);
+      var pattern_url = tp_chameleon_src_patterns + pattern_src;
+      tp_change_background_pattern(pattern_url);
+    }
+
+    function tp_chameleon_change_background_image(pattern_src) {
+      tp_chameleon_setCookie('tp_chameleon_pattern_src', pattern_src, 1);
+      tp_chameleon_setCookie('tp_chameleon_pattern_type', 'image', 1);
+      var pattern_url = tp_chameleon_src_patterns + pattern_src;
+      tp_change_background_image(pattern_url);
+    }
+
+    var $body_font = '<style id="tp_chameleon_body_font" type="text/css"></style>';
+    var $heading_font = '<style id="tp_chameleon_heading_font" type="text/css"></style>';
+    var $stylesheet = '<link id="tp_chameleon_stylesheet" type="text/css" rel="stylesheet">';
+
+    var $tp_head = $('head');
+    $tp_head.append($stylesheet);
+
+    var $tp_body = $('body');
+    $tp_body.append($body_font);
+    $tp_body.append($heading_font);
+
+    if (tp_chameleon_setting.layout == 'wide') {
+      tp_chameleon_change_layout_wide();
+    }
+    if (tp_chameleon_setting.layout == 'boxed') {
+      tp_chameleon_change_layout_boxed();
+
+      if (tp_chameleon_setting.pattern_type == 'pattern' && tp_chameleon_setting.pattern_src != '') {
+        tp_chameleon_change_background_pattern(tp_chameleon_setting.pattern_src);
+        $('.tp_pattern[data-src="' + tp_chameleon_setting.pattern_src + '"]').addClass('active');
+      }
+
+      if (tp_chameleon_setting.pattern_type == 'image' && tp_chameleon_setting.pattern_src != '') {
+        tp_chameleon_change_background_image(tp_chameleon_setting.pattern_src);
+        $('.tp_image[data-src="' + tp_chameleon_setting.pattern_src + '"]').addClass('active');
+      }
+    }
+
+    $('.tp-chameleon-clear').click(function (event) {
+      event.preventDefault();
+      tp_chameleon_deleteAllCookie();
+      document.location.reload();
+    });
+
+    $('.tp-btn.tp-change-layout').click(function (event) {
+      event.preventDefault();
+
+      if ($(this).hasClass('layout-wide')) {
+        tp_chameleon_change_layout_wide();
+
+              } else {
+        tp_chameleon_change_layout_boxed();
+
+              }
+    });
+
+    $('.tp_pattern').click(function (event) {
+      event.preventDefault();
+      $('.tp_pattern').removeClass('active');
+      $('.tp_image').removeClass('active');
+      $(this).addClass('active');
+      var pattern_src = $(this).attr('data-src');
+      tp_chameleon_change_background_pattern(pattern_src);
+    });
+
+    $('.tp_image').click(function (event) {
+      event.preventDefault();
+      $('.tp_pattern').removeClass('active');
+      $('.tp_image').removeClass('active');
+      $(this).addClass('active');
+      var pattern_src = $(this).attr('data-src');
+      tp_chameleon_change_background_image(pattern_src);
+    });
+
+    /**
+     * Open/Close box
+     */
+    $('#tp_style_selector .close').click(function (e) {
+      e.preventDefault();
+      tp_chameleon_close();
+    });
+    $('#tp_style_selector .link-buy').click(function (e) {
+      e.preventDefault();
+      window.top.location.href = self.location.href;
+    });
+
+    $('#tp_style_selector .open').click(function (e) {
+      e.preventDefault();
+      tp_chameleon_open();
+    });
+
+    $(window).on('load', function(){
+      // var $btn = $('.tp-chameleon-btn-buy');
+      // $btn.animate({
+      //  bottom: $btn.attr('data-bottom')
+      // }, 500);
+
+      //Set view-more-slider button
+      $('.view-more-slider .text:last-child').hide();
+      setInterval(function(){
+        $('.view-more-slider .text:first-child').hide();
+        $('.view-more-slider .text:last-child').show();
+        setTimeout(function(){
+          $('.view-more-slider .text:first-child').show();
+          $('.view-more-slider .text:last-child').hide();
+        }, 2000);
+      }, 4500);
+
+    });
+
+    /**
+     * Check firt visit
+     */
+    if (tp_chameleon_check_first_visit()) {
+        //set visit is second
+      // setTimeout(tp_chameleon_open, 5000);
+      //try{
+      //  if (top !== self) top.location.replace(self.location.href);
+      //}catch(ex){console.log('Redirecting error')}
+    } else {
+      $('#tp_style_selector').click(function (event) {
+        tp_chameleon_set_first_visit();
+      });
+    }
+        if (tp_chameleon_check_first_visit()) {
+            tp_form_newsletter_show();
+        }
+    $('#tp_style_selector .link-buy').click(function (e) {
+      e.preventDefault();
+      window.top.location.href = 'https://1.envato.market/Yx2YR';
+    });
+
+        //try{
+       // if (top !== self) top.location.replace(self.location.href);
+    //}catch(ex){console.log('Redirecting error')}
+     // if (top !== self && !$.browser.chrome) top.location.replace(self.location.href);
+    
+        $('.tp-email-form .button-email').click(function (e) {
+            e.preventDefault();
+            $('.tp-email-form .email-form-popup').addClass('show');
+        });
+        $('.tp-email-form .email-form-popup .close-popup').click(function (e) {
+            e.preventDefault();
+            $('.tp-email-form .email-form-popup').removeClass('show');
+            $('.tp-email-form .button-email').addClass('hide');
+        });
+
+        $('.tp-email-form .email-form-popup .email-form-subscribe form ').submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            form.append('<div class="loading"><i class="fa fa-spinner fa-pulse"></i></div>');
+            if(form.find('input[type="email"]').val()) {
+                $.ajax({
+                    type: "POST",
+                    url: 'https://preview.thimpress.com/m/mailster/subscribe',
+                    data: form.serialize(),
+                    complete: function (xhr, textStatus) {
+                        form.find('.loading').remove();
+                        form.append('<div class="message-success">Please check your inbox or spam folder for confirmation email!</div>');
+                        setTimeout(function () {
+                            form.find('.message-success').remove();
+                        }, 2000);
+                    }
+                });
+            } else {
+                form.find('.loading').remove();
+                form.append('<div class="message-error">Please enter email address</div>');
+                setTimeout(function(){ form.find('.message-error').remove(); }, 2000);
+                form.find('input[type="email"]').addClass('error');
+            }
+
+
+        });
+
+        $('.tp-email-form .email-form-popup .email-form-subscribe form input[type="email"]').focus(function () {
+            $(this).removeClass('error');
+        });
+  });
+</script><script>
+  new WOW().init();
+</script>
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2687505271577228');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2687505271577228&ev=PageView&noscript=1"
+/></noscript>
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T2K5VT7');</script>
+
+  <script src="bootstrap/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="bootstrap/vendor/aos/aos.js"></script>
+  <script src="bootstrap/vendor/php-email-form/validate.js"></script>
+  <script src="bootstrap/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="bootstrap/js/main.js"></script>
+  <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="bootstrap/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="bootstrap/vendor/isotope-layout/isotope.pkgd.min.js"></script> 
+
+</body>
+
+</html>
