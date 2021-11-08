@@ -6,6 +6,7 @@ session_start();
 <head>
 	<title>Quizzes</title>
 </head>
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <style>
 	body

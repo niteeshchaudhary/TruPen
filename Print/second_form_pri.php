@@ -12,6 +12,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+  <link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 	<link rel="stylesheet" href="../inpcss.css">
 	<style>
 		.topdiv{

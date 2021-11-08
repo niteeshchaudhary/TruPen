@@ -73,6 +73,7 @@ if ($con->query($sql) === FALSE)
 <head>
 	<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
 </head>
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 <style>
 				body {
 				  text-align: center;

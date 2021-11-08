@@ -33,6 +33,7 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
 <head>
 <title><?php echo "Quiz : ".$_SESSION["quiz_name"]; ?></title>
 <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 <style>
   * {box-sizing: border-box}
       body {

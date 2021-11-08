@@ -5,6 +5,7 @@ date_default_timezone_set('Asia/Kolkata');
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
     <title>Create Quiz</title>
 	<style>
 		body {

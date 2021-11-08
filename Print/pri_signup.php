@@ -6,7 +6,7 @@ $_SESSION["p"] = "office";
 <html lang="en" >
 
 <head>
-
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
   <meta charset="UTF-8">
   <meta name="TRUPEN" content="TRUPEN">
 

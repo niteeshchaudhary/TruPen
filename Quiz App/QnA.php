@@ -4,6 +4,7 @@ session_start();
 ?>
 <html>
 <head>
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   * {box-sizing: border-box}

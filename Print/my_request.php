@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 <style>
 table, th, td {
   border: 1px solid black;
