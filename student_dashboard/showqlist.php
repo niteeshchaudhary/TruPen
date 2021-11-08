@@ -78,7 +78,7 @@
 							<path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
 							</span>
 							<?php
-									$qryst="select * from notifications where type_to='".$_SESSION["table"]."_".$_SESSION["user"]."' or type_to='".$_SESSION["table"]."_all';";
+									$qryst="select * from notifications where type_to='".$_SESSION["table"]."_".$_SESSION["user"]."' or type_to='".$_SESSION["table"]."_all' order by No desc;";
 									$result5 = $con->query($qryst);?>
 							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> <?php  echo mysqli_num_rows($result5);?></span>
 					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
