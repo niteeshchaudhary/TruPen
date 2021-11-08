@@ -118,7 +118,7 @@
 			</div>
 			<div class="app-content">
 				<div class="app-sidebar">
-					<a href="dashboard.php" class="app-sidebar-link active">
+					<a href="dashboard.php" class="app-sidebar-link">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
@@ -130,7 +130,7 @@
 							<path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
 						</svg>
 					</a>
-					<a href="notif.php" class="app-sidebar-link">
+					<a href="notif.php" class="app-sidebar-link active">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
 							<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
 							<line x1="16" y1="2" x2="16" y2="6" />
@@ -162,7 +162,7 @@
 				</div>
 				<div class="projects-section">
 					<div class="projects-section-header">
-						<p>Courses</p>
+						<p>Send a Message!</p>
 						<p class="time"><?php echo date('F, d');?></p>
 						<div class="view-actions">
 							<button class="view-btn list-view" title="List View">
@@ -185,90 +185,8 @@
 							</button>
 						</div>
 					</div>
-					<!--<div class="projects-section-line">
-						<div class="projects-status">
-							<div class="item-status">
-								<span class="status-number">45</span>
-								<span class="status-type">In Progress</span>
-							</div>
-							<div class="item-status">
-								<span class="status-number">24</span>
-								<span class="status-type">Upcoming</span>
-							</div>
-							<div class="item-status">
-								<span class="status-number">62</span>
-								<span class="status-type">Total Projects</span>
-							</div>
-						</div>
-					</div>-->
-					<div class="project-boxes jsGridView">
-						<?php 
-						  $colorbk=array('#fee4cb','#e9e7fd','#4feeff','#ffd3e2','#c8f7dc','#d5deff');
-							$colors=array('#ff942e','#4f3ff0','#096c86','#df3670','#34c471','#4067f9');
-							$qryst="select * from teacher;";
-						  $result = $con->query($qryst);
-						  
-						  $cnt=0;
-						  if ($result && $result->num_rows > 0) {
-						    while($row = $result->fetch_assoc()){
-						    	$prof_img="abc";
-								$cq = $con->query("select count(subject) from quiz where subject='".$row["subject"]."';");
-						    	if (file_exists('../profile_pic/teacher/'.$row['username'].'.jpg')) {
-									    $prof_img='../profile_pic/teacher/'.$row['username'].'.jpg';
-									} else {
-									    $prof_img= '../profile_pic/teacher/user.jpg';
-									}
-									$df=0;
-									if($cq && $cq->num_rows>0)
-									{
-										$rr=$cq->fetch_assoc();
-										$df=$rr["count(subject)"];
-									}
-									echo '
-						    	<div class="project-box-wrapper">
-										<div class="project-box" onclick="gotoC(\''.$row["subject"].'\');" style="background-color: '.$colorbk[$cnt%6].';">
-											<div class="project-box-header">
-												<span>*Compulsary Course</span>
-												<div class="more-wrapper">
-													<button class="project-btn-more">
-														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-															<circle cx="12" cy="12" r="1" />
-															<circle cx="12" cy="5" r="1" />
-															<circle cx="12" cy="19" r="1" />
-														</svg>
-													</button>
-												</div>
-											</div>
-											<div class="project-box-content-header">
-												<p class="box-content-header">'.$row["subject"].'</p>
-												<p class="box-content-subheader">'."Prototyping".'</p>
-											</div>
-											<div class="box-progress-wrapper">
-												<p class="box-progress-header">Progress</p>
-												<div class="box-progress-bar">
-													<span class="box-progress" style="width: '.($df*100/12).'%; background-color:'.$colors[$cnt%6].';"></span>
-												</div>
-												<p class="box-progress-percentage">'.round($df*100/12).'%</p>
-											</div>
-											<div class="project-box-footer">
-												<div class="participants">
-													<img src="'.$prof_img.'?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2555&q=80" alt="professor">
-													&nbsp'.$row['username'].'
-												</div>
-												<div class="days-left" style="color: '.$colors[$cnt%6].';">
-														In Progress
-													</div>
-												</div>
-										</div>
-									</div>';
-									$cnt+=1;
-						    }
-						  }
-						  else{
-
-						  }
-						?>
-					</div>
+                    <iframe src="../notifications/notification1.php" name="targetframe" id="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
+						</iframe>
 				</div>
 				<div class="messages-section">
 					<button class="messages-close">

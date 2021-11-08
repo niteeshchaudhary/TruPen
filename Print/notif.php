@@ -117,7 +117,7 @@ td{
             </div>
             <div class="app-content">
                 <div class="app-sidebar">
-                    <a href="pri_dashboard.php" class="app-sidebar-link active">
+                    <a href="pri_dashboard.php" class="app-sidebar-link">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
 							<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
 							<polyline points="9 22 9 12 15 12 15 22" />
@@ -131,7 +131,7 @@ td{
 							<rect x="6" y="14" width="12" height="8"/>
 						</svg>
 					</a>-->
-                    <a href="notif.php" class="app-sidebar-link">
+                    <a href="notif.php" class="app-sidebar-link  active">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
 							<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
 							<line x1="16" y1="2" x2="16" y2="6" />
@@ -157,57 +157,9 @@ td{
                 <div class="projects-section">
                     <div class="projects-section-header">
                         <div>
-                            <h1>Pending Requests</h1>
-                            <h3 style="color: red;">Please "Accept only after printing is successful!"</h3>
-                            <br>
-                            <br>
-                            <table id="table">
-                                <tr>
-									 <th>User</th>
-									 <th>File</th>
-									 <th>Copies</th>
-									 <th>Type</th>
-									 <th>Comment</th>
-                                     <th>Cost</th>
-									 <th>Accept</th>
-									 <th>Reason for Rejection</th>
-									 <th>Reject</th>
-								</tr>
-                                <?php
-								$con = new mysqli('localhost', 'root', NULL, 'trupendb');
-								$sql = "SELECT * FROM print WHERE status LIKE '1'";
-								$result = $con->query($sql) or die("Error: ". $con->error);
-								if($result->num_rows > 0)
-								{
-								while($row = $result->fetch_assoc())
-								{
-								?>
-                                    <tr>
-										 <td><?php echo $row['user']; ?></td>
-										 <td><input type="button" value="Preview/Print" onclick = "openPdf('<?php echo $row['location']; ?>')" /></td>
-										 <td><?php echo $row['copies']; ?></td>
-										 <td><?php echo $row['type']; ?></td>
-										 <td><?php echo $row['comment']; ?></td>
-										 <form method="POST" action="accept.php" id="accept">
-											<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
-                                            <td><input type="number" min="1" name="cost" required></td>
-											<td><input type="submit" value="Accept"></td>
-										 </form>
-										 <form method="POST" action="reject.php" id="reject">
-											<input type="hidden" name="id" value="<?php echo $row['location']; ?>">
-											<td><input type="text" name="reason" required></td>
-											<td><input type="submit" value="Reject"></td>
-										 </form>
-									</tr>
-                                    <?php
-								}
-								}
-								?>
-                            </table>
-                            <div id="myFrameholder" style="display:none;background-color:f1f1f1;">
-							<h3>Preview</h3>
-								<iframe id="myFrame" style="display:none" width="790" height="380">	
-								</iframe>
+                            <h1>Send a Message!</h1>
+                            <iframe src="../notifications/notification1.php" name="targetframe" id="targetframe" allowTransparency="true" scrolling="yes" frameborder="0" style="height:750px;width:100%;border-radius:20px;" >
+						</iframe>
 						</div>
                         </div>
                     </div>
