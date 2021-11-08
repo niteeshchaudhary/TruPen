@@ -922,3 +922,7 @@ a {
     background-color: #000000;
     border: 2px solid #555555;
 }
+.lg a {
+    background: var(--more-list-bg);
+    color: var(--main-color);
+}
