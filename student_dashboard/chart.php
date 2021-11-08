@@ -26,12 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../Chatbot/static/css/chat.css">
-		<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
-		<meta name="apple-mobile-web-app-title" content="CodePen">
-
-		<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
-
-		<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+		<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -83,17 +78,14 @@
 							<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
 							<path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
 							</span>
-							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> 5</span>
+							<?php
+									$qryst="select * from notifications";
+									$result5 = $con->query($qryst);?>
+							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> <?php  echo mysqli_num_rows($result5);?></span>
 					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
 					        <div class="list-group" style="width:500px;" ">
 					          <div class="lg" >
-					            <!--<a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-					              <h5 class="mb-1">Real Estate Marketing Automation: 6 Simple Systems</h5>
-					              <p class="mb-0">17 October 2016 | 9:32 pm</p>
-					            </a>-->
 								<?php
-									$qryst="select * from notifications";
-									$result5 = $con->query($qryst);
 									while($row5 = $result5->fetch_assoc())
 									{
 										$a = explode("_", $row5["type_to"])[0];

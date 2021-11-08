@@ -4,6 +4,7 @@
         User Login Page
     </title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
+    <link rel = "icon" href ="Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 </head>     
 <style> 
 .loader {

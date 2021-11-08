@@ -4,6 +4,7 @@
 
     <meta charset="UTF-8">
     <meta name="trupen" content="truPen">
+    <link rel = "icon" href ="Image_Components/truPen Better Logo.png"  type = "image/x-icon">
     <title>truPen | Login Form -&gt; HTML &amp; CSS</title>
     <link rel="stylesheet" href="globalstyles.css?v=<?php echo time(); ?>">
     <script>

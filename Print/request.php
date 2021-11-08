@@ -4,6 +4,7 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
     <title>Print Request</title>
 </head>
 <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">

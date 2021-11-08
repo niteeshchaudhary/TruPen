@@ -5,7 +5,7 @@ session_start();
     <html lang="en">
 
     <head>
-
+    <link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
         <meta charset="UTF-8">
         <meta name="trupen" content="truPen">
         <title>truPen | Dashboard -&gt; HTML &amp; CSS</title>

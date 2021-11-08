@@ -23,6 +23,7 @@ $sql = 'CREATE TABLE IF NOT EXISTS '.$_SESSION["subject_quiz"].'
 ?>
 <html>
 	<head>
+	<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
 		<style>
 				body {
 				  text-align: center;
