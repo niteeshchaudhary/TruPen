@@ -6,6 +6,7 @@
 5. Once inside index.html click on "Portals" in the top Nav-Bar and then select IITDH.
 
 6. GitHub Repository Link: https://github.com/niteeshchaudhary/TruPen
+6. Youtube Feature Explaination: https://youtu.be/asI0oqTIRqA
 
 ------------------------------------------------------------
 Our gmail account:
