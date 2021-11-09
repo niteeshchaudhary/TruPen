@@ -652,6 +652,7 @@
 																<div class="quiz-container" id="quiz">
 																<div class="quiz-header">
 																	<div class="numbertext">Q : '.($q++).'</div>
+																	<h2>Marks: '.$row[$x]["marks"].'</h2>
 																	<h2>'.$row[$x]["question"].'</h2>
 																	<ul>';
 																	foreach ($al as $y)
