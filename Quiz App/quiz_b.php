@@ -656,7 +656,7 @@
 																	<ul>';
 																	foreach ($al as $y)
 																	{
-																		echo '<li><input type="radio" name="answer'.$x.'" id="'.$y.$x.'" onclick="check_select()" class="answer" value="'.$y.'_'.$x.'">&nbsp&nbsp<label for="'.$y.$x.'" id="a_text">'.$row[$x]["option_".$y].'</label></li>';
+																		echo '<li><input type="radio" name="answer'.$x.'" id="'.$y.$x.'" onclick="check_select('.$x.')" class="answer" value="'.$y.'_'.$x.'">&nbsp&nbsp<label for="'.$y.$x.'" id="a_text">'.$row[$x]["option_".$y].'</label></li>';
 																	}
 																	echo '</ul>
 																</div>
@@ -780,7 +780,6 @@
 			for (i = 0; i < slides.length; i++) {
 				slides[i].style.display = "none";  
 			}
-			check_select();
 			for (i = 0; i < dots.length; i++) {
 				if(dots[i].className.includes(" act") && !dots[i].className.includes(" lft") && !dots[i].className.includes(" atm")){
 					dots[i].className += " lft"; //dots[i].className.replace(" act", "");
@@ -798,8 +797,8 @@
 			}
 			dots[slideIndex-1].className += " act";
 			}
-			function check_select() { 
-						let k='input[name= "answer'+String(slideIndex-1)+'"]:checked';
+			function check_select(sld) { 
+						let k='input[name= "answer'+String(sld)+'"]:checked';
 						var checkRadio = document.querySelector(k);
 						var dots = document.getElementsByClassName("flex-item");
 						if(checkRadio != null) {
@@ -947,7 +946,6 @@
 			}
 		</script>
 		<script src='../Design_Components/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
 
 	</body>
 
