@@ -1,0 +1,15 @@
+1. GO TO "Important" Folder: 
+2. Replace the given php.ini file in: xampp/php folder.
+3. Replace the given sendmail.ini file in: xampp/sendmail folder.
+
+4. The Starting page is index.html
+5. Once inside index.html click on "Portals" in the top Nav-Bar and then select IITDH.
+
+6. GitHub Repository Link: https://github.com/niteeshchaudhary/assperl
+
+https://meetanshi.com/blog/send-mail-from-localhost-xampp-using-gmail/
+------------------------------------------------------------
+Our gmail account:
+mailid: trupenofficial@gmail.com
+pass: TruPen@123
+------------------------------------------------------------
