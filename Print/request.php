@@ -10,7 +10,7 @@ session_start();
 <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
 <body>
 <div class="topnav">
-                <a class="active gradient-text" href="http://localhost/assperl/loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
+                <a class="active gradient-text" href="#"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
                     <div style="display:inline-block;" class="gradient">truPen</div>
                 </a>
                 &nbsp;
@@ -72,8 +72,6 @@ session_start();
   </select><br>
   <label for="comment"><b>Comment: </b></label><br><input type="text" name = "comment" /><br>
 <input type="submit" value ="Request"/></form>
-<form action="../loggedin.php">
-<input type="submit" value="Back" <?php if($k==1){echo 'disabled';} ?>>
-</form>
+
 </body>
 </html>

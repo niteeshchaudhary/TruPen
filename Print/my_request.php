@@ -106,7 +106,4 @@ if($result->num_rows > 0)
 <h1>Preview</h1>
 <iframe id="myFrame" style="display:none" width="1000" height="700"></iframe>
 </body>
-<form action="../loggedin.php">
-<input type="submit" value="Back">
-</form>
 </html>

@@ -604,7 +604,7 @@ $qryst="select * from ".$_SESSION["quiz_subject"].'_'.$_SESSION["quiz_name"];
                                   </div>';
                            }
                         echo '</div>
-                        <form action="../loggedin.php">
+                        <form action="#">
                                 <center><input type="submit" value="Exit Quiz" class="exitit"></center>
                               </form>
                       </div>';
