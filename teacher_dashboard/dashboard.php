@@ -244,7 +244,7 @@
 									</div>';
 								echo '
 								<div class="project-box-wrapper">
-									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #fee4cb;">
+									<div class="project-box" onclick="gotoC(\'#\');" style="background-color: #fee4cb;">
 										<div class="project-box-header">
 											<span>*</span>
 											<div class="more-wrapper">
@@ -274,7 +274,7 @@
 								</div>';
 								echo '
 								<div class="project-box-wrapper">
-									<div class="project-box" onclick="gotoC(\'sub\');" style="background-color: #d5deff;">
+									<div class="project-box" onclick="gotoC(\'quiz_analysis.php\');" style="background-color: #d5deff;">
 										<div class="project-box-header">
 											<span>*</span>
 											<div class="more-wrapper">
