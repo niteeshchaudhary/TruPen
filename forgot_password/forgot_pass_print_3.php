@@ -4,6 +4,7 @@
 <html>
 	<head>
 		  <link rel='stylesheet' href='../Design_Components/bootstrap.min.css'>
+		  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
 		<style type="text/css">
 		@keyframes AnimationName {
     0% {
@@ -115,6 +116,7 @@
 		
 	</form>
   <script src='../Design_Components/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
       <script id="rendered-js" >
       	 function validateForm(){
 		   document.getElementById("otp").value=document.getElementById("first").value+document.getElementById("second").value+document.getElementById("third").value+document.getElementById("fourth").value+document.getElementById("fifth").value+document.getElementById("sixth").value+document.getElementById("seventh").value;
