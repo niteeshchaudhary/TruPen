@@ -22,7 +22,7 @@ session_start();
 </style>
 <body>
         <div class="topnav">
-                <a class="active gradient-text" href="../loggedin.php"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
+                <a class="active gradient-text" href="#"><img src="../Image_Components/truPen Better Logo.png" style="width: 25pt;">
                     <div style="display:inline-block;" class="gradient">truPen</div>
                 </a>
                 &nbsp;
