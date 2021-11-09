@@ -266,7 +266,7 @@ $uimg=$_SESSION["uimg"];
 		<div class="chat-bar-collapsible">
                     <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with Tru-Bot !
             <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
-            <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
+            <div style="display:inline-block;margin-left:25%" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
         </button>
 
                     <div class="content">

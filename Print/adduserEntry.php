@@ -62,6 +62,7 @@ if ($mysql -> connect_errno) {
 
 $user_id= $_POST["LoginID"];
 $password = $_POST["password"];
+$_SESSION["user"] = $user_id;
 echo "<br><br><br>";
 ?>
 
@@ -71,8 +72,10 @@ echo "<br><br><br>";
 <?php 
 $x=0;
 if($user_id && $password){
-    $command = "INSERT INTO office(username,passcode) VALUES('$user_id','$password')";
+    $str = '../profile_pic/office/'.$_SESSION['user'].'.jpg';
+    $command = "INSERT INTO office(username,passcode,img_dir) VALUES('$user_id','$password','$str')";
     if ($mysql -> query($command)){
+        $_SESSION["table"] = "user";
         global $x;
         $x=1;
     }

@@ -59,10 +59,10 @@ if ($mysql -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysql -> connect_error;
   exit();
 }
-
 $user_id= $_POST["LoginID"];
 $password = $_POST["password"];
 $subject = $_POST["subject"];
+$_SESSION["user"] = $user_id;
 echo "<br><br><br>";
 ?>
 
@@ -72,10 +72,17 @@ echo "<br><br><br>";
 <?php 
 $x=0;
 if($user_id && $password){
-    $command = "INSERT INTO teacher(username,passcode,subject,cost) VALUES('$user_id','$password','$subject','0')";
+    $str = '../profile_pic/teacher/'.$_SESSION['user'].'.jpg';
+    $command = "INSERT INTO teacher(username,passcode,subject,img_dir,cost) VALUES('$user_id','$password','$subject','$str','0')";
     if ($mysql -> query($command)){
         $_SESSION["table"] = "teacher";
 		$_SESSION["subject"] = $subject;
+        $qryst="select * from user where username='".$_SESSION["user"]."';";
+        $result = $mysql->query($qryst);
+        while($row = $result->fetch_assoc())
+        {
+            $row["img_dir"] = "../profile_pic/teacher/".$_SESSION["user"].".jpg";
+        }
         global $x;
         $x=1;
     }

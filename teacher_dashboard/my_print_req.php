@@ -8,7 +8,7 @@
   if ($result && $result->num_rows > 0) {
     if($row = $result->fetch_assoc()){
       if($row["img_dir"]=="" || $row["img_dir"]==NULL){
-        $uimg="../profile_pic/teacher/user.jpg";
+        $uimg="../profile_pic/teacher/".$_SESSION["user"].".jpg";
       }
       else{
       	$uimg=$row["img_dir"];
@@ -289,7 +289,7 @@
 		<div class="chat-bar-collapsible">
                     <button id="chat-button" type="button" class="collapsible" onclick="toggle(1);">Chat with Tru-Bot !
             <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
-            <div style="display:inline-block;" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
+            <div style="display:inline-block;margin-left:25%" id="rotation"><font color='black'>&#9650;</font> &#9660;</div>
         </button>
 
                     <div class="content">

@@ -6,7 +6,7 @@
   if ($result && $result->num_rows > 0) {
     if($row = $result->fetch_assoc()){
       if($row["img_dir"]=="" || $row["img_dir"]==NULL){
-        $row["img_dir"]="profile_pic/teacher/user.jpg";
+        $row["img_dir"]="profile_pic/teacher/".$_SESSION["user"].".jpg";
       }
 ?>
 <!DOCTYPE html>
@@ -429,7 +429,7 @@ button.complete .successMessage svg {
         <?php
           $a=[""=>0,"male"=>0,"female"=>1,"others"=>2];
           echo "<script>document.getElementById('gender').selectedIndex=".$a[$row['gender']].";
-          document.getElementById('profile-image').style.background= 'url(".$row["img_dir"].") no-repeat center';
+          document.getElementById('profile-image').style.background= 'url(".explode("../", $row["img_dir"])[1].") no-repeat center';
           document.getElementById('profile-image').style.backgroundSize = '145px 145px';
           </script>";
         ?>

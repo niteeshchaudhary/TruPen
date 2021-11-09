@@ -59,9 +59,9 @@ if ($mysql -> connect_errno) {
   echo "Failed to connect to MySQL: " . $mysql -> connect_error;
   exit();
 }
-
 $user_id= $_POST["LoginID"];
 $password = $_POST["password"];
+$_SESSION["user"] = $user_id;
 echo "<br><br><br>";
 ?>
 
@@ -71,7 +71,8 @@ echo "<br><br><br>";
 <?php 
 $x=0;
 if($user_id && $password){
-    $command = "INSERT INTO user(username,passcode,cost) VALUES('$user_id','$password', '0')";
+    $str = '../profile_pic/student/'.$_SESSION['user'].'.jpg';
+    $command = "INSERT INTO user(username,passcode,img_dir,cost) VALUES('$user_id','$password', '$str', '0')";
     if ($mysql -> query($command)){
         $_SESSION["table"] = "user";
         global $x;
