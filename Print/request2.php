@@ -3,13 +3,13 @@ session_start();
 date_default_timezone_set('Asia/Kolkata');
 	$x = $_SESSION["user"];
 	$p = $_SESSION['table'];
-	$y = date('Y-m-d H-i-s');
+	$y = date('Y-m-d_H-i-s');
 	if(isset($_FILES['pdf']))
 	{
 			$pdfFile = $_FILES['pdf']['name'];
 			$tmp_dir = $_FILES['pdf']['tmp_name'];
 			$upload_dir = 'pdf/';
-			$fin = $upload_dir.$p."#".$x."#".$y.".pdf";
+			$fin = $upload_dir.$p."_".$x."_".$y.".pdf";
 			move_uploaded_file($tmp_dir, $fin);
 	}
 		$con = new mysqli('localhost', 'root', NULL, 'trupendb');

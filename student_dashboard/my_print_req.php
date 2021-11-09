@@ -64,7 +64,7 @@ td{
 				var omyFrame = document.getElementById("myFrame");
 				omyFrameH.style.display="block";
 				omyFrame.style.display="block";
-				omyFrame.src = "../print/"+s;
+				omyFrame.src = "../Print/"+s;
 			}
 			</script>
 		<script>
