@@ -1339,7 +1339,7 @@
             <div class="wrapper">
                 <div class="searched-jobs">
                     <div class="searched-bar">
-                        <div class="searched-show"><img src="Image_Components\truPen Better Logo.png" height="25" width="30"><span>&nbsp; TruPen Portal</span></img>
+                        <div class="searched-show"><img src="Image_Components\IITDH_logo.png" height="25" width="30"><span>&nbsp; IITDH Portal</span></img>
                         </div>
                     </div>
                     <div class="job-cards">
