@@ -1531,6 +1531,9 @@
                                         <br><br> &nbsp - &nbsp Get print requests<br> &nbsp - &nbsp Accept a Request<br> &nbsp - &nbsp Reject a request with a Reason<br> &nbsp - &nbsp Easy to Handle UI
                                         <br> &nbsp - &nbsp Connect with other Users
                                         <br> &nbsp - &nbsp Charge appropriate costs.
+					<br>
+					<br>
+					<br><br>
                                 </p>
                             </div>
                             <div class="job-detail-buttons">
