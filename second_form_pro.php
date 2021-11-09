@@ -25,7 +25,7 @@ session_start();
 			echo "Success!!";
 		}
 		else{
-			echo $mysql->error_log;
+			echo "error";
 		}
 		/*exit();*/
 ?>
