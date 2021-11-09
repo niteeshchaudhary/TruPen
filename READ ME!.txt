@@ -5,9 +5,8 @@
 4. The Starting page is index.html
 5. Once inside index.html click on "Portals" in the top Nav-Bar and then select IITDH.
 
-6. GitHub Repository Link: https://github.com/niteeshchaudhary/assperl
+6. GitHub Repository Link: https://github.com/niteeshchaudhary/TruPen
 
-https://meetanshi.com/blog/send-mail-from-localhost-xampp-using-gmail/
 ------------------------------------------------------------
 Our gmail account:
 mailid: trupenofficial@gmail.com
