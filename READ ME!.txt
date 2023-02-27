@@ -11,5 +11,5 @@
 ------------------------------------------------------------
 Our gmail account:
 mailid: trupenofficial@gmail.com
-pass: TruPen@123
+pass: xxxxxxxxxx
 ------------------------------------------------------------
