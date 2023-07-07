@@ -761,8 +761,20 @@ a {
     padding: 4px;
     display: none;
 }
+.dpp{
+    height: 540px;
+    overflow-y: scroll ;
+}
 
 @media screen and (max-width: 980px) {
+.dpp{
+    width: 350px;
+    height: 540px;
+    top: 30px;
+    right: -50px;
+    overflow-y: scroll ;
+    overflow-x: scroll ;
+}
     .project-boxes.jsGridView .project-box-wrapper {
         width: 50%;
     }

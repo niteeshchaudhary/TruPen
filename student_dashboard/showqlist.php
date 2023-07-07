@@ -1,5 +1,6 @@
 <?php
   session_start();
+  date_default_timezone_set('Asia/Kolkata');
   $con = new mysqli('localhost', 'root', NULL, 'trupendb');
   $qryst="select * from user where username='". $_SESSION["user"]."';";
   $uimg="";
@@ -27,9 +28,9 @@
 
 		<meta charset="UTF-8">
 		<link rel = "icon" href ="../Image_Components/truPen Better Logo.png"  type = "image/x-icon">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+		<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 
 		<title>TruPen - Student DashBoard</title>
 		<link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
@@ -45,31 +46,13 @@
 		<div class="app-container">
 			<div class="app-header">
 				<div class="app-header-left">
-					<img src="../Image_Components/truPen Better Logo.png" height="40" width="50" alt="i_logo"></img>
+					<img src="../Image_Components/truPen Better Logo.png" height="48" width="50" alt="i_logo"></img>
 					<!--<span class="app-icon"></span>-->
 					<p class="app-name">Student</p>
-					<div class="search-wrapper">
-						<input class="search-input" type="text" placeholder="Search">
-						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
-							<defs></defs>
-							<circle cx="11" cy="11" r="8"></circle>
-							<path d="M21 21l-4.35-4.35"></path>
-						</svg>
-					</div>
+					  
 				</div>
 				<div class="app-header-right">
-					<button class="mode-switch" title="Switch Theme">
-						<svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="24" height="24" viewBox="0 0 24 24">
-							<defs></defs>
-							<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-						</svg>
-					</button>
-					<button class="add-btn" title="Add New Project">
-						<svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus">
-							<line x1="12" y1="5" x2="12" y2="19" />
-							<line x1="5" y1="12" x2="19" y2="12" />
-						</svg>
-					</button>
+					 
 					<button class="notification-btn" onclick="oscillate();">
 						<div class="d-inline dropdown mr-3">
 					      <span class="dropdown-toggle" id="notifications" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -81,7 +64,7 @@
 									$qryst="select * from notifications where type_to='".$_SESSION["table"]."_".$_SESSION["user"]."' or type_to='".$_SESSION["table"]."_all' order by No desc;";
 									$result5 = $con->query($qryst);?>
 							<span style="color: var(--more-list-bg);position: absolute;width: 15px;height: 15px;top: -8px;right: -3px;background-color: red;border-radius: 50%;text-align: center;font-size: 0.625em;font-weight: 600;"> <?php  echo mysqli_num_rows($result5);?></span>
-					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0" aria-labelledby="notifications">
+					      <div class="dropdown-menu dropdown-menu-right rounded-0 pt-0 dpp" aria-labelledby="notifications">
 					        <div class="list-group" style="width:500px;" ">
 					          <div class="lg" >
 								<?php
@@ -104,7 +87,7 @@
 					      </div> <!-- /.dropdown-menu -->
 					    </div> <!-- /.dropdown -->
 					</button>
-					<button class="profile-btn">
+					  <button class="profile-btn" style="cursor:default">
 						<img src='<?php echo  $uimg;?>' />
 						<span><?php echo  $_SESSION["user"];?></span>
 					</button>
@@ -163,26 +146,7 @@
 					<div class="projects-section-header">
 						<p><?php echo "Quizes : ".$_GET['sub']?></p>
 						<p class="time"><?php echo date('F, d');?></p>
-						<div class="view-actions">
-							<button class="view-btn list-view" title="List View">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
-									<line x1="8" y1="6" x2="21" y2="6" />
-									<line x1="8" y1="12" x2="21" y2="12" />
-									<line x1="8" y1="18" x2="21" y2="18" />
-									<line x1="3" y1="6" x2="3.01" y2="6" />
-									<line x1="3" y1="12" x2="3.01" y2="12" />
-									<line x1="3" y1="18" x2="3.01" y2="18" />
-								</svg>
-							</button>
-							<button class="view-btn grid-view active" title="Grid View">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid">
-									<rect x="3" y="3" width="7" height="7" />
-									<rect x="14" y="3" width="7" height="7" />
-									<rect x="14" y="14" width="7" height="7" />
-									<rect x="3" y="14" width="7" height="7" />
-								</svg>
-							</button>
-						</div>
+						 
 					</div>
 					<!--<div class="projects-section-line">
 						<div class="projects-status">
@@ -216,11 +180,22 @@
 							{
 								continue;
 							}
+							$to_time = strtotime(implode(" ", explode("T", $row["time"])));
+							$time_limit = intval($row["time_limit"])*60;
+							$from_time = strtotime(date('Y-m-d H:i:s'));
+							$t = $time_limit + $to_time-$from_time;
+							$s="Un-Atttempted";
+							$action="../Quiz App/quiz_b.php";
+							if($t<0){
+								$s="Expired";
+								$action="";
+							}
+							
 								echo '
-						    	<div class="project-box-wrapper">
+						    	 <div class="project-box-wrapper">
 										<div class="project-box" onclick="begQ(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
 											<div class="project-box-header">
-												<span>*Un-Atttempted</span>
+												<span>*'.$s.'</span>
 												<div class="more-wrapper">
 													<button class="project-btn-more">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
@@ -232,7 +207,7 @@
 												</div>
 											</div>
 											<div class="project-box-content-header">
-											<form method="POST" action="../Quiz App/quiz_b.php" id="myForm'.$row['name'].'">
+											<form method="POST" action="'.$action.'" id="myForm'.$row['name'].'">
 											<input type="hidden" name="quiz_name" value="'.$row['name'].'">
 											<input type="hidden" name="quiz_subject" value="'.$row["subject"].'">
 											</form>
@@ -276,8 +251,9 @@
 								if($result2->num_rows > 0)
 								{
 									while($row2 = $result2->fetch_assoc()){
+
 										echo '
-										<div class="project-box-wrapper">
+										 <div class="project-box-wrapper">
 												<div class="project-box" onclick="begQa(\''.$row['name'].'\');" style="background-color: '.$colorbk[$cnt%6].';">
 													<div class="project-box-header">
 														<span>*Atttempted</span>

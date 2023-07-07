@@ -1,0 +1,16 @@
+select {
+    width:8rem;
+    height:2rem;
+    padding:0.4rem;
+}
+input[type="text"] {
+    width:16rem;
+    height:1rem;
+    padding:0.5rem;
+    border-radius: 8px;
+}
+input[type="submit"] {
+    width:8rem;
+    height:2rem;
+    padding:0.5rem;
+}

@@ -552,7 +552,7 @@ a {
 }
 
 .project-boxes.jsGridView .project-box-wrapper {
-    width: 33.3%;
+    width: 25%;
 }
 
 .project-boxes.jsListView .project-box {
@@ -794,7 +794,20 @@ a {
     display: none;
 }
 
+.dpp{
+        height: 540px;
+        overflow-y: scroll ;
+}
+
 @media screen and (max-width: 980px) {
+    .dpp{
+        width: 350px;
+        height: 540px;
+        top: 30px;
+        right: -50px;
+        overflow-y: scroll ;
+        overflow-x: scroll ;
+    }
     .project-boxes.jsGridView .project-box-wrapper {
         width: 50%;
     }
@@ -947,6 +960,7 @@ a {
 
 ::-webkit-scrollbar {
     width: 10px;
+    height: 10px;
     background-color: #F5F5F5;
 }
 
@@ -959,3 +973,4 @@ a {
     background: var(--more-list-bg);
     color: var(--main-color);
 }
+

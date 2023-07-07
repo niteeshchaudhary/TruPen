@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 date_default_timezone_set('Asia/Kolkata');
 $to = $_POST["s_t"]."_".$_POST["to"];
 $from = $_SESSION["table"]."_".$_SESSION["user"];
@@ -12,6 +13,8 @@ if ($con->query($sql) === FALSE)
 {
     die("Error " . $con->error);
 }
-header("location:javascript://history.go(-1)");
+echo '<script>window.parent.location.reload();con</script>';
+
+
 exit();
 ?>

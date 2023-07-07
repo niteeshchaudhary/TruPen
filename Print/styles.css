@@ -549,7 +549,7 @@ a {
     flex-wrap: wrap;
 }
 
-.project-boxes.jsGridView .project-box-wrapper {
+.project-boxes.jsGridView .   {
     width: 33.3%;
 }
 
@@ -651,7 +651,7 @@ a {
     margin: 0;
 }
 
-.project-box-wrapper {
+.   {
     padding: 10px;
     transition: 0.2s;
 }
@@ -789,7 +789,7 @@ a {
 }
 
 @media screen and (max-width: 980px) {
-    .project-boxes.jsGridView .project-box-wrapper {
+    .project-boxes.jsGridView .   {
         width: 50%;
     }
     .status-number,
@@ -873,7 +873,7 @@ a {
     .search-input {
         max-width: 120px;
     }
-    .project-boxes.jsGridView .project-box-wrapper {
+    .project-boxes.jsGridView .   {
         width: 100%;
         cursor: pointer;
     }
