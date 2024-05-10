@@ -4,6 +4,8 @@ SSL project a simple and easy user interface for quizzes / assignment submission
 
 ## Team members :
 
-1. Tabish Khalid Halim
+1. Niteesh Kamal Chaudhary
 2. Shashank P
-3. Niteesh Kamal Chaudhary
+3. Tabish Khalid Halim
+
+
